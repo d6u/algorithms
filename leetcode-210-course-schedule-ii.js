@@ -3,7 +3,7 @@
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
-var canFinish = function(numCourses, prerequisites) {
+var findOrder = function(numCourses, prerequisites) {
   'use strict';
 
   let indegrees = [];
@@ -26,10 +26,12 @@ var canFinish = function(numCourses, prerequisites) {
     }
   }
 
+  let arr = [];
   let counter = 0;
   let course;
 
   while ((course = isolated.shift()) != null) {
+    arr.push(course);
     counter += 1;
 
     for (let neighbour of map.get(course)) {
@@ -40,13 +42,7 @@ var canFinish = function(numCourses, prerequisites) {
     }
   }
 
-  return numCourses === counter;
+  return numCourses === counter ? arr : [];
 };
 
-console.log(canFinish(8,
-  [
-    [1,0],
-    [2,1],
-    [0,3],
-    [3,1]
-  ]));
+console.log(findOrder(3, [[2,0],[2,1]]));
