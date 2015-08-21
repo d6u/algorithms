@@ -1,3 +1,7 @@
 # Algorithms Practice in JavaScript
 
-Run with IO.js
+Run use Node 0.12 with harmony flag
+
+```sh
+node --harmony xxx
+```
