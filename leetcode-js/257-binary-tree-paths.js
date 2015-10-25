@@ -6,27 +6,20 @@
  * }
  */
 /**
- * @param  {TreeNode} root
+ * @param {TreeNode} root
  * @return {string[]}
  */
 var binaryTreePaths = function(root) {
-  if (!root) return [];
-
-  var r = [];
-  findPath(root, [], r);
-  return r;
+    if (!root) return [];
+    if (!root.left && !root.right) {
+        return [root.val.toString()];
+    }
+    var r = [];
+    if (root.left) {
+        r = binaryTreePaths(root.left).map((p) => root.val + '->' + p).concat(r);
+    }
+    if (root.right) {
+        r = binaryTreePaths(root.right).map((p) => root.val + '->' + p).concat(r);
+    }
+    return r;
 };
-
-function findPath(node, nodes, result) {
-  if (node.left) {
-    findPath(node.left, nodes.concat([node.val]), result);
-  }
-
-  if (node.right) {
-    findPath(node.right, nodes.concat([node.val]), result);
-  }
-
-  if (!node.left && !node.right) {
-    result.push(nodes.concat([node.val]).join('->'));
-  }
-}

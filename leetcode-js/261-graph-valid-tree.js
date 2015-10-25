@@ -1,43 +1,36 @@
 /**
- * @param  {number}     n
- * @param  {number[][]} edges
+ * @param {number} n
+ * @param {number[][]} edges
  * @return {boolean}
  */
 var validTree = function (n, edges) {
-  if (edges.length !== n - 1) {
-    return false;
-  }
+    if (edges.length !== n - 1) return false;
 
-  var neighbors = new Map();
-  var i;
+    var graph = new Map();
 
-  for (i = 0; i < n; i++) {
-    neighbors.set(i, []);
-  }
+    for (var i = 0; i < n; i++) {
+        graph.set(i, new Set());
+    }
 
-  var edge;
+    for (var edge of edges) {
+        graph.get(edge[0]).add(edge[1]);
+        graph.get(edge[1]).add(edge[0]);
+    }
 
-  for (edge of edges) {
-    neighbors.get(edge[0]).push(edge[1]);
-    neighbors.get(edge[1]).push(edge[0]);
-  }
+    visit(0, graph);
 
-  visit(0, neighbors);
-
-  console.log(neighbors);
-
-  return neighbors.size === 0;
+    return graph.size === 0;
 };
 
-function visit(key, neighbors) {
-  var val = neighbors.get(key);
-  var v;
-  if (val != null) {
-    neighbors.delete(key);
-    for (v of val) {
-      visit(v, neighbors);
+var visit = function (node, graph) {
+    var vals = graph.get(node);
+
+    if (vals != null) {
+        graph.delete(node);
+        for (var val of vals) {
+            visit(val, graph);
+        }
     }
-  }
-}
+};
 
 console.log(validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3]]))

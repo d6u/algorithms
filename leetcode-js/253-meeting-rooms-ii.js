@@ -6,42 +6,20 @@
  * }
  */
 /**
- * @param  {Interval[]} intervals
+ * @param {Interval[]} intervals
  * @return {number}
  */
-var minMeetingRooms = function (intervals) {
-  if (intervals.length === 0) {
-    return 0;
-  }
-
-  var changes = new Map();
-  var i;
-  var val;
-
-  for (i of intervals) {
-    val = changes.get(i.start);
-    changes.set(i.start, val == null ? 1 : val + 1);
-
-    val = changes.get(i.end)
-    changes.set(i.end, val == null ? -1 : val - 1);
-  }
-
-  var keys = [];
-  var key;
-
-  for (key of changes.keys()) {
-    keys.push(key);
-  }
-
-  keys.sort((a, b) => a - b);
-
-  var rooms = 0;
-  var maxrooms = 0;
-
-  for (key of keys) {
-    rooms += changes.get(key);
-    maxrooms = Math.max(maxrooms, rooms);
-  }
-
-  return maxrooms;
+var minMeetingRooms = function(intervals) {
+    var changes = [];
+    for (var interval of intervals) {
+        changes.push([interval.start, 1], [interval.end, -1]);
+    }
+    changes.sort((a, b) => a[0] !== b[0] ? a[0] - b[0] : a[1]);
+    var maxRoom = 0;
+    var curRoom = 0;
+    for (var change of changes) {
+        curRoom = curRoom + change[1];
+        maxRoom = Math.max(curRoom, maxRoom);
+    }
+    return maxRoom;
 };
