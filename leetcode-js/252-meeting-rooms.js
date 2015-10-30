@@ -6,44 +6,19 @@
  * }
  */
 /**
- * @param  {Interval[]} intervals
+ * @param {Interval[]} intervals
  * @return {boolean}
  */
-var canAttendMeetings = function (intervals) {
-  if (intervals.length === 0) {
+var canAttendMeetings = function(intervals) {
+    intervals.sort((a, b) => a.start - b.start);
+
+    for (var i = 0; i < intervals.length - 1; i++) {
+        if (intervals[i].end > intervals[i+1].start) {
+            return false;
+        }
+    }
+
     return true;
-  }
-
-  var changes = new Map();
-  var i;
-  var val;
-
-  for (i of intervals) {
-    val = changes.get(i.start);
-    changes.set(i.start, val == null ? 1 : val + 1);
-
-    val = changes.get(i.end)
-    changes.set(i.end, val == null ? -1 : val - 1);
-  }
-
-  var keys = [];
-  var key;
-
-  for (key of changes.keys()) {
-    keys.push(key);
-  }
-
-  keys.sort((a, b) => a - b);
-
-  var rooms = 0;
-  var maxrooms = 0;
-
-  for (key of keys) {
-    rooms += changes.get(key);
-    maxrooms = Math.max(maxrooms, rooms);
-  }
-
-  return maxrooms === 1;
 };
 
 function Interval(start, end) {
