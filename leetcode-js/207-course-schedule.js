@@ -4,43 +4,43 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-  'use strict';
+    var graph = {};
+    var degree = [];
+    var isolated = [];
+    var i;
+    var edge;
+    var count = 0;
+    var course;
 
-  let indegrees = [];
-  let isolated = [];
-  let map = new Map();
-
-  for (let i = 0; i < numCourses; i += 1) {
-    indegrees[i] = 0;
-    map.set(i, []);
-  }
-
-  for (let pair of prerequisites) {
-    indegrees[pair[0]] += 1;
-    map.get(pair[1]).push(pair[0]);
-  }
-
-  for (let i = 0; i < indegrees.length; i += 1) {
-    if (indegrees[i] === 0) {
-      isolated.push(i);
+    for (i = 0; i < numCourses; i++) {
+        degree[i] = 0;
+        graph[i] = [];
     }
-  }
 
-  let counter = 0;
-  let course;
-
-  while ((course = isolated.shift()) != null) {
-    counter += 1;
-
-    for (let neighbour of map.get(course)) {
-      indegrees[neighbour] -= 1;
-      if (indegrees[neighbour] === 0) {
-        isolated.push(neighbour);
-      }
+    for (i = 0; i < prerequisites.length; i++) {
+        edge = prerequisites[i];
+        degree[edge[0]] += 1;
+        graph[edge[1]].push(edge[0]);
     }
-  }
 
-  return numCourses === counter;
+    for (i = 0; i < degree.length; i++) {
+        if (!degree[i]) {
+            isolated.push(i);
+        }
+    }
+
+    while (isolated.length) {
+        count += 1;
+        course = isolated.pop();
+        for (i = 0; i < graph[course].length; i++) {
+            degree[graph[course][i]] -= 1;
+            if (!degree[graph[course][i]]) {
+                isolated.push(graph[course][i]);
+            }
+        }
+    }
+
+    return count === numCourses;
 };
 
 console.log(canFinish(8,
