@@ -1,48 +1,49 @@
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
- * @return {boolean}
+ * @return {number[]}
  */
 var findOrder = function(numCourses, prerequisites) {
-  'use strict';
+    var graph = {};
+    var degree = [];
+    var isolated = [];
+    var i;
+    var edge;
+    var course;
+    var results = [];
+    var count = 0;
 
-  let indegrees = [];
-  let isolated = [];
-  let map = new Map();
-
-  for (let i = 0; i < numCourses; i += 1) {
-    indegrees[i] = 0;
-    map.set(i, []);
-  }
-
-  for (let pair of prerequisites) {
-    indegrees[pair[0]] += 1;
-    map.get(pair[1]).push(pair[0]);
-  }
-
-  for (let i = 0; i < indegrees.length; i += 1) {
-    if (indegrees[i] === 0) {
-      isolated.push(i);
+    for (i = 0; i < numCourses; i++) {
+        degree[i] = 0;
+        graph[i] = [];
     }
-  }
 
-  let arr = [];
-  let counter = 0;
-  let course;
-
-  while ((course = isolated.shift()) != null) {
-    arr.push(course);
-    counter += 1;
-
-    for (let neighbour of map.get(course)) {
-      indegrees[neighbour] -= 1;
-      if (indegrees[neighbour] === 0) {
-        isolated.push(neighbour);
-      }
+    for (i = 0; i < prerequisites.length; i++) {
+        edge = prerequisites[i];
+        graph[edge[1]].push(edge[0]);
+        degree[edge[0]] += 1;
     }
-  }
 
-  return numCourses === counter ? arr : [];
+    for (i = 0; i < degree.length; i++) {
+        if (!degree[i]) {
+            isolated.push(i);
+        }
+    }
+
+    while (isolated.length) {
+        course = isolated.pop();
+        results.push(course);
+        count += 1;
+        for (i = 0; i < graph[course].length; i++) {
+            degree[graph[course][i]] -= 1;
+            if (!degree[graph[course][i]]) {
+                isolated.push(graph[course][i]);
+            }
+        }
+    }
+
+    return count === numCourses ? results : [];
 };
+
 
 console.log(findOrder(3, [[2,0],[2,1]]));
