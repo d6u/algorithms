@@ -16,12 +16,14 @@ function checkMatch(s, i, p, j) {
     return ((p[j] === s[i]) || (p[j] === '.' && s[i] != null)) && checkMatch(s, i+1, p, j+1);
   }
 
-  while ((p[j] === s[i]) || (p[j] === '.' && s[i] != null)) {
+  do {
     if (checkMatch(s, i, p, j+2)) {
       return true;
     }
     i += 1;
-  }
+  } while ((p[j] === s[i-1]) || (p[j] === '.' && s[i-1] != null));
 
   return checkMatch(s, i, p, j+2);
 }
+
+isMatch("abbbef", "ab*cde");
