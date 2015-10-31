@@ -4,26 +4,24 @@
  * @return {number}
  */
 var minSubArrayLen = function(s, nums) {
-  var l = nums.length;
-  var start = 0;
-  var end = 0;
-  var sum = 0;
-  var r = l + 1;
+    var start = 0;
+    var end = 0;
+    var sum = 0;
+    var l = nums.length + 1;
 
-  while (end < l) {
-    while (end < l && sum < s) {
-      sum += nums[end];
-      end += 1;
+    while (end < nums.length) {
+        while (end < nums.length && sum < s) {
+            sum += nums[end];
+            end += 1;
+        }
+        while (start < end && sum >= s) {
+            if (sum >= s) {
+                l = Math.min(l, end - start);
+            }
+            sum -= nums[start];
+            start += 1;
+        }
     }
 
-    while (start < end && sum >= s) {
-      if (sum >= s) {
-        r = Math.min(r, end - start);
-      }
-      sum -= nums[start];
-      start += 1;
-    }
-  }
-
-  return r > l ? 0 : r;
+    return l > nums.length ? 0 : l;
 };
