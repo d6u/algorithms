@@ -11,31 +11,31 @@
  * @return {UndirectedGraphNode}
  */
 var cloneGraph = function(graph) {
-  if (!graph) return null;
-  var queue = [];
-  var map = new Map();
-  var newHead = new UndirectedGraphNode(graph.label);
-  var node;
-  var clonedNode;
-  var neighbor;
-  var clonedNeighbor;
-  var i;
+    if (!graph) return null;
 
-  queue.push(graph);
-  map.set(graph, newHead);
+    var newHead = new UndirectedGraphNode(graph.label);
+    var queue = [graph];
+    var map = new Map();
 
-  while (queue.length) {
-    node = queue.shift();
-    clonedNode = map.get(node);
-    for (i = 0; i < node.neighbors.length; i += 1) {
-      neighbor = node.neighbors[i];
-      if (!map.has(neighbor)) {
-        queue.push(neighbor);
-        map.set(neighbor, new UndirectedGraphNode(neighbor.label));
-      }
-      clonedNode.neighbors.push(map.get(neighbor));
+    map.set(graph, newHead);
+
+    var node;
+    var i;
+    var neighbor;
+
+    while (queue.length) {
+        node = queue.pop();
+        clonedNode = map.get(node);
+
+        for (i = 0; i < node.neighbors.length; i++) {
+            neighbor = node.neighbors[i];
+            if (!map.has(neighbor)) {
+                queue.push(neighbor);
+                map.set(neighbor, new UndirectedGraphNode(neighbor.label));
+            }
+            clonedNode.neighbors.push(map.get(neighbor));
+        }
     }
-  }
 
-  return newHead;
+    return newHead;
 };
