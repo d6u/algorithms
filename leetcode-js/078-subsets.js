@@ -3,17 +3,20 @@
  * @return {number[][]}
  */
 var subsets = function(nums) {
-  nums.sort((a, b) => a - b);
-  var arr = [[]];
-  var i;
-  var j;
-  var tmp;
-  for (i = 0; i < nums.length; i++) {
-    tmp = [];
-    for (j = 0; j < arr.length; j++) {
-      tmp.push(arr[j].concat([nums[i]]));
+    nums.sort((a, b) => a - b);
+
+    var results = [[]];
+    var i;
+    var j;
+    var tmp;
+
+    for (i = 0; i < nums.length; i++) {
+        tmp = [];
+        for (j = 0; j < results.length; j++) {
+            tmp.push(results[j].concat([nums[i]]));
+        }
+        results = results.concat(tmp);
     }
-    arr = arr.concat(tmp);
-  }
-  return arr;
+
+    return results;
 };
