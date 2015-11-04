@@ -1,17 +1,16 @@
 /**
- * @param  {string[]}   strs
+ * @param {string[]} strs
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-  'use strict';
+    var dict = {};
+    var i;
+    var str;
 
-  let d = {};
-  for (let i = 0; i < strs.length; i++) {
-    let _s = strs[i].split('').sort().join('');
-    d[_s] ? d[_s].push(strs[i]) : (d[_s] = [strs[i]]);
-  }
+    for (i = 0; i < strs.length; i++) {
+        str = strs[i].split('').sort().join('');
+        dict[str] ? dict[str].push(strs[i]) : (dict[str] = [strs[i]]);
+    }
 
-  return Object.keys(d).map(function (key) {
-    return d[key].sort();
-  });
+    return Object.keys(dict).map((key) => dict[key].sort());
 };

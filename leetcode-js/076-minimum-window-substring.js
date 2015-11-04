@@ -1,53 +1,62 @@
 /**
- * @param  {string} s
- * @param  {string} t
+ * @param {string} s
+ * @param {string} t
  * @return {string}
  */
 var minWindow = function(s, t) {
-  var sLen = s.length;
-  var tLen = t.length;
-  var needToFind = makeArray(122, 0);
-  var i;
+    var sl = s.length;
+    var tl = t.length;
+    var needToFind = makeArray(122, 0);
+    var i;
 
-  for (i = 0; i < tLen; i++) {
-    needToFind[charToInt(t[i])] += 1;
-  }
-
-  var hasFound = makeArray(122, 0);
-  var minWindowLen = sLen;
-  var minWindowBegin = 0;
-  var windowLen;
-  var count = 0;
-  var begin;
-  var end;
-
-  for (begin = 0, end = 0; end < sLen; end++) {
-    if (needToFind[charToInt(s[end])] === 0) continue;
-
-    hasFound[charToInt(s[end])] += 1;
-    if (hasFound[charToInt(s[end])] <= needToFind[charToInt(s[end])]) {
-      count += 1;
+    for (i = 0; i < tl; i++) {
+        needToFind[charToInt(t[i])] += 1;
     }
 
-    if (count === tLen) {
-      while (needToFind[charToInt(s[begin])] === 0 ||
-        hasFound[charToInt(s[begin])] > needToFind[charToInt(s[begin])])
-      {
-        if (hasFound[charToInt(s[begin])] > needToFind[charToInt(s[begin])]) {
-          hasFound[charToInt(s[begin])] -= 1;
+    var hasFound = makeArray(122, 0);
+    var minWindowLen = sl;
+    var minWindowBegin = 0;
+    var windowLen;
+    var count = 0;
+    var begin;
+    var end;
+    var beginCharInt;
+    var endCharInt;
+
+    for (begin = 0, end = 0; end < sl; end++) {
+        endCharInt = charToInt(s[end]);
+
+        if (needToFind[endCharInt] === 0) {
+            continue;
         }
-        begin += 1;
-      }
 
-      windowLen = end - begin + 1;
-      if (windowLen < minWindowLen) {
-        minWindowBegin = begin;
-        minWindowLen = windowLen;
-      }
+        hasFound[endCharInt] += 1;
+
+        if (hasFound[endCharInt] <= needToFind[endCharInt]) {
+            count += 1;
+        }
+
+        if (count === tl) {
+            beginCharInt = charToInt(s[begin]);
+
+            while (needToFind[beginCharInt] === 0 || hasFound[beginCharInt] > needToFind[beginCharInt]) {
+                if (hasFound[beginCharInt] > needToFind[beginCharInt]) {
+                    hasFound[beginCharInt] -= 1;
+                }
+                begin += 1;
+                beginCharInt = charToInt(s[begin]);
+            }
+
+            windowLen = end - begin + 1;
+
+            if (windowLen < minWindowLen) {
+                minWindowBegin = begin;
+                minWindowLen = windowLen;
+            }
+        }
     }
-  }
 
-  return count === tLen ? s.substr(minWindowBegin, minWindowLen) : '';
+    return count === tl ? s.substr(minWindowBegin, minWindowLen) : '';
 };
 
 function makeArray(size, filler) {
@@ -62,5 +71,3 @@ function makeArray(size, filler) {
 function charToInt(c) {
   return c.charCodeAt(0) - 65;
 }
-
-console.log(minWindow("ADOBECODEBANC", "ABC"));
