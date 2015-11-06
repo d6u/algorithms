@@ -1,34 +1,44 @@
 /**
- * @param  {number[]} nums
- * @param  {number}   target
+ * @param {number[]} nums
+ * @param {number} target
  * @return {number}
  */
 var search = function(nums, target) {
-  var p1 = 0;
-  var p2 = nums.length - 1;
-  var m;
-
-  while (p1 <= p2) {
-    m = (p1 + p2) >> 1;
-    if (nums[m] === target) return m;
-
-    if (nums[m] > nums[p1]) {
-      if (nums[p1] === target) return p1;
-      if (nums[p1] < target && target < nums[m]) {
-        p2 = m - 1;
-      } else {
-        p1 = m + 1;
-      }
+    if (nums.length === 0) {
+        return -1;
     }
-    else {
-      if (nums[p2] === target) return p2;
-      if (nums[m] < target && target < nums[p2]) {
-        p1 = m + 1;
-      } else {
-        p2 = m - 1;
-      }
-    }
-  }
 
-  return -1;
+    var m;
+    var l = 0;
+    var r = nums.length - 1;
+
+    while (l <= r) {
+        m = Math.floor((l + r) / 2);
+
+        if (nums[m] === target) {
+            return m;
+        }
+
+        if (nums[l] < nums[m]) {
+            if (nums[l] === target) {
+                return l;
+            }
+            if (target < nums[m] && target > nums[l]) {
+                r = m - 1;
+            } else {
+                l = m + 1;
+            }
+        } else {
+            if (nums[r] === target) {
+                return r;
+            }
+            if (target > nums[m] && target < nums[r]) {
+                l = m + 1;
+            } else {
+                r = m - 1;
+            }
+        }
+    }
+
+    return -1;
 };

@@ -1,25 +1,26 @@
+var table = [' ', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+
 /**
- * @param  {string}   digits
+ * @param {string} digits
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
-  if (!digits.length) return [];
-
-  var table = [' ', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
-  var results = [];
-  findLetterCombo(digits, 0, table, '', results);
-  return results;
+    if (digits.length === 0) return [];
+    var results = [];
+    findletterCombinations(digits, 0, '', results);
+    return results;
 };
 
-function findLetterCombo(digits, index, table, combo, results) {
-  if (index === digits.length) {
-    results.push(combo);
-    return;
-  }
+function findletterCombinations(digits, index, combo, results) {
+    if (combo.length === digits.length) {
+        results.push(combo);
+        return;
+    }
 
-  var letters = table[parseInt(digits[index])];
+    var letters = table[parseInt(digits[index])];
+    var i;
 
-  for (var i = 0; i < letters.length; i++) {
-    findLetterCombo(digits, index + 1, table, combo + letters[i], results);
-  }
+    for (i = 0; i < letters.length; i++) {
+        findletterCombinations(digits, index + 1, combo + letters[i], results);
+    }
 }
