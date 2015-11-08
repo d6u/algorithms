@@ -1,37 +1,36 @@
 /**
- * @param  {string} s
+ * @param {string} s
  * @return {number}
  */
-var longestValidParentheses = function (s) {
-  var stack = [];
-  var result = 0;
-  var i;
-  var c;
-  var len;
+var longestValidParentheses = function(s) {
+    var stack = [];
+    var result = 0;
+    var i;
+    var c;
+    var len;
 
-  for (i = 0; i < s.length; i++) {
-    c = s[i];
-    if (c === '(') {
-      stack.push([i, 0]);
-    } else {
-      if (!stack.length || peek(stack)[1] === 1) {
-        stack.push([i, 1]);
-      } else {
-        stack.pop();
-        len = 0;
-        if (!stack.length) {
-          len = i + 1;
-        } else {
-          len = i - peek(stack)[0];
+    for (i = 0; i < s.length; i++) {
+        c = s[i];
+        if (c === '(') {
+            stack.push([i, '(']);
+            continue;
         }
-        result = Math.max(len, result);
-      }
+        if (stack.length === 0 || peek(stack)[1] === ')') {
+            stack.push([i, ')']);
+            continue;
+        }
+        stack.pop();
+        if (peek(stack)) {
+            len = i - peek(stack)[0];
+        } else {
+            len = i + 1;
+        }
+        result = Math.max(result, len);
     }
-  }
 
-  return result;
+    return result;
 };
 
-function peek(arr) {
-  return arr[arr.length - 1];
+function peek(stack) {
+    return stack[stack.length - 1];
 }
