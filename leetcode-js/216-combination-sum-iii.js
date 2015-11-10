@@ -1,25 +1,29 @@
 /**
- * @param  {number}     k
- * @param  {number}     n
+ * @param {number} k
+ * @param {number} n
  * @return {number[][]}
  */
 var combinationSum3 = function(k, n) {
-  var r = [];
-  getResults([], 0, 1, k, n, r);
-  return r;
+    var results = [];
+    getResults(1, k, n, [], 0, results);
+    return results;
 };
 
-function getResults(cur, sum, index, k, n, r) {
-  if (cur.length === k) {
-    if (sum === n) {
-      r.push(cur);
+function getResults(index, k, n, solution, sum, results) {
+    if (solution.length === k) {
+        if (sum === n) {
+            results.push(solution);
+        }
+        return;
     }
-    return;
-  }
-  var i;
-  for (i = index; i <= 9; i++) {
-    if (sum + i <= n) {
-      getResults(cur.concat([i]), sum + i, i + 1, k, n, r);
+
+    if (sum > n) {
+        return;
     }
-  }
+
+    var i;
+
+    for (i = index; i < 10; i++) {
+        getResults(i+1, k, n, solution.concat(i), sum+i, results);
+    }
 }

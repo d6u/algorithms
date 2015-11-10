@@ -1,30 +1,37 @@
 /**
- * @param  {number[]}   candidates
- * @param  {number}     target
+ * @param {number[]} candidates
+ * @param {number} target
  * @return {number[][]}
  */
 var combinationSum2 = function(candidates, target) {
-  var results = [];
-  candidates.sort(function (a, b) {
-    return a - b;
-  });
-  makeResult([], 0, 0, candidates, target, results);
-  return results;
+    candidates.sort((a, b) => a - b);
+    var results = [];
+    getResults(candidates, 0, target, [], 0, results);
+    return results;
 };
 
-function makeResult(cur, sum, index, candidates, target, results) {
-  if (sum === target) {
-    results.push(cur);
-    return;
-  } else if (sum > target) {
-    return;
-  }
+function getResults(candidates, n, target, solution, sum, results) {
+    if (sum === target) {
+        results.push(solution);
+        return;
+    }
 
-  var i;
-  var e;
-  for (i = index; i < candidates.length; i += 1) {
-    e = candidates[i];
-    if (i > index && e === candidates[i - 1]) continue;
-    makeResult(cur.concat([e]), sum + e, i + 1, candidates, target, results);
-  }
+    if (sum > target) {
+        return;
+    }
+
+    var i;
+
+    for (i = n; i < candidates.length; i++) {
+        if (i > n && candidates[i-1] === candidates[i]) {
+            continue;
+        }
+        getResults(
+          candidates,
+          i + 1,
+          target,
+          solution.concat([candidates[i]]),
+          sum + candidates[i],
+          results);
+    }
 }
