@@ -4,18 +4,20 @@
  * @return {number[][]}
  */
 var combine = function(n, k) {
-  var r = [];
-  makeArray(1, n, k, [], r);
-  return r;
+    var results = [];
+    getResults(1, n, k, [], results);
+    return results;
 };
 
-function makeArray(i, n, k, arr, r) {
-  if (k === 0) {
-    r.push(arr);
-    return;
-  }
+function getResults(index, n, k, solution, results) {
+    if (solution.length === k) {
+        results.push(solution);
+        return;
+    }
 
-  for (var j = i; j <= n - k + 1; j++) {
-    makeArray(j + 1, n, k - 1, arr.concat([j]), r);
-  }
+    var i;
+
+    for (i = index; i <= n; i++) {
+        getResults(i+1, n, k, solution.concat([i]), results);
+    }
 }
