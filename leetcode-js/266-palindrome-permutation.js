@@ -1,28 +1,27 @@
 /**
- * @param  {string}  s
+ * @param {string} s
  * @return {boolean}
  */
-var canPermutePalindrome = function (s) {
-  var map = new Map();
-  var c;
-  var count;
+var canPermutePalindrome = function(s) {
+    'use strict';
 
-  for (c of s) {
-    count = map.get(c);
-    map.set(c, count == null ? 1 : count + 1);
-  }
+    const counts = new Map();
 
-  var hasOdd = false;
-
-  for (count of map.values()) {
-    if (count % 2 !== 0) {
-      if (hasOdd) {
-        return false;
-      } else {
-        hasOdd = true;
-      }
+    for (let char of s) {
+        let count = counts.get(char);
+        counts.set(char, count == null ? 1 : count + 1);
     }
-  }
 
-  return true;
+    let hasOdd = false;
+
+    for (let count of counts.values()) {
+        if (count % 2 !== 0) {
+            if (hasOdd) {
+                return false;
+            }
+            hasOdd = true;
+        }
+    }
+
+    return true;
 };
