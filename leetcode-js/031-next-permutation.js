@@ -1,41 +1,39 @@
 /**
- * @param  {number[]} nums
- * @return {void}     Do not return anything, modify nums in-place instead.
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
  */
 var nextPermutation = function(nums) {
-  if (nums.length < 2) return;
+    'use strict';
 
-  var l = nums.length;
-  var j = l - 2;
+    if (nums.length <= 1) {
+        return;
+    }
 
-  while (j >= 0 && nums[j] >= nums[j+1]) {
+    const len = nums.length;
+    let i = len - 2;
+
+    while (i >= 0 && nums[i] >= nums[i+1]) {
+        i -= 1;
+    }
+
+    if (i < 0) {
+        nums.sort((a, b) => a - b);
+        return;
+    }
+
+    let j = i + 1;
+
+    while (j < len && nums[j] > nums[i]) {
+        j += 1;
+    }
+
     j -= 1;
-  }
 
-  if (j < 0) {
-    nums.sort(function (a, b) {
-      return a - b;
-    });
-    return;
-  }
+    const tmp = nums[j];
+    nums[j] = nums[i];
+    nums[i] = tmp;
 
-  var i = j + 1;
+    const partial = nums.slice(i+1).sort((a, b) => a - b);
 
-  while (i < l && nums[i] > nums[j]) {
-    i += 1;
-  }
-
-  i -= 1;
-
-  var tmp = nums[i];
-  nums[i] = nums[j];
-  nums[j] = tmp;
-
-  var partial = nums.slice(j+1).sort(function (a, b) {
-    return a - b;
-  });
-
-  for (i = j + 1; i < j + 1 + partial.length; i++) {
-    nums[i] = partial[i - j - 1];
-  }
+    nums.splice.apply(nums, [i+1, partial.length].concat(partial));
 };
