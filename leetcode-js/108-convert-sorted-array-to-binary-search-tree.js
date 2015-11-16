@@ -5,20 +5,18 @@
  *     this.left = this.right = null;
  * }
  */
-
 /**
  * @param {number[]} nums
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums, p1, p2) {
-  if (!nums.length) return null;
-  if (p1 == null) p1 = 0;
-  if (p2 == null) p2 = nums.length - 1;
-  if (p1 > p2) return null;
+var sortedArrayToBST = function(nums) {
+    if (nums.length === 0) {
+        return null;
+    }
 
-  var m = (p2 + p1) / 2 | 0;
-  var t = new TreeNode(nums[m]);
-  t.left = sortedArrayToBST(nums, p1, m - 1);
-  t.right = sortedArrayToBST(nums, m + 1, p2);
-  return t;
+    var mid = Math.floor(nums.length / 2);
+    var node = new TreeNode(nums[mid]);
+    node.left = sortedArrayToBST(nums.slice(0, mid));
+    node.right = sortedArrayToBST(nums.slice(mid + 1));
+    return node;
 };

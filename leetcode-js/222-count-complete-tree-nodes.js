@@ -10,23 +10,41 @@
  * @return {number}
  */
 var countNodes = function(root) {
-  if (!root) return 0;
-  var countLeft = 1;
-  var countRight = 1;
-  var left = root;
-  var right = root;
-  while (left.left) {
-    countLeft += 1;
-    left = left.left;
-  }
-  while (right.right) {
-    countRight += 1;
-    right = right.right;
-  }
-  if (countRight === countLeft) {
-    return Math.pow(2, countLeft) - 1;
-  }
-  else {
-    return countNodes(root.right) + countNodes(root.left) + 1;
-  }
+    var depth = 0;
+    var node = root;
+
+    while (node) {
+        depth += 1;
+        node = node.left;
+    }
+
+    if (depth === 0) {
+        return 0;
+    }
+
+    var left = 0;
+    var right = (1 << (depth - 1)) - 1;
+    var mid;
+
+    while (left <= right) {
+        mid = (left + right) >> 1;
+        if (getNode(root, mid, depth -1)) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return (1 << (depth - 1)) + right;
 };
+
+function getNode(root, path, depth) {
+    while (depth-- && root) {
+        if (path & (1 << depth)) {
+            root = root.right;
+        } else {
+            root = root.left;
+        }
+    }
+    return root;
+}
