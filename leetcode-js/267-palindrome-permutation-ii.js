@@ -5,7 +5,7 @@
 var generatePalindromes = function(s) {
     'use strict';
 
-    const count = countChar(s);
+    const counts = countChar(s);
 
     let oddChar;
     let chars = [];
