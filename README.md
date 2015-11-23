@@ -16,7 +16,6 @@
 - [024-swap-nodes-in-pairs.js](./leetcode-js/024-swap-nodes-in-pairs.js)
 - [025-reverse-nodes-in-k-group.js](./leetcode-js/025-reverse-nodes-in-k-group.js)
 - [026-remove-duplicates-from-sorted-array.js](./leetcode-js/026-remove-duplicates-from-sorted-array.js)
-
 - [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
 - [031-next-permutation.js](./leetcode-js/031-next-permutation.js)
 - [035-search-insert-position.js](./leetcode-js/035-search-insert-position.js)
@@ -54,14 +53,12 @@
 - [089-gray-code.js](./leetcode-js/089-gray-code.js)
 - [090-subsets-ii.js](./leetcode-js/090-subsets-ii.js)
 - [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
-
 - [109-convert-sorted-list-to-binary-search-tree.js](./leetcode-js/109-convert-sorted-list-to-binary-search-tree.js)
 - [122-best-time-to-buy-and-sell-stock-ii.js](./leetcode-js/122-best-time-to-buy-and-sell-stock-ii.js)
 - [125-valid-palindrome.js](./leetcode-js/125-valid-palindrome.js)
 - [126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js)
 - [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
 - [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
-
 - [134-gas-station.js](./leetcode-js/134-gas-station.js)
 - [137-single-number-ii.js](./leetcode-js/137-single-number-ii.js)
 - [139-word-break.js](./leetcode-js/139-word-break.js)
@@ -73,13 +70,11 @@
 - [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
 - [166-fraction-to-recurring-decimal.js](./leetcode-js/166-fraction-to-recurring-decimal.js)
 - [168-excel-sheet-column-title.js](./leetcode-js/168-excel-sheet-column-title.js)
-
 - [187-repeated-dna-sequences.js](./leetcode-js/187-repeated-dna-sequences.js)
 - [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
 - [206-reverse-linked-list.js](./leetcode-js/206-reverse-linked-list.js)
 - [208-implement-trie.js](./leetcode-js/208-implement-trie.js)
 - [212-word-search-ii.js](./leetcode-js/212-word-search-ii.js)
-
 - [215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
 - [216-combination-sum-iii.js](./leetcode-js/216-combination-sum-iii.js)
 - [220-contains-duplicate-iii.js](./leetcode-js/220-contains-duplicate-iii.js)
@@ -87,7 +82,6 @@
 - [225-implement-stack-using-queue.js](./leetcode-js/225-implement-stack-using-queue.js)
 - [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
 - [228-summary-ranges.js](./leetcode-js/228-summary-ranges.js)
-
 - [231-power-of-two.js](./leetcode-js/231-power-of-two.js)
 - [232-implement-queue-using-stacks.js](./leetcode-js/232-implement-queue-using-stacks.js)
 - [233-number-of-digit-one.js](./leetcode-js/233-number-of-digit-one.js)
@@ -114,9 +108,7 @@
 - [266-palindrome-permutation.js](./leetcode-js/266-palindrome-permutation.js)
 - [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
 - [268-missing-number.js](./leetcode-js/268-missing-number.js)
-
 - [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-
 - [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
 - [274-h-index.js](./leetcode-js/274-h-index.js)
 - [277-find-the-celebrity.js](./leetcode-js/277-find-the-celebrity.js)
@@ -125,12 +117,12 @@
 
 ### Classic
 
-- Floyd's Cycle Detection Algorithm
+- Robert Floyd Cycle Detection Algorithm
     - [287-find-the-duplicate-number.js](./leetcode-js/287-find-the-duplicate-number.js)  
 - Boyer-Moore Majority Vote Algorithm
     - [169-majority-element.js](./leetcode-js/169-majority-element.js)
     - [229-majority-element-ii.js](./leetcode-js/229-majority-element-ii.js)
-- KMP
+- Knuth-Morris-Pratt String Searching Algorithm
     - [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
     - [214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js)
 
