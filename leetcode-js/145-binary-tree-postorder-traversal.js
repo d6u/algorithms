@@ -10,14 +10,31 @@
  * @return {number[]}
  */
 var postorderTraversal = function(root) {
-  var vals = [];
-  _postorderTraversal(root, vals);
-  return vals;
+    return Array.from(postorderIterateTree(root));
 };
 
-function _postorderTraversal(node, vals) {
-  if (!node) return;
-  _postorderTraversal(node.left, vals);
-  _postorderTraversal(node.right, vals);
-  vals.push(node.val);
+function *postorderIterateTree(root) {
+    if (!root) {
+        return;
+    }
+
+    var stack = [root];
+    var pre;
+
+    while (stack.length) {
+        var cur = stack[stack.length - 1];
+        if (pre == null || pre.left === cur || pre.right === cur) {
+            if (cur.left) {
+                stack.push(cur.left);
+            } else if (cur.right) {
+                stack.push(cur.right);
+            }
+        } else if (pre === cur.left && cur.right) {
+            stack.push(cur.right);
+        } else {
+            yield cur.val;
+            stack.pop();
+        }
+        pre = cur;
+    }
 }
