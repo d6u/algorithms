@@ -10,7 +10,9 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    if (!root) return true;
+    if (!root) {
+      return true;
+    }
 
     var x = getBalance(root);
 
@@ -22,12 +24,25 @@ var isBalanced = function(root) {
 };
 
 function getBalance(root) {
-    if (!root) return 0;
-    var l = getBalance(root.left);
-    if (l === -1) return -1;
-    var r = getBalance(root.right);
-    if (r === -1) return -1;
+    if (!root) {
+        return 0;
+    }
 
-    if (Math.abs(l - r) > 1) return -1;
-    else return Math.max(l, r) + 1;
+    var l = getBalance(root.left);
+
+    if (l === -1) {
+        return -1;
+    }
+
+    var r = getBalance(root.right);
+
+    if (r === -1) {
+        return -1;
+    }
+
+    if (Math.abs(l - r) > 1) {
+        return -1;
+    } else {
+        return Math.max(l, r) + 1;
+    }
 }

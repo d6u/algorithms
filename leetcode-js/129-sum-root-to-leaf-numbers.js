@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumNumbers = function(root, sum) {
+var sumNumbers = function (root, sum) {
   if (root == null) return 0;
   if (sum == null) sum = 0;
 

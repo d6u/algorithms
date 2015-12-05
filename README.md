@@ -190,14 +190,19 @@
 - [096-unique-binary-search-tree.js](./leetcode-js/096-unique-binary-search-tree.js)
 - [098-validate-binary-search-tree.js](./leetcode-js/098-validate-binary-search-tree.js)
 - [099-recover-binary-search-tree.js](./leetcode-js/099-recover-binary-search-tree.js)
+    - Need O(1) solution
 - [100-same-tree.js](./leetcode-js/100-same-tree.js)
+    - Need iterative solution
 - [101-symmetric-tree.js](./leetcode-js/101-symmetric-tree.js)
+    - Need iterative solution
 - [102-binary-tree-level-order-traversal.js](./leetcode-js/102-binary-tree-level-order-traversal.js)
 - [103-binary-tree-zigzag-level-order-traversal.js](./leetcode-js/103-binary-tree-zigzag-level-order-traversal.js)
 - [104-maximum-depth-of-binary-tree.js](./leetcode-js/104-maximum-depth-of-binary-tree.js)
 - [105-construct-binary-tree-from-preorder-and-inorder-traversal.js](./leetcode-js/105-construct-binary-tree-from-preorder-and-inorder-traversal.js)
+    - Simpler solution
 - [106-construct-binary-tree-from-inorder-and-postorder-traversal.js](./leetcode-js/106-convert-binary-tree-from-inorder-and-postorder-traversal.js)
 - [108-convert-sorted-array-to-binary-search-tree.js](./leetcode-js/108-convert-sorted-array-to-binary-search-tree.js)
+    - Need iterative solution
 - [110-balanced-binary-tree.js](./leetcode-js/110-balanced-binary-tree.js)
 - [111-minimum-depth-of-binary-tree.js](./leetcode-js/111-minimum-depth-of-binary-tree.js)
 - [112-path-sum.js](./leetcode-js/112-path-sum.js)
