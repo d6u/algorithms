@@ -4,15 +4,16 @@
  */
 var verifyPreorder = function(preorder) {
     var low = Number.MIN_VALUE;
-    var i = -1;
+    var stack = [];
+
     for (var p of preorder) {
         if (p < low) {
             return false;
         }
-        while (i >= 0 && p > preorder[i]) {
-            low = preorder[i--];
+        while (stack.length && p > stack[stack.length - 1]) {
+            low = stack.pop();
         }
-        preorder[++i] = p;
+        stack.push(p);
     }
     return true;
 };
