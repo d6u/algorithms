@@ -1,40 +1,40 @@
 /**
- * @param  {number[]} nums
- * @param  {number}   target
+ * @param {number[]} nums
+ * @param {number} target
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-  var start = 0;
-  var end = nums.length - 1;
-  var mid;
-  var lowBound;
-  var highBound;
+    var i = 0;
+    var j = nums.length - 1;
+    var ret = [-1, -1];
 
-  while (start < end) {
-    mid = (start + end) >> 1;
-    if (nums[mid] < target) {
-      start = mid + 1;
-      continue;
+    while (i < j) {
+        var mid = Math.floor((i + j) / 2);
+        if (nums[mid] < target) {
+            i = mid + 1;
+        } else {
+            j = mid;
+        }
     }
-    end = mid;
-  }
 
-  lowBound = nums[start] == target ? start : -1;
-  if (lowBound === -1) {
-    return [-1, -1];
-  }
-
-  start = lowBound;
-  end = nums.length;
-  while (start < end) {
-    mid = (start + end) >> 1;
-    if (nums[mid] > target) {
-      end = mid;
-      continue;
+    if (nums[i] !== target) {
+        return ret;
     }
-    start = mid + 1;
-  }
 
-  highBound = start - 1;
-  return [lowBound, highBound];
+    ret[0] = i;
+
+    j = nums.length - 1;
+
+    while (i < j) {
+        var mid = Math.floor((i + j) / 2) + 1;
+        if (nums[mid] > target) {
+            j = mid - 1;
+        } else {
+            i = mid;
+        }
+    }
+
+    ret[1] = j;
+
+    return ret;
 };
