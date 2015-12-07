@@ -1,19 +1,23 @@
 'use strict';
 
 /**
- * @param  {number[]} nums
- * @param  {number}   target
+ * @param {number[]} nums
+ * @param {number}   target
+ *
  * @return {number}
  */
 function searchInsert(nums, target) {
-  var p1 = 0;
-  var p2 = nums.length - 1;
+  let p1 = 0;
+  let p2 = nums.length - 1;
 
   while (p1 <= p2) {
-    var m = (p1 + p2) / 2 | 0;
+    const m = Math.floor((p1 + p2) / 2);
+
     if (nums[m] === target) {
       return m;
-    } else if (target < nums[m]) {
+    }
+
+    if (target < nums[m]) {
       p2 = m - 1;
     } else {
       p1 = m + 1;
@@ -22,7 +26,3 @@ function searchInsert(nums, target) {
 
   return p1;
 }
-
-var r = searchInsert([1], 0);
-
-console.log(r);

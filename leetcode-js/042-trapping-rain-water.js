@@ -6,33 +6,29 @@ var trap = function(height) {
     'use strict';
 
     let n = height.length;
+    let left = 0;
+    let right = n - 1;
+    let res = 0;
+    let maxleft = 0;
+    let maxright = 0;
 
-    if (n < 3) return 0;
-
-    let stack = [];
-    stack.push(0);
-
-    let water = 0;
-
-    for (let i = 1; i < n; i++) {
-        if (height[i] > height[top(stack)]) {
-            let bottom = height[top(stack)];
-            stack.pop();
-            while (stack.length !== 0 && height[i] >= height[top(stack)]) {
-                water += (height[top(stack)] - bottom) * (i - top(stack) - 1);
-                bottom = height[top(stack)];
-                stack.pop();
+    while (left <= right) {
+        if (height[left] <= height[right]) {
+            if (height[left] >= maxleft) {
+                maxleft = height[left];
+            } else {
+                res += maxleft - height[left];
             }
-            if (stack.length !== 0) {
-                water += (height[i] - bottom) * (i - top(stack) - 1);
+            left += 1;
+        } else {
+            if (height[right] >= maxright) {
+                maxright = height[right];
+            } else {
+                res += maxright - height[right];
             }
+            right -= 1;
         }
-        stack.push(i);
     }
 
-    return water;
+    return res;
 };
-
-function top(stack) {
-    return stack[stack.length-1];
-}
