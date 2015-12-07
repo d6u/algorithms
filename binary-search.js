@@ -9,8 +9,9 @@
 function binarySearch(arr, target) {
   let p1 = 0;
   let p2 = arr.length - 1;
+
   while (p1 <= p2) {
-    let m = (p1 + p2) / 2 | 0;
+    let m = Math.floor((p1 + p2) / 2);
     if (arr[m] === target) {
       return m;
     }
@@ -21,9 +22,10 @@ function binarySearch(arr, target) {
       p1 = m + 1;
     }
   }
+
   return -1;
 }
 
-let r = binarySearch([1,2,4,5,6], 6);
+let r = binarySearch([1,2], 1);
 
 console.log(r);
