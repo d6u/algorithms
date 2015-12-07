@@ -27,7 +27,7 @@ var searchRange = function(nums, target) {
 
     while (i < j) {
         var mid = Math.ceil((i + j) / 2);
-        if (nums[mid] > target) {
+        if (target < nums[mid]) {
             j = mid - 1;
         } else {
             i = mid;
