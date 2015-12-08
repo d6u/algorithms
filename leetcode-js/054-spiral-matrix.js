@@ -3,52 +3,43 @@
  * @return {number[]}
  */
 var spiralOrder = function(matrix) {
-  var r = [];
+  var res = [];
 
   if (!matrix.length || !matrix[0].length) {
-    return r;
+    return res;
   }
 
-  var m = matrix.length;
-  var n = matrix[0].length;
-  var lv = (Math.min(m, n) + 1) >> 1;
-  var i;
+  var rowBegin = 0;
+  var rowEnd = matrix.length - 1;
+  var colBegin = 0;
+  var colEnd = matrix[0].length - 1;
   var j;
-  var lastR;
-  var lastC;
 
-  for (i = 0; i < lv; i++) {
-    lastR = m - 1 - i;
-    lastC = n - 1 - i;
+  while (rowBegin <= rowEnd && colBegin <= colEnd) {
+    for (j = colBegin; j <= colEnd; j++) {
+      res.push(matrix[rowBegin][j]);
+    }
+    rowBegin += 1;
 
-    if (lastR === i) {
-      for (j = i; j <= lastC; j++) {
-        r.push(matrix[i][j]);
+    for (j = rowBegin; j <= rowEnd; j++) {
+      res.push(matrix[j][colEnd]);
+    }
+    colEnd -= 1;
+
+    if (rowBegin <= rowEnd) {
+      for (j = colEnd; j >= colBegin; j--) {
+        res.push(matrix[rowEnd][j]);
       }
     }
-    else if (lastC === i) {
-      for (j = i; j <= lastR; j++) {
-        r.push(matrix[j][i]);
+    rowEnd -= 1;
+
+    if (colBegin <= colEnd) {
+      for (j = rowEnd; j >= rowBegin; j--) {
+        res.push(matrix[j][colBegin]);
       }
     }
-    else {
-      for (j = i; j < lastC; j++) {
-        r.push(matrix[i][j]);
-      }
-
-      for (j = i; j < lastR; j++) {
-        r.push(matrix[j][lastC]);
-      }
-
-      for (j = lastC; j > i; j--) {
-        r.push(matrix[lastR][j]);
-      }
-
-      for (j = lastR; j > i; j--) {
-        r.push(matrix[j][i]);
-      }
-    }
+    colBegin += 1;
   }
 
-  return r;
+  return res;
 };

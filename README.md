@@ -115,8 +115,8 @@
 - [053-maximum-subarray.js](./leetcode-js/053-maximum-subarray.js)
 - [054-spiral-matrix.js](./leetcode-js/054-spiral-matrix.js)
 - [055-jump-game.js](./leetcode-js/055-jump-game.js)
-- 056
-- 057
+- [056-merge-intervals.js](./leetcode-js/056-merge-intervals.js)
+- [057-insert-interval.js](./leetcode-js/057-insert-interval.js)
 - [059-spiral-matrix-ii.js](./leetcode-js/059-spiral-matrix-ii.js)
 - [062-unique-paths.js](./leetcode-js/062-unique-paths.js)
 - [063-unique-paths-ii.js](./leetcode-js/063-unique-paths-ii.js)

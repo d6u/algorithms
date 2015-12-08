@@ -3,23 +3,21 @@
  * @return {number}
  */
 var jump = function(nums) {
-    'use strict';
+    var i = 0;
+    var currentMax = 0;
+    var numJumps = 0;
+    var lastMax;
 
-    let n = nums.length;
-    let curMax = 0;
-    let nJumps = 0;
-    let i = 0;
-
-    while (curMax < n - 1) {
-        let lastMax = curMax;
+    while (currentMax < nums.length - 1) {
+        lastMax = currentMax;
         for (; i <= lastMax; i++) {
-            curMax = Math.max(curMax, i+nums[i]);
+            currentMax = Math.max(currentMax, i + nums[i]);
         }
-        nJumps += 1;
-        if (lastMax === curMax) {
+        if (currentMax === lastMax) {
             return -1;
         }
+        numJumps += 1;
     }
 
-    return nJumps;
+    return numJumps;
 };
