@@ -3,24 +3,33 @@
  * @return {number[][]}
  */
 var subsetsWithDup = function(nums) {
-  nums.sort(function (a, b) {
-    return a - b;
-  });
-  var result = [[]];
-  var last = [[]];
-  var cur;
-  var i;
-  var j;
-  var c;
-  for (i = 0; i < nums.length; i++) {
-    cur = [];
-    for (j = 0; j < last.length; j++) {
-      if (i > 0 && nums[i] === nums[i-1] && j < c) continue;
-      cur.push(last[j].concat([nums[i]]));
+    nums.sort((a, b) => a - b);
+
+    var result = [[]];
+    var i = 0;
+
+    while (i < nums.length) {
+        var count = 0;
+
+        while (count + i < nums.length && nums[count + i] === nums[i]) {
+            count += 1;
+        }
+
+        var previousN = result.length;
+
+        for (var k = 0; k < previousN; k++) {
+            var instance = result[k].slice();
+            for (var j = 0; j < count; j++) {
+                instance.push(nums[i]);
+                result.push(instance.slice());
+                console.log(result);
+            }
+        }
+
+        i += count;
     }
-    c = result.length;
-    result = result.concat(cur);
-    last = result.slice();
-  }
-  return result;
+
+    return result;
 };
+
+console.log(subsetsWithDup([1,1,2,2]));
