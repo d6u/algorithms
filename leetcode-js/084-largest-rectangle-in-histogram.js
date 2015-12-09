@@ -3,41 +3,30 @@
  * @return {number}
  */
 var largestRectangleArea = function(height) {
-  if (!height || !height.length) {
-    return 0;
-  }
+    height.push(0);
 
-  var stack = [];
-  var max = 0;
-  var i = 0;
-  var top;
-  var h;
-  var w;
+    var ret = 0;
+    var index = [];
 
-  while (i < height.length) {
-    if (!stack.length || height[i] >= height[peek(stack)]) {
-      stack.push(i);
-      i += 1;
-    } else {
-      top = stack.pop();
-      h = height[top];
-      w = stack.length ? i - peek(stack) - 1: i;
-      max = Math.max(max, h * w);
+    for (var i = 0; i < height.length; i++) {
+        while (index.length > 0 && height[last(index)] >= height[i]) {
+            var h = height[index.pop()];
+            console.log({h, i});
+
+            var sidx = index.length > 0 ? last(index) : -1;
+            if (h * (i - sidx - 1) > ret) {
+                ret = h * (i - sidx - 1);
+            }
+        }
+
+        index.push(i);
     }
-  }
 
-  while (stack.length) {
-    top = stack.pop();
-    h = height[top];
-    w = stack.length ? i - peek(stack) - 1 : i;
-    max = Math.max(max, h * w);
-  }
-
-  return max;
+    return ret;
 };
 
-function peek(stack) {
-  return stack[stack.length - 1];
+function last(arr) {
+    return arr[arr.length - 1];
 }
 
-console.log(largestRectangleArea([0]));
+console.log(largestRectangleArea([2,1,5,6,2,3]));

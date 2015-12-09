@@ -129,7 +129,7 @@
 - [079-word-search.js](./leetcode-js/079-word-search.js)
 - [080-remove-duplicate-from-sorted-array-ii.js](./leetcode-js/080-remove-duplicate-from-sorted-array-ii.js)
 - [081-search-in-rotated-sorted-array-ii.js](./leetcode-js/081-search-in-rotated-sorted-array-ii.js)
-- [084-largest-rectangle-in-histogram.js](./leetcode-js/084-largest-rectangle-in-histogram.js)
+- **[084-largest-rectangle-in-histogram.js](./leetcode-js/084-largest-rectangle-in-histogram.js)**
 - [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)
 - [088-merge-sorted-array.js](./leetcode-js/088-merge-sorted-array.js)
 - [090-subsets-ii.js](./leetcode-js/090-subsets-ii.js)

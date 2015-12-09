@@ -4,37 +4,34 @@
  * @return {boolean}
  */
 var search = function(nums, target) {
-  var l = 0;
-  var r = nums.length - 1;
-  var m;
+    var n = nums.length;
+    var lo = 0;
+    var hi = n - 1;
+    var mid;
 
-  while (l <= r) {
-    m = (l + r) >> 1;
-    if (nums[m] === target) return true;
-    if (nums[l] < nums[m]) {
-      if (nums[l] === target) return true;
-      if (nums[l] < target && target < nums[m]) {
-        r = m - 1;
-      }
-      else {
-        l = m + 1;
-      }
+    while (lo < hi) {
+        mid = Math.floor((lo + hi) / 2);
+        if (nums[mid] === target) {
+            return true;
+        }
+        if (nums[mid] > nums[hi]) {
+            if (nums[mid] > target && nums[lo] <= target) {
+                hi = mid;
+            } else {
+                lo = mid + 1;
+            }
+        } else if (nums[mid] < nums[hi]) {
+            if (nums[mid] < target && nums[hi] >= target) {
+                lo = mid + 1;
+            } else {
+                hi = mid;
+            }
+        } else {
+            hi -= 1;
+        }
     }
-    else if (nums[l] > nums[m]) {
-      if (nums[r] === target) return true;
-      if (nums[m] < target && target < nums[r]) {
-        l = m + 1;
-      }
-      else {
-        r = m - 1;
-      }
-    }
-    else {
-      l += 1;
-    }
-  }
 
-  return false;
+    return nums[lo] === target;
 };
 
 search([3, 1, 1], 3);
