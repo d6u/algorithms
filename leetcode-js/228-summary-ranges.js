@@ -3,45 +3,24 @@
  * @return {string[]}
  */
 var summaryRanges = function(nums) {
-  if (!nums || !nums.length) {
-    return [];
-  }
+    var results = [];
 
-  if (nums.length === 1) {
-    return [String(nums[0])];
-  }
-
-  var r = [];
-  var pre = nums[0];
-  var head = pre;
-  var i;
-  var n;
-
-  for (i = 1; i < nums.length; i++) {
-    n = nums[i];
-
-    if (n === pre + 1) {
-      pre = n;
-
-      if (i === nums.length - 1) {
-        r.push(head + '->' + n);
-      }
-
-    } else {
-      if (head === pre) {
-        r.push(String(head));
-      } else {
-        r.push(head + '->' + pre);
-      }
-
-      if (i === nums.length - 1) {
-        r.push(String(n));
-      }
-
-      pre = n;
-      head = pre;
+    if (nums.length === 1) {
+        results.push(`${nums[0]}`);
+        return results;
     }
-  }
 
-  return r;
+    for (var i = 0; i < nums.length; i++) {
+        var a = nums[i];
+        while (i + 1 < nums.length && nums[i+1] - nums[i] === 1) {
+            i += 1;
+        }
+        if (a !== nums[i]) {
+            results.push(`${a}->${nums[i]}`);
+        } else {
+            results.push(`${a}`);
+        }
+    }
+
+    return results;
 };

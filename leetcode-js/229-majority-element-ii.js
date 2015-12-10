@@ -9,52 +9,34 @@ var majorityElement = function(nums) {
     return nums;
   }
 
-  let n1;
-  let n2;
   let c1 = 0;
   let c2 = 0;
+  let n2;
+  let n1;
 
-  for (let i = 0; i < nums.length; i += 1) {
-    let n = nums[i];
-
+  for (let n of nums) {
     if (n1 === n) {
       c1 += 1;
-      continue;
-    }
-    if (n2 === n) {
+    } else if (n2 === n) {
       c2 += 1;
-      continue;
-    }
-    if (c1 === 0) {
-      n1 = nums[i];
+    } else if (c1 === 0) {
+      n1 = n;
       c1 = 1;
-      continue;
-    }
-    if (c2 === 0) {
-      n2 = nums[i];
+    } else if (c2 === 0) {
+      n2 = n;
       c2 = 1;
-      continue;
+    } else {
+      c1 -= 1;
+      c2 -= 1;
     }
-
-    c1 -= 1;
-    c2 -= 1;
   }
 
-  return [n1, n2].filter(function (n) {
-    return n != null && isValid(n, nums);
-  });
+  return [n1, n2].filter((n) => n != null && isValid(n, nums));
 };
 
 function isValid(n, nums) {
-  'use strict';
-
-  let c = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (n === nums[i]) {
-      c += 1;
-    }
-  }
-  return c > nums.length / 3;
+  return nums.reduce((c, num) => num === n ? c + 1 : c, 0) > nums.length / 3;
 }
 
+console.log(majorityElement([2,2]));
 console.log(majorityElement([0,-1,2,-1]));

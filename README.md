@@ -142,7 +142,9 @@
 - [122-best-time-to-buy-and-sell-stock-ii.js](./leetcode-js/122-best-time-to-buy-and-sell-stock-ii.js)
 - [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
 - [126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js)
-- 128
+    - Skipped
+- [128-longest-consecutive-sequence.js](./leetcode-js/128-longest-consecutive-sequence.js)
+    - Skipped
 - [152-maximum-product-subarray.js](./leetcode-js/152-maximum-product-subarray.js)
 - [153-find-mim-in-rotated-array.js](./leetcode-js/153-find-mim-in-rotated-array.js)
 - [154-find-minimum-in-rotated-sorted-array-ii.js](./leetcode-js/154-find-minimum-in-rotated-sorted-array-ii.js)
