@@ -3,28 +3,26 @@
  * @return {void} Do not return anything, modify board in-place instead.
  */
 var gameOfLife = function(board) {
-    if (board.length === 0) return;
     var m = board.length;
-    var n = board[0].length;
+    var n = m ? board[0].length : 0;
+
     for (var i = 0; i < m; i++) {
         for (var j = 0; j < n; j++) {
-            check(board,i,j,i+1,j-1);
-            check(board,i,j,i+1,j);
-            check(board,i,j,i+1,j+1);
-            check(board,i,j,i,j+1);
-            if (board[i][j] >= 5 && board[i][j] <= 7) {
-                board[i][j] = 1;
-            } else {
-                board[i][j] = 0;
+            var count = -board[i][j];
+            for (var I = Math.max(i-1, 0); I < Math.min(i+2, m); I++) {
+                for (var J = Math.max(j-1, 0); J < Math.min(j+2, n); J++) {
+                    count += board[I][J] & 1;
+                }
+            }
+            if ((count | board[i][j]) === 3) {
+                board[i][j] |= 2;
             }
         }
     }
-};
 
-function check(board, i, j, a, b) {
-    var m = board.length;
-    var n = board[0].length;
-    if (a >= m || b < 0 || b >= n) return;
-    if (board[i][j] % 2 !== 0) board[a][b] += 2;
-    if (board[a][b] % 2 !== 0) board[i][j] += 2;
-}
+    for (i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) {
+            board[i][j] >>= 1;
+        }
+    }
+};
