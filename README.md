@@ -45,7 +45,6 @@
 - [166-fraction-to-recurring-decimal.js](./leetcode-js/166-fraction-to-recurring-decimal.js)
 - [168-excel-sheet-column-title.js](./leetcode-js/168-excel-sheet-column-title.js)
 - [187-repeated-dna-sequences.js](./leetcode-js/187-repeated-dna-sequences.js)
-- [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
 - [206-reverse-linked-list.js](./leetcode-js/206-reverse-linked-list.js)
 - [208-implement-trie.js](./leetcode-js/208-implement-trie.js)
 - [212-word-search-ii.js](./leetcode-js/212-word-search-ii.js)
@@ -276,10 +275,21 @@
 ### Graph
 
 - [133-clone-graph.js](./leetcode-js/133-clone-graph.js)
+- [133-clone-graph_recursive.js](./leetcode-js/133-clone-graph_recursive.js)
 - [207-course-schedule.js](./leetcode-js/207-course-schedule.js)
 - [210-course-schedule-ii.js](./leetcode-js/210-course-schedule-ii.js)
 - [261-graph-valid-tree.js](./leetcode-js/261-graph-valid-tree.js)
 - [269-alien-dictionary.js](./leetcode-js/269-alien-dictionary.js)
+- 310
+
+### Union Find
+
+- [128-longest-consecutive-sequence.js](./leetcode-js/128-longest-consecutive-sequence.js)
+    - Skipped
+- 130
+- [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
+- [261-graph-valid-tree.js](./leetcode-js/261-graph-valid-tree.js)
+- 305
 
 ### Breadth First Search
 

@@ -4,33 +4,31 @@
  * @return {boolean}
  */
 var validTree = function (n, edges) {
-    if (edges.length !== n - 1) return false;
+    var nums = Array(n);
 
-    var graph = new Map();
-
-    for (var i = 0; i < n; i++) {
-        graph.set(i, new Set());
+    for (var i = 0; i < nums.length; i++) {
+        nums[i] = -1;
     }
 
-    for (var edge of edges) {
-        graph.get(edge[0]).add(edge[1]);
-        graph.get(edge[1]).add(edge[0]);
-    }
+    for (i = 0; i < edges.length; i++) {
+        var x = find(nums, edges[i][0]);
+        var y = find(nums, edges[i][1]);
 
-    visit(0, graph);
-
-    return graph.size === 0;
-};
-
-var visit = function (node, graph) {
-    var vals = graph.get(node);
-
-    if (vals != null) {
-        graph.delete(node);
-        for (var val of vals) {
-            visit(val, graph);
+        if (x === y) {
+            return false;
         }
+
+        nums[x] = y;
     }
+
+    return edges.length === n - 1;
 };
 
-console.log(validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3]]))
+function find(nums, i) {
+    if (nums[i] === -1) {
+        return i;
+    }
+    return find(nums, nums[i]);
+}
+
+console.log(validTree(5, [[0, 1], [1, 2], [2, 3], [3, 4]]))
