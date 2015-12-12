@@ -1,40 +1,46 @@
-// graph, topological sort, strings
-
 /**
  * @param {string[]} words
  * @return {string}
  */
 var alienOrder = function (words) {
-    if (words.length === 1) return words[0];
+    if (words.length === 1) {
+        return words[0];
+    }
 
-    var i;
     var w1;
     var w2;
+    var i;
     var j;
-    var f;
-    var g = {};
+    var found;
+    var graph = {};
 
     for (i = 1; i < words.length; i++) {
         w1 = words[i-1];
         w2 = words[i];
-        f = false;
+        found = false;
 
         for (j = 0; j < Math.max(w1.length, w2.length); j++) {
-            if (w1[j] && !g[w1[j]]) g[w1[j]] = [];
-            if (w2[j] && !g[w2[j]]) g[w2[j]] = [];
-            if (w1[j] && w2[j] && w1[j] !== w2[j] && !f) {
-                g[w1[j]].push(w2[j]);
-                f = true;
+            if (w1[j] && !graph[w1[j]]) {
+                graph[w1[j]] = [];
+            }
+            if (w2[j] && !graph[w2[j]]) {
+                graph[w2[j]] = [];
+            }
+            if (w1[j] && w2[j] && w1[j] !== w2[j] && !found) {
+                graph[w1[j]].push(w2[j]);
+                found = true;
             }
         }
     }
 
     var path = [];
-    var keys = Object.keys(g);
+    var keys = Object.keys(graph);
 
-    for (i = 0; i < keys.length; i++) {
-        if (path.indexOf(keys[i]) > -1) continue;
-        if (!topSort(keys[i], g, [], path)) {
+    for (var key of keys) {
+        if (path.indexOf(key) > -1) {
+            continue;
+        }
+        if (!topSort(key, graph, [], path)) {
             return '';
         }
     }
@@ -43,11 +49,15 @@ var alienOrder = function (words) {
 };
 
 var topSort = function (node, graph, visited, path) {
-    if (visited.indexOf(node) > -1) return false;
-    if (path.indexOf(node) > -1) return true;
+    if (visited.indexOf(node) > -1) {
+        return false;
+    }
+    if (path.indexOf(node) > -1) {
+        return true;
+    }
     visited.push(node);
-    for (var i = 0; i < graph[node].length; i++) {
-        if (!topSort(graph[node][i], graph, visited, path)) {
+    for (var char of graph[node]) {
+        if (!topSort(char, graph, visited, path)) {
             return false;
         }
     }
