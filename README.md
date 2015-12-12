@@ -223,7 +223,7 @@
 - [210-course-schedule-ii.js](./leetcode-js/210-course-schedule-ii.js)
 - [261-graph-valid-tree.js](./leetcode-js/261-graph-valid-tree.js)
 - [269-alien-dictionary.js](./leetcode-js/269-alien-dictionary.js)
-- 310
+- [310-minimum-height-trees.js](./leetcode-js/310-minimum-height-trees.js)
 
 ### Topological Sort
 
