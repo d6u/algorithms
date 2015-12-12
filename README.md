@@ -3,34 +3,18 @@
 ## Questions
 
 - [002-add-two-numbers.js](./leetcode-js/002-add-two-numbers.js)
-- [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
-- [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
-- [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
-- [020-valid-parentheses.js](./leetcode-js/020-valid-parentheses.js)
-- [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
 - [023-merge-k-sorted-lists.js](./leetcode-js/023-merge-k-sorted-lists.js)
 - [024-swap-nodes-in-pairs.js](./leetcode-js/024-swap-nodes-in-pairs.js)
 - [025-reverse-nodes-in-k-group.js](./leetcode-js/025-reverse-nodes-in-k-group.js)
-- [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
 - [037-sudoku-solver.js](./leetcode-js/037-sudoku-solver.js)
-- [038-count-and-say.js](./leetcode-js/038-count-and-say.js)
-- [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
 - [046-permutations.js](./leetcode-js/046-permutations.js)
 - [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
-- [049-group-anagrams.js](./leetcode-js/049-group-anagrams.js)
 - [051-n-queens.js](./leetcode-js/051-n-queens.js)
 - [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
-- [065-valid-number.js](./leetcode-js/065-valid-number.js)
-- [067-add-binary.js](./leetcode-js/067-add-binary.js)
-- [068-text-justification.js](./leetcode-js/068-text-justification.js)
-- [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
-- [076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)
 - [077-combinations.js](./leetcode-js/077-combinations.js)
 - [086-partition-list.js](./leetcode-js/086-partition-list.js)
 - [089-gray-code.js](./leetcode-js/089-gray-code.js)
-- [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
 - [109-convert-sorted-list-to-binary-search-tree.js](./leetcode-js/109-convert-sorted-list-to-binary-search-tree.js)
-- [125-valid-palindrome.js](./leetcode-js/125-valid-palindrome.js)
 - [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
 - [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
 - [134-gas-station.js](./leetcode-js/134-gas-station.js)
@@ -38,10 +22,6 @@
 - [139-word-break.js](./leetcode-js/139-word-break.js)
 - [142-linked-list-cycle-ii.js](./leetcode-js/142-linked-list-cycle-ii.js)
 - [147-insertion-sort-list.js](./leetcode-js/147-insertion-sort-list.js)
-- [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
-- [157-read-n-characters-given-read4.js](./leetcode-js/157-read-n-characters-given-read4.js)
-- [158-read-n-characters-given-read4-ii-call-multiple-times.js](./leetcode-js/158-read-n-characters-given-read4-ii-call-multiple-times.js)
-- [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
 - [166-fraction-to-recurring-decimal.js](./leetcode-js/166-fraction-to-recurring-decimal.js)
 - [168-excel-sheet-column-title.js](./leetcode-js/168-excel-sheet-column-title.js)
 - [187-repeated-dna-sequences.js](./leetcode-js/187-repeated-dna-sequences.js)
@@ -52,7 +32,6 @@
 - [220-contains-duplicate-iii.js](./leetcode-js/220-contains-duplicate-iii.js)
 - [224-basic-calculator.js](./leetcode-js/224-basic-calculator.js)
 - [225-implement-stack-using-queue.js](./leetcode-js/225-implement-stack-using-queue.js)
-- [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
 - [231-power-of-two.js](./leetcode-js/231-power-of-two.js)
 - [232-implement-queue-using-stacks.js](./leetcode-js/232-implement-queue-using-stacks.js)
 - [233-number-of-digit-one.js](./leetcode-js/233-number-of-digit-one.js)
@@ -65,7 +44,6 @@
 - [246-strobogrammatic-number.js](./leetcode-js/246-strobogrammatic-number.js)
 - [247-strobogrammatic-number-ii.js](./leetcode-js/247-strobogrammatic-number-ii.js)
 - [248-strobogrammatic-number-iii.js](./leetcode-js/248-strobogrammatic-number-iii.js)
-- [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
 - [252-meeting-rooms.js](./leetcode-js/252-meeting-rooms.js)
 - [253-meeting-rooms-ii.js](./leetcode-js/253-meeting-rooms-ii.js)
 - [254-factor-combination.js](./leetcode-js/254-factor-combination.js)
@@ -74,8 +52,6 @@
 - [263-ugly-number.js](./leetcode-js/263-ugly-number.js)
 - [266-palindrome-permutation.js](./leetcode-js/266-palindrome-permutation.js)
 - [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
-- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-- [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
 - [274-h-index.js](./leetcode-js/274-h-index.js)
 
 ## Categories
@@ -90,6 +66,55 @@
 - Knuth-Morris-Pratt String Searching Algorithm
     - [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
     - [214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js)
+
+### String
+
+- [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
+- [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
+- 006
+- [008-string-to-integer-atoi.js](./leetcode-js/008-string-to-integer-atoi.js)
+- [010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)
+- [012-integer-to-roman.js](./leetcode-js/012-integer-to-roman.js)
+- [013-roman-to-integer.js](./leetcode-js/013-roman-to-integer.js)
+- [014-longest-common-prefix.js](./leetcode-js/014-longest-common-prefix.js)
+- [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
+- [020-valid-parentheses.js](./leetcode-js/020-valid-parentheses.js)
+- [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
+- [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
+- [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
+- [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
+- [038-count-and-say.js](./leetcode-js/038-count-and-say.js)
+- [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
+- [044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)
+- [049-group-anagrams.js](./leetcode-js/049-group-anagrams.js)
+- [058-length-of-last-word.js](./leetcode-js/058-length-of-last-word.js)
+- [065-valid-number.js](./leetcode-js/065-valid-number.js)
+- [067-add-binary.js](./leetcode-js/067-add-binary.js)
+- [068-text-justification.js](./leetcode-js/068-text-justification.js)
+- [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
+- 072 edit distance
+- [076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)
+- [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
+- [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
+- [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
+- [097-interleaving-string.js](./leetcode-js/097-interleaving-string.js)
+- [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)
+- [125-valid-palindrome.js](./leetcode-js/125-valid-palindrome.js)
+- [126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js)
+    - Skipped
+- [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
+- [157-read-n-characters-given-read4.js](./leetcode-js/157-read-n-characters-given-read4.js)
+- [158-read-n-characters-given-read4-ii-call-multiple-times.js](./leetcode-js/158-read-n-characters-given-read4-ii-call-multiple-times.js)
+- 159-longest-substring-with-at-most-two-distinct-characters
+- [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
+- [165-compare-version-numbers.js](./leetcode-js/165-compare-version-numbers.js)
+- 186
+- [214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js)
+- [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
+- [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
+- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
+- [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
+- [293-flip-game.js](./leetcode-js/293-flip-game.js)
 
 ### Array
 
@@ -338,7 +363,3 @@
 ### Sort
 
 - [280-wiggle-sort.js](./leetcode-js/280-wiggle-sort.js)
-
-### String
-
-- [293-flip-game.js](./leetcode-js/293-flip-game.js)
