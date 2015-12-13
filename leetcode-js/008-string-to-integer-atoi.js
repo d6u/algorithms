@@ -3,15 +3,18 @@
  * @return {number}
  */
 var atoi = function(str) {
-    if (!str.length) return 0;
+    if (!str.length) {
+        return 0;
+    }
 
     var i = 0;
-    while (str.charAt(i) === ' ') {
+
+    while (str[i] === ' ') {
         i += 1;
     }
 
     var sign = '+';
-    var char = str.charAt(i);
+    var char = str[i];
 
     if (char === '+' || char === '-') {
         sign = char;

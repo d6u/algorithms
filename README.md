@@ -71,9 +71,9 @@
 
 - [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
 - [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
-- 006
+- [006-zigzag-conversion.js](./leetcode-js/006-zigzag-conversion.js)
 - [008-string-to-integer-atoi.js](./leetcode-js/008-string-to-integer-atoi.js)
-- [010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)
+- **[010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)**
 - [012-integer-to-roman.js](./leetcode-js/012-integer-to-roman.js)
 - [013-roman-to-integer.js](./leetcode-js/013-roman-to-integer.js)
 - [014-longest-common-prefix.js](./leetcode-js/014-longest-common-prefix.js)
