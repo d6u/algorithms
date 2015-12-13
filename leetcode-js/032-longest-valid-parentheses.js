@@ -20,7 +20,7 @@ var longestValidParentheses = function(s) {
             continue;
         }
         stack.pop();
-        if (peek(stack)) {
+        if (stack.length) {
             len = i - peek(stack)[0];
         } else {
             len = i + 1;

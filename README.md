@@ -80,8 +80,9 @@
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
 - [020-valid-parentheses.js](./leetcode-js/020-valid-parentheses.js)
 - [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
-- [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
+- **[028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)**
 - [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
+    - skipped
 - [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
 - [038-count-and-say.js](./leetcode-js/038-count-and-say.js)
 - [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
