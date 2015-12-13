@@ -1,4 +1,9 @@
-var table = [' ', '', 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz'];
+var table = [
+    ' ',
+    '',     'abc', 'def',
+    'ghi',  'jkl', 'mno',
+    'pqrs', 'tuv', 'wxyz'
+];
 
 /**
  * @param {string} digits
@@ -21,6 +26,10 @@ function findletterCombinations(digits, index, combo, results) {
     var i;
 
     for (i = 0; i < letters.length; i++) {
-        findletterCombinations(digits, index + 1, combo + letters[i], results);
+        findletterCombinations(
+            digits,
+            index + 1,
+            combo + letters[i],
+            results);
     }
 }
