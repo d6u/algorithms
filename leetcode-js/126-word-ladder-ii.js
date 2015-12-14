@@ -1,81 +1,104 @@
 /**
- * @param  {string}     start
- * @param  {string}     end
- * @param  {set}        dict
+    Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation sequence(s) from beginWord to endWord, such that:
+
+    Only one letter can be changed at a time
+    Each intermediate word must exist in the word list
+    For example,
+
+    Given:
+    beginWord = "hit"
+    endWord = "cog"
+    wordList = ["hot","dot","dog","lot","log"]
+    Return
+      [
+        ["hit","hot","dot","dog","cog"],
+        ["hit","hot","lot","log","cog"]
+      ]
+    Note:
+    All words have the same length.
+    All words contain only lowercase alphabetic characters.
+ */
+
+/**
+ * @param {string}     start
+ * @param {string}     end
+ * @param {set}        dict
  * @return {string[][]}
  */
 var findLadders = function (start, end, dict) {
-  var paths = [];
-  var currLevel = new Map();
-  var nextLevel;
-  var el;
+    'use strict';
 
-  dict.add(start);
+    let currLevel = new Map();
+    let nextLevel;
 
-  currLevel.set(end, new Node(end));
+    dict.add(start);
 
-  while (!currLevel.get(start)) {
-    nextLevel = new Map();
+    currLevel.set(end, new Node(end));
 
-    for (el of currLevel.keys()) {
-      findNext(currLevel.get(el), nextLevel, dict);
+    while (!currLevel.get(start)) {
+        nextLevel = new Map();
+
+        for (let el of currLevel.keys()) {
+            findNext(currLevel.get(el), nextLevel, dict);
+        }
+
+        if (!nextLevel.size) return [];
+
+        for (let el of nextLevel.keys()) {
+            dict.delete(el);
+        }
+
+        currLevel = nextLevel;
     }
 
-    if (!nextLevel.size) return [];
-
-    for (el of nextLevel.keys()) {
-      dict.delete(el);
-    }
-
-    currLevel = nextLevel;
-  }
-
-  extractPaths(currLevel.get(start), end, [start], paths);
-  return paths;
+    const paths = [];
+    extractPaths(currLevel.get(start), end, [start], paths);
+    return paths;
 };
 
 function extractPaths(node, end, sol, paths) {
-  if (node.val === end) {
-    paths.push(sol);
-    return;
-  }
+    'use strict';
 
-  for (var el of node.neighbours) {
-    extractPaths(el, end, sol.concat([el.val]), paths);
-  }
+    if (node.val === end) {
+        paths.push(sol);
+        return;
+    }
+
+    for (let el of node.neighbours) {
+        extractPaths(el, end, sol.concat([el.val]), paths);
+    }
 }
 
 function Node(val) {
-  this.val = val;
-  this.neighbours = new Set();
+    this.val = val;
+    this.neighbours = new Set();
 }
 
-function replaceAt(str, index, character) {
-  return str.substr(0, index) + character + str.substr(index + 1);
+function replaceAt(str, index, char) {
+    return str.substr(0, index) + char + str.substr(index + 1);
 }
 
 function findNext(currNode, nextLevel, dict) {
-  var s = currNode.val;
-  var len = s.length;
-  var nextNode;
-  var el;
-  var i;
-  var j;
+    'use strict';
 
-  for (i = 0; i < len; i++) {
-    for (j = 97; j < 123; j++) {
-      el = replaceAt(s, i, String.fromCharCode(j))
-      if (dict.has(el)) {
-        if ((nextNode = nextLevel.get(el))) {
-          nextNode.neighbours.add(currNode);
-        } else {
-          nextNode = new Node(el);
-          nextNode.neighbours.add(currNode);
-          nextLevel.set(el, nextNode);
+    const s = currNode.val;
+    const len = s.length;
+    let nextNode;
+
+    for (let i = 0; i < len; i++) {
+        for (let j = 97; j < 123; j++) {
+            let el = replaceAt(s, i, String.fromCharCode(j));
+            if (dict.has(el)) {
+                if ((nextNode = nextLevel.get(el))) {
+                    nextNode.neighbours.add(currNode);
+                } else {
+                    nextNode = new Node(el);
+                    nextNode.neighbours.add(currNode);
+                    nextLevel.set(el, nextNode);
+                }
+            }
         }
-      }
     }
-  }
 }
 
 var a = findLadders("nanny", "aloud",

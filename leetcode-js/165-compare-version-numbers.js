@@ -4,8 +4,8 @@
  * @return {number}
  */
 var compareVersion = function(version1, version2) {
-    var a1 = version1.split('.').map( n => parseInt(n, 10) );
-    var a2 = version2.split('.').map( n => parseInt(n, 10) );
+    var a1 = version1.split('.').map(n => parseInt(n));
+    var a2 = version2.split('.').map(n => parseInt(n));
 
     var i = 0;
 

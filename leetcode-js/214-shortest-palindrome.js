@@ -1,4 +1,16 @@
 /**
+    tags: string
+
+    Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation.
+
+    For example:
+
+    Given "aacecaaa", return "aaacecaaa".
+
+    Given "abcd", return "dcbabcd".
+ */
+
+/**
  * @param  {string} s
  * @return {string}
  */
@@ -21,12 +33,12 @@ var shortestPalindrome = function (s) {
 };
 
 function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
+    'use strict';
+    const arr = Array(size);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = typeof filler === 'function' ? filler() : filler;
+    }
+    return arr;
 }
 
 console.log(shortestPalindrome("a"));
