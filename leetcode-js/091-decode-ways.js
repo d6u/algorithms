@@ -3,38 +3,37 @@
  * @return {number}
  */
 var numDecodings = function(s) {
-    if (!s.length || s[0] === '0') return 0;
+    'use strict';
 
-    var dp = Array(s.length + 1);
-    var i;
+    const n = s.length;
 
-    for (i = 0; i < dp.length; i++) {
-        dp[i] = 0;
+    if (n === 0) {
+        return 0;
     }
 
-    dp[0] = 1;
+    let memo = makeArray(n+1, 0);
+    memo[n] = 1;
+    memo[n-1] = s.charAt(n-1) !== '0' ? 1 : 0;
 
-    if (isValid(s[0])) {
-        dp[1] = 1;
-    } else {
-        dp[1] = 0;
-    }
-
-    for (i = 1; i < s.length; i++) {
-        if (isValid(s[i])) {
-            dp[i+1] += dp[i];
+    for (let i = n - 2; i >= 0; i--) {
+        if (s.charAt(i) === '0') {
+            continue;
         }
 
-        if (isValid(s.substr(i-1, 2))) {
-            dp[i+1] += dp[i-1];
-        }
+        memo[i] =
+            parseInt(s.substring(i, i+2)) <= 26 ?
+                memo[i+1] + memo[i+2] :
+                memo[i+1];
     }
 
-    return dp[dp.length-1];
+    return memo[0];
 };
 
-function isValid(s) {
-    if (s[0] === '0') return false;
-    var n = parseInt(s);
-    return 1 <= n && n <= 26;
+function makeArray(size, filler) {
+    'use strict';
+    const arr = Array(size);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = typeof filler === 'function' ? filler() : filler;
+    }
+    return arr;
 }
