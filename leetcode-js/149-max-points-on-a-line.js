@@ -53,7 +53,7 @@ var maxPoints = function(points) {
 };
 
 function makePair(a, b) {
-    return '' + a + '-' + b;
+    return `${a}-${b}`;
 }
 
 function GCD(a, b) {
@@ -64,5 +64,5 @@ function GCD(a, b) {
     }
 }
 
-var a = maxPoints([[0,0],[1,0]]);
-console.log(a);
+var r = maxPoints([[0,0],[1,0]]);
+console.log(r);

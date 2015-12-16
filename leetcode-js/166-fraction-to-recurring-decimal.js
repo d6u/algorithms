@@ -1,57 +1,48 @@
 /**
- * @param  {number} numerator
- * @param  {number} denominator
+ * @param {number} numerator
+ * @param {number} denominator
  * @return {string}
  */
-var fractionToDecimal = function(numerator, denominator) {
-  var isNegative = numerator * denominator < 0;
-  var remainders = {};
-  var results = [];
-  var remainder;
-  var position = -1;
-  var counter = 1;
-
-  numerator = Math.abs(numerator);
-  denominator = Math.abs(denominator);
-
-  while (true) {
-    results.push(String(Math.floor(numerator / denominator)));
-    remainder = numerator % denominator;
-    if (remainder === 0) {
-      break;
+var fractionToDecimal = function(n, d) {
+    if (n === 0) {
+        return '0';
     }
 
-    if (remainders[remainder] != null) {
-      position = remainders[remainder];
-      break;
+    var res = [];
+
+    if (n < 0 ^ d < 0) {
+        res.push('-');
     }
 
-    remainders[remainder] = counter;
-    counter += 1;
-    numerator = remainder * 10;
-  }
+    n = Math.abs(n);
+    d = Math.abs(d);
 
-  var r;
-  var i;
+    res.push(Math.floor(n / d).toString());
 
-  if (results.length === 1) {
-    r = results[0];
-  } else {
-    r = results[0] + '.';
-
-    for (i = 1; i < results.length; i++) {
-      if (position === i) {
-        r += '(';
-      }
-      r += results[i];
+    if (n % d === 0) {
+        return res.join('');
     }
 
-    if (position !== -1) {
-      r += ')';
-    }
-  }
+    res.push('.');
 
-  return isNegative ? '-' + r : r;
+    var map = new Map();
+
+    for (var r = n % d; r; r %= d) {
+        if (map.has(r)) {
+            res.splice(map.get(r), 0, '(');
+            res.push(')');
+            break;
+        }
+
+        map.set(r, res.length);
+
+        r *= 10;
+
+        res.push(Math.floor(r / d).toString());
+    }
+
+    return res.join('');
 };
 
+console.log(fractionToDecimal(1, 6));
 console.log(fractionToDecimal(-2147483648, 1));
