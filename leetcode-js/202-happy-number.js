@@ -3,14 +3,12 @@
  * @return {boolean}
  */
 var isHappy = function(n) {
-    var n2;
     var s = new Set();
     do {
-        n2 = sum(n);
-        if (s.has(n2)) {
+        n = sum(n);
+        if (s.has(n)) {
             return false;
         }
-        n = n2;
         s.add(n);
     } while (n !== 1);
     return true;
