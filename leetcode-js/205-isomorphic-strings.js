@@ -11,18 +11,14 @@ var isIsomorphic = function(s, t) {
 
         if (!map1[s[i]]) {
             map1[s[i]] = t[i];
-        } else {
-            if (map1[s[i]] !== t[i]) {
-                return false;
-            }
+        } else if (map1[s[i]] !== t[i]) {
+            return false;
         }
 
         if (!map2[t[i]]) {
             map2[t[i]] = s[i];
-        } else {
-            if (map2[t[i]] !== s[i]) {
-                return false;
-            }
+        } else if (map2[t[i]] !== s[i]) {
+            return false;
         }
     }
 

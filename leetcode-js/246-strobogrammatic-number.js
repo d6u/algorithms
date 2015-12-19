@@ -4,12 +4,12 @@
 //
 // For example, the numbers "69", "88", and "818" are all strobogrammatic.
 
-var lut = {
-    '0': '0',
-    '1': '1',
-    '6': '9',
-    '8': '8',
-    '9': '6',
+const map = {
+    '00': 1,
+    '11': 1,
+    '88': 1,
+    '69': 1,
+    '96': 1,
 };
 
 /**
@@ -18,7 +18,7 @@ var lut = {
  */
 var isStrobogrammatic = function(num) {
     for (var i = 0, j = num.length - 1; i <= j; i++, j--) {
-        if (!"00 11 88 696".includes(num[i] + '' + num[j])) {
+        if (!map[`${num[i]}${num[j]}`]) {
             return false;
         }
     }
