@@ -4,25 +4,21 @@
  * @return {boolean}
  */
 var wordPattern = function(pattern, str) {
-    var arr = str.split(' ');
-    var map = new Map();
+    var words = str.split(' ');
+    var map1 = new Map();
+    var map2 = new Map();
 
-    if (arr.length !== pattern.length) {
+    if (words.length !== pattern.length) {
         return false;
     }
 
-    for (var i = 0; i < arr.length; i++) {
-        var c = pattern[i];
-        if (map.has(c)) {
-            if (map.get(c) !== arr[i]) {
-                return false;
-            }
-        } else {
-            if (Array.from(map.values()).indexOf(arr[i]) > -1) {
-                return false;
-            }
-            map.set(c, arr[i]);
+    for (var i = 0; i < words.length; i++) {
+        if (map1.get(pattern[i]) !== map2.get(words[i])) {
+            return false;
         }
+        map1.set(pattern[i], i);
+        map2.set(words[i], i);
     }
+
     return true;
 };

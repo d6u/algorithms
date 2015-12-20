@@ -129,9 +129,9 @@
 - [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
 - [266-palindrome-permutation.js](./leetcode-js/266-palindrome-permutation.js)
 - [274-h-index.js](./leetcode-js/274-h-index.js)
-- 288
+- [288-unique-word-abbreviation.js](./leetcode-js/288-unique-word-abbreviation.js)
 - [290-word-pattern.js](./leetcode-js/290-word-pattern.js)
-- 299
+- **[299-bulls-and-cows.js](./leetcode-js/299-bulls-and-cows.js)**
 - 311
 - 314
 
