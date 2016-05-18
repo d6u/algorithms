@@ -11,29 +11,30 @@
  * @return {UndirectedGraphNode}
  */
 var cloneGraph = function(graph) {
-    if (!graph) return null;
+    'use strict';
 
-    var newHead = new UndirectedGraphNode(graph.label);
-    var queue = [graph];
-    var map = new Map();
+    if (!graph) {
+        return null;
+    }
 
+    const newHead = new UndirectedGraphNode(graph.label);
+    const map = new Map();
     map.set(graph, newHead);
-
-    var node;
-    var i;
-    var neighbor;
+    const queue = [graph];
 
     while (queue.length) {
-        node = queue.pop();
-        clonedNode = map.get(node);
+        const node = queue.pop();
+        const clonedNode = map.get(node);
 
-        for (i = 0; i < node.neighbors.length; i++) {
-            neighbor = node.neighbors[i];
-            if (!map.has(neighbor)) {
+        for (let i = 0; i < node.neighbors.length; i += 1) {
+            const neighbor = node.neighbors[i];
+            let clonedNeighbor = map.get(neighbor);
+            if (!clonedNeighbor) {
+                clonedNeighbor = new UndirectedGraphNode(neighbor.label);
+                map.set(neighbor, clonedNeighbor);
                 queue.push(neighbor);
-                map.set(neighbor, new UndirectedGraphNode(neighbor.label));
             }
-            clonedNode.neighbors.push(map.get(neighbor));
+            clonedNode.neighbors.push(clonedNeighbor);
         }
     }
 

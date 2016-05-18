@@ -4,38 +4,42 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-    var graph = {};
-    var degree = [];
-    var isolated = [];
-    var i;
-    var edge;
-    var count = 0;
-    var course;
+    'use strict';
 
-    for (i = 0; i < numCourses; i++) {
+    const graph = [];
+    const degree = [];
+
+    for (let i = 0; i < numCourses; i += 1) {
         degree[i] = 0;
         graph[i] = [];
     }
 
-    for (i = 0; i < prerequisites.length; i++) {
-        edge = prerequisites[i];
-        degree[edge[0]] += 1;
-        graph[edge[1]].push(edge[0]);
+    for (const prerequisite of prerequisites) {
+        const next = prerequisite[0];
+        const prer = prerequisite[1];
+        degree[next] += 1;
+        graph[prer].push(next);
     }
 
-    for (i = 0; i < degree.length; i++) {
-        if (!degree[i]) {
+    const isolated = [];
+
+    for (const entry of degree.entries()) {
+        const i = entry[0];
+        const count = entry[1];
+        if (count === 0) {
             isolated.push(i);
         }
     }
 
+    let count = 0;
+
     while (isolated.length) {
         count += 1;
-        course = isolated.pop();
-        for (i = 0; i < graph[course].length; i++) {
-            degree[graph[course][i]] -= 1;
-            if (!degree[graph[course][i]]) {
-                isolated.push(graph[course][i]);
+        const course = isolated.pop();
+        for (const next of graph[course]) {
+            degree[next] -= 1;
+            if (degree[next] === 0) {
+                isolated.push(next);
             }
         }
     }

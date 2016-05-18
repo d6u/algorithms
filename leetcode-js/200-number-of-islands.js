@@ -3,32 +3,35 @@
  * @return {number}
  */
 var numIslands = function(grid) {
-  if (!grid || !grid.length || !grid[0].length) return 0;
-  var count = 0;
-  var xl = grid[0].length;
-  var yl = grid.length;
-  var x;
-  var y;
+    'use strict';
 
-  for (y = 0; y < yl; y++) {
-    for (x = 0; x < xl; x++) {
-      if (grid[y][x] === '1') {
-        count += 1;
-        merge(grid, x, y, xl, yl);
-      }
+    if (!grid || !grid.length || !grid[0].length) {
+        return 0;
     }
-  }
 
-  return count;
+    let count = 0;
+
+    for (let y = 0; y < grid.length; y += 1) {
+        for (let x = 0; x < grid[0].length; x += 1) {
+            if (grid[y][x] === '1') {
+                count += 1;
+                merge(grid, x, y);
+            }
+        }
+    }
+
+    return count;
 };
 
-function merge(grid, x, y, xl, yl) {
-  if (grid[y] == null || grid[y][x] == null || grid[y][x] === '0') return;
+function merge(grid, x, y) {
+    if (grid[y] == null || grid[y][x] == null || grid[y][x] === '0') {
+        return;
+    }
 
-  grid[y][x] = '0';
+    grid[y][x] = '0';
 
-  merge(grid, x + 1, y, xl, yl);
-  merge(grid, x, y + 1, xl, yl);
-  merge(grid, x - 1, y, xl, yl);
-  merge(grid, x, y - 1, xl, yl);
+    merge(grid, x - 1, y);
+    merge(grid, x + 1, y);
+    merge(grid, x, y - 1);
+    merge(grid, x, y + 1);
 }
