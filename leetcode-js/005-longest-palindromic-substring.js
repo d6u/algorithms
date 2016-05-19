@@ -1,34 +1,31 @@
 /**
- * @param  {string} s
+ * @param {string} s
  * @return {string}
  */
 var longestPalindrome = function(s) {
+    'use strict';
+
     if (s.length <= 1) {
         return s;
     }
 
-    var i;
-    var j;
-    var start = 0;
-    var maxLen = 1;
-    var l = s.length;
+    const len = s.length;
+    const isPal = [];
 
-    var isPal = Array(l);
-
-    for (i = 0; i < l; i++) {
-        isPal[i] = Array(l);
-        for (j = 0; j < l; j++) {
-            isPal[i][j] = false;
-        }
+    for (let i = 0; i < len; i += 1) {
+        isPal[i] = [];
     }
 
-    for (i = l - 1; i >= 0; i--) {
-        for (j = i; j < l; j++) {
-            if ((j - i < 2 || isPal[i + 1][j - 1]) && s[i] === s[j]) {
+    let start = 0;
+    let maxLen = 1;
+
+    for (let i = len - 1; i >= 0; i -= 1) {
+        for (let j = i; j < len; j += 1) {
+            if ((j - i + 1 < 3 || isPal[i+1][j-1]) && s[i] === s[j]) {
                 isPal[i][j] = true;
                 if (j - i + 1 > maxLen) {
-                    maxLen = j - i + 1;
                     start = i;
+                    maxLen = j - i + 1;
                 }
             }
         }

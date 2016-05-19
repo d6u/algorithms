@@ -139,6 +139,7 @@
 
 - [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
 - [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
+    - **TODO** [O(n) solution](http://articles.leetcode.com/longest-palindromic-substring-part-ii)
 - [006-zigzag-conversion.js](./leetcode-js/006-zigzag-conversion.js)
 - [008-string-to-integer-atoi.js](./leetcode-js/008-string-to-integer-atoi.js)
 - **[010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)**
