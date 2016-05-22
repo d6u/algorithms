@@ -10,26 +10,31 @@ var table = [
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
-    if (digits.length === 0) return [];
-    var results = [];
-    findletterCombinations(digits, 0, '', results);
-    return results;
+    if (!digits.length) {
+        return [];
+    }
+
+    const result = [];
+    findCombination('', digits, 0, result);
+    return result;
 };
 
-function findletterCombinations(digits, index, combo, results) {
-    if (combo.length === digits.length) {
-        results.push(combo);
+function findCombination(str, digits, i, result) {
+    'use strict';
+
+    if (i >= digits.length) {
+        result.push(str);
         return;
     }
 
-    var letters = table[parseInt(digits[index])];
-    var i;
+    const letters = table[digits[i]];
 
-    for (i = 0; i < letters.length; i++) {
-        findletterCombinations(
-            digits,
-            index + 1,
-            combo + letters[i],
-            results);
+    if (!letters.length) {
+        findCombination(str, digits, i + 1, result);
+        return;
+    }
+
+    for (let j = 0; j < letters.length; j += 1) {
+        findCombination(str + letters[j], digits, i + 1, result);
     }
 }

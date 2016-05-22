@@ -16,21 +16,21 @@ var map = [
 
 /**
  * @param {number} num
- * @returns {string}
+ * @return {string}
  */
-var intToRoman = function (num) {
-    var roman = '';
-    var i = 0;
-    var r;
-    var j;
+var intToRoman = function(num) {
+    'use strict';
+
+    let roman = '';
+    let i = 0;
 
     while (num > 0) {
-        r = Math.floor(num / map[i][0]);
-        if (r > 0) {
-            for (j = 0; j < r; j++) {
+        const quotient = Math.floor(num / map[i][0]);
+        if (quotient > 0) {
+            for (let j = 0; j < quotient; j += 1) {
                 roman += map[i][1];
             }
-            num -= r * map[i][0];
+            num -= quotient * map[i][0];
         } else {
             i += 1;
         }

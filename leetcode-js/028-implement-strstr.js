@@ -12,54 +12,39 @@ var strStr = function(haystack, needle) {
         return -1;
     }
 
-    var h = haystack.length;
-    var n = needle.length;
-    var next = table(needle);
-    var i = 0;
-    var success;
-    var j;
+    var p = preprocess(needle);
+    var j = 0;
 
-    while (i <= h - n) {
-        success = true;
-
-        for (j = 0; j < n; j++) {
-            if (needle[0] !== haystack[i]) {
-                success = false;
-                i += 1;
-                break;
-            } else if (needle[j] !== haystack[i+j]) {
-                success = false;
-                i = i + j - next[j-1];
-                break;
-            }
+    for (var i = 0; i < haystack.length; i += 1) {
+        while (j > 0 && haystack[i] !== needle[j]) {
+            j = p[j];
         }
-
-        if (success) {
-            return i;
+        if (haystack[i] === needle[j]) {
+            j += 1;
+        }
+        if (j === needle.length) {
+            return i - needle.length + 1;
         }
     }
 
     return -1;
 };
 
-function table(needle) {
-    var arr = [0];
-    var i;
-    var index;
+function preprocess(needle) {
+    var p = [0, 0];
+    var j = 0;
 
-    for (i = 1; i < needle.length; i++) {
-        index = arr[i-1];
-
-        while (index > 0 && needle[index] !== needle[i]) {
-            index = arr[index-1];
+    for (var i = 1; i < needle.length; i += 1) {
+        while (j > 0 && needle[i] !== needle[j]) {
+            j = p[j];
         }
-
-        if (needle[index] === needle[i]) {
-            arr[i] = arr[i-1] + 1;
-        } else {
-            arr[i] = 0;
+        if (needle[i] === needle[j]) {
+            j += 1;
         }
+        p[i + 1] = j;
     }
 
-    return arr;
+    return p;
 }
+
+console.log(strStr('bbaa', 'aaaba'))

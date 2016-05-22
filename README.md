@@ -137,19 +137,20 @@
 
 ### String
 
-- [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
-- [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
+- [**003-longest-substring-without-repeating-characters.js**](./leetcode-js/003-longest-substring-without-repeating-characters.js)
+- [**005-longest-palindromic-substring.js**](./leetcode-js/005-longest-palindromic-substring.js)
     - **TODO** [O(n) solution](http://articles.leetcode.com/longest-palindromic-substring-part-ii)
 - [006-zigzag-conversion.js](./leetcode-js/006-zigzag-conversion.js)
 - [008-string-to-integer-atoi.js](./leetcode-js/008-string-to-integer-atoi.js)
 - **[010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)**
-- [012-integer-to-roman.js](./leetcode-js/012-integer-to-roman.js)
-- [013-roman-to-integer.js](./leetcode-js/013-roman-to-integer.js)
+- [**012-integer-to-roman.js**](./leetcode-js/012-integer-to-roman.js)
+- [**013-roman-to-integer.js**](./leetcode-js/013-roman-to-integer.js)
 - [014-longest-common-prefix.js](./leetcode-js/014-longest-common-prefix.js)
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
 - [020-valid-parentheses.js](./leetcode-js/020-valid-parentheses.js)
 - [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
-- **[028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)**
+- [**028-implement-strstr.js**](./leetcode-js/028-implement-strstr.js)
+    - [KMP](http://www.matrix67.com/blog/archives/115)
 - [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
     - skipped
 - [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)

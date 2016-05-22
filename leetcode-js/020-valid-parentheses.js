@@ -9,14 +9,19 @@ var map = {
  * @return {boolean}
  */
 var isValid = function(s) {
-    var stack = [];
-    var i;
+    'use strict';
 
-    for (i = 0; i < s.length; i++) {
-        if (i > 0 && map[stack[stack.length-1]] === s[i]) {
+    if (s.length <= 1) {
+        return false;
+    }
+
+    const stack = [map[s[0]]];
+
+    for (let i = 1; i < s.length; i += 1) {
+        if (stack[stack.length - 1] === s[i]) {
             stack.pop();
         } else {
-            stack.push(s[i]);
+            stack.push(map[s[i]]);
         }
     }
 

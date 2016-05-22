@@ -13,19 +13,20 @@ var map = {
  * @return {number}
  */
 var romanToInt = function(s) {
-    var x = 0;
-    var i;
-    var last;
-    var cur;
+    'use strict';
 
-    for (i = s.length - 1; i >= 0; i--) {
-        cur = map[s[i]];
-        if (last && cur < last) {
-            x -= cur;
+    let x = 0;
+    let current;
+    let last;
+
+    for (let i = s.length - 1; i >= 0; i -= 1) {
+        current = map[s[i]];
+        if (last && current < last) {
+            x -= current;
         } else {
-            x += cur;
+            x += current;
         }
-        last = cur;
+        last = current;
     }
 
     return x;

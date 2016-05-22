@@ -3,25 +3,26 @@
  * @return {string[]}
  */
 var generateParenthesis = function(n) {
-    var results = [];
-    if (n === 0) {
-        return results;
+    if (!n) {
+        return [];
     }
-    generateSolution('', 0, 0, n, results);
-    return results;
+
+    const result = [];
+    findResult('', 0, 0, n, result);
+    return result;
 };
 
-function generateSolution(str, l, r, n, results) {
+function findResult(str, left, right, n, result) {
     if (str.length === n * 2) {
-        results.push(str);
+        result.push(str);
         return;
     }
 
-    if (l < n) {
-        generateSolution(str+'(', l+1, r, n, results);
+    if (left < n) {
+        findResult(str + '(', left + 1, right, n, result);
     }
 
-    if (l > r) {
-        generateSolution(str+')', l, r+1, n, results);
+    if (left > right) {
+        findResult(str + ')', left, right + 1, n, result);
     }
 }
