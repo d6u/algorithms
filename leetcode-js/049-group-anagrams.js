@@ -8,10 +8,14 @@ var groupAnagrams = function(strs) {
     const map = new Map();
 
     for (let str of strs) {
-        let newStr = str.split('').sort().join('');
-        let arr = map.get(newStr);
-        map.set(newStr, arr == null ? [str] : arr.concat([str]));
+        const key = str.split('').sort().join('');
+        const list = map.get(key);
+        if (list == null) {
+            map.set(key, [str]);
+        } else {
+            list.push(str);
+        }
     }
 
-    return Array.from(map.values()).map(row => row.sort());
+    return Array.from(map.values()).map(list => list.sort());
 };

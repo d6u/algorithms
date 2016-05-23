@@ -13,7 +13,9 @@
  * @return {function}
  */
 var solution = function(read4) {
-    var cache = [];
+    'use strict';
+
+    let temp = [];
 
     /**
      * @param {character[]} buf Destination buffer
@@ -21,22 +23,17 @@ var solution = function(read4) {
      * @return {number} The number of characters read
      */
     return function(buf, n) {
-        var count;
-        var tmp;
-        var newArr;
-
-        while (cache.length < n) {
-            tmp = [];
-            read4(tmp);
-            cache.push.apply(cache, tmp);
-            if (tmp < 4) {
+        while (temp.length < n) {
+            const current = [];
+            read4(current);
+            temp = temp.concat(current);
+            if (current.length < 4) {
                 break;
             }
         }
 
-        newArr = cache.splice(0, n);
-        buf.push.apply(buf, newArr);
-
-        return newArr.length;
+        const count = buf.push.apply(buf, temp.slice(0, n));
+        temp = temp.slice(n);
+        return count;
     };
 };

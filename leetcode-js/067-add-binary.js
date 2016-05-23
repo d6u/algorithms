@@ -1,34 +1,20 @@
 /**
-    Given two binary strings, return their sum (also a binary string).
-
-    For example,
-    a = "11"
-    b = "1"
-    Return "100".
-
-    tags: math, string
- */
-
-/**
  * @param {string} a
  * @param {string} b
  * @return {string}
  */
 var addBinary = function(a, b) {
-    var carry = 0;
-    var result = '';
-    var i;
-    var j;
-    var valA;
-    var valB;
-    var val;
+    'use strict';
 
-    for (i = a.length - 1, j = b.length - 1; i >= 0 || j >= 0; i--, j--) {
-        valA = i >= 0 ? parseInt(a[i]) : 0;
-        valB = j >= 0 ? parseInt(b[j]) : 0;
-        val = (valA + valB + carry) % 2;
+    let carry = 0;
+    let result = '';
+
+    for (let i = a.length - 1, j = b.length - 1; i >= 0 || j >= 0; i -= 1, j -= 1) {
+        const valA = i >= 0 ? parseInt(a[i]) : 0;
+        const valB = j >= 0 ? parseInt(b[j]) : 0;
+        const remainder = (valA + valB + carry) % 2;
         carry = Math.floor((valA + valB + carry) / 2);
-        result = val.toString() + result;
+        result = remainder.toString() + result;
     }
 
     if (carry === 1) {

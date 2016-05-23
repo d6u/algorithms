@@ -3,40 +3,41 @@
  * @return {string}
  */
 var countAndSay = function(n) {
+    'use strict';
+
     if (n === 1) {
         return '1';
     }
 
-    var i = 1;
-    var s = '1';
+    let i = 1;
+    let result = '1';
 
     while (i < n) {
-        s = say(s);
+        result = say(result);
         i += 1;
     }
 
-    return s;
+    return result;
 };
 
-function say(s) {
-    var r = '';
-    var pre = s[0];
-    var c = 1;
-    var i;
+function say(str) {
+    'use strict';
 
-    for (i = 1; i < s.length; i++) {
-        if (pre === s[i]) {
-            c += 1;
+    let count = 1;
+    let prev = str[0];
+    let result = '';
+
+    for (let i = 1; i < str.length; i += 1) {
+        if (prev === str[i]) {
+            count += 1;
         } else {
-            r += c;
-            r += pre;
-            pre = s[i];
-            c = 1;
+            result += `${count}${prev}`;
+            prev = str[i];
+            count = 1;
         }
     }
 
-    r += c;
-    r += pre;
+    result += `${count}${prev}`;
 
-    return r;
+    return result;
 }

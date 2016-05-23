@@ -151,41 +151,40 @@
 - [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
 - [**028-implement-strstr.js**](./leetcode-js/028-implement-strstr.js)
     - [KMP](http://www.matrix67.com/blog/archives/115)
-- [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
-    - skipped
-- [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
+- **TODO** [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
+- **TODO** [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
 - [038-count-and-say.js](./leetcode-js/038-count-and-say.js)
-- [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
-- **[044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)**
-- [049-group-anagrams.js](./leetcode-js/049-group-anagrams.js)
+- **TODO** [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
+- [**044-wildcard-matching.js**](./leetcode-js/044-wildcard-matching.js)
+- [**049-group-anagrams.js**](./leetcode-js/049-group-anagrams.js)
 - [058-length-of-last-word.js](./leetcode-js/058-length-of-last-word.js)
-- [065-valid-number.js](./leetcode-js/065-valid-number.js)
-- [067-add-binary.js](./leetcode-js/067-add-binary.js)
-- **[068-text-justification.js](./leetcode-js/068-text-justification.js)**
-- [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
-- **072 edit distance**
-- **[076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)**
-- [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
+- **TODO** [065-valid-number.js](./leetcode-js/065-valid-number.js)
+- [**067-add-binary.js**](./leetcode-js/067-add-binary.js)
+- **TODO** [**068-text-justification.js**](./leetcode-js/068-text-justification.js)
+- [**071-simplify-path.js**](./leetcode-js/071-simplify-path.js)
+- **TODO** [**072 edit distance**](./leetcode-js/072-edit-distance.js)
+- **TODO** [**076-minimum-window-substring.js**](./leetcode-js/076-minimum-window-substring.js)
+- **TODO** [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
     - [087-scramble-string_recursive.js](./leetcode-js/087-scramble-string_recursive.js)
-- **[091-decode-ways.js](./leetcode-js/091-decode-ways.js)**
+- **TODO** [**091-decode-ways.js**](./leetcode-js/091-decode-ways.js)
 - [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
-- [097-interleaving-string.js](./leetcode-js/097-interleaving-string.js)
-- **[115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)**
+- **TODO** [097-interleaving-string.js](./leetcode-js/097-interleaving-string.js)
+- **TODO** [**115-distinct-subsequences.js**](./leetcode-js/115-distinct-subsequences.js)
 - [125-valid-palindrome.js](./leetcode-js/125-valid-palindrome.js)
-- **[126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js)**
+- **TODO** [**126-word-ladder-ii.js**](./leetcode-js/126-word-ladder-ii.js)
 - [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
 - [157-read-n-characters-given-read4.js](./leetcode-js/157-read-n-characters-given-read4.js)
 - [158-read-n-characters-given-read4-ii-call-multiple-times.js](./leetcode-js/158-read-n-characters-given-read4-ii-call-multiple-times.js)
-- **[159-longest-substring-with-at-most-two-distinct-characters.js](./leetcode-js/159-longest-substring-with-at-most-two-distinct-characters.js)**
+- **TODO** [**159-longest-substring-with-at-most-two-distinct-characters.js**](./leetcode-js/159-longest-substring-with-at-most-two-distinct-characters.js)
 - **[161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)**
 - [165-compare-version-numbers.js](./leetcode-js/165-compare-version-numbers.js)
-- [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
-- **[214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js)**
-- **[227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)**
-- [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
-- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-- [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
-- [293-flip-game.js](./leetcode-js/293-flip-game.js)
+- **TODO** [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
+- **TODO** [**214-shortest-palindrome.js**](./leetcode-js/214-shortest-palindrome.js)
+- **TODO** [**227-basic-calculator-ii.js**](./leetcode-js/227-basic-calculator-ii.js)
+- **TODO** [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
+- **TODO** [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
+- **TODO** [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
+- **TODO** [293-flip-game.js](./leetcode-js/293-flip-game.js)
 
 ### Array
 

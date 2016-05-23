@@ -4,25 +4,37 @@
  * @return {boolean}
  */
 var isOneEditDistance = function(s, t) {
-    var ls = s.length;
-    var lt = t.length;
+    'use strict';
 
-    if (ls < lt) return isOneEditDistance(t, s);
-    if (ls - lt > 1) return false;
+    const lenS = s.length;
+    const lenT = t.length;
 
-    var i = 0;
-    var shift = ls - lt;
+    if (lenS < lenT) {
+        return isOneEditDistance(t, s);
+    }
 
-    while (i < lt && s[i] === t[i]) {
+    if (lenS - lenT > 1) {
+        return false;
+    }
+
+    const shift = lenS - lenT;
+    let i = 0;
+
+    while (i < lenT && s[i] === t[i]) {
         i += 1;
     }
 
-    if (i === lt) return shift > 0;
-    if (shift === 0) i += 1;
+    if (i === lenT) {
+        return shift > 0;
+    }
 
-    while (i < lt && s[i+shift] === t[i]) {
+    if (shift === 0) {
         i += 1;
     }
 
-    return i === lt;
+    while (i < lenT && s[i+shift] === t[i]) {
+        i += 1;
+    }
+
+    return i === lenT;
 };

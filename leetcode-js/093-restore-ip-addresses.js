@@ -1,33 +1,41 @@
 /**
- * @param  {string}   s
+ * @param {string} s
  * @return {string[]}
  */
 var restoreIpAddresses = function(s) {
-  var results = [];
-  findIpAddr(s, 0, [], results);
-  return results;
+    const result = [];
+    findSolution(s, 0, [], result);
+    return result;
 };
 
-function findIpAddr(s, index, nums, results) {
-  if (nums.length === 4) {
-    if (index === s.length) {
-      results.push(nums.join('.'));
-    }
-    return;
-  }
+function findSolution(s, index, currentNums, result) {
+    'use strict';
 
-  var curNum = '';
-
-  for (var i = index; i < s.length && i < index + 3; i++) {
-    curNum += s[i];
-    if (isValid(curNum)) {
-      findIpAddr(s, i + 1, nums.concat([curNum]), results);
+    if (currentNums.length === 4) {
+        if (index === s.length) {
+            result.push(currentNums.join('.'));
+        }
+        return;
     }
-  }
+
+    let part = '';
+
+    for (let i = index; i < s.length && part.length < 3; i += 1) {
+        part += s[i];
+        if (isValid(part)) {
+            findSolution(s, i + 1, currentNums.concat([part]), result);
+        }
+    }
 }
 
 function isValid(s) {
-  if (s[0] === '0' && s.length !== 1) return false;
-  if (s.length === 3 && parseInt(s) > 255) return false;
-  return true;
+    if (s[0] === '0' && s.length > 1) {
+        return false;
+    }
+    if (s.length === 3 && parseInt(s) > 255) {
+        return false;
+    }
+    return true;
 }
+
+console.log(restoreIpAddresses('0000'));
