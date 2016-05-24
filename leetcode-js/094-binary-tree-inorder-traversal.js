@@ -10,23 +10,26 @@
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-    if (!root) return [];
+    'use strict';
 
-    var r = [];
-    var nodes = [];
-    var last = root;
-    var t;
+    if (!root) {
+        return [];
+    }
 
-    while (nodes.length || last) {
+    const stack = [];
+    let last = root;
+    const result = [];
+
+    while (stack.length || last) {
         if (last) {
-            nodes.push(last);
+            stack.push(last);
             last = last.left;
         } else {
-            t = nodes.pop();
-            r.push(t.val);
-            last = t.right;
+            const temp = stack.pop();
+            result.push(temp.val);
+            last = temp.right;
         }
     }
 
-    return r;
+    return result;
 };

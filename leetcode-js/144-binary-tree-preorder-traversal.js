@@ -9,22 +9,28 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var preorderTraversal = function (root) {
-    return Array.from(preorderIterateTree(root));
-};
+var preorderTraversal = function(root) {
+    'use strict';
 
-function *preorderIterateTree(root) {
-    var stack = [];
-    var node = root;
+    if (!root) {
+        return [];
+    }
+
+    const stack = [];
+    let node = root;
+    const result = [];
+
     while (node) {
         if (node.right) {
             stack.push(node.right);
         }
-        yield node.val;
+        result.push(node.val);
         if (node.left) {
             node = node.left;
         } else {
             node = stack.pop();
         }
     }
-}
+
+    return result;
+};

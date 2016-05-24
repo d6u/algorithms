@@ -10,31 +10,32 @@
  * @return {number[]}
  */
 var postorderTraversal = function(root) {
-    return Array.from(postorderIterateTree(root));
-};
+    'use strict';
 
-function *postorderIterateTree(root) {
     if (!root) {
-        return;
+        return [];
     }
 
-    var stack = [root];
-    var pre;
+    const stack = [root];
+    let prev;
+    const result = [];
 
     while (stack.length) {
-        var cur = stack[stack.length - 1];
-        if (pre == null || pre.left === cur || pre.right === cur) {
-            if (cur.left) {
-                stack.push(cur.left);
-            } else if (cur.right) {
-                stack.push(cur.right);
+        const curr = stack[stack.length - 1];
+        if (prev == null || prev.left === curr || prev.right === curr) {
+            if (curr.left) {
+                stack.push(curr.left);
+            } else if (curr.right) {
+                stack.push(curr.right);
             }
-        } else if (pre === cur.left && cur.right) {
-            stack.push(cur.right);
+        } else if (prev === curr.left && curr.right) {
+            stack.push(curr.right);
         } else {
-            yield cur.val;
+            result.push(curr.val);
             stack.pop();
         }
-        pre = cur;
+        prev = curr;
     }
-}
+
+    return result;
+};

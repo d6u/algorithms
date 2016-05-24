@@ -3,15 +3,18 @@
  * @return {number}
  */
 var numTrees = function(n) {
-  var counts = [];
-  var i;
-  counts[0] = 1;
-  counts[1] = 1;
-  for (i = 2; i <= n; i++) {
-    counts[i] = 0;
-    for (j = 0; j < i; j++) {
-      counts[i] += counts[j] * counts[i-j-1];
+    'use strict';
+
+    const count = [];
+    count[0] = 1;
+    count[1] = 1;
+
+    for (let i = 2; i <= n; i += 1) {
+        count[i] = 0;
+        for (let j = 0; j < i; j += 1) {
+            count[i] += count[j] * count[i - j - 1];
+        }
     }
-  }
-  return counts[n];
+
+    return count[n];
 };

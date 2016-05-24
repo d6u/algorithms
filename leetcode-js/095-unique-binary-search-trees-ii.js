@@ -6,33 +6,37 @@
  * }
  */
 /**
- * @param  {number} n
+ * @param {number} n
  * @return {TreeNode[]}
  */
 var generateTrees = function(n) {
-  return createTrees(1, n);
+    if (n === 0) {
+        return [];
+    }
+    return _generateTrees(1, n);
 };
 
-function createTrees(min, max) {
-  if (min > max) {
-    return [null];
-  }
-  var result = [];
-  var i;
-  var node;
-  var leftNodes;
-  var rightNodes;
-  for (i = min; i <= max; i += 1) {
-    leftNodes = createTrees(min, i - 1);
-    rightNodes = createTrees(i + 1, max);
-    for (l = 0; l < leftNodes.length; l += 1) {
-      for (r = 0; r < rightNodes.length; r += 1) {
-        node = new TreeNode(i);
-        node.left = leftNodes[l];
-        node.right = rightNodes[r];
-        result.push(node);
-      }
+function _generateTrees(min, max) {
+    'use strict';
+
+    if (min > max) {
+        return [null];
     }
-  }
-  return result;
+
+    const result = [];
+
+    for (let i = min; i <= max; i += 1) {
+        const leftNodes = _generateTrees(min, i - 1);
+        const rightNodes = _generateTrees(i + 1, max);
+        for (const leftNode of leftNodes) {
+            for (const rightNode of rightNodes) {
+                const node = new TreeNode(i);
+                node.left = leftNode;
+                node.right = rightNode;
+                result.push(node);
+            }
+        }
+    }
+
+    return result;
 }

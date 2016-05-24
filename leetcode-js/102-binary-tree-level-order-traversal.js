@@ -10,26 +10,33 @@
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-    if (!root) return [];
+    'use strict';
 
-    var results = [];
-    var row = [root];
-    var rowResults;
-    var len;
-    var i;
-    var node;
-
-    while (row.length) {
-        rowResults = [];
-        len = row.length;
-        for (i = 0; i < len; i++) {
-            node = row.shift();
-            rowResults.push(node.val);
-            if (node.left) row.push(node.left);
-            if (node.right) row.push(node.right);
-        }
-        results.push(rowResults);
+    if (!root) {
+        return [];
     }
 
-    return results;
+    const result = [];
+    let row = [root];
+    let nextRow = [];
+    let rowResult = [];
+
+    while (row.length) {
+        const node = row.shift();
+        if (node.left) {
+            nextRow.push(node.left);
+        }
+        if (node.right) {
+            nextRow.push(node.right);
+        }
+        rowResult.push(node.val);
+        if (!row.length) {
+            row = nextRow;
+            nextRow = [];
+            result.push(rowResult);
+            rowResult = [];
+        }
+    }
+
+    return result;
 };

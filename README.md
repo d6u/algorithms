@@ -266,18 +266,18 @@
 
 ### Tree
 
-- [094-binary-tree-inorder-traversal.js](./leetcode-js/094-binary-tree-inorder-traversal.js)
+- [**094-binary-tree-inorder-traversal.js**](./leetcode-js/094-binary-tree-inorder-traversal.js)
 - [095-unique-binary-search-trees-ii.js](./leetcode-js/095-unique-binary-search-trees-ii.js)
-- [096-unique-binary-search-tree.js](./leetcode-js/096-unique-binary-search-tree.js)
+- [**096-unique-binary-search-tree.js**](./leetcode-js/096-unique-binary-search-tree.js)
 - [098-validate-binary-search-tree.js](./leetcode-js/098-validate-binary-search-tree.js)
 - [099-recover-binary-search-tree.js](./leetcode-js/099-recover-binary-search-tree.js)
-    - Need O(1) solution
+    - **TODO** Need O(1) space solution
 - [100-same-tree.js](./leetcode-js/100-same-tree.js)
-    - Need iterative solution
+    - **TODO** Need iterative solution
 - [101-symmetric-tree.js](./leetcode-js/101-symmetric-tree.js)
     - Need iterative solution
-- [102-binary-tree-level-order-traversal.js](./leetcode-js/102-binary-tree-level-order-traversal.js)
-- [103-binary-tree-zigzag-level-order-traversal.js](./leetcode-js/103-binary-tree-zigzag-level-order-traversal.js)
+- [**102-binary-tree-level-order-traversal.js**](./leetcode-js/102-binary-tree-level-order-traversal.js)
+- **TODO** [103-binary-tree-zigzag-level-order-traversal.js](./leetcode-js/103-binary-tree-zigzag-level-order-traversal.js)
 - [104-maximum-depth-of-binary-tree.js](./leetcode-js/104-maximum-depth-of-binary-tree.js)
 - [105-construct-binary-tree-from-preorder-and-inorder-traversal.js](./leetcode-js/105-construct-binary-tree-from-preorder-and-inorder-traversal.js)
     - Simpler solution
@@ -293,8 +293,8 @@
 - [117-populating-next-right-pointers-in-each-node-ii.js](./leetcode-js/117-populating-next-right-pointers-in-each-node-ii.js)
 - [124-binary-tree-maximum-path-sum.js](./leetcode-js/124-binary-tree-maximum-path-sum.js)
 - [129-sum-root-to-leaf-numbers.js](./leetcode-js/129-sum-root-to-leaf-numbers.js)
-- [144-binary-tree-preorder-traversal.js](./leetcode-js/144-binary-tree-preorder-traversal.js)
-- [145-binary-tree-postorder-traversal.js](./leetcode-js/145-binary-tree-postorder-traversal.js)
+- [**144-binary-tree-preorder-traversal.js**](./leetcode-js/144-binary-tree-preorder-traversal.js)
+- [**145-binary-tree-postorder-traversal.js**](./leetcode-js/145-binary-tree-postorder-traversal.js)
 - [173-binary-search-tree-iterator.js](./leetcode-js/173-binary-search-tree-iterator.js)
 - [199-binary-tree-right-side-view.js](./leetcode-js/199-binary-tree-right-side-view.js)
 - [222-count-complete-tree-nodes_recursion.js](./leetcode-js/222-count-complete-tree-nodes_recursion.js)
