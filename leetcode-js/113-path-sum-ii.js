@@ -11,22 +11,25 @@
  * @return {number[][]}
  */
 var pathSum = function(root, sum) {
-  if (!root) return [];
-  var r = [];
-  findSum(root, sum, [], r);
-  return r;
+    if (!root) {
+        return [];
+    }
+
+    const result = [];
+    _pathSum(root, sum, [], result);
+    return result;
 };
 
-function findSum(node, sum, sol, result) {
-  if (node.left) {
-    findSum(node.left, sum - node.val, sol.concat([node.val]), result);
-  }
+function _pathSum(node, sum, paths, result) {
+    if (node.left) {
+        _pathSum(node.left, sum - node.val, paths.concat([node.val]), result);
+    }
 
-  if (node.right) {
-    findSum(node.right, sum - node.val, sol.concat([node.val]), result);
-  }
+    if (node.right) {
+        _pathSum(node.right, sum - node.val, paths.concat([node.val]), result);
+    }
 
-  if (!node.left && !node.right && sum === node.val) {
-    result.push(sol.concat([node.val]));
-  }
+    if (!node.left && !node.right && sum === node.val) {
+        result.push(paths.concat([node.val]));
+    }
 }

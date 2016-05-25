@@ -10,7 +10,17 @@
  * @return {number}
  */
 var minDepth = function(root) {
-    if (!root) return 0;
-    if (!root.left && !root.right) return 1;
-    return 1 + Math.min(root.left ? minDepth(root.left) : Infinity, root.right ? minDepth(root.right) : Infinity);
+    if (!root) {
+        return 0;
+    }
+
+    if (!root.left && !root.right) {
+        return 1;
+    }
+
+    const left = root.left ? minDepth(root.left) : Infinity;
+    const right = root.right ? minDepth(root.right) : Infinity;
+    const min = Math.min(left, right);
+
+    return 1 + min;
 };

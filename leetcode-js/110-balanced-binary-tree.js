@@ -10,39 +10,34 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    if (!root) {
-      return true;
-    }
-
-    var x = getBalance(root);
-
-    if (x === -1) {
+    const difference = getBalance(root);
+    if (difference === -1) {
         return false;
+    } else {
+        return true;
     }
-
-    return true;
 };
 
-function getBalance(root) {
-    if (!root) {
+function getBalance(node) {
+    if (!node) {
         return 0;
     }
 
-    var l = getBalance(root.left);
+    const left = getBalance(node.left);
 
-    if (l === -1) {
+    if (left === -1) {
         return -1;
     }
 
-    var r = getBalance(root.right);
+    const right = getBalance(node.right);
 
-    if (r === -1) {
+    if (right === -1) {
         return -1;
     }
 
-    if (Math.abs(l - r) > 1) {
+    if (Math.abs(left - right) > 1) {
         return -1;
     } else {
-        return Math.max(l, r) + 1;
+        return Math.max(left, right) + 1;
     }
 }

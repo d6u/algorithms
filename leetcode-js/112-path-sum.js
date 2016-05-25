@@ -11,13 +11,15 @@
  * @return {boolean}
  */
 var hasPathSum = function(root, sum) {
-    if (!root) return false;
-
-    var s = sum - root.val;
-
-    if (!root.left && !root.right) {
-        return s === 0 ? true : false;
+    if (!root) {
+        return false;
     }
 
-    return hasPathSum(root.left, s) || hasPathSum(root.right, s);
+    const difference = sum - root.val;
+
+    if (!root.left && !root.right) {
+        return difference === 0;
+    }
+
+    return hasPathSum(root.left, difference) || hasPathSum(root.right, difference);
 };

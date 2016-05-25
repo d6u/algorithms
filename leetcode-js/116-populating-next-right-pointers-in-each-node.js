@@ -11,18 +11,18 @@
  * @return {void} Do not return anything, modify tree in-place instead.
  */
 var connect = function(root) {
-  if (!root) return;
-
-  if (root.next) {
-    if (root.right) {
-      root.right.next = root.next.left;
+    if (!root) {
+        return;
     }
-  }
 
-  if (root.left) {
-    root.left.next = root.right;
-  }
+    if (root.left) {
+        root.left.next = root.right;
 
-  connect(root.right);
-  connect(root.left);
-}
+        if (root.next) {
+            root.right.next = root.next.left;
+        }
+
+        connect(root.left);
+        connect(root.right);
+    }
+};
