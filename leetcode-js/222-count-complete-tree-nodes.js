@@ -9,13 +9,15 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var countNodes = function (root) {
-    var h = height(root);
-    return h === 0 ? 0 :
-        height(root.right) === h - 1 ? (1 << (h - 1)) + countNodes(root.right) :
-            (1 << (h - 2)) + countNodes(root.left);
+var countNodes = function(root) {
+    var h = getHeight(root);
+    return h === 0 ?
+        0 :
+        h - getHeight(root.right) === 1 ?
+            Math.pow(2, h - 1) + countNodes(root.right) :
+            Math.pow(2, h - 2) + countNodes(root.left);
 };
 
-function height(root) {
-    return root == null ? 0 : 1 + height(root.left);
+function getHeight(root) {
+    return root == null ? 0 : 1 + getHeight(root.left);
 }

@@ -11,12 +11,12 @@
  * @param {TreeNode} root - root of the binary search tree
  */
 var BSTIterator = function(root) {
-  var node = root;
-  this.stack = [];
-  while (node) {
-    this.stack.push(node);
-    node = node.left;
-  }
+    this.stack = [];
+    var node = root;
+    while (node) {
+        this.stack.push(node);
+        node = node.left;
+    }
 };
 
 
@@ -25,7 +25,7 @@ var BSTIterator = function(root) {
  * @returns {boolean} - whether we have a next smallest number
  */
 BSTIterator.prototype.hasNext = function() {
-  return this.stack.length !== 0;
+    return this.stack.length > 0;
 };
 
 /**
@@ -33,13 +33,13 @@ BSTIterator.prototype.hasNext = function() {
  * @returns {number} - the next smallest number
  */
 BSTIterator.prototype.next = function() {
-  var node = this.stack.pop();
-  var node2 = node.right
-  while (node2) {
-    this.stack.push(node2);
-    node2 = node2.left;
-  }
-  return node.val;
+    var node = this.stack.pop();
+    var node2 = node.right;
+    while (node2) {
+        this.stack.push(node2);
+        node2 = node2.left;
+    }
+    return node.val;
 };
 
 /**

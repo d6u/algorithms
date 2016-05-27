@@ -10,18 +10,25 @@
  * @return {number}
  */
 var maxPathSum = function(root) {
-  var re = {max: -Infinity};
-  calcMax(root, re);
-  return re.max;
+    if (!root) {
+        return 0;
+    }
+
+    const result = {max: -Infinity};
+    _maxPathSum(root, result);
+    return result.max;
 };
 
-function calcMax(node, re) {
-  if (!node) return 0;
+function _maxPathSum(root, result) {
+    if (!root) {
+        return 0;
+    }
 
-  var l = calcMax(node.left, re);
-  var r = calcMax(node.right, re);
+    const leftSum = _maxPathSum(root.left, result);
+    const rightSum = _maxPathSum(root.right, result);
 
-  var cur = Math.max(node.val, node.val + l, node.val + r);
-  re.max = Math.max(re.max, cur, node.val + l + r);
-  return cur;
+    const current = Math.max(root.val, root.val + leftSum, root.val + rightSum);
+    result.max = Math.max(result.max, current, root.val + leftSum + rightSum);
+
+    return current;
 }

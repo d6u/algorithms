@@ -9,18 +9,32 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumNumbers = function (root, sum) {
-  if (root == null) return 0;
-  if (sum == null) sum = 0;
+var sumNumbers = function(root, sum) {
+    'use strict';
 
-  var curSum = root.val + sum * 10;
+    if (!root) {
+        return 0;
+    }
 
-  if (!root.left && !root.right) return curSum;
+    if (sum == null) {
+        sum = 0;
+    }
 
-  var r = 0;
+    const currentSum = root.val + sum * 10;
 
-  if (root.left) r += sumNumbers(root.left, curSum);
-  if (root.right) r += sumNumbers(root.right, curSum);
+    if (!root.left && !root.right) {
+        return currentSum;
+    }
 
-  return r;
+    let result = 0;
+
+    if (root.left) {
+        result += sumNumbers(root.left, currentSum);
+    }
+
+    if (root.right) {
+        result += sumNumbers(root.right, currentSum);
+    }
+
+    return result;
 };

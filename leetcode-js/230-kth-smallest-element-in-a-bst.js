@@ -6,27 +6,34 @@
  * }
  */
 /**
- * @param  {TreeNode} root
- * @param  {number}   k
+ * @param {TreeNode} root
+ * @param {number} k
  * @return {number}
  */
 var kthSmallest = function(root, k) {
-  return findK(root, {n: 0}, k);
+    return _kthSmallest(root, {n: 0}, k);
 };
 
-function findK(node, counter, k) {
-  var r;
+function _kthSmallest(root, counter, k) {
+    'use strict';
 
-  if (node.left && (r = findK(node.left, counter, k)) != null) {
-    return r;
-  }
+    if (root.left) {
+        const result = _kthSmallest(root.left, counter, k);
+        if (result != null) {
+            return result;
+        }
+    }
 
-  counter.n++;
-  if (counter.n === k) {
-    return node.val;
-  }
+    counter.n += 1;
 
-  if (node.right && (r = findK(node.right, counter, k)) != null) {
-    return r;
-  }
+    if (counter.n === k) {
+        return root.val;
+    }
+
+    if (root.right) {
+        const result = _kthSmallest(root.right, counter, k);
+        if (result != null) {
+            return result;
+        }
+    }
 }

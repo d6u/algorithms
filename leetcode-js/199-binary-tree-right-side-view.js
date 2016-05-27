@@ -10,29 +10,30 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    return Array.from(iterateTreeRightSide(root));
-};
+    'use strict';
 
-function *iterateTreeRightSide(root) {
     if (!root) {
-        return;
+        return [];
     }
 
-    var queue = [root];
+    const result = [];
+    let queue = [root];
 
     while (queue.length) {
-        var len = queue.length;
-        for (var i = 0; i < len; i++) {
-            var right = queue.shift();
+        const len = queue.length;
+        for (let i = 0; i < len; i += 1) {
+            const node = queue.shift();
             if (i === 0) {
-                yield right.val;
+                result.push(node.val);
             }
-            if (right.right) {
-                queue.push(right.right);
+            if (node.right) {
+                queue.push(node.right);
             }
-            if (right.left) {
-                queue.push(right.left);
+            if (node.left) {
+                queue.push(node.left);
             }
         }
     }
-}
+
+    return result;
+};
