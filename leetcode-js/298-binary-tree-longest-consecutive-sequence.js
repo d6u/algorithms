@@ -14,12 +14,15 @@ var longestConsecutive = function(root) {
 };
 
 function search(root, parent, len) {
-    if (!root) return len;
+    if (!root) {
+        return len;
+    }
 
-    len = (parent && root.val === parent.val + 1) ? len + 1 : 1;
+    if (parent) {
+        len = root.val === parent.val + 1 ? len + 1 : 1;
+    } else {
+        len = 1;
+    }
 
-    return Math.max(
-        len,
-        search(root.left, root, len),
-        search(root.right, root, len));
+    return Math.max(len, search(root.left, root, len), search(root.right, root, len));
 }

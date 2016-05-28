@@ -11,11 +11,27 @@
  * @return {number}
  */
 var closestValue = function(root, target) {
-    var a = root.val;
-    var child = target < a ? root.left : root.right;
-    if (!child) {
-        return a;
+    'use strict';
+
+    if (!root) {
+        return null;
     }
-    var b = closestValue(child, target);
-    return Math.abs(a - target) < Math.abs(b - target) ? a : b;
+
+    if (!root.left && !root.right) {
+        return root.val;
+    }
+
+    let child;
+
+    if (!root.left) {
+        child = root.right;
+    } else if (!root.right) {
+        child = root.left;
+    } else {
+        child = root.val < target ? root.right : root.left;
+    }
+
+    const val = closestValue(child, target);
+
+    return Math.abs(root.val - target) > Math.abs(val - target) ? val : root.val;
 };

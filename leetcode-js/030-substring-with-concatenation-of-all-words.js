@@ -4,60 +4,65 @@
  * @return {number[]}
  */
 var findSubstring = function (s, words) {
-  var allPos = [];
+    'use strict';
 
-  if (!s.length) return allPos;
-
-  var wordCount = words.length;
-  var wordLength = words[0].length;
-  var totalLength = wordCount * wordLength;
-
-  if (s.length < totalLength) return allPos;
-
-  var wordCounter = new Map();
-  var word;
-  var i;
-  var count;
-
-  for (i = 0; i < wordCount; i++) {
-    word = words[i];
-    if ((count = wordCounter.get(word)) != null) {
-      wordCounter.set(word, count + 1);
-    } else {
-      wordCounter.set(word, 1);
+    if (!s.length) {
+        return [];
     }
-  }
 
-  for (i = 0; i <= s.length - totalLength; i++) {
-    if (check(s, i, wordCounter, wordLength, wordCount)) {
-      allPos.push(i);
+    const wordCount = words.length;
+    const wordLength = words[0].length;
+    const totalLength = wordCount * wordLength;
+
+    if (s.length < totalLength) {
+        return [];
     }
-  }
 
-  return allPos;
+    const result = [];
+    const wordCounter = new Map();
+
+    for (const word of words) {
+        const count = wordCounter.get(word);
+        if (!count) {
+            wordCounter.set(word, 1);
+        } else {
+            wordCounter.set(word, count + 1);
+        }
+    }
+
+    for (let i = 0; i <= s.length - totalLength; i += 1) {
+        if (check(s, i, wordCounter, wordLength, wordCount)) {
+            result.push(i);
+        }
+    }
+
+    return result;
 };
 
-function check(s, start, wordCounter, wordLength, wordCount) {
-  var i;
-  var word;
-  var found = new Map();
-  var count;
+function check(s, startIndex, wordCounter, wordLength, wordCount) {
+    'use strict';
 
-  for (i = 0; i < wordCount; i++) {
-    word = s.substr(start + i * wordLength, wordLength);
+    const found = new Map();
 
-    if (!wordCounter.has(word)) return false;
+    for (let i = 0; i < wordCount; i += 1) {
+        const word = s.substr(startIndex + i * wordLength, wordLength);
 
-    if ((count = found.get(word)) != null) {
-      found.set(word, count + 1);
-    } else {
-      found.set(word, 1);
+        if (!wordCounter.get(word)) {
+            return false;
+        }
+
+        const count = found.get(word);
+
+        if (count) {
+            found.set(word, count + 1);
+        } else {
+            found.set(word, 1);
+        }
+
+        if (found.get(word) > wordCounter.get(word)) {
+            return false;
+        }
     }
 
-    if (found.get(word) > wordCounter.get(word)) return false;
-  }
-
-  return true;
+    return true;
 }
-
-findSubstring("barfoothefoobarman", ["foo","bar"]);

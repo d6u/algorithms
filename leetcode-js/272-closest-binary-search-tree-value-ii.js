@@ -12,34 +12,53 @@
  * @return {number[]}
  */
 var closestKValues = function(root, target, k) {
-    var res = [];
-    var s1 = [];
-    var s2 = [];
+    'use strict';
 
-    inorder(root, target, false, s1);
-    inorder(root, target, true, s2);
+    if (!root) {
+        return [];
+    }
 
-    while (k-- > 0) {
-        if (s1.length === 0) {
-            res.push(s2.pop());
-        } else if (s2.length === 0) {
-            res.push(s1.pop());
-        } else if (Math.abs(s1[s1.length-1] - target) < Math.abs(s2[s2.length-1] - target)) {
-            res.push(s1.pop());
+    const result = [];
+    const lessThanStack = [];
+    const greaterThanStack = [];
+
+    inorder(root, target, false, lessThanStack);
+    inorder(root, target, true, greaterThanStack);
+
+    while (k > 0) {
+        k -= 1;
+        if (!lessThanStack.length) {
+            result.push(greaterThanStack.pop());
+        } else if (!greaterThanStack.length) {
+            result.push(lessThanStack.pop());
+        } else if (Math.abs(lessThanStack[lessThanStack.length - 1] - target) > Math.abs(greaterThanStack[greaterThanStack.length - 1] - target)) {
+            result.push(greaterThanStack.pop());
         } else {
-            res.push(s2.pop());
+            result.push(lessThanStack.pop());
         }
     }
 
-    return res;
+    return result;
 };
 
-function inorder(root, target, reverse, stack) {
-    if (root == null) {
+function inorder(root, target, isLessThan, stack) {
+    if (!root) {
         return;
     }
-    inorder(reverse ? root.right : root.left, target, reverse, stack);
-    if ((reverse && root.val <= target) || (!reverse && root.val > target)) return;
-    stack.push(root.val);
-    inorder(reverse ? root.left: root.right, target, reverse, stack);
+
+    if (isLessThan) {
+        inorder(root.left, target, isLessThan, stack);
+        if (root.val > target) {
+            return;
+        }
+        stack.push(root.val);
+        inorder(root.right, target, isLessThan, stack);
+    } else {
+        inorder(root.right, target, isLessThan, stack);
+        if (root.val <= target) {
+            return;
+        }
+        stack.push(root.val);
+        inorder(root.left, target, isLessThan, stack);
+    }
 }

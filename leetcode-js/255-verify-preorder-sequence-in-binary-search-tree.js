@@ -3,17 +3,22 @@
  * @return {boolean}
  */
 var verifyPreorder = function(preorder) {
-    var low = Number.MIN_VALUE;
-    var stack = [];
+    'use strict';
 
-    for (var p of preorder) {
-        if (p < low) {
+    let low = Number.MIN_VALUE;
+    const stack = [];
+
+    for (const node of preorder) {
+        if (node < low) {
             return false;
         }
-        while (stack.length && p > stack[stack.length - 1]) {
+
+        while (stack.length && node > stack[stack.length - 1]) {
             low = stack.pop();
         }
-        stack.push(p);
+
+        stack.push(node);
     }
+
     return true;
 };

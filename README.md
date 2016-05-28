@@ -151,7 +151,7 @@
 - [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
 - [**028-implement-strstr.js**](./leetcode-js/028-implement-strstr.js)
     - [KMP](http://www.matrix67.com/blog/archives/115)
-- **TODO** [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
+- [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
 - **TODO** [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
 - [038-count-and-say.js](./leetcode-js/038-count-and-say.js)
 - **TODO** [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
@@ -303,11 +303,11 @@
 - [235-lowest-common-ancestor-of-a-binary-search-tree.js](./leetcode-js/235-lowest-common-ancestor-of-a-binary-search-tree.js)
 - [236-lowest-common-ancestor-of-a-binary-tree.js](./leetcode-js/236-lowest-common-ancestor-of-a-binary-tree.js)
 - [250-count-univalue-subtrees.js](./leetcode-js/250-count-univalue-subtrees.js)
----
 - [255-verify-preorder-sequence-in-binary-search-tree.js](./leetcode-js/255-verify-preorder-sequence-in-binary-search-tree.js)
 - [257-binary-tree-paths.js](./leetcode-js/257-binary-tree-paths.js)
 - [270-closest-binary-search-tree-value.js](./leetcode-js/270-closest-binary-search-tree-value.js)
 - [272-closest-binary-search-tree-value-ii.js](./leetcode-js/272-closest-binary-search-tree-value-ii.js)
+    - **TODO** O(n) runtime solution for balanced BST
 - [285-inorder-successor-in-bst.js](./leetcode-js/285-inorder-successor-in-bst.js)
 - [298-binary-tree-longest-consecutive-sequence.js](./leetcode-js/298-binary-tree-longest-consecutive-sequence.js)
 
