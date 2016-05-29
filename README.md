@@ -135,10 +135,10 @@
 - **[161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)**
 - [165-compare-version-numbers.js](./leetcode-js/165-compare-version-numbers.js)
 - [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
+- [**214-shortest-palindrome.js**](./leetcode-js/214-shortest-palindrome.js) (hard)
 
 ---
 
-- **TODO** [**214-shortest-palindrome.js**](./leetcode-js/214-shortest-palindrome.js)
 - **TODO** [**227-basic-calculator-ii.js**](./leetcode-js/227-basic-calculator-ii.js)
 - **TODO** [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
 - **TODO** [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
