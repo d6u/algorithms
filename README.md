@@ -166,8 +166,8 @@
 
 ---
 
-- [**072 edit distance**](./leetcode-js/072-edit-distance.js)
-    - [**072-edit-distance_o(n)-spacee**](./072-edit-distance_o(n)-space.js.js)
+- [**072-edit-distance**](./leetcode-js/072-edit-distance.js)
+    - [**072-edit-distance_o(n)-spacee**](./leetcode-js/072-edit-distance_o(n)-space.js)
 - **TODO** [**076-minimum-window-substring.js**](./leetcode-js/076-minimum-window-substring.js)
 - **TODO** [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
     - [087-scramble-string_recursive.js](./leetcode-js/087-scramble-string_recursive.js)
