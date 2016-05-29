@@ -4,46 +4,34 @@
  * @return {string}
  */
 var multiply = function(num1, num2) {
-    num1 = num1.split('').reverse();
-    num2 = num2.split('').reverse();
+    'use strict';
 
-    var results = makeArray(num1.length + num2.length, '0');
-    var i1;
-    var i2;
-    var carry;
-    var topNum;
+    const nums1 = num1.split('').reverse();
+    const nums2 = num2.split('').reverse();
+    const result = Array(num1.length + num2.length).fill('0');
 
-    for (i1 = 0; i1 < num1.length; i1++) {
-        topNum = parseInt(num1[i1]);
-        carry = 0;
+    for (let i1 = 0; i1 < nums1.length; i1 += 1) {
+        const num = parseInt(nums1[i1]);
+        let carry = 0;
 
-        for (i2 = 0; i2 < num2.length; i2++) {
-            carry += parseInt(num2[i2]) * topNum + parseInt(results[i1+i2]);
-            results[i1+i2] = (carry % 10).toString();
+        for (let i2 = 0; i2 < nums2.length; i2 += 1) {
+            carry += parseInt(nums2[i2]) * num + parseInt(result[i1 + i2]);
+            result[i1 + i2] = (carry % 10).toString();
             carry = Math.floor(carry / 10);
         }
 
         if (carry !== 0) {
-            results[num2.length + i1] = carry.toString();
+            result[nums2.length + i1] = carry.toString();
         }
     }
 
-    results.reverse();
+    result.reverse();
 
-    var count = 0;
+    let count = 0;
 
-    while (count < results.length - 1 && results[count] === '0') {
+    while (count < result.length - 1 && result[count] === '0') {
         count += 1;
     }
 
-    return results.slice(count).join('');
+    return result.slice(count).join('');
 };
-
-function makeArray(size, filler) {
-    var arr = Array(size);
-    var i;
-    for (i = 0; i < arr.length; i++) {
-        arr[i] = typeof filler === 'function' ? filler() : filler;
-    }
-    return arr;
-}
