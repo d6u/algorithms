@@ -20,27 +20,23 @@
  * @return {string}
  */
 var minWindow = function(s, t) {
-    var sl = s.length;
-    var tl = t.length;
-    var needToFind = makeArray(122, 0);
-    var i;
+    'use strict';
 
-    for (i = 0; i < tl; i++) {
+    const sl = s.length;
+    const tl = t.length;
+    const needToFind = Array(122).fill(0);
+
+    for (let i = 0; i < tl; i++) {
         needToFind[charToInt(t[i])] += 1;
     }
 
-    var hasFound = makeArray(122, 0);
-    var minWindowLen = sl;
-    var minWindowBegin = 0;
-    var windowLen;
-    var count = 0;
-    var begin;
-    var end;
-    var beginCharInt;
-    var endCharInt;
+    const hasFound = Array(122).fill(0);
+    let minWindowLen = sl;
+    let minWindowBegin = 0;
+    let count = 0;
 
-    for (begin = 0, end = 0; end < sl; end++) {
-        endCharInt = charToInt(s[end]);
+    for (let begin = 0, end = 0; end < sl; end += 1) {
+        const endCharInt = charToInt(s[end]);
 
         if (needToFind[endCharInt] === 0) {
             continue;
@@ -53,7 +49,7 @@ var minWindow = function(s, t) {
         }
 
         if (count === tl) {
-            beginCharInt = charToInt(s[begin]);
+            let beginCharInt = charToInt(s[begin]);
 
             while (needToFind[beginCharInt] === 0 || hasFound[beginCharInt] > needToFind[beginCharInt]) {
                 if (hasFound[beginCharInt] > needToFind[beginCharInt]) {
@@ -63,7 +59,7 @@ var minWindow = function(s, t) {
                 beginCharInt = charToInt(s[begin]);
             }
 
-            windowLen = end - begin + 1;
+            const windowLen = end - begin + 1;
 
             if (windowLen < minWindowLen) {
                 minWindowBegin = begin;
@@ -74,15 +70,6 @@ var minWindow = function(s, t) {
 
     return count === tl ? s.substr(minWindowBegin, minWindowLen) : '';
 };
-
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
-}
 
 function charToInt(c) {
   return c.charCodeAt(0) - 65;

@@ -1,43 +1,42 @@
 /**
- * @param  {string}  s1
- * @param  {string}  s2
+ * @param {string} s1
+ * @param {string} s2
  * @return {boolean}
  */
 var isScramble = function(s1, s2) {
     'use strict';
 
-    let n = s1.length;
-    let dp = makeArray(n, () => makeArray(n, () => makeArray(n+1, false)));
+    const dp = [];
+    const len = s1.length;
 
-    for (let i = n-1; i >= 0; i--) {
-        for (let j = n-1; j >= 0; j--) {
-            for (let k = 1; k <= n - Math.max(i, j); k++) {
+    for (let i = 0; i < len; i += 1) {
+        dp[i] = [];
+        for (let j = 0; j < len; j += 1) {
+            dp[i][j] = [];
+            for (let k = 0; k < len + 1; k += 1) {
+                dp[i][j][k] = false;
+            }
+        }
+    }
 
-                if (s1.substring(i, i+k) === s2.substring(j, j+k)) {
+    for (let i = len - 1; i >= 0; i -= 1) {
+        for (let j = len - 1; j >= 0; j -= 1) {
+            for (let k = 1; k <= len - Math.max(i, j); k += 1) {
+                if (s1.substring(i, i + k) === s2.substring(j, j + k)) {
                     dp[i][j][k] = true;
-                    continue;
-                }
-
-                for (let l = 1; l < k; l++) {
-                    if ((dp[i][j][l] && dp[i+l][j+l][k-l]) ||
-                        (dp[i][j+k-l][l] && dp[i+l][j][k-l]))
-                    {
-                        dp[i][j][k] = true;
-                        break;
+                } else {
+                    for (let l = 1; l < k; l += 1) {
+                        if ((dp[i][j][l] && dp[i+l][j+l][k-l]) || (dp[i][j+k-l][l] && dp[i+l][j][k-l])) {
+                            dp[i][j][k] = true;
+                            break;
+                        }
                     }
                 }
             }
         }
     }
 
-    return dp[0][0][n];
+    return dp[0][0][len];
 };
 
-function makeArray(size, filler) {
-    'use strict';
-    const arr = Array(size);
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = typeof filler === 'function' ? filler() : filler;
-    }
-    return arr;
-}
+console.log(isScramble('a', 'a'));

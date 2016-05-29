@@ -26,23 +26,17 @@ var numDistinct = function(s, t) {
         return 0;
     }
 
-    const path = makeArray(m + 1, 0);
+    const path = Array(m + 1).fill(0);
+
     path[0] = 1;
 
-    for (let j = 0; j < n; j++) {
-        for (let i = m - 1; i >= 0; i--) {
-            path[i+1] += t[i] === s[j] ? path[i] : 0;
+    for (let i = 0; i < n; i += 1) {
+        for (let j = m - 1; j >= 0; j -= 1) {
+            path[j+1] += t[j] === s[i] ? path[j] : 0;
         }
     }
 
-    return path[path.length-1];
+    return path[m];
 };
 
-function makeArray(size, filler) {
-    'use strict';
-    let arr = Array(size);
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = typeof filler === 'function' ? filler() : filler;
-    }
-    return arr;
-}
+console.log(numDistinct('rabbbit', 'rabbit'));

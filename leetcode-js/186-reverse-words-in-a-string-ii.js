@@ -3,23 +3,27 @@
  * @return {void} Do not return anything, modify the string in-place instead.
  */
 var reverseWords = function(str) {
-    reverse(str, 0, str.length - 1);
+    'use strict';
 
-    var start = 0;
-    var end = -1;
-    for (var i = 0; i < str.length; i++) {
+    reverseStr(str, 0, str.length - 1);
+
+    let start = 0;
+
+    for (let i = 0; i < str.length; i += 1) {
         if (str[i] === ' ') {
-            reverse(str, start, i - 1);
+            reverseStr(str, start, i - 1);
             start = i + 1;
         }
     }
 
-    reverse(str, start, str.length - 1);
+    reverseStr(str, start, str.length - 1);
 };
 
-function reverse(str, start, end) {
+function reverseStr(str, start, end) {
+    'use strict';
+
     while (start < end) {
-        var tmp = str[start];
+        const tmp = str[start];
         str[start] = str[end];
         str[end] = tmp;
         start += 1;

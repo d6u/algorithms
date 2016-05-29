@@ -1,4 +1,4 @@
-const aCharCode = 'a'.charCodeAt(0)
+const A_CHAR_CODE = 'a'.charCodeAt(0)
 
 /**
  * @param {string} s1
@@ -12,12 +12,12 @@ var isScramble = function(s1, s2) {
         return true;
     }
 
-    let len = s1.length;
-    let count = makeArray(26, 0);
+    const len = s1.length;
+    let count = Array(26).fill(0);
 
     for (let i = 0; i < len; i++) {
-        count[s1[i].charCodeAt(0) - aCharCode]++;
-        count[s2[i].charCodeAt(0) - aCharCode]--;
+        count[s1[i].charCodeAt(0) - A_CHAR_CODE]++;
+        count[s2[i].charCodeAt(0) - A_CHAR_CODE]--;
     }
 
     for (let i = 0; i < 26; i++) {
@@ -42,14 +42,5 @@ var isScramble = function(s1, s2) {
 
     return false;
 };
-
-function makeArray(size, filler) {
-    'use strict';
-    const arr = Array(size);
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = typeof filler === 'function' ? filler() : filler;
-    }
-    return arr;
-}
 
 isScramble('ab', 'ba');
