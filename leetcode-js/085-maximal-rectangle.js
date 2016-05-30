@@ -1,78 +1,56 @@
 /**
- * @param  {character[][]} matrix
+ * @param {character[][]} matrix
  * @return {number}
  */
 var maximalRectangle = function(matrix) {
-  if (!matrix || !matrix.length || !matrix[0].length) {
-    return 0;
-  }
+    'use strict';
 
-  var ly = matrix.length;
-  var lx = matrix[0].length;
-  var heights = makeArray(ly, () => makeArray(lx, 0));
-  var x;
-  var y;
+    const dp = [];
 
-  for (y = 0; y < ly; y++) {
-    for (x = 0; x < lx; x++) {
-      if (matrix[y][x] === '0') {
-        heights[y][x] = 0;
-      } else {
-        heights[y][x] = y === 0 ? 1 : heights[y-1][x] + 1;
-      }
+    for (let i = 0; i < matrix.length; i += 1) {
+        dp[i] = [];
+        for (let j = 0; j < matrix[0].length; j += 1) {
+            if (i === 0) {
+                dp[0][j] = matrix[0][j] === '0' ? 0 : 1;
+            } else {
+                dp[i][j] = matrix[i][j] === '0' ? 0 : dp[i-1][j] + 1;
+            }
+        }
     }
-  }
 
-  var max = 0;
-  var i;
-  for (i = 0; i < heights.length; i++) {
-    max = Math.max(max, largestRectangleArea(heights[i]));
-  }
-
-  return max;
+    return dp.reduce((max, heights) => Math.max(max, largestRectangleArea(heights)), 0);
 };
 
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
-}
+function largestRectangleArea(heights) {
+    'use strict';
 
-function largestRectangleArea(height) {
-  var stack = [];
-  var max = 0;
-  var i = 0;
-  var top;
-  var h;
-  var w;
+    const stack = [];
+    let max = 0;
 
-  while (i < height.length) {
-    if (!stack.length || height[i] >= height[peek(stack)]) {
-      stack.push(i);
-      i += 1;
-    } else {
-      top = stack.pop();
-      h = height[top];
-      w = stack.length ? i - peek(stack) - 1: i;
-      max = Math.max(max, h * w);
+    let i = 0;
+
+    while (i < heights.length) {
+        if (!stack.length || heights[i] >= heights[stack[stack.length - 1]]) {
+            stack.push(i);
+            i += 1;
+        } else {
+            const index = stack.pop();
+            const h = heights[index];
+            const w = stack.length ? i - stack[stack.length - 1] - 1 : i;
+            max = Math.max(max, w * h);
+        }
     }
-  }
 
-  while (stack.length) {
-    top = stack.pop();
-    h = height[top];
-    w = stack.length ? i - peek(stack) - 1 : i;
-    max = Math.max(max, h * w);
-  }
 
-  return max;
+    while (stack.length) {
+        const index = stack.pop();
+        const h = heights[index];
+        const w = stack.length ? i - stack[stack.length - 1] - 1 : i;
+        max = Math.max(max, w * h);
+    }
+
+    return max;
 }
 
-function peek(stack) {
-  return stack[stack.length - 1];
-}
-
-console.log(maximalRectangle(["1"]));
+// console.log(maximalRectangle(["1101","1101","1111"]));
+console.log(largestRectangleArea([3,3,1,3]));

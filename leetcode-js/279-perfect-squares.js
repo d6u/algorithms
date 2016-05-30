@@ -5,34 +5,17 @@
 var numSquares = function(n) {
     'use strict';
 
-    while (n % 4 === 0) {
-        n = n / 4;
+    const dp = Array(n + 1).fill(Infinity);
+
+    for (let i = 1; i * i <= n; i += 1) {
+        dp[i * i] = 1;
     }
 
-    if (n % 8 === 7) {
-        return 4;
+    for (let i = 1; i <= n; i += 1) {
+        for (let j = 1; i + j * j <= n; j += 1) {
+            dp[i + j * j] = Math.max(dp[i] + 1, dp[i + j * j]);
+        }
     }
 
-    let min2 = false;
-
-    for (let i = 2; i <= n; i++) {
-        if (i > Math.floor(n / i)) {
-            i = n;
-        }
-
-        let e = 0;
-
-        while (n % i === 0) {
-            n = Math.floor(n / i);
-            e += 1;
-        }
-
-        if (e % 2 && i % 4 == 3) {
-            return 3;
-        }
-
-        min2 |= e % 2;
-    }
-
-    return 1 + min2;
+    return dp[n];
 };

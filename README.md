@@ -49,7 +49,7 @@
 - **TODO** [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
 - **TODO** [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
 - [276-paint-fence.js](./leetcode-js/276-paint-fence.js)
-- **TODO** [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
+- [279-perfect-squares_math.js](./leetcode-js/279-perfect-squares_math.js)
     - http://bookshadow.com/weblog/2015/09/09/leetcode-perfect-squares/
 - [303-range-sum-query-immutable.js](./leetcode-js/303-range-sum-query-immutable.js)
 
