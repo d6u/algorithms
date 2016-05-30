@@ -5,12 +5,7 @@
  * @return {string}
  */
 var encode = function(strs) {
-    var encoded = '';
-    for (var str of strs) {
-        var len = str.length;
-        encoded += len.toString() + '@' + str;
-    }
-    return encoded;
+    return strs.reduce((encoded, str) => encoded + `${str.length}@${str}`, '');
 };
 
 /**
@@ -20,16 +15,19 @@ var encode = function(strs) {
  * @return {string[]}
  */
 var decode = function(s) {
-    var r = [];
-    var head = 0;
-    while (head < s.length) {
-        var atPos = s.indexOf('@', head);
-        var len = parseInt(s.substr(head, atPos - head));
-        head = atPos + 1;
-        r.push(s.substr(head, len));
-        head += len;
+    'use strict';
+
+    const result = [];
+    let start = 0;
+
+    while (start < s.length) {
+        const atPosition = s.indexOf('@', start);
+        const len = parseInt(s.substring(start, atPosition));
+        result.push(s.substr(atPosition + 1, len));
+        start = atPosition + len + 1;
     }
-    return r;
+
+    return result;
 };
 
 /**

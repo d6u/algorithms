@@ -3,44 +3,24 @@
  * @return {number}
  */
 var uniquePathsWithObstacles = function(obstacleGrid) {
-  var lx = obstacleGrid[0].length;
-  var ly = obstacleGrid.length;
-  var arr = makeArray(lx, ly);
-  var x;
-  var y;
+    'use strict';
 
-  arr[0][0] = obstacleGrid[0][0] === 1 ? 0 : 1;
+    const dp = [];
 
-  for (x = 1; x < lx; x++) {
-    if (obstacleGrid[0][x] !== 1) {
-      arr[0][x] = arr[0][x-1];
+    for (let i = 0; i < obstacleGrid.length; i += 1) {
+        dp[i] = [];
+        for (let j = 0; j < obstacleGrid[0].length; j += 1) {
+            if (i === 0 && j === 0) {
+                dp[0][0] = obstacleGrid[0][0] === 0 ? 1 : 0;
+            } else if (i === 0) {
+                dp[0][j] = obstacleGrid[0][j] === 0 ? dp[0][j-1] : 0;
+            } else if (j === 0) {
+                dp[i][0] = obstacleGrid[i][0] === 0 ? dp[i-1][0] : 0;
+            } else {
+                dp[i][j] = obstacleGrid[i][j] === 0 ? dp[i-1][j] + dp[i][j-1] : 0;
+            }
+        }
     }
-  }
 
-  for (y = 1; y < ly; y++) {
-    if (obstacleGrid[y][0] !== 1) {
-      arr[y][0] = arr[y-1][0];
-    }
-  }
-
-  for (y = 1; y < ly; y++) {
-    for (x = 1; x < lx; x++) {
-      if (obstacleGrid[y][x] !== 1) {
-        arr[y][x] = arr[y-1][x] + arr[y][x-1];
-      }
-    }
-  }
-
-  return arr[ly-1][lx-1];
+    return dp[obstacleGrid.length - 1][obstacleGrid[0].length - 1];
 };
-
-function makeArray(x, y) {
-  var arr = [];
-  for (var i = 0; i < y; i++) {
-    arr[i] = [];
-    for (var j = 0; j < x; j++) {
-      arr[i][j] = 0;
-    }
-  }
-  return arr;
-}

@@ -1,25 +1,22 @@
 /**
- * @param  {number[]} nums
+ * @param {number[]} nums
  * @return {number}
  */
 var maxProduct = function(nums) {
-  if (!nums.length) return 0;
+    'use strict';
 
-  var r;
-  var curMax;
-  var curMin;
+    let result;
+    let max;
+    let min;
 
-  r = curMax = curMin = nums[0];
+    result = max = min = nums[0];
 
-  var i;
-  var tmp;
+    for (let i = 1; i < nums.length; i += 1) {
+        const curMax = max;
+        max = Math.max(curMax * nums[i], min * nums[i], nums[i]);
+        min = Math.min(curMax * nums[i], min * nums[i], nums[i]);
+        result = Math.max(result, max);
+    }
 
-  for (i = 1; i < nums.length; i++) {
-    tmp = curMax;
-    curMax = Math.max(curMax * nums[i], curMin * nums[i], nums[i]);
-    curMin = Math.min(tmp * nums[i], curMin * nums[i], nums[i]);
-    r = Math.max(r, curMax);
-  }
-
-  return r;
+    return result;
 };

@@ -1,27 +1,26 @@
 /**
- * @param  {number[][]} grid
+ * @param {number[][]} grid
  * @return {number}
  */
 var minPathSum = function(grid) {
-  var sums = [];
-  var i;
-  var j;
+    'use strict';
 
-  sums[0] = [grid[0][0]];
+    const dp = [];
 
-  for (i = 1; i < grid.length; i++) {
-    sums[i] = [sums[i-1][0] + grid[i][0]];
-  }
-
-  for (j = 1; j < grid[0].length; j++) {
-    sums[0][j] = sums[0][j-1] + grid[0][j];
-  }
-
-  for (i = 1; i < grid.length; i++) {
-    for (j = 1; j < grid[i].length; j++) {
-      sums[i][j] = grid[i][j] + Math.min(sums[i-1][j], sums[i][j-1]);
+    for (let i = 0; i < grid.length; i += 1) {
+        dp[i] = [];
+        for (let j = 0; j < grid[0].length; j += 1) {
+            if (i === 0 && j === 0) {
+                dp[0][0] = grid[0][0];
+            } else if (i === 0) {
+                dp[0][j] = grid[0][j] + dp[0][j-1];
+            } else if (j === 0) {
+                dp[i][0] = grid[i][0] + dp[i-1][0];
+            } else {
+                dp[i][j] = grid[i][j] + Math.min(dp[i][j-1], dp[i-1][j]);
+            }
+        }
     }
-  }
 
-  return sums[i-1][j-1];
+    return dp[grid.length-1][grid[0].length-1];
 };

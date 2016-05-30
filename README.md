@@ -19,12 +19,15 @@
 - [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
 - [044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)
 - [053-maximum-subarray.js](./leetcode-js/053-maximum-subarray.js)
+    - **TODO** need divide and conquer approach
 - [062-unique-paths.js](./leetcode-js/062-unique-paths.js)
+    - **TODO** a formula?
 - [063-unique-paths-ii.js](./leetcode-js/063-unique-paths-ii.js)
 - [064-minimum-path-sum.js](./leetcode-js/064-minimum-path-sum.js)
 - [070-climbing-stairs.js](./leetcode-js/070-climbing-stairs.js)
-- 072 edit distance
-- [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)
+- [072-edit-distance.js](./leetcode-js/072-edit-distance.js)
+    - [072-edit-distance_o%28n%29-space.js](./leetcode-js/072-edit-distance_o(n)-space.js)
+- **TODO** [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)
 - [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
 - [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
 - [095-unique-binary-search-trees-ii.js](./leetcode-js/095-unique-binary-search-trees-ii.js)
@@ -33,20 +36,21 @@
 - [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)
 - [120-triangle.js](./leetcode-js/120-triangle.js)
 - [121-best-time-to-buy-and-sell-stock.js](./leetcode-js/121-best-time-to-buy-and-sell-stock.js)
-- [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
-- [132-palindrome-partitioning-ii.js](./leetcode-js/132-palindrome-partitioning-ii.js)
-- [140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
+- **TODO** [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
+- **TODO** [132-palindrome-partitioning-ii.js](./leetcode-js/132-palindrome-partitioning-ii.js)
+- **TODO** [140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
 - [152-maximum-product-subarray.js](./leetcode-js/152-maximum-product-subarray.js)
-- [174-dungeon-game.js](./leetcode-js/174-dungeon-game.js)
-- [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
+- **TODO** [174-dungeon-game.js](./leetcode-js/174-dungeon-game.js)
+- **TODO** [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
 - [198-house-robber.js](./leetcode-js/198-house-robber.js)
 - [213-house-robber-ii.js](./leetcode-js/213-house-robber-ii.js)
-- [221-maximum-square.js](./leetcode-js/221-maximum-square.js)
+- **TODO** [221-maximum-square.js](./leetcode-js/221-maximum-square.js)
 - [256-paint-house.js](./leetcode-js/256-paint-house.js)
-- [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
-- [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
+- **TODO** [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
+- **TODO** [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
 - [276-paint-fence.js](./leetcode-js/276-paint-fence.js)
-- [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
+- **TODO** [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
+    - http://bookshadow.com/weblog/2015/09/09/leetcode-perfect-squares/
 - [303-range-sum-query-immutable.js](./leetcode-js/303-range-sum-query-immutable.js)
 
 ### Hash Table
@@ -103,7 +107,7 @@
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
 - [020-valid-parentheses.js](./leetcode-js/020-valid-parentheses.js)
 - [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
-- [**028-implement-strstr.js**](./leetcode-js/028-implement-strstr.js)
+- **TODO** [**028-implement-strstr.js**](./leetcode-js/028-implement-strstr.js)
     - [KMP](http://www.matrix67.com/blog/archives/115)
 - [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
 - [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
@@ -135,15 +139,12 @@
 - **[161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)**
 - [165-compare-version-numbers.js](./leetcode-js/165-compare-version-numbers.js)
 - [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
-- [**214-shortest-palindrome.js**](./leetcode-js/214-shortest-palindrome.js) (hard)
-
----
-
-- **TODO** [**227-basic-calculator-ii.js**](./leetcode-js/227-basic-calculator-ii.js)
-- **TODO** [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
-- **TODO** [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-- **TODO** [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
-- **TODO** [293-flip-game.js](./leetcode-js/293-flip-game.js)
+- **TODO** [**214-shortest-palindrome.js**](./leetcode-js/214-shortest-palindrome.js)
+- [**227-basic-calculator-ii.js**](./leetcode-js/227-basic-calculator-ii.js)
+- [249-group-shifted-strings.js](./leetcode-js/249-group-shifted-strings.js)
+- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
+- [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
+- [293-flip-game.js](./leetcode-js/293-flip-game.js)
 
 ### Array
 

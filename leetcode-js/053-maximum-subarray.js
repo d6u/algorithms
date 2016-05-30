@@ -1,11 +1,17 @@
-'use strict';
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+    'use strict';
 
-function maxSubArray(nums) {
-  var sum = nums[0];
-  var max = nums[0];
-  for (var i = 1; i < nums.length; i++) {
-    sum = Math.max(nums[i], nums[i] + sum);
-    max = Math.max(sum, max);
-  }
-  return max;
-}
+    let sum = nums[0];
+    let max = nums[0];
+
+    for (let i = 1; i < nums.length; i += 1) {
+        sum = Math.max(nums[i], nums[i] + sum);
+        max = Math.max(sum, max);
+    }
+
+    return max;
+};

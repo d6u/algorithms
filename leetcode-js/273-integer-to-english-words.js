@@ -5,20 +5,19 @@ var V3 = ['Thousand', 'Million', 'Billion'];
  * @return {string}
  */
 var numberToWords = function (num) {
+    'use strict';
+
     if (num === 0) {
         return 'Zero';
     }
 
-    var tuple;
-    var cur;
-    var res = num;
-    var strs = [];
-    var i = 0;
+    let strs = [];
+    let res = num;
+    let i = 0;
 
     while (res > 0) {
-        tuple = takeLast(res);
-        cur = tuple[0];
-        res = tuple[1];
+        const cur = res % 1000;
+        res = Math.floor(res / 1000);
         if (cur === 0) {
             strs.shift();
         } else {
@@ -31,12 +30,6 @@ var numberToWords = function (num) {
     }
 
     return strs.join(' ');
-};
-
-var takeLast = function (n) {
-    var remaining = n % 1000;
-    var rest = Math.floor(n / 1000);
-    return [remaining, rest];
 };
 
 var V1 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];

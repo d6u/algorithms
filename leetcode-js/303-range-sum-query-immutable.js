@@ -3,7 +3,9 @@
  * @param {number[]} nums
  */
 var NumArray = function(nums) {
-    for (var i = 1; i < nums.length; i++) {
+    'use strict';
+
+    for (let i = 1; i < nums.length; i += 1) {
         nums[i] += nums[i-1];
     }
     this.nums = nums;
@@ -15,10 +17,11 @@ var NumArray = function(nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function(i, j) {
-    if (i === 0) {
-        return this.nums[j];
-    }
-    return this.nums[j] - this.nums[i-1];
+   if (i === 0) {
+       return this.nums[j];
+   } else {
+       return this.nums[j] - this.nums[i-1];
+   }
 };
 
 
