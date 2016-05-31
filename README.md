@@ -51,7 +51,15 @@
 - [276-paint-fence.js](./leetcode-js/276-paint-fence.js)
 - [279-perfect-squares_math.js](./leetcode-js/279-perfect-squares_math.js)
     - http://bookshadow.com/weblog/2015/09/09/leetcode-perfect-squares/
+- [300-longest-increasing-subsequence.js](./leetcode-js/300-longest-increasing-subsequence.js)
 - [303-range-sum-query-immutable.js](./leetcode-js/303-range-sum-query-immutable.js)
+- [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
+- [309-best-time-to-buy-and-sell-stock-with-cooldown.js](./leetcode-js/309-best-time-to-buy-and-sell-stock-with-cooldown.js)
+- 312
+- 321
+- 322
+- 338
+- 343
 
 ### Hash Table
 
