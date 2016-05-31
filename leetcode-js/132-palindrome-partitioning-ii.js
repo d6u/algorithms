@@ -1,37 +1,25 @@
 /**
- * @param  {string} s
+ * @param {string} s
  * @return {number}
  */
 var minCut = function(s) {
-  var n = s.length;
-  var cut = makeArray(n + 1, 0);
-  var i;
-  var j;
+    'use strict';
 
-  for (i = 0; i <= n; i++) {
-    cut[i] = i - 1;
-  }
+    const dp = [];
 
-  for (i = 0; i < n; i++) {
-    for (j = 0; i - j >= 0 && i + j < n && s[i-j] === s[i+j]; j++) {
-      cut[i+j+1] = Math.min(cut[i+j+1], 1 + cut[i-j]);
+    for (let i = 0; i < s.length + 1; i += 1) {
+        dp[i] = i - 1;
     }
 
-    for (j = 1; i - j + 1 >= 0 && i + j < n && s[i-j+1] === s[i+j]; j++) {
-      cut[i+j+1] = Math.min(cut[i+j+1], 1 + cut[i-j+1]);
-    }
-  }
+    for (let i = 0; i < s.length; i += 1) {
+        for (let j = 0; i - j >= 0 && i + j < s.length && s[i-j] === s[i+j]; j += 1) {
+            dp[i + j + 1] = Math.min(dp[i + j + 1], dp[i-j] + 1);
+        }
 
-  return cut[n];
+        for (let j = 1; i - j + 1 >= 0 && i + j < s.length && s[i-j+1] === s[i+j]; j += 1) {
+            dp[i + j + 1] = Math.min(dp[i + j + 1], dp[i-j+1] + 1);
+        }
+    }
+
+    return dp[s.length];
 };
-
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
-}
-
-console.log(minCut('aab'));

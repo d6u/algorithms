@@ -3,32 +3,26 @@
  * @return {number}
  */
 var minCostII = function(costs) {
-    if (costs.length === 0) return 0;
-    if (costs[0].length === 1) return costs.reduce((sum, cost) => sum + cost[0], 0);
+    'use strict';
 
-    var n = costs.length;
-    var k = costs[0].length;
-    var dp = makeArray(k, 0);
-    var i;
-    var j;
-    var min1 = 0;
-    var min2 = 0;
-    var min1Old;
-    var min2Old;
+    const dp = [];
+    let min1 = 0;
+    let min2 = 0;
 
-    for (i = 0; i < n; i++) {
-        min1Old = min1;
-        min2Old = min2;
+    for (let i = 0; i < costs.length; i += 1) {
+        const oldMin1 = min1;
+        const oldMin2 = min2;
         min1 = Infinity;
         min2 = Infinity;
-        for (j = 0; j < k; j++) {
-            if (dp[j] !== min1Old || min1Old === min2Old) {
-                dp[j] = min1Old + costs[i][j];
+
+        for (let j = 0; j < costs[i].length; j += 1) {
+            if (dp[j] !== oldMin1 || oldMin1 === oldMin2) {
+                dp[j] = costs[i][j] + oldMin1;
             } else {
-                dp[j] = min2Old + costs[i][j];
+                dp[j] = costs[i][j] + oldMin2;
             }
 
-            if (min1 <= dp[j]) {
+            if (min1 < dp[j]) {
                 min2 = Math.min(min2, dp[j]);
             } else {
                 min2 = min1;
@@ -39,12 +33,3 @@ var minCostII = function(costs) {
 
     return min1;
 };
-
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
-}

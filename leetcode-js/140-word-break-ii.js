@@ -3,72 +3,59 @@
  * @param  {set<string>} wordDict
  * @return {string[]}
  */
-var wordBreak = function (s, wordDict) {
-  var len = s.length;
-  var breaks = makeArray(len, () => []);
-  var i;
-  var word;
-  var wordLen;
+var wordBreak = function(s, wordDict) {
+    'use strict';
 
-  for (i = 0; i < len; i++) {
-    for (word of wordDict) {
-      wordLen = word.length;
+    const breaks = [];
 
-      if (i + 1 < wordLen) {
-        continue;
-      }
-
-      if (i - wordLen >= 0 && breaks[i - wordLen].length === 0) {
-        continue;
-      }
-
-      if (s.substr(i - wordLen + 1, wordLen) === word) {
-        breaks[i].push(wordLen);
-      }
+    for (let i = 0; i < s.length; i += 1) {
+        breaks[i] = [];
     }
-  }
 
-  var result = [];
+    for (let i = 0; i < s.length; i++) {
+        for (const word of wordDict) {
+            const wordLen = word.length;
 
-  if (breaks[len - 1].length !== 0) {
-    generateResult(s, len - 1, 0, breaks, [], result);
-  }
+            if (i + 1 < wordLen) {
+                continue;
+            }
 
-  return result;
+            if (i - wordLen >= 0 && breaks[i - wordLen].length === 0) {
+                continue;
+            }
+
+            if (s.substr(i - wordLen + 1, wordLen) === word) {
+                breaks[i].push(wordLen);
+            }
+        }
+    }
+
+    if (!breaks[breaks.length - 1].length) {
+        return [];
+    }
+
+    const result = [];
+    generateResult(s, s.length - 1, [], breaks, result);
+    return result;
 };
 
-function generateResult(s, k, wordNum, breaks, wordLenList, result) {
-  var start;
-  var sentence;
-  var i;
-  var wordLen;
+function generateResult(s, index, currentWords, breaks, result) {
+    'use strict';
 
-  if (k < 0) {
-    start = 0;
-    sentence = '';
-    for (i = wordNum - 1; i >= 0; i--) {
-      sentence += s.substr(start, wordLenList[i]);
-      if (i !== 0) {
-        sentence += ' ';
-      }
-      start += wordLenList[i];
+    if (index < 0) {
+        result.push(currentWords.reverse().join(' '));
+        return;
     }
-    result.push(sentence);
-  } else {
-    for (wordLen of breaks[k]) {
-      wordLenList[wordNum] = wordLen;
-      generateResult(s, k - wordLen, wordNum + 1, breaks, wordLenList, result);
-    }
-  }
-}
 
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
+    for (const wordLen of breaks[index]) {
+        generateResult(
+            s,
+            index - wordLen,
+            currentWords.concat(s.substr(index - wordLen + 1, wordLen)),
+            breaks,
+            result
+        );
+    }
 }
 
 console.log(wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]));
