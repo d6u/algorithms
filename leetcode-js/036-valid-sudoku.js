@@ -3,14 +3,16 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-    var cols = [0,0,0,0,0,0,0,0,0];
-    var rows = [0,0,0,0,0,0,0,0,0];
-    var boxs = [0,0,0,0,0,0,0,0,0];
+    'use strict';
 
-    for (var i = 0; i < 9; i++) {
-        for (var j = 0; j < 9; j++) {
+    const cols = [0,0,0,0,0,0,0,0,0];
+    const rows = [0,0,0,0,0,0,0,0,0];
+    const boxs = [0,0,0,0,0,0,0,0,0];
+
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
             if (board[i][j] != '.') {
-                var temp = 1 << board[i][j];
+                let temp = 1 << board[i][j];
 
                 if (rows[i] & temp) {
                     return false;
@@ -35,3 +37,5 @@ var isValidSudoku = function(board) {
 
     return true;
 };
+
+console.log(isValidSudoku([".87654321","2........","3........","4........","5........","6........","7........","8........","9........"]));

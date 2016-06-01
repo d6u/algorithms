@@ -9,28 +9,20 @@ var countPrimes = function(n) {
         return 0;
     }
 
-    let arr = makeArray(n, true);
-    arr[0] = false;
-    arr[1] = false;
+    const nums = Array(n).fill(true);
+
+    nums[0] = false;
+    nums[1] = false;
 
     const stop = Math.sqrt(n);
 
-    for (let i = 2; i < stop; i++) {
-        if (arr[i]) {
+    for (let i = 2; i < stop; i += 1) {
+        if (nums[i]) {
             for (let j = i * i; j < n; j += i) {
-                arr[j] = false;
+                nums[j] = false;
             }
         }
     }
 
-    return arr.reduce((count, el) => el ? count + 1 : count, 0);
+    return nums.filter((isPrime) => isPrime).length;
 };
-
-function makeArray(size, filler) {
-    'use strict';
-    let arr = Array(size);
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = typeof filler === 'function' ? filler() : filler;
-    }
-    return arr;
-}

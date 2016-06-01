@@ -4,14 +4,19 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    var s = {};
-    var i;
-    var n;
-    for (i = 0; i < nums.length; i++) {
-        n = nums[i];
-        if (s[n] !== undefined) {
-            return [s[n] + 1, i + 1];
+    'use strict';
+
+    const map = new Map();
+
+    for (let i = 0; i < nums.length; i += 1) {
+        const n = nums[i];
+        const index = map.get(n);
+        if (index == null) {
+            map.set(target - n, i);
+        } else {
+            return [index, i];
         }
-        s[target - n] = i;
     }
 };
+
+console.log(twoSum([3,2,4], 6));

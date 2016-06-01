@@ -6,56 +6,51 @@
 var fourSum = function(nums, target) {
     'use strict';
 
-    const allSol = [];
     nums.sort((a, b) => a - b);
-    kSum(nums, 0, nums.length - 1, target, 4, [], allSol);
-    return allSol;
+    const result = [];
+    kSum(nums, 0, nums.length - 1, target, 4, [], result);
+    return result;
 };
 
-function kSum(nums, start, end, target, k, sol, allSol) {
+function kSum(nums, start, end, target, k, solution, result) {
     'use strict';
 
-    if (k <= 0) {
+    switch (k) {
+    case 0:
         return;
-    }
-
-    if (k === 1) {
-        for (let i = start; i <= end; i++) {
-            if (nums[i] === target) {
-                sol.push(target);
-                allSol.push(sol.slice(0));
-                sol.pop();
-                return;
+    case 1:
+        oneSum(nums, start, end, target, solution, result);
+        return;
+    case 2:
+        twoSum(nums, start, end, target, solution, result);
+        return;
+    default:
+        for (let i = start; i <= end - k + 1; i += 1) {
+            if (i > start && nums[i] === nums[i-1]) {
+                continue;
             }
+            kSum(nums, i + 1, end, target - nums[i], k - 1, solution.concat(nums[i]), result);
         }
-    }
-
-    if (k === 2) {
-        twoSum(nums, start, end, target, sol, allSol);
-        return;
-    }
-
-    for (let i = start; i <= end - k + 1; i++) {
-        if (i > start && nums[i] === nums[i-1]) {
-            continue;
-        }
-        sol.push(nums[i]);
-        kSum(nums, i+1, end, target - nums[i], k - 1, sol, allSol);
-        sol.pop();
     }
 }
 
-function twoSum(nums, start, end, target, sol, allSol) {
+function oneSum(nums, start, end, target, solution, result) {
+    'use strict';
+
+    for (const n of nums.slice(start, end + 1)) {
+        if (n === target) {
+            result.push(solution.concat(n));
+        }
+    }
+}
+
+function twoSum(nums, start, end, target, solution, result) {
     'use strict';
 
     while (start < end) {
-        let sum = nums[start] + nums[end];
+        const sum = nums[start] + nums[end];
         if (sum === target) {
-            sol.push(nums[start]);
-            sol.push(nums[end]);
-            allSol.push(sol.slice(0));
-            sol.pop();
-            sol.pop();
+            result.push(solution.concat(nums[start], nums[end]));
             start += 1;
             end -= 1;
             while (nums[start] === nums[start-1]) {

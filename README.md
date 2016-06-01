@@ -55,11 +55,11 @@
 - [303-range-sum-query-immutable.js](./leetcode-js/303-range-sum-query-immutable.js)
 - [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
 - [309-best-time-to-buy-and-sell-stock-with-cooldown.js](./leetcode-js/309-best-time-to-buy-and-sell-stock-with-cooldown.js)
-- 312
-- 321
-- 322
-- 338
-- 343
+- **TODO** 312
+- **TODO** 321
+- **TODO** 322
+- **TODO** 338
+- **TODO** 343
 
 ### Hash Table
 
@@ -69,7 +69,7 @@
 - [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
     - skipped
 - [036-valid-sudoku.js](./leetcode-js/036-valid-sudoku.js)
-- **[037-sudoku-solver.js](./leetcode-js/037-sudoku-solver.js)**
+- **TODO** [**037-sudoku-solver.js**](./leetcode-js/037-sudoku-solver.js)
 - [049-group-anagrams.js](./leetcode-js/049-group-anagrams.js)
 - **[076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)**
 - **[085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)**

@@ -3,24 +3,34 @@
  * @return {boolean}
  */
 var isHappy = function(n) {
-    var s = new Set();
-    do {
+    'use strict';
+
+    const s = new Set();
+
+    s.add(n);
+
+    while (n !== 1) {
         n = sum(n);
         if (s.has(n)) {
             return false;
+        } else {
+            s.add(n);
         }
-        s.add(n);
-    } while (n !== 1);
+    }
+
     return true;
 };
 
 function sum(n) {
-    var m;
-    var t = 0;
+    'use strict';
+
+    let result = 0;
+
     while (n) {
-        m = n % 10;
-        t += m * m;
+        const tmp = n % 10;
+        result += tmp * tmp;
         n = Math.floor(n / 10);
     }
-    return t;
+
+    return result;
 }
