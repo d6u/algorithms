@@ -95,8 +95,9 @@
 - [274-h-index.js](./leetcode-js/274-h-index.js)
 - [288-unique-word-abbreviation.js](./leetcode-js/288-unique-word-abbreviation.js)
 - [290-word-pattern.js](./leetcode-js/290-word-pattern.js)
-- **[299-bulls-and-cows.js](./leetcode-js/299-bulls-and-cows.js)**
-- 311
+- [**299-bulls-and-cows.js**](./leetcode-js/299-bulls-and-cows.js)
+- [**311-sparse-matrix-multiplication**](./leetcode-js/311-sparse-matrix-multiplication.js)
+    - [**311-sparse-matrix-multiplication_brutal-force**](./leetcode-js/311-sparse-matrix-multiplication_brutal-force.js)
 - 314
 
 ### String
