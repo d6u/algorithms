@@ -11,44 +11,46 @@
  * @return {RandomListNode}
  */
 var copyRandomList = function(head) {
-    'use strict';
-
     if (!head) {
         return null;
     }
 
-    let run = head;
+    // 1. Insert copied nodes
 
-    while (run) {
-        let copy = new RandomListNode(run.label);
-        copy.next = run.next;
-        run.next = copy;
-        run = run.next.next;
+    let node = head;
+
+    while (node) {
+        const copy = new RandomListNode(node.label);
+        copy.next = node.next;
+        node.next = copy;
+        node = copy.next;
     }
 
-    run = head;
+    // 2. Copy random pointer
 
-    while (run) {
-        if (run.random) {
-            run.next.random = run.random.next;
+    node = head;
+
+    while (node) {
+        if (node.random) {
+            node.next.random = node.random.next;
         }
-        run = run.next.next;
+        node = node.next.next;
     }
 
-    let newHead = new RandomListNode(0);
-    let newRun;
+    // 3. Decouple linked lists
 
-    run = head;
-    newHead.next = head.next;
+    node = head;
+    let copiedNode = node.next;
+    const copiedHead = node.next;
 
-    while (run) {
-        newRun = run.next;
-        run.next = newRun.next;
-        if (run.next) {
-            newRun.next = newRun.next.next;
+    while (node) {
+        node.next = copiedNode.next;
+        node = node.next;
+        if (copiedNode.next) {
+            copiedNode.next = copiedNode.next.next;
         }
-        run = run.next;
+        copiedNode = copiedNode.next;
     }
 
-    return newHead.next;
+    return copiedHead;
 };

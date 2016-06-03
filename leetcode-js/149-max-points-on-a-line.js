@@ -14,55 +14,40 @@ var maxPoints = function(points) {
         return points.length;
     }
 
-    var result = 0;
+    let result = 0;
 
-    for (var i = 0; i < points.length; i++) {
-        var lines = new Map();
-        var localMax = 0;
-        var overlap = 0;
-        var vertical = 0;
+    for (const [index, {x: x0, y: y0}] of points.entries()) {
+        const map = new Map();
+        let overlaps = 0;
+        let vertical = 0;
 
-        for (var j = i+1; j < points.length; j++) {
-            if (points[j].x === points[i].x && points[j].y === points[i].y) {
-                overlap += 1;
-                continue;
-            } else if (points[j].x === points[i].x) {
+        for (const {x: x1, y: y1} of points.slice(index + 1)) {
+            if (x0 === x1 && y0 === y1) {
+                overlaps += 1;
+            } else if (x0 === x1) {
                 vertical += 1;
             } else {
-                var a = points[j].x - points[i].x;
-                var b = points[j].y - points[i].y;
-                var gcd = GCD(a, b);
-
-                a = Math.floor(a / gcd);
-                b = Math.floor(b / gcd);
-
-                var pair = makePair(a, b);
-
-                lines.set(pair, lines.get(pair) ? 1 : lines.get(pair) + 1);
-
-                localMax = Math.max(lines.get(pair) || 0, localMax);
+                const k = (y1 - y0) / (x1 - x0);
+                const count = map.get(k);
+                if (count == null) {
+                    map.set(k, 1);
+                } else {
+                    map.set(k, count + 1);
+                }
             }
-
-            localMax = Math.max(vertical, localMax);
         }
 
-        result = Math.max(result, localMax + overlap + 1);
+        result = Math.max(result, Math.max(vertical, ...map.values()) + 1 + overlaps);
     }
 
     return result;
 };
 
-function makePair(a, b) {
-    return `${a}-${b}`;
-}
+// console.log(maxPoints([new Point(0,0),new Point(0,0)]))
+// console.log(maxPoints([new Point(0,0),new Point(1,1),new Point(0,0)]))
+console.log(maxPoints([new Point(4,0),new Point(4,-1),new Point(4,5)]))
 
-function GCD(a, b) {
-    if (b === 0) {
-        return a;
-    } else {
-        return GCD(b, a % b);
-    }
+function Point(x, y) {
+    this.x = x;
+    this.y = y;
 }
-
-var r = maxPoints([[0,0],[1,0]]);
-console.log(r);

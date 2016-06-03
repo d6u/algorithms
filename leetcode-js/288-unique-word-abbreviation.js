@@ -1,37 +1,39 @@
-/**
- * @constructor
- * @param {string[]} dictionary
- */
-var ValidWordAbbr = function(dictionary) {
-    'use strict';
+class ValidWordAbbr {
+    /**
+     * @constructor
+     * @param {string[]} dictionary
+     */
+    constructor(dictionary) {
+        this.map = new Map();
 
-    this.map = new Map();
-
-    for (let d of dictionary) {
-        const n = d.length;
-        const abbr = d[0] + (n-2).toString() + d[n-1];
-        if (this.map.has(abbr)) {
-            this.map.get(abbr).add(d);
-        } else {
-            this.map.set(abbr, new Set([d]));
+        for (const word of dictionary) {
+            const abbr = word[0] + (word.length - 2).toString() + word[word.length - 1];
+            const words = this.map.get(abbr);
+            if (!words) {
+                this.map.set(abbr, new Set([word]));
+            } else {
+                words.add(word);
+            }
         }
     }
-};
 
-/**
- * @param {string} word
- * @return {bool}
- */
-ValidWordAbbr.prototype.isUnique = function(word) {
-    const n = word.length;
-    const abbr = word[0] + (n-2).toString() + word[n-1];
+    /**
+     * @param {string} word
+     * @return {bool}
+     */
+    isUnique(word) {
+        const abbr = word[0] + (word.length - 2).toString() + word[word.length - 1];
+        const words = this.map.get(abbr);
 
-    if (!this.map.has(abbr)) {
-        return true;
+        if (!words) {
+            return true;
+        } else if (words.has(word)) {
+            return words.size === 1;
+        } else {
+            return false;
+        }
     }
-
-    return (this.map.get(abbr).has(word) ? 1 : 0) === this.map.get(abbr).size;
-};
+}
 
 /**
  * Your ValidWordAbbr object will be instantiated and called as such:

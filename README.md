@@ -71,16 +71,14 @@
 - [036-valid-sudoku.js](./leetcode-js/036-valid-sudoku.js)
 - **TODO** [**037-sudoku-solver.js**](./leetcode-js/037-sudoku-solver.js)
 - [049-group-anagrams.js](./leetcode-js/049-group-anagrams.js)
-- **[076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)**
-- **[085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)**
+- [**076-minimum-window-substring.js**](./leetcode-js/076-minimum-window-substring.js)
+- [**085-maximal-rectangle.js**](./leetcode-js/085-maximal-rectangle.js)
 - [094-binary-tree-inorder-traversal.js](./leetcode-js/094-binary-tree-inorder-traversal.js)
 - [136-single-number.js](./leetcode-js/136-single-number.js)
-- [138-copy-list-with-random-pointer.js](./leetcode-js/138-copy-list-with-random-pointer.js)
-    - skipped
-- [149-max-points-on-a-line.js](./leetcode-js/149-max-points-on-a-line.js)
-    - skipped
-- **[159-longest-substring-with-at-most-two-distinct-characters.js](./leetcode-js/159-longest-substring-with-at-most-two-distinct-characters.js)**
-- **[166-fraction-to-recurring-decimal.js](./leetcode-js/166-fraction-to-recurring-decimal.js)**
+- [**138-copy-list-with-random-pointer.js**](./leetcode-js/138-copy-list-with-random-pointer.js)
+- [**149-max-points-on-a-line.js**](./leetcode-js/149-max-points-on-a-line.js)
+- [**159-longest-substring-with-at-most-two-distinct-characters.js**](./leetcode-js/159-longest-substring-with-at-most-two-distinct-characters.js)
+- [**166-fraction-to-recurring-decimal.js**](./leetcode-js/166-fraction-to-recurring-decimal.js)
 - 170
     - skipped
 - [187-repeated-dna-sequences.js](./leetcode-js/187-repeated-dna-sequences.js)

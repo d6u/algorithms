@@ -3,14 +3,10 @@
  * @return {number}
  */
 var hIndex = function(citations) {
-    citations.sort(function (a, b) {
-       return b - a;
-    });
+    citations.sort((a, b) => b - a);
 
-    var i;
-
-    for (i = 0; i < citations.length; i++) {
-        if (citations[i] >= i + 1) {
+    for (const [i, n] of citations.entries()) {
+        if (n >= i + 1) {
             if (i + 1 < citations.length) {
                 if (citations[i+1] <= i + 1) {
                     return i + 1;
@@ -18,8 +14,11 @@ var hIndex = function(citations) {
             } else {
                 return i + 1;
             }
+        } else {
+            break;
         }
     }
 
     return 0;
 };
+console.log(hIndex([6,5,3,1,0]))

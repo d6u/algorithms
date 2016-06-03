@@ -4,19 +4,20 @@
  * @return {boolean}
  */
 var wordPattern = function(pattern, str) {
-    var words = str.split(' ');
-    var map1 = new Map();
-    var map2 = new Map();
+    const words = str.split(' ');
 
-    if (words.length !== pattern.length) {
+    if (pattern.length !== words.length) {
         return false;
     }
 
-    for (var i = 0; i < words.length; i++) {
-        if (map1.get(pattern[i]) !== map2.get(words[i])) {
+    const map1 = new Map();
+    const map2 = new Map();
+
+    for (const [i, char] of pattern.split('').entries()) {
+        if (map1.get(char) !== map2.get(words[i])) {
             return false;
         }
-        map1.set(pattern[i], i);
+        map1.set(char, i);
         map2.set(words[i], i);
     }
 

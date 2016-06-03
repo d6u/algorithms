@@ -5,23 +5,21 @@
  * @return {number}
  */
 var shortestDistance = function(words, word1, word2) {
-    'use strict';
+    let i1 = -1;
+    let i2 = -1;
+    let minDistance = Infinity;
 
-    let n = words.length;
-    let idx1 = -1;
-    let idx2 = -1;
-    let dist = Number.MAX_VALUE;
-
-    for (let i = 0; i < n; i++) {
-        if (words[i] === word1) {
-            idx1 = i;
-        } else if (words[i] === word2) {
-            idx2 = i;
+    for (const [index, word] of words.entries()) {
+        if (word === word1) {
+            i1 = index;
+        } else if (word === word2) {
+            i2 = index;
         }
-        if (idx1 !== -1 && idx2 !== -1) {
-            dist = Math.min(dist, Math.abs(idx1 - idx2));
+
+        if (i1 !== -1 && i2 !== -1) {
+            minDistance = Math.min(minDistance, Math.abs(i1 - i2));
         }
     }
 
-    return dist;
+    return minDistance;
 };

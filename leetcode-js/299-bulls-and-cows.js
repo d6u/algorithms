@@ -4,31 +4,24 @@
  * @return {string}
  */
 var getHint = function(secret, guess) {
-    var bulls = 0;
-    var cows = 0;
-    var numbers = [
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, 0,
-        0
-    ];
+    let bull = 0;
+    let cow = 0;
+    const map = Array(10).fill(0);
 
-    for (var i = 0; i < secret.length; i++) {
-        var s = parseInt(secret[i]);
-        var g = parseInt(guess[i]);
-        if (s === g) {
-            bulls += 1;
+    for (let i = 0; i < secret.length; i += 1) {
+        if (secret[i] === guess[i]) {
+            bull += 1;
         } else {
-            if (numbers[s] < 0) {
-                cows += 1;
+            if (map[secret[i]] < 0) {
+                cow += 1;
             }
-            if (numbers[g] > 0) {
-                cows += 1;
+            if (map[guess[i]] > 0) {
+                cow += 1;
             }
-            numbers[s] += 1;
-            numbers[g] -= 1;
+            map[secret[i]] += 1;
+            map[guess[i]] -= 1;
         }
     }
 
-    return `${bulls}A${cows}B`;
+    return `${bull}A${cow}B`;
 };

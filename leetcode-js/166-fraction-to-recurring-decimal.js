@@ -3,46 +3,51 @@
  * @param {number} denominator
  * @return {string}
  */
-var fractionToDecimal = function(n, d) {
-    if (n === 0) {
+var fractionToDecimal = function(numerator, denominator) {
+    'use strict';
+
+    if (numerator === 0) {
         return '0';
     }
 
-    var res = [];
+    const result = [];
 
-    if (n < 0 ^ d < 0) {
-        res.push('-');
+    if (numerator < 0 ^ denominator < 0) {
+        result.push('-');
     }
 
-    n = Math.abs(n);
-    d = Math.abs(d);
+    numerator = Math.abs(numerator);
+    denominator = Math.abs(denominator);
 
-    res.push(Math.floor(n / d).toString());
+    result.push(Math.floor(numerator / denominator));
 
-    if (n % d === 0) {
-        return res.join('');
+    if (numerator % denominator === 0) {
+        return result.join('');
     }
 
-    res.push('.');
+    result.push('.');
 
-    var map = new Map();
+    const map = new Map();
+    let remainder = numerator % denominator;
 
-    for (var r = n % d; r; r %= d) {
-        if (map.has(r)) {
-            res.splice(map.get(r), 0, '(');
-            res.push(')');
+    while (remainder) {
+        if (map.has(remainder)) {
+            result.splice(map.get(remainder), 0, '(');
+            result.push(')');
             break;
         }
 
-        map.set(r, res.length);
+        map.set(remainder, result.length);
 
-        r *= 10;
+        remainder *= 10;
 
-        res.push(Math.floor(r / d).toString());
+        result.push(Math.floor(remainder / denominator));
+
+        remainder %= denominator;
     }
 
-    return res.join('');
+    return result.join('');
 };
 
-console.log(fractionToDecimal(1, 6));
-console.log(fractionToDecimal(-2147483648, 1));
+console.log(fractionToDecimal(1, 5));
+// console.log(fractionToDecimal(-2147483648, 1));

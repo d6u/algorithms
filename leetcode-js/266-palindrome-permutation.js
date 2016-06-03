@@ -3,23 +3,26 @@
  * @return {boolean}
  */
 var canPermutePalindrome = function(s) {
-    'use strict';
+    const map = new Map();
 
-    const counts = new Map();
-
-    for (let char of s) {
-        let count = counts.get(char);
-        counts.set(char, count == null ? 1 : count + 1);
+    for (const char of s) {
+        const count = map.get(char);
+        if (count == null) {
+            map.set(char, 1);
+        } else {
+            map.set(char, count + 1);
+        }
     }
 
-    let hasOdd = false;
+    let allowSingle = s.length % 2 === 0 ? false : true;
 
-    for (let count of counts.values()) {
+    for (const count of map.values()) {
         if (count % 2 !== 0) {
-            if (hasOdd) {
+            if (allowSingle) {
+                allowSingle = false;
+            } else {
                 return false;
             }
-            hasOdd = true;
         }
     }
 

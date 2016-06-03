@@ -1,38 +1,45 @@
-/**
- * @constructor
- * @param {string[]} words
- */
-var WordDistance = function(words) {
-    this.wordInd = {};
-    var n = words.length;
-    for (var i = 0; i < n; i++) {
-        this.wordInd[words[i]] ? this.wordInd[words[i]].push(i) : this.wordInd[words[i]] = [i];
-    }
-};
+class WordDistance {
+    /**
+     * @constructor
+     * @param {string[]} words
+     */
+    constructor(words) {
+        this.map = new Map();
 
-/**
- * @param {string} word1
- * @param {string} word2
- * @return {integer}
- */
-WordDistance.prototype.shortest = function(word1, word2) {
-    var indexes1 = this.wordInd[word1];
-    var indexes2 = this.wordInd[word2];
-    var m = indexes1.length;
-    var n = indexes2.length;
-    var i = 0;
-    var j = 0;
-    var dist = Number.MAX_VALUE;
-    while (i < m && j < n) {
-        dist = Math.min(dist, Math.abs(indexes1[i] - indexes2[j]));
-        if (indexes1[i] < indexes2[j]) {
-            i += 1;
-        } else {
-            j += 1;
+        for (const [index, word] of words.entries()) {
+            const indices = this.map.get(word);
+            if (!indices) {
+                this.map.set(word, [index]);
+            } else {
+                indices.push(index);
+            }
         }
     }
-    return dist;
-};
+
+    /**
+     * @param {string} word1
+     * @param {string} word2
+     * @return {integer}
+     */
+    shortest(word1, word2) {
+        const indices1 = this.map.get(word1);
+        const indices2 = this.map.get(word2);
+        let minDistance = Infinity;
+        let i1 = 0;
+        let i2 = 0;
+
+        while (i1 < indices1.length && i2 < indices2.length) {
+            minDistance = Math.min(minDistance, Math.abs(indices1[i1] - indices2[i2]));
+            if (indices1[i1] < indices2[i2]) {
+                i1 += 1;
+            } else {
+                i2 += 1;
+            }
+        }
+
+        return minDistance;
+    }
+}
 
 /**
  * Your WordDistance object will be instantiated and called as such:

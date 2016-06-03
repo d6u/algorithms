@@ -4,19 +4,15 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    'use strict';
-
     if (s.length !== t.length) {
         return false;
     }
 
-    let countsS = countChar(s);
-    let countsT = countChar(t);
+    const map1 = countChars(s);
+    const map2 = countChars(t);
 
-    for (let pair of countsS.entries()) {
-        let char = pair[0];
-        let count = pair[1];
-        if (countsT.get(char) !== count) {
+    for (const [char, count] of map1.entries()) {
+        if (map2.get(char) !== count) {
             return false;
         }
     }
@@ -24,15 +20,17 @@ var isAnagram = function(s, t) {
     return true;
 };
 
-function countChar(str) {
-    'use strict';
+function countChars(str) {
+    const map = new Map();
 
-    let counts = new Map();
-
-    for (let char of str) {
-        let count = counts.get(char);
-        counts.set(char, count == null ? 1 : count + 1);
+    for (const c of str) {
+        const count = map.get(c);
+        if (count == null) {
+            map.set(c, 1);
+        } else {
+            map.set(c, count + 1);
+        }
     }
 
-    return counts;
+    return map;
 }
