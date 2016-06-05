@@ -4,22 +4,25 @@
  * @return {number}
  */
 var threeSumClosest = function(nums, target) {
-    'use strict';
+    if (nums.length < 3) {
+        return [];
+    }
 
     nums.sort((a, b) => a - b);
 
     let minDiff = Infinity;
 
-    for (let i = 0; i < nums.length - 2; i++) {
+    for (let i = 0; i < nums.length; i += 1) {
         let left = i + 1;
         let right = nums.length - 1;
+
         while (left < right) {
-            let diff = nums[i] + nums[left] + nums[right] - target;
+            const diff = nums[i] + nums[left] + nums[right] - target;
             if (Math.abs(diff) < Math.abs(minDiff)) {
                 minDiff = diff;
             }
             if (diff === 0) {
-                break;
+                return target;
             } else if (diff < 0) {
                 left += 1;
             } else {

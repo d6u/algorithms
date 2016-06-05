@@ -1,59 +1,89 @@
+const OPERATORS = {
+    '+': 1,
+    '-': 1,
+    '*': 2,
+    '/': 2,
+    '(': 3,
+    ')': 3,
+};
+
 /**
  * @param {string} s
  * @return {number}
  */
 var calculate = function(s) {
-  var stack = [];
-  var i;
-  var c;
-  var calcArr;
-  var top;
-  for (i = 0; i < s.length; i += 1) {
-    c = s[i];
-    if (c === ' ') continue;
-    if (c === ')') {
-      calcArr = [];
-      while (stack.length) {
-        top = stack.pop();
-        if (top === '(') break;
-        calcArr.unshift(top);
-      }
-      stack.push(calcExp(calcArr));
-      continue;
+    const opStack = [];
+    // reverse polish notation
+    const rpn = [];
+
+    for (const _p of s.split(/([+\-*/()])/)) {
+        const p = _p.trim();
+
+        if (!p) {
+            continue;
+        }
+
+        if (OPERATORS[p]) {
+            if (!opStack.length) {
+                opStack.push(p);
+            } else if (p === '(') {
+                opStack.push(p);
+            } else if (p === ')') {
+                let operator = opStack.pop();
+                while (operator !== '(') {
+                    rpn.push(operator);
+                    operator = opStack.pop();
+                }
+            } else if (opStack[opStack.length-1] === '(' ||
+                OPERATORS[p] > OPERATORS[opStack[opStack.length-1]]) {
+
+                opStack.push(p);
+            } else {
+                rpn.push(opStack.pop());
+                opStack.push(p);
+            }
+        } else {
+            rpn.push(p);
+        }
     }
-    stack.push(c);
-  }
-  return calcExp(stack);
+
+    while (opStack.length) {
+        rpn.push(opStack.pop());
+    }
+
+    return evalRPN(rpn);
 };
 
-function calcExp(arr) {
-  var result = 0;
-  var operator = '+';
-  var n = 0;
-  var c;
-  while (arr.length) {
-    c = arr.shift();
-    if (c !== '+' && c !== '-') {
-      n = n * 10 + parseInt(c, 10);
-    }
-    else {
-      result = calc(result, n, operator);
-      operator = c;
-      n = 0;
-    }
-  }
-  return calc(result, n, operator);
-}
+/**
+ * @param {string[]} tokens
+ * @return {number}
+ */
+var evalRPN = function(tokens) {
+    const stack = [];
 
-function calc(a, b, operation) {
-  switch (operation) {
-    case '+':
-      return a + b;
-    case '-':
-      return a - b;
-    default:
-      return null;
-  }
-}
+    for (const token of tokens) {
+        if (token !== '+' && token !== '-' && token !== '*' && token !== '/') {
+            stack.push(parseInt(token));
+        } else {
+            const right = stack.pop();
+            const left = stack.pop();
 
-console.log(calculate(" 2-1 + 2 "));
+            switch (token) {
+            case '+':
+                stack.push(left + right);
+                break;
+            case '-':
+                stack.push(left - right);
+                break;
+            case '*':
+                stack.push(left * right);
+                break;
+            case '/':
+                stack.push(Math.trunc(left / right));
+                break;
+            }
+        }
+    }
+
+    return stack[0];
+};

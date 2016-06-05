@@ -10,38 +10,42 @@
  * @return {number[][]}
  */
 var zigzagLevelOrder = function(root) {
-  if (!root) return [];
-
-  var current = [root];
-  var next;
-  var r = [];
-  var rc;
-  var i;
-  var fromLeft = true;
-  var node;
-
-  while (current.length) {
-    next = [];
-    rc = [];
-
-    for (i = 0; i < current.length; i++) {
-      node = current[i];
-
-      if (fromLeft) {
-        node.left && next.unshift(node.left);
-        node.right && next.unshift(node.right);
-      } else {
-        node.right && next.unshift(node.right);
-        node.left && next.unshift(node.left);
-      }
-
-      rc.push(node.val);
+    if (!root) {
+        return [];
     }
 
-    r.push(rc);
-    current = next;
-    fromLeft = !fromLeft;
-  }
+    const result = [];
+    let stack = [root];
+    let fromLeft = true;
 
-  return r;
+    while (stack.length) {
+        const currentStack = stack.slice();
+        stack = [];
+        const currentRow = [];
+
+        for (let i = currentStack.length - 1; i >= 0; i -= 1) {
+            const node = currentStack[i];
+            currentRow.push(node.val);
+            if (fromLeft) {
+                if (node.left) {
+                    stack.push(node.left);
+                }
+                if (node.right) {
+                    stack.push(node.right);
+                }
+            } else {
+                if (node.right) {
+                    stack.push(node.right);
+                }
+                if (node.left) {
+                    stack.push(node.left);
+                }
+            }
+        }
+
+        result.push(currentRow);
+        fromLeft = !fromLeft;
+    }
+
+    return result;
 };

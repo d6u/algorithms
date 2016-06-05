@@ -3,19 +3,22 @@
  * @return {number}
  */
 var maxArea = function(height) {
-  if (height.length === 0 || height.length === 1) return 0;
-  var p1 = 0;
-  var p2 = height.length - 1;
-  var area = 0;
-
-  while (p1 < p2) {
-    area = Math.max(Math.min(height[p1], height[p2]) * (p2 - p1), area);
-    if (height[p1] > height[p2]) {
-      p2 -= 1;
-    } else {
-      p1 += 1;
+    if (height.length === 0 || height.length === 1) {
+        return 0;
     }
-  }
 
-  return area;
+    let left = 0;
+    let right = height.length - 1;
+    let area = 0;
+
+    while (left < right) {
+        area = Math.max(area, Math.min(height[left], height[right]) * (right - left));
+        if (height[left] > height[right]) {
+            right -= 1;
+        } else {
+            left += 1;
+        }
+    }
+
+    return area;
 };

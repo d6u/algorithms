@@ -3,17 +3,14 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    if (nums.length === 0 || nums.length === 1) return nums.length;
+    let currentIndex = 0;
 
-    var i1 = 0;
-    var i2;
-
-    for (i2 = 1; i2 < nums.length; i2++) {
-        if (nums[i1] !== nums[i2]) {
-            i1 += 1;
-            nums[i1] = nums[i2];
+    for (let i = 1; i < nums.length; i += 1) {
+        if (nums[currentIndex] !== nums[i]) {
+            currentIndex += 1;
+            nums[currentIndex] = nums[i];
         }
     }
 
-    return i1 + 1;
+    return currentIndex + 1;
 };

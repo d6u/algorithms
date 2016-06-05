@@ -2,8 +2,7 @@
  * @constructor
  */
 var Queue = function() {
-    this.input = [];
-    this.output = [];
+    this.stack = [];
 };
 
 /**
@@ -11,33 +10,33 @@ var Queue = function() {
  * @returns {void}
  */
 Queue.prototype.push = function(x) {
-    this.input.push(x);
+    const tmpStack = [];
+    while (this.stack.length) {
+        tmpStack.push(this.stack.pop());
+    }
+    this.stack.push(x);
+    while (tmpStack.length) {
+        this.stack.push(tmpStack.pop());
+    }
 };
 
 /**
  * @returns {void}
  */
 Queue.prototype.pop = function() {
-    this.peek();
-    this.output.pop();
+    return this.stack.pop();
 };
 
 /**
  * @returns {number}
  */
 Queue.prototype.peek = function() {
-    if (this.output.length === 0) {
-        while (this.input.length) {
-            this.output.push(this.input[this.input.length-1]);
-            this.input.pop();
-        }
-    }
-    return this.output[this.output.length-1];
+    return this.stack[this.stack.length-1];
 };
 
 /**
  * @returns {boolean}
  */
 Queue.prototype.empty = function() {
-    return this.input.length === 0 && this.output.length === 0;
+    return this.stack.length === 0;
 };

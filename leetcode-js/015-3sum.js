@@ -3,33 +3,26 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-    return solveThreeSum(nums, 0);
-};
-
-function solveThreeSum(nums, target) {
-    var solutions = [];
-
-    if (nums.length < 3) return solutions;
+    if (nums.length < 3) {
+        return [];
+    }
 
     nums.sort((a, b) => a - b);
 
-    var i;
-    var left;
-    var right;
-    var curTarget;
-    var sum;
+    const result = [];
 
-    for (i = 0; i < nums.length - 2; i++) {
+    for (let i = 0; i < nums.length - 2; i += 1) {
         if (i > 0 && nums[i] === nums[i-1]) {
             continue;
         }
-        left = i + 1;
-        right = nums.length - 1;
-        curTarget = target - nums[i];
+
+        let left = i + 1;
+        let right = nums.length - 1;
+        const target = 0 - nums[i];
+
         while (left < right) {
-            sum = nums[left] + nums[right];
-            if (sum === curTarget) {
-                solutions.push([nums[i], nums[left], nums[right]]);
+            if (nums[left] + nums[right] === target) {
+                result.push([nums[i], nums[left], nums[right]]);
                 left += 1;
                 right -= 1;
                 while (nums[left] === nums[left-1]) {
@@ -38,7 +31,7 @@ function solveThreeSum(nums, target) {
                 while (nums[right] === nums[right+1]) {
                     right -= 1;
                 }
-            } else if (sum < curTarget) {
+            } else if (nums[left] + nums[right] < target) {
                 left += 1;
             } else {
                 right -= 1;
@@ -46,5 +39,5 @@ function solveThreeSum(nums, target) {
         }
     }
 
-    return solutions;
-}
+    return result;
+};

@@ -3,32 +3,29 @@
  * @return {number}
  */
 var trap = function(height) {
-    'use strict';
-
-    let n = height.length;
+    let maxLeftHeight = 0;
+    let maxRightHeight = 0;
     let left = 0;
-    let right = n - 1;
-    let res = 0;
-    let maxleft = 0;
-    let maxright = 0;
+    let right = height.length - 1;
+    let result = 0;
 
     while (left <= right) {
         if (height[left] <= height[right]) {
-            if (height[left] >= maxleft) {
-                maxleft = height[left];
+            if (height[left] >= maxLeftHeight) {
+                maxLeftHeight = height[left];
             } else {
-                res += maxleft - height[left];
+                result += maxLeftHeight - height[left];
             }
             left += 1;
         } else {
-            if (height[right] >= maxright) {
-                maxright = height[right];
+            if (height[right] >= maxRightHeight) {
+                maxRightHeight = height[right];
             } else {
-                res += maxright - height[right];
+                result += maxRightHeight - height[right];
             }
             right -= 1;
         }
     }
 
-    return res;
+    return result;
 };

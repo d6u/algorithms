@@ -3,14 +3,11 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var nextPermutation = function(nums) {
-    'use strict';
-
     if (nums.length <= 1) {
         return;
     }
 
-    const len = nums.length;
-    let i = len - 2;
+    let i = nums.length - 2;
 
     while (i >= 0 && nums[i] >= nums[i+1]) {
         i -= 1;
@@ -23,7 +20,7 @@ var nextPermutation = function(nums) {
 
     let j = i + 1;
 
-    while (j < len && nums[j] > nums[i]) {
+    while (j < nums.length && nums[j] > nums[i]) {
         j += 1;
     }
 
@@ -35,5 +32,5 @@ var nextPermutation = function(nums) {
 
     const partial = nums.slice(i+1).sort((a, b) => a - b);
 
-    nums.splice.apply(nums, [i+1, partial.length].concat(partial));
+    nums.splice(i + 1, partial.length, ...partial);
 };

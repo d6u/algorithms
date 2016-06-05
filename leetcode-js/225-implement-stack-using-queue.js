@@ -2,7 +2,7 @@
  * @constructor
  */
 var Stack = function() {
-  this.queue = [];
+    this.queue = [];
 };
 
 /**
@@ -10,29 +10,29 @@ var Stack = function() {
  * @returns {void}
  */
 Stack.prototype.push = function(x) {
-  this.queue.push(x);
-  for (var i = 0; i < this.queue.length - 1; i++) {
-    this.queue.push(this.queue.shift());
-  }
+    this.queue.push(x);
+    for (let i = 0; i < this.queue.length - 1; i += 1) {
+        this.queue.push(this.queue.shift());
+    }
 };
 
 /**
  * @returns {void}
  */
 Stack.prototype.pop = function() {
-  return this.queue.shift();
+    return this.queue.shift();
 };
 
 /**
  * @returns {number}
  */
 Stack.prototype.top = function() {
-  return this.queue[0];
+    return this.queue[0];
 };
 
 /**
  * @returns {boolean}
  */
 Stack.prototype.empty = function() {
-  return this.queue.length === 0;
+    return this.queue.length === 0;
 };
