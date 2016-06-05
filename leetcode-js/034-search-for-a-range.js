@@ -4,37 +4,34 @@
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-    var i = 0;
-    var j = nums.length - 1;
-    var ret = [-1, -1];
+    let left = 0;
+    let right = nums.length - 1;
 
-    while (i < j) {
-        var mid = Math.floor((i + j) / 2);
-        if (nums[mid] < target) {
-            i = mid + 1;
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (target > nums[mid]) {
+            left = mid + 1;
         } else {
-            j = mid;
+            right = mid - 1;
         }
     }
 
-    if (nums[i] !== target) {
-        return ret;
+    if (nums[left] !== target) {
+        return [-1, -1];
     }
 
-    ret[0] = i;
+    const leftIndex = left;
 
-    j = nums.length - 1;
+    right = nums.length - 1;
 
-    while (i < j) {
-        var mid = Math.ceil((i + j) / 2);
+    while (left <= right) {
+        const mid = Math.ceil((left + right) / 2);
         if (target < nums[mid]) {
-            j = mid - 1;
+            right = mid - 1;
         } else {
-            i = mid;
+            left = mid + 1;
         }
     }
 
-    ret[1] = j;
-
-    return ret;
+    return [leftIndex, right];
 };

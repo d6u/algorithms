@@ -1,0 +1,6 @@
+1. [binary-search.js](./binary-search.js)
+2. [035-search-insert-position.js](./leetcode-js/035-search-insert-position.js)
+3. [033-search-in-rotated-sorted-array.js](./leetcode-js/033-search-in-rotated-sorted-array.js)
+4. [081-search-in-rotated-sorted-array-ii.js](./leetcode-js/081-search-in-rotated-sorted-array-ii.js)
+5. [034-search-for-a-range.js](./leetcode-js/034-search-for-a-range.js)
+6. [004-median-of-two-sorted-arrays.js](./leetcode-js/004-median-of-two-sorted-arrays.js)

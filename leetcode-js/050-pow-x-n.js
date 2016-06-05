@@ -4,15 +4,23 @@
  * @return {number}
  */
 var myPow = function(x, n) {
-    return n < 0 ? 1 / _pow(x, -n) : _pow(x, n);
+    if (n < 0) {
+        return 1 / pow(x, -n);
+    } else {
+        return pow(x, n);
+    }
 };
 
-function _pow(x, n) {
+function pow(x, n) {
     if (n === 0) {
         return 1;
     }
 
-    var v = _pow(x, Math.floor(n / 2));
+    const val = pow(x, Math.floor(n / 2));
 
-    return n % 2 === 0 ? v * v : v * v * x;
+    if (n % 2 === 0) {
+        return val * val;
+    } else {
+        return val * val * x;
+    }
 }
