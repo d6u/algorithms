@@ -4,22 +4,22 @@
  * @return {number}
  */
 var minSubArrayLen = function(s, nums) {
-    var start = 0;
-    var end = 0;
-    var sum = 0;
-    var l = nums.length + 1;
+    let left = 0;
+    let right = 0;
+    let sum = 0;
+    let len = nums.length + 1;
 
-    while (end < nums.length) {
-        while (end < nums.length && sum < s) {
-            sum += nums[end];
-            end += 1;
+    while (right < nums.length) {
+        while (right < nums.length && sum < s) {
+            sum += nums[right];
+            right += 1;
         }
-        while (start < end && sum >= s) {
-            l = Math.min(l, end - start);
-            sum -= nums[start];
-            start += 1;
+        while (left < right && sum >= s) {
+            len = Math.min(len, right - left);
+            sum -= nums[left];
+            left += 1;
         }
     }
 
-    return l > nums.length ? 0 : l;
+    return len === nums.length + 1 ? 0 : len;
 };

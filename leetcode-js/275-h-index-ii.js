@@ -3,18 +3,17 @@
  * @return {number}
  */
 var hIndex = function(citations) {
-    var i;
-    var len = citations.length;
-
-    for (i = len - 1; i >= 0; i--) {
-        if (citations[i] >= len - i) {
-            if (i - 1 >= 0) {
-                if (citations[i-1] <= len - i) {
-                    return len - i;
+    for (let i = citations.length - 1; i >= 0; i -= 1) {
+        if (citations[i] >= citations.length - i) {
+            if (i > 0) {
+                if (citations[i-1] <= citations.length - i) {
+                    return citations.length - i;
                 }
             } else {
-                return len - i;
+                return citations.length;
             }
+        } else {
+            break;
         }
     }
 

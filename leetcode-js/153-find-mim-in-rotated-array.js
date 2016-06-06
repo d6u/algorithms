@@ -3,23 +3,18 @@
  * @return {number}
  */
 var findMin = function(nums) {
-  var p1 = 0;
-  var p2 = nums.length - 1;
-  var m;
+    let left = 0;
+    let right = nums.length - 1;
 
-  if (nums[p1] < nums[p2]) {
-    return nums[p1];
-  }
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
 
-  while (1) {
-    if (p1 === p2) return nums[p1];
-    if (p2 - p1 === 1) return Math.min(nums[p1], nums[p2]);
-    m = (p1 + p2) / 2 | 0;
-    if (nums[p1] > nums[m]) {
-      p2 = m;
+        if (nums[mid] < nums[right]) {
+            right = mid;
+        } else {
+            left = mid + 1;
+        }
     }
-    else {
-      p1 = m;
-    }
-  }
+
+    return nums[left];
 };

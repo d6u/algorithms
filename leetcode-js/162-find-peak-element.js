@@ -1,21 +1,20 @@
 /**
- * @param  {number[]} nums
+ * @param {number[]} nums
  * @return {number}
  */
 var findPeakElement = function(nums) {
-  if (nums.length === 1) return 0;
-  var p1 = 0;
-  var p2 = nums.length - 1;
-  var m;
+    let left = 0;
+    let right = nums.length - 1;
 
-  while (p1 < p2) {
-    m = (p1 + p2) >> 1;
-    if (nums[m] < nums[m+1]) {
-      p1 = m + 1;
-    } else {
-      p2 = m;
+    while (left < right) {
+        const mid = Math.floor((left + right) / 2);
+
+        if (nums[mid] < nums[mid+1]) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
     }
-  }
 
-  return p1;
+    return left;
 };

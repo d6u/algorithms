@@ -1,30 +1,21 @@
 /**
- * @param  {number[][]} matrix
- * @param  {number}     target
+ * @param {number[][]} matrix
+ * @param {number} target
  * @return {boolean}
  */
-var searchMatrix = function (matrix, target) {
-  var n = matrix.length;
-  var m = matrix[0].length;
+var searchMatrix = function(matrix, target) {
+    let row = 0;
+    let col = matrix[0].length - 1;
 
-  if (target < matrix[0][0] || target > matrix[n-1][m-1]) {
-    return false;
-  }
-
-  var row = 0;
-  var col = m - 1;
-
-  while (col >= 0 && row < n) {
-    if (matrix[row][col] < target) {
-      row += 1;
-    } else if (matrix[row][col] > target) {
-      col -= 1;
-    } else {
-      return true;
+    while (row < matrix.length && col >= 0) {
+        if (matrix[row][col] === target) {
+            return true;
+        } else if (target < matrix[row][col]) {
+            col -= 1;
+        } else {
+            row += 1;
+        }
     }
-  }
 
-  return false;
+    return false;
 };
-
-console.log(searchMatrix([[-1,3]], 1));

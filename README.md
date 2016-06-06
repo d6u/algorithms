@@ -211,7 +211,7 @@
 - [154-find-minimum-in-rotated-sorted-array-ii.js](./leetcode-js/154-find-minimum-in-rotated-sorted-array-ii.js)
 - [162-find-peak-element.js](./leetcode-js/162-find-peak-element.js)
 - 163
-- 167
+- [167-two-sum-ii-input-array-is-sorted.js](./leetcode-js/167-two-sum-ii-input-array-is-sorted.js)
 - [169-majority-element.js](./leetcode-js/169-majority-element.js)
 - [189-rotate-array.js](./leetcode-js/189-rotate-array.js)
 - [209-minimum-size-subarray-sum.js](./leetcode-js/209-minimum-size-subarray-sum.js)
@@ -228,8 +228,9 @@
 - [277-find-the-celebrity.js](./leetcode-js/277-find-the-celebrity.js)
 - [280-wiggle-sort.js](./leetcode-js/280-wiggle-sort.js)
 - [283-move-zeroes.js](./leetcode-js/283-move-zeroes.js)
-- [287-find-the-duplicate-number.js](./leetcode-js/287-find-the-duplicate-number.js)
+- [**287-find-the-duplicate-number.js**](./leetcode-js/287-find-the-duplicate-number.js)
 - [289-game-of-life.js](./leetcode-js/289-game-of-life.js)
+- **TODO** [302-smallest-rectangle-enclosing-black-pixels.js](./leetcode-js/302-smallest-rectangle-enclosing-black-pixels.js)
 
 ### Tree
 
