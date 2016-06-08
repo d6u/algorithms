@@ -5,14 +5,14 @@
  */
 var combinationSum = function(candidates, target) {
     candidates.sort((a, b) => a - b);
-    var results = [];
-    getResults(candidates, 0, target, [], 0, results);
-    return results;
+    const result = [];
+    _combinationSum(candidates, 0, 0, target, [], result);
+    return result;
 };
 
-function getResults(candidates, n, target, solution, sum, results) {
+function _combinationSum(candidates, index, sum, target, solution, result) {
     if (sum === target) {
-        results.push(solution);
+        result.push(solution);
         return;
     }
 
@@ -20,17 +20,14 @@ function getResults(candidates, n, target, solution, sum, results) {
         return;
     }
 
-    var i;
-
-    for (i = n; i < candidates.length; i++) {
-        if (sum + candidates[i] <= target) {
-            getResults(
-              candidates,
-              i,
-              target,
-              solution.concat([candidates[i]]),
-              sum + candidates[i],
-              results);
-        }
+    for (let i = index; i < candidates.length; i += 1) {
+        _combinationSum(
+            candidates,
+            i,
+            sum + candidates[i],
+            target,
+            solution.concat(candidates[i]),
+            result
+        );
     }
 }

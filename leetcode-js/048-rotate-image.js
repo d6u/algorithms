@@ -1,27 +1,23 @@
 /**
- * @param  {number[][]} matrix
- * @return {void}       Do not return anything, modify matrix in-place instead.
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
  */
 var rotate = function(matrix) {
-  var l = matrix.length;
+    const len = matrix.length;
 
-  var y;
-  var x;
-  var t;
-
-  for (y = 0; y < l - 1; y++) {
-    for (x = 0; x < l - y; x++) {
-      t = matrix[y][x];
-      matrix[y][x] = matrix[l - x - 1][l - y - 1];
-      matrix[l - x - 1][l - y - 1] = t;
+    for (let y = 0; y < len - 1; y += 1) {
+        for (let x = 0; x < len - y - 1; x += 1) {
+            const tmp = matrix[y][x];
+            matrix[y][x] = matrix[len - 1 - x][len - 1 - y];
+            matrix[len - 1 - x][len - 1 - y] = tmp;
+        }
     }
-  }
 
-  for (y = 0; y < l / 2 | 0; y++) {
-    for (x = 0; x < l; x++) {
-      t = matrix[y][x];
-      matrix[y][x] = matrix[l - y - 1][x];
-      matrix[l - y - 1][x] = t;
+    for (let y = 0; y < Math.floor(len / 2); y += 1) {
+        for (let x = 0; x < len; x += 1) {
+            const tmp = matrix[y][x];
+            matrix[y][x] = matrix[len - 1 - y][x];
+            matrix[len - 1 - y][x] = tmp;
+        }
     }
-  }
 };

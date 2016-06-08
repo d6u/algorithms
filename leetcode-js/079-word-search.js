@@ -4,13 +4,18 @@
  * @return {boolean}
  */
 var exist = function(board, word) {
-    var visited = makeArray(board.length, () => makeArray(board[0].length, false));
-    var x;
-    var y;
+    const visited = [];
 
-    for (y = 0; y < board.length; y++) {
-        for (x = 0; x < board[0].length; x++) {
-            if (findWord(x, y, board, 0, word, visited)) {
+    for (let i = 0; i < board.length; i += 1) {
+        visited[i] = [];
+        for (let j = 0; j < board[0].length; j += 1) {
+            visited[i][j] = false;
+        }
+    }
+
+    for (let i = 0; i < board.length; i += 1) {
+        for (let j = 0; j < board[0].length; j += 1) {
+            if (findWord(board, word, i, j, 0, visited)) {
                 return true;
             }
         }
@@ -19,29 +24,60 @@ var exist = function(board, word) {
     return false;
 };
 
-function findWord(x, y, board, i, word, visited) {
-    if (i === word.length) return true;
+function findWord(board, word, i, j, index, visited) {
+    if (index === word.length) {
+        return true;
+    }
 
-    if (x < 0 || x >= board[0].length || y < 0 || y >= board.length ||
-        visited[y][x] || board[y][x] !== word[i]) {
+    if (i < 0 || i >= board.length || j < 0 || j >= board[0].length || word[index] !== board[i][j] || visited[i][j]) {
         return false;
     }
 
-    visited[y][x] = true;
-    if (findWord(x+1, y, board, i+1, word, visited)) return true;
-    if (findWord(x-1, y, board, i+1, word, visited)) return true;
-    if (findWord(x, y+1, board, i+1, word, visited)) return true;
-    if (findWord(x, y-1, board, i+1, word, visited)) return true;
-    visited[y][x] = false;
+    visited[i][j] = true;
+    if (findWord(board, word, i+1, j, index + 1, visited) ||
+        findWord(board, word, i, j+1, index + 1, visited) ||
+        findWord(board, word, i-1, j, index + 1, visited) ||
+        findWord(board, word, i, j-1, index + 1, visited)) {
+
+        return true;
+    }
+    visited[i][j] = false;
 
     return false;
 }
 
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
-}
+console.log(exist(
+    [
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+    ],
+    "baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+))

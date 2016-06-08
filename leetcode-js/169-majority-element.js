@@ -3,20 +3,19 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-    var l = nums.length;
-    var m;
-    var c = 0;
-    for (var i = 0; i < l; i++) {
-        if (c === 0) {
-            m = nums[i];
-        }
+    let count = 0;
+    let majority;
 
-        if (nums[i] === m) {
-            c += 1;
+    for (const n of nums) {
+        if (count === 0) {
+            majority = n;
+        }
+        if (majority === n) {
+            count += 1;
         } else {
-            c -= 1;
+            count -= 1;
         }
     }
 
-    return m;
+    return majority;
 };

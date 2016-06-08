@@ -3,22 +3,17 @@
  * @return {number[][]}
  */
 var generate = function(numRows) {
-    var r = [];
-    var row = [];
-    var newRow;
-    var i = 0;
-    var j;
-    while (i < numRows) {
-        i += 1;
+    const result = [];
+    let lastRow = [];
 
-        j = 1;
-        newRow = [1];
-        while (j < i) {
-            newRow.push(row[j - 1] + (row[j] || 0));
-            j += 1;
+    for (let i = 0; i < numRows; i += 1) {
+        const row = [1];
+        for (let j = 1; j < i + 1; j += 1) {
+            row.push(lastRow[j-1] + (lastRow[j] || 0));
         }
-        r.push(newRow);
-        row = newRow;
+        result.push(row);
+        lastRow = row;
     }
-    return r;
+
+    return result;
 };
