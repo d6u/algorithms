@@ -3,23 +3,22 @@
  * @return {number[]}
  */
 var getRow = function(rowIndex) {
-    if (rowIndex === 0) return [1];
+    if (rowIndex === 0) {
+        return [1];
+    }
 
-    var p = [1];
-    var r = [1];
-    var i = 1;
-    var j;
+    let result = [1];
+    let row = [1];
+    let i = 1;
 
     while (i <= rowIndex) {
-        j = 0;
-        while (j < i) {
-            r.push(p[j] + (p[j + 1] || 0));
-            j += 1;
+        for (let j = 0; j < i; j += 1) {
+            row.push(result[j] + (result[j+1] || 0));
         }
-        p = r;
-        r = [1];
+        result = row;
+        row = [1];
         i += 1;
     }
 
-    return p;
+    return result;
 };

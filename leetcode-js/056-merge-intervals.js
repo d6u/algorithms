@@ -16,21 +16,20 @@ var merge = function(intervals) {
 
     intervals.sort((a, b) => a.start - b.start);
 
-    var results = [];
-    var start = intervals[0].start;
-    var end = intervals[0].end;
+    const result = [];
+    let {start, end} = intervals[0];
 
-    for (var interval of intervals) {
+    for (const interval of intervals) {
         if (interval.start <= end) {
             end = Math.max(end, interval.end);
         } else {
-            results.push(new Interval(start, end));
+            result.push(new Interval(start, end));
             start = interval.start;
             end = interval.end;
         }
     }
 
-    results.push(new Interval(start, end));
+    result.push(new Interval(start, end));
 
-    return results;
+    return result;
 };

@@ -3,9 +3,11 @@
  * @return {boolean}
  */
 var canJump = function(nums) {
-  var i = 0;
-  for (var reach = 0; i < nums.length && i <= reach; i++) {
-    reach = Math.max(reach, i + nums[i]);
-  }
-  return i === nums.length;
+    let i = 0;
+
+    for (let reach = 0; i <= reach && i < nums.length; i += 1) {
+        reach = Math.max(reach, i + nums[i]);
+    }
+
+    return i === nums.length;
 };

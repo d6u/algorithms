@@ -5,18 +5,15 @@
 var subsets = function(nums) {
     nums.sort((a, b) => a - b);
 
-    var results = [[]];
-    var i;
-    var j;
-    var tmp;
+    let result = [[]];
 
-    for (i = 0; i < nums.length; i++) {
-        tmp = [];
-        for (j = 0; j < results.length; j++) {
-            tmp.push(results[j].concat([nums[i]]));
+    for (const n of nums) {
+        const tmp = [];
+        for (const r of result) {
+            tmp.push(r.concat(n));
         }
-        results = results.concat(tmp);
+        result = result.concat(tmp);
     }
 
-    return results;
+    return result;
 };
