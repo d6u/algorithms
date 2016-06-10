@@ -3,26 +3,23 @@
  * @return {void} Do not return anything, modify board in-place instead.
  */
 var gameOfLife = function(board) {
-    var m = board.length;
-    var n = m ? board[0].length : 0;
-
-    for (var i = 0; i < m; i++) {
-        for (var j = 0; j < n; j++) {
-            var count = -board[i][j];
-            for (var I = Math.max(i-1, 0); I < Math.min(i+2, m); I++) {
-                for (var J = Math.max(j-1, 0); J < Math.min(j+2, n); J++) {
-                    count += board[I][J] & 1;
+    for (let y = 0; y < board.length; y += 1) {
+        for (let x = 0; x < board[0].length; x += 1) {
+            let count = -board[y][x];
+            for (let y1 = Math.max(0, y-1); y1 < Math.min(board.length, y+2); y1 += 1) {
+                for (let x1 = Math.max(0, x-1); x1 < Math.min(board[0].length, x+2); x1 += 1) {
+                    count += board[y1][x1] & 0b1;
                 }
             }
-            if ((count | board[i][j]) === 3) {
-                board[i][j] |= 2;
+            if ((count | board[y][x]) === 0b11) {
+                board[y][x] |= 0b10;
             }
         }
     }
 
-    for (i = 0; i < m; i++) {
-        for (j = 0; j < n; j++) {
-            board[i][j] >>= 1;
+    for (let y = 0; y < board.length; y += 1) {
+        for (let x = 0; x < board[0].length; x += 1) {
+            board[y][x] >>= 1;
         }
     }
 };

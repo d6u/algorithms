@@ -4,26 +4,24 @@
  * @return {number[][]}
  */
 var combinationSum3 = function(k, n) {
-    var results = [];
-    getResults(1, k, n, [], 0, results);
-    return results;
+    const result = [];
+    getResult(k, n, 1, 0, [], result);
+    return result;
 };
 
-function getResults(index, k, n, solution, sum, results) {
+function getResult(k, n, index, sum, solution, result) {
     if (solution.length === k) {
         if (sum === n) {
-            results.push(solution);
+            result.push(solution);
         }
         return;
     }
 
-    if (sum > n) {
+    if (sum >= n) {
         return;
     }
 
-    var i;
-
-    for (i = index; i < 10; i++) {
-        getResults(i+1, k, n, solution.concat(i), sum+i, results);
+    for (let i = index; i < 10; i += 1) {
+        getResult(k, n, i + 1, sum + i, solution.concat(i), result);
     }
 }

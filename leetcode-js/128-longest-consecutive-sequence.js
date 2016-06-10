@@ -3,23 +3,24 @@
  * @return {number}
  */
 var longestConsecutive = function(nums) {
-    var res = 0;
-    var map = {};
+    let result = 0;
+    const map = new Map();
 
-    for (var n of nums) {
-        if (map[n] == null) {
-            var left = map[n-1] != null ? map[n-1] : 0;
-            var right = map[n+1] != null ? map[n+1] : 0;
-            var sum = left + right + 1;
+    for (const n of nums) {
+        if (!map.has(n)) {
+            const left = map.has(n-1) ? map.get(n-1) : 0;
+            const right = map.has(n+1) ? map.get(n+1) : 0;
+            const sum = left + 1 + right;
 
-            map[n] = sum;
+            map.set(n, sum);
+            map.set(n-left, sum);
+            map.set(n+right, sum);
 
-            res = Math.max(res, sum);
-
-            map[n-left] = sum;
-            map[n+right] = sum;
+            result = Math.max(result, sum);
         }
     }
 
-    return res;
+    return result;
 };
+
+console.log(longestConsecutive([1,2,3,2]))

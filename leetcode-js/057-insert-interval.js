@@ -11,11 +11,11 @@
  * @return {Interval[]}
  */
 var insert = function(intervals, newInterval) {
-    var results = [];
-    var i = 0;
+    const result = [];
+    let i = 0;
 
     while (i < intervals.length && intervals[i].end < newInterval.start) {
-        results.push(intervals[i]);
+        result.push(intervals[i]);
         i += 1;
     }
 
@@ -27,12 +27,12 @@ var insert = function(intervals, newInterval) {
         i += 1;
     }
 
-    results.push(newInterval);
+    result.push(newInterval);
 
     while (i < intervals.length) {
-        results.push(intervals[i]);
+        result.push(intervals[i]);
         i += 1;
     }
 
-    return results;
+    return result;
 };
