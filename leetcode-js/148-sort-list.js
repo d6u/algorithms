@@ -6,26 +6,27 @@
  * }
  */
 /**
- * @param {ListNode[]} lists
+ * @param {ListNode} head
  * @return {ListNode}
  */
-var mergeKLists = function(lists) {
-    if (!lists.length) {
-        return null;
+var sortList = function(head) {
+    if (!head || !head.next) {
+        return head;
     }
 
-    let last = lists.length - 1;
+    let fast = head.next.next;
+    let slow = head;
 
-    while (last > 0) {
-        let first = 0;
-        while (first < last) {
-            lists[first] = mergeList(lists[first], lists[last]);
-            first += 1;
-            last -= 1;
-        }
+    while (fast && fast.next) {
+        fast = fast.next.next;
+        slow = slow.next;
     }
 
-    return lists[0];
+    const head1 = sortList(slow.next);
+    slow.next = null;
+    const head2 = sortList(head);
+
+    return mergeList(head1, head2);
 };
 
 function mergeList(head1, head2) {

@@ -6,38 +6,28 @@
  * }
  */
 /**
- * @param  {ListNode} head
+ * @param {ListNode} head
  * @return {ListNode}
  */
 var insertionSortList = function(head) {
-  'use strict';
-
-  if (!head) return null;
-  if (!head.next) return head;
-
-  let dummyHead = new ListNode(0);
-  dummyHead.next = head;
-  let p1 = head;
-
-  while (p1.next) {
-    let p2 = dummyHead;
-    while (p2.next !== p1.next && p2.next.val < p1.next.val) {
-      p2 = p2.next;
+    if (!head) {
+        return null;
     }
 
-    if (p2.next !== p1.next) {
-      let tmp2 = p2.next;
-      let tmp1 = p1.next.next;
-      p2.next = p1.next;
-      p2.next.next = tmp2;
-      p2.next = p1.next;
-      p1.next = tmp1;
-    }
-    else {
-      p1 = p1.next;
+    const dummy = new ListNode(0);
+    let curr = head;
+    let prev = dummy;
+
+    while (curr) {
+        const next = curr.next;
+        while (prev.next && prev.next.val < curr.val) {
+            prev = prev.next;
+        }
+        curr.next = prev.next;
+        prev.next = curr;
+        prev = dummy;
+        curr = next;
     }
 
-  }
-
-  return dummyHead.next;
+    return dummy.next;
 };

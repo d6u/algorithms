@@ -10,40 +10,41 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    if (head == null || head.next == null)  {
+    if (!head || !head.next) {
         return true;
     }
 
-    var slow = head;
-    var fast = head;
+    let fast = head;
+    let slow = head;
 
-    while (fast.next != null && fast.next.next != null) {
-        slow = slow.next;
+    while (fast.next && fast.next.next) {
         fast = fast.next.next;
+        slow = slow.next;
     }
 
     slow.next = reverseList(slow.next);
     slow = slow.next;
 
-    while (slow != null) {
-        if (head.val != slow.val) {
+    while (slow) {
+        if (head.val !== slow.val) {
             return false;
         }
-        head = head.next;
         slow = slow.next;
+        head = head.next;
     }
 
     return true;
 };
 
 function reverseList(head) {
-    var pre = null;
-    var next = null;
-    while (head != null) {
-        next = head.next;
-        head.next = pre;
-        pre = head;
+    let prev;
+
+    while (head) {
+        const next = head.next;
+        head.next = prev;
+        prev = head;
         head = next;
     }
-    return pre;
+
+    return prev;
 }

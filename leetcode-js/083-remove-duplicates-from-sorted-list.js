@@ -9,13 +9,11 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var swapPairs = function(head) {
+var deleteDuplicates = function(head) {
     if (!head || !head.next) {
         return head;
     }
-    const next = head.next.next;
-    const node = head.next;
-    head.next.next = head;
-    head.next = swapPairs(next);
-    return node;
+
+    head.next = deleteDuplicates(head.next);
+    return head.val === head.next.val ? head.next : head;
 };
