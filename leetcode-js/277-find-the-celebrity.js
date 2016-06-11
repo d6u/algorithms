@@ -19,19 +19,26 @@ var solution = function(knows) {
      * @return {integer} The celebrity
      */
     return function(n) {
-        if (n < 2) return n ? 0 : -1;
-        var curr = 0;
-        var next = 1;
-        for (; next < n; next++) {
+        if (n <= 1) {
+            return n === 0 ? -1 : 0;
+        }
+
+        let curr = 0;
+        let next = 1;
+
+        while (next < n) {
             if (knows(curr, next)) {
                 curr = next;
             }
+            next += 1;
         }
-        for (var i = 0; i < n; i++) {
+
+        for (let i = 0; i < n; i += 1) {
             if (curr !== i && (knows(curr, i) || !knows(i, curr))) {
                 return -1;
             }
         }
+
         return curr;
     };
 };

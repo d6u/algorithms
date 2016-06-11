@@ -11,24 +11,28 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-  if (!head || !head.next) return null;
-  var p1 = head.next;
-  var p2 = head.next.next;
+    if (!head || !head.next) {
+        return null;
+    }
 
-  while (p2 && p2.next && p1 !== p2) {
-    p1 = p1.next;
-    if (!p2.next) return null;
-    p2 = p2.next.next;
-  }
+    let fast = head.next.next;
+    let slow = head.next;
 
-  if (!p2 || !p2.next) return null;
+    while (fast && fast.next && fast.next.next && fast !== slow) {
+        fast = fast.next.next;
+        slow = slow.next;
+    }
 
-  p2 = head;
+    if (!fast || !fast.next || !fast.next.next) {
+        return null;
+    }
 
-  while (p1 != p2) {
-    p1 = p1.next;
-    p2 = p2.next;
-  }
+    fast = head;
 
-  return p1;
+    while (fast !== slow) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    return fast;
 };

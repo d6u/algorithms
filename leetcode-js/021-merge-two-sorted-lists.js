@@ -10,24 +10,22 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var mergeTwoLists = function(l1, l2) {
     const dummy = new ListNode(0);
     let node = dummy;
-    let carry = 0;
 
-    while (l1 || l2 || carry) {
-        if (l1) {
-            carry += l1.val;
+    while (l1 && l2) {
+        if (l1.val < l2.val) {
+            node.next = l1;
             l1 = l1.next;
-        }
-        if (l2) {
-            carry += l2.val;
+        } else {
+            node.next = l2;
             l2 = l2.next;
         }
-        node.next = new ListNode(carry % 10);
-        carry = Math.floor(carry / 10);
         node = node.next;
     }
+
+    node.next = l1 ? l1 : l2;
 
     return dummy.next;
 };
