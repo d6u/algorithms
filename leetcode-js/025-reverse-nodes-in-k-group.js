@@ -11,44 +11,33 @@
  * @return {ListNode}
  */
 var reverseKGroup = function(head, k) {
-    'use strict';
-
-    if (k < 2) {
+    if (!head || k === 1) {
         return head;
     }
 
-    let dummy = new ListNode(0);
+    let num = 0;
+    const dummy = new ListNode(0);
     dummy.next = head;
+    let current = dummy;
 
-    let p = dummy;
+    while (current.next) {
+        num += 1;
+        current = current.next;
+    }
 
-    while (p.next && p.next.next) {
-        let prev = p.next;
-        let cur = prev.next;
-        let i = 0;
-        while (cur && i < k - 1) {
-            let temp = cur.next;
-            cur.next = prev;
-            prev = cur;
-            cur = temp;
-            i += 1;
+    let prev = dummy;
+
+    while (num >= k) {
+        current = prev.next;
+        let next = current.next;
+        for (let i = 1; i < k; i += 1) {
+            current.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
+            next = current.next;
         }
-        if (i === k - 1) {
-            let temp = p.next;
-            p.next.next = cur;
-            p.next = prev;
-            p = temp;
-        } else {
-            cur = prev.next;
-            prev.next = null;
-            while (cur !== p.next) {
-                let temp = cur.next;
-                cur.next = prev;
-                prev = cur;
-                cur = temp;
-            }
-            break;
-        }
+        prev = current;
+        num -= k;
     }
 
     return dummy.next;
