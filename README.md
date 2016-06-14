@@ -13,6 +13,11 @@
     - [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
     - [214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js)
 
+### Math
+
+- [**343-integer-break.js**](./leetcode-js/343-integer-break.js)
+- [**319-bulb-switcher.js**](./leetcode-js/319-bulb-switcher.js)
+
 ### Dynamic Programing
 
 - [010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)
