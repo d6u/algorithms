@@ -1,4 +1,4 @@
-var mapping = [
+const mapping = [
     'A', 'B', 'C', 'D', 'E',
     'F', 'G', 'H', 'I', 'J',
     'K', 'L', 'M', 'N', 'O',
@@ -12,12 +12,11 @@ var mapping = [
  * @return {string}
  */
 var convertToTitle = function(n) {
-    var remainder;
-    var r = '';
+    let r = '';
 
     while (n) {
         n -= 1;
-        remainder = n % 26;
+        const remainder = n % 26;
         r = mapping[remainder] + r;
         n = Math.floor(n / 26);
     }
