@@ -6,21 +6,26 @@ var findStrobogrammatic = function(n) {
     return helper(n, n);
 };
 
-function helper(n, m) {
-    if (n === 0) return [''];
-    if (n === 1) return ['0', '1', '8'];
-
-    var list = helper(n - 2, m);
-    var res = [];
-
-    for (var i = 0; i < list.length; i++) {
-        var s = list[i];
-        if (n !== m) res.push('0' + s + '0');
-        res.push('1'+ s +'1');
-        res.push('6'+ s +'9');
-        res.push('8'+ s +'8');
-        res.push('9'+ s +'6');
+function helper(n, target) {
+    if (n === 0) {
+        return [''];
+    }
+    if (n === 1) {
+        return ['1', '8', '0'];
     }
 
-    return res;
+    const list = helper(n - 2, target);
+    const result = [];
+
+    for (const str of list) {
+        if (n !== target) {
+            result.push(`0${str}0`);
+        }
+        result.push(`1${str}1`);
+        result.push(`6${str}9`);
+        result.push(`9${str}6`);
+        result.push(`8${str}8`);
+    }
+
+    return result;
 }

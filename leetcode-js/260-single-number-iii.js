@@ -3,21 +3,21 @@
  * @return {number[]}
  */
 var singleNumber = function(nums) {
-    var aXorb = 0;
+    let aXorb = 0;
 
     for (var item of nums) {
         aXorb ^= item;
     }
 
-    var lastBit = (aXorb & (aXorb - 1)) ^ aXorb;
-    var intA = 0;
-    var intB = 0;
+    const lastBit = (aXorb & (aXorb - 1)) ^ aXorb;
+    let intA = 0;
+    let intB = 0;
 
     for (item of nums) {
         if (item & lastBit) {
-            intA = intA ^ item;
+            intA ^= item;
         } else {
-            intB = intB ^ item;
+            intB ^= item;
         }
     }
 
