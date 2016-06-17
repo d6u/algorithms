@@ -1,55 +1,34 @@
 /**
- * @param  {string}     s
+ * @param {string} s
  * @return {string[][]}
  */
 var partition = function(s) {
-  if (s.length === 0) {
-    return [];
-  }
-
-  var isPal = buildMatrix(s);
-  var result = [];
-
-  findPartition(s, 0, isPal, [], result);
-
-  return result;
+    const result = [];
+    dfs(s, 0, [], result);
+    return result;
 };
 
-function findPartition(s, start, isPal, sol, result) {
-  if (start === s.length) {
-    result.push(sol);
-  }
-
-  var i;
-
-  for (i = start; i < s.length; i++) {
-    if (isPal[start][i]) {
-      findPartition(s, i + 1, isPal, sol.concat([s.substr(start, i - start + 1)]), result);
+function dfs(s, index, solution, result) {
+    if (index === s.length) {
+        result.push(solution);
+        return;
     }
-  }
+
+    for (let i = index; i < s.length; i += 1) {
+        if (isPal(s, index, i)) {
+            dfs(s, i + 1, solution.concat(s.substring(index, i + 1)), result);
+        }
+    }
 }
 
-function buildMatrix(s) {
-  var l = s.length;
-  var i;
-  var j;
-
-  var isPal = Array(l);
-
-  for (i = 0; i < l; i++) {
-    isPal[i] = Array(l);
-    for (j = 0; j < l; j++) {
-      isPal[i][j] = false;
+function isPal(s, left, right) {
+    while (left < right) {
+        if (s[left] !== s[right]) {
+            return false;
+        } else {
+            left += 1;
+            right -= 1;
+        }
     }
-  }
-
-  for (i = l - 1; i >= 0; i--) {
-    for (j = i; j < l; j++) {
-      if ((j - i < 2 || isPal[i + 1][j - 1]) && s[i] === s[j]) {
-        isPal[i][j] = true;
-      }
-    }
-  }
-
-  return isPal;
+    return true;
 }

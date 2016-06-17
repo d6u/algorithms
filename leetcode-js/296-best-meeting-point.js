@@ -3,31 +3,30 @@
  * @return {number}
  */
 var minTotalDistance = function(grid) {
-    var m = grid.length;
-    var n = grid[0].length;
+    const Xs = [];
+    const Ys = [];
 
-    var I = [];
-    var J = [];
-
-    for (var i = 0; i < m; i++) {
-        for (var j = 0; j < n; j++) {
-            if (grid[i][j] === 1) {
-                I.push(i);
-                J.push(j);
+    for (let x = 0; x < grid.length; x += 1) {
+        for (let y = 0; y < grid[0].length; y += 1) {
+            if (grid[x][y] === 1) {
+                Xs.push(x);
+                Ys.push(y);
             }
         }
     }
 
-    return getMin(I) + getMin(J);
+    return getMin(Xs) + getMin(Ys);
 };
 
-function getMin(list) {
-    var ret = 0;
-    list.sort((a, b) => a - b);
-    var i = 0;
-    var j = list.length - 1;
-    while (i < j) {
-        ret += list[j--] - list[i++];
+function getMin(arr) {
+    arr.sort((a, b) => a - b);
+    let result = 0;
+    let left = 0;
+    let right = arr.length - 1;
+    while (left < right) {
+        result += arr[right] - arr[left];
+        right -= 1;
+        left += 1;
     }
-    return ret;
+    return result;
 }

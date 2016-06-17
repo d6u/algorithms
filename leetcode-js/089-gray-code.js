@@ -1,19 +1,21 @@
 /**
- * @param  {number}   n
+ * @param {number} n
  * @return {number[]}
  */
 var grayCode = function(n) {
-  var r = [];
-  if (n < 0) return r;
-  var i;
-  var j;
-  var inc = 1;
-  r.push(0);
-  for (i = 1; i <= n; i++) {
-    for (j = r.length - 1; j >= 0; j--) {
-      r.push(r[j] + inc);
+    if (n < 0) {
+        return [];
     }
-    inc <<= 1;
-  }
-  return r;
+
+    const result = [0];
+    let increment = 1;
+
+    for (let i = 1; i <= n; i += 1) {
+        for (let j = result.length - 1; j >= 0; j -= 1) {
+            result.push(result[j] + increment);
+        }
+        increment <<= 1;
+    }
+
+    return result;
 };

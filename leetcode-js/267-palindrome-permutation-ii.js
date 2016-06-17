@@ -3,82 +3,55 @@
  * @return {string[]}
  */
 var generatePalindromes = function(s) {
-    'use strict';
+    let isOdd = 0;
+    const chars = [];
+    const charCounts = new Map();
 
-    const counts = countChar(s);
+    for (const char of s) {
+        const count = charCounts.get(char);
+        charCounts.set(char, count ? count + 1 : 1);
+        isOdd += charCounts.get(char) % 2 === 0 ? -1 : 1;
+    }
 
-    let oddChar;
-    let chars = [];
+    if (isOdd > 1) {
+        return [];
+    }
 
-    for (let pair of counts.entries()) {
-        let char = pair[0];
-        let count = pair[1];
+    let mid = '';
+
+    for (const [char, count] of charCounts.entries()) {
         if (count % 2 !== 0) {
-            if (oddChar) {
-                return [];
-            }
-            oddChar = char;
+            mid = char;
         }
-        let numOfChar = Math.floor(count / 2);
-        while (numOfChar > 0) {
+        for (let i = 0; i < Math.floor(count / 2); i += 1) {
             chars.push(char);
-            numOfChar -= 1;
         }
     }
 
-    const solutions = permuteUnique(chars);
-
-    return solutions
-      .map(sol => {
-          if (oddChar) {
-            return sol.concat([oddChar]).concat(reverse(sol));
-          } else {
-            return sol.concat(reverse(sol));
-          }
-      })
-      .map(sol => sol.join(''));
+    const result = [];
+    _generatePalindromes(chars, mid, Array(chars.length).fill(false), [], result);
+    return result;
 };
 
-function countChar(s) {
-    'use strict';
-
-    const counts = new Map();
-
-    for (let char of s) {
-        let count = counts.get(char);
-        counts.set(char, count == null ? 1 : count + 1);
-    }
-
-    return counts;
-}
-
-function permuteUnique(chars) {
-    chars.sort();
-    const results = [];
-    getPermutationResults([], chars, new Map(), results);
-    return results;
-}
-
-function getPermutationResults(solution, chars, usedMap, results) {
-    'use strict';
-
-    if (usedMap.size === chars.length) {
-        results.push(solution);
+function _generatePalindromes(chars, mid, used, currentChars, result) {
+    if (currentChars.length === chars.length) {
+        result.push(currentChars.join('') + mid + currentChars.reverse().join(''));
+        currentChars.reverse();
         return;
     }
 
-    for (let i = 0; i < chars.length; i++) {
-        if (!usedMap.get(i)) {
-            if (i > 0 && chars[i] === chars[i-1] && !usedMap.get(i-1)) {
-                continue;
-            }
-            usedMap.set(i, true);
-            getPermutationResults(solution.concat([chars[i]]), chars, usedMap, results);
-            usedMap.delete(i);
+    for (let i = 0; i < chars.length; i += 1) {
+        // avoid duplication
+        if (i > 0 && chars[i] === chars[i-1] && !used[i-1]) {
+            continue;
+        }
+
+        if (!used[i]) {
+            used[i] = true;
+            currentChars.push(chars[i]);
+            _generatePalindromes(chars, mid, used, currentChars, result);
+            currentChars.pop();
+            used[i] = false;
         }
     }
-}
-
-function reverse(arr) {
-    return arr.slice(0).reverse();
 }

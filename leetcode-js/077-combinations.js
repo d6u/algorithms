@@ -4,7 +4,7 @@
  * @return {number[][]}
  */
 var combine = function(n, k) {
-    var results = [];
+    const results = [];
     getResults(1, n, k, [], results);
     return results;
 };
@@ -15,9 +15,7 @@ function getResults(index, n, k, solution, results) {
         return;
     }
 
-    var i;
-
-    for (i = index; i <= n; i++) {
+    for (let i = index; i <= n; i++) {
         getResults(i+1, n, k, solution.concat([i]), results);
     }
 }

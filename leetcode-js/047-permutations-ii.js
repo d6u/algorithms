@@ -4,27 +4,30 @@
  */
 var permuteUnique = function(nums) {
     nums.sort((a, b) => a - b);
-    const results = [];
-    getResults([], nums, new Map(), results);
-    return results;
+    const result = [];
+    getResult(nums, 0, result);
+    return result;
 };
 
-function getResults(solution, nums, usedMap, results) {
-    if (usedMap.size === nums.length) {
-        results.push(solution);
+function getResult(nums, index, result) {
+    if (index === nums.length - 1) {
+        result.push(nums);
         return;
     }
 
-    for (var i = 0; i < nums.length; i++) {
-        if (!usedMap.get(i)) {
-            if (i > 0 && nums[i] === nums[i-1] && !usedMap.get(i-1)) {
-                continue;
-            }
-            usedMap.set(i, true);
-            getResults(solution.concat([nums[i]]), nums, usedMap, results);
-            usedMap.delete(i);
+    for (let i = index; i < nums.length; i += 1) {
+        if (i !== index && nums[i] === nums[index]) {
+            continue;
         }
+        swap(nums, index, i);
+        getResult(nums.slice(), index + 1, result);
     }
 }
 
-console.log(permuteUnique([1,2]));
+function swap(nums, a, b) {
+    const tmp = nums[a];
+    nums[a] = nums[b];
+    nums[b] = tmp;
+}
+
+console.log(permuteUnique([1,1,2]));

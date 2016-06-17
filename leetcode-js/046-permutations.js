@@ -14,11 +14,11 @@ function getResults(solution, nums, used, results) {
         return;
     }
 
-    for (var i = 0; i < nums.length; i++) {
-        if (!used.has(nums[i])) {
-            used.add(nums[i]);
-            getResults(solution.concat([nums[i]]), nums, used, results);
-            used.delete(nums[i]);
+    for (const n of nums) {
+        if (!used.has(n)) {
+            used.add(n);
+            getResults(solution.concat(n), nums, used, results);
+            used.delete(n);
         }
     }
 }

@@ -9,16 +9,17 @@ var getFactors = function(n) {
 };
 
 function getResults(n, solution, results) {
-    var i = solution.length === 0 ? 2 : solution[solution.length-1];
+    let i = solution.length === 0 ? 2 : solution[solution.length-1];
 
-    for (; i <= Math.floor(n/i); i++) {
+    while (i <= Math.floor(n / i)) {
         if (n % i === 0) {
             solution.push(i);
-            solution.push(Math.floor(n/i));
+            solution.push(n / i);
             results.push(solution.slice(0));
             solution.pop();
-            getResults(Math.floor(n/i), solution, results);
+            getResults(n / i, solution, results);
             solution.pop();
         }
+        i += 1;
     }
 }
