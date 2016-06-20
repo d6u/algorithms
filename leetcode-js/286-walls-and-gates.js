@@ -1,55 +1,39 @@
+const INF = 2147483647;
+
 /**
- * @param  {number[][]} rooms
+ * @param {number[][]} rooms
  * @return {void} Do not return anything, modify rooms in-place instead.
  */
-const wallsAndGates = function (rooms) {
-  'use strict';
+var wallsAndGates = function(rooms) {
+    const queue = [];
 
-  const maxRow = rooms.length;
-
-  if (!maxRow) {
-    return;
-  }
-
-  const maxCol = rooms[0].length;
-
-  for (let row = 0; row < rooms.length; row++) {
-    for (let col = 0; col < rooms[row].length; col++) {
-
-      if (rooms[row][col] === 0) {
-
-        const stack = [
-          [row - 1, col, 1],
-          [row + 1, col, 1],
-          [row, col - 1, 1],
-          [row, col + 1, 1],
-        ]
-
-        while (stack.length) {
-          const el = stack.pop();
-          const rowC = el[0];
-          const colC = el[1];
-          const dist = el[2];
-
-          if (rowC < 0 ||
-            colC < 0 ||
-            rowC >= maxRow ||
-            colC >= maxCol ||
-            rooms[rowC][colC] < dist)
-          {
-            continue;
-          }
-
-          rooms[rowC][colC] = dist;
-
-          stack.push([rowC - 1, colC, dist + 1]);
-          stack.push([rowC + 1, colC, dist + 1]);
-          stack.push([rowC, colC - 1, dist + 1]);
-          stack.push([rowC, colC + 1, dist + 1]);
+    for (let i = 0; i < rooms.length; i += 1) {
+        for (let j = 0; j < rooms[0].length; j += 1) {
+            if (rooms[i][j] === 0) {
+                queue.push({row: i, col: j});
+            }
         }
-      }
     }
-  }
+
+    while (queue.length) {
+        const {row, col} = queue.shift();
+        if (row > 0 && rooms[row - 1][col] === INF) {
+            rooms[row - 1][col] = rooms[row][col] + 1;
+            queue.push({row: row - 1, col});
+        }
+        if (row < rooms.length - 1 && rooms[row + 1][col] === INF) {
+            rooms[row + 1][col] = rooms[row][col] + 1;
+            queue.push({row: row + 1, col});
+        }
+        if (col > 0 && rooms[row][col - 1] === INF) {
+            rooms[row][col - 1] = rooms[row][col] + 1;
+            queue.push({row, col: col - 1});
+        }
+        if (col < rooms[0].length - 1 && rooms[row][col + 1] === INF) {
+            rooms[row][col + 1] = rooms[row][col] + 1;
+            queue.push({row, col:col + 1});
+        }
+    }
 };
 
 const a = [
