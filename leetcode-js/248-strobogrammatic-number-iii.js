@@ -1,42 +1,46 @@
+const pairs = [
+    ['0', '0'],
+    ['1', '1'],
+    ['6', '9'],
+    ['8', '8'],
+    ['9', '6'],
+];
+
 /**
  * @param {string} low
  * @param {string} high
  * @return {number}
  */
 var strobogrammaticInRange = function(low, high) {
-    var count = 0;
-    for (var n = low.length; n <= high.length; n++) {
-        var rst = helper(n, n);
-        for (var num of rst) {
-            if ((num.length === low.length && num < low) ||
-                (num.length === high.length && num > high))
-            {
-                continue;
-            }
-            count += 1;
-        }
+    const result = {count: 0};
+    for (let len = low.length; len <= high.length; len += 1) {
+        dfs(low, high, [], 0, len - 1, result);
     }
-
-    return count;
+    return result.count;
 };
 
-function helper(cur, max) {
-    if (cur === 0) return [''];
-    if (cur === 1) return ['1', '8', '0'];
-
-    var rst = [];
-    var center = helper(cur - 2, max);
-
-    for (var i = 0; i < center.length; i++) {
-        var tmp = center[i];
-        if (cur !== max) rst.push('0' + tmp + '0');
-        rst.push('1' + tmp + '1');
-        rst.push('6' + tmp + '9');
-        rst.push('8' + tmp + '8');
-        rst.push('9' + tmp + '6');
+function dfs(low, high, chars, left, right, result) {
+    if (left > right) {
+        const str = chars.join('');
+        if ((str.length === low.length && str.localeCompare(low) < 0) ||
+            (str.length === high.length && str.localeCompare(high) > 0)) {
+            return;
+        }
+        result.count += 1;
+        return;
     }
 
-    return rst;
+    for (const p of pairs) {
+        chars[left] = p[0];
+        chars[right] = p[1];
+        if (chars.length !== 1 && chars[0] === '0') {
+            continue;
+        }
+        if (left < right || (left === right && p[0] === p[1])) {
+            dfs(low, high, chars, left + 1, right - 1, result);
+        }
+    }
 }
 
-console.log(strobogrammaticInRange('0', '100000000000000'))
+// console.log(strobogrammaticInRange('0', '100000000000000'))
+console.log(strobogrammaticInRange('50', '200'))
