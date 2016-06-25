@@ -1,79 +1,68 @@
+const A = 'a'.charCodeAt();
+
 /**
  * @param  {character[][]} board
  * @param  {string[]}      words
  * @return {string[]}
  */
-var findWords = function (board, words) {
-  var res = [];
-  if (!board || !board.length || !board[0].length || !words || !words.length) {
+var findWords = function(board, words) {
+    const res = [];
+    const root = buildTrie(words);
+    for (let i = 0; i < board.length; i += 1) {
+        for (let j = 0; j < board[0].length; j += 1) {
+            dfs(board, i, j, root, res);
+        }
+    }
     return res;
-  }
-
-  var visited = makeArray(board.length, () => makeArray(board[0].length, false));
-  var noDuplicatedInput = new Set(words);
-  var trie = new Trie(noDuplicatedInput);
-  var i;
-  var j;
-
-  for (i = 0; i < board.length; i++) {
-    for (j = 0; j < board[0].length; j++) {
-      search(board, i, j, '', visited, trie, res);
-    }
-  }
-
-  return res;
 };
 
-function search(board, i, j, str, visited, trie, res) {
-  var newStr;
-  var endNode;
-
-  if (i < board.length && i >= 0 && j < board[0].length && j >=0 && !visited[i][j]) {
-    newStr = str + board[i][j];
-    endNode = trie.startWith(newStr);
-    if (endNode != null) {
-      if (endNode.leaf) {
-        res.push(newStr);
-        endNode.leaf = false;
-      }
-      visited[i][j] = true;
-      search(board, i+1, j, newStr, visited, trie, res);
-      search(board, i-1, j, newStr, visited, trie, res);
-      search(board, i, j+1, newStr, visited, trie, res);
-      search(board, i, j-1, newStr, visited, trie, res);
-      visited[i][j] = false;
+function dfs(board, i, j, p, res) {
+    const c = board[i][j];
+    if (c === '#' || !p.next[c.charCodeAt() - A]) {
+        return;
     }
-  }
-}
-
-function Trie(set) {
-  this.root = new TrieNode();
-  for (var str of set) {
-    this.add(str);
-  }
-}
-
-Trie.prototype.add = function (str) {
-  var curRoot = this.root;
-  var i;
-  for (i = 0; i < str.length; i++) {
-    if (curRoot.children.get(str.charAt(i)) == null) {
-      curRoot.children =
+    p = p.next[c.charCodeAt() - A];
+    if (p.word) {
+        res.push(p.word);
+        p.word = null;
     }
-  }
-};
-
-function TrieNode(ch) {
-  this.leaf = null;
-  this.children = new Map();
-  this.ch = ch;
+    board[i][j] = '#';
+    if (i > 0) {
+        dfs(board, i - 1, j, p, res);
+    }
+    if (j > 0) {
+        dfs(board, i, j - 1, p, res);
+    }
+    if (i < board.length - 1) {
+        dfs(board, i + 1, j, p, res);
+    }
+    if (j < board[0].length - 1) {
+        dfs(board, i, j + 1, p, res);
+    }
+    board[i][j] = c;
 }
 
-function makeArray(size, filler) {
-  var arr = Array(size);
-  var i;
-  for (i = 0; i < arr.length; i++) {
-    arr[i] = typeof filler === 'function' ? filler() : filler;
-  }
-  return arr;
+function buildTrie(words) {
+    const root = new TrieNode();
+    for (const w of words) {
+        let p = root;
+        for (const c of w) {
+            const i = c.charCodeAt() - A;
+            if (!p.next[i]) {
+                p.next[i] = new TrieNode();
+            }
+            p = p.next[i];
+        }
+        p.word = w;
+    }
+    return root;
 }
+
+class TrieNode {
+    constructor() {
+        this.next = [];
+        this.word = null;
+    }
+}
+
+console.log(findWords(["ab","cd"], ["ab","cb","ad","bd","ac","ca","da","bc","db","adcb","dabc","abb","acb"]))
