@@ -2,24 +2,19 @@
  * @param {string[]} words
  * @return {string}
  */
-var alienOrder = function (words) {
+var alienOrder = function(words) {
     if (words.length === 1) {
         return words[0];
     }
 
-    var w1;
-    var w2;
-    var i;
-    var j;
-    var found;
-    var graph = {};
+    const graph = {};
 
-    for (i = 1; i < words.length; i++) {
-        w1 = words[i-1];
-        w2 = words[i];
-        found = false;
+    for (let i = 1; i < words.length; i++) {
+        const w1 = words[i-1];
+        const w2 = words[i];
+        let found = false;
 
-        for (j = 0; j < Math.max(w1.length, w2.length); j++) {
+        for (let j = 0; j < Math.max(w1.length, w2.length); j++) {
             if (w1[j] && !graph[w1[j]]) {
                 graph[w1[j]] = [];
             }
@@ -33,10 +28,9 @@ var alienOrder = function (words) {
         }
     }
 
-    var path = [];
-    var keys = Object.keys(graph);
+    const path = [];
 
-    for (var key of keys) {
+    for (const key of Object.keys(graph)) {
         if (path.indexOf(key) > -1) {
             continue;
         }
@@ -48,7 +42,7 @@ var alienOrder = function (words) {
     return path.join('');
 };
 
-var topSort = function (node, graph, visited, path) {
+function topSort(node, graph, visited, path) {
     if (visited.indexOf(node) > -1) {
         return false;
     }
@@ -56,7 +50,7 @@ var topSort = function (node, graph, visited, path) {
         return true;
     }
     visited.push(node);
-    for (var char of graph[node]) {
+    for (const char of graph[node]) {
         if (!topSort(char, graph, visited, path)) {
             return false;
         }
