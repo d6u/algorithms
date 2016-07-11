@@ -45,7 +45,7 @@ function dfs(board, i, j, p, res) {
 function buildTrie(words) {
     const root = new TrieNode();
     for (const w of words) {
-        let p = root;
+        const p = root;
         for (const c of w) {
             const i = c.charCodeAt() - A;
             if (!p.next[i]) {

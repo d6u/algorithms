@@ -1,25 +1,4 @@
 /**
-    Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation sequence(s) from beginWord to endWord, such that:
-
-    Only one letter can be changed at a time
-    Each intermediate word must exist in the word list
-    For example,
-
-    Given:
-    beginWord = "hit"
-    endWord = "cog"
-    wordList = ["hot","dot","dog","lot","log"]
-    Return
-      [
-        ["hit","hot","dot","dog","cog"],
-        ["hit","hot","lot","log","cog"]
-      ]
-    Note:
-    All words have the same length.
-    All words contain only lowercase alphabetic characters.
- */
-
-/**
  * @param {string} beginWord
  * @param {string} endWord
  * @param {Set} wordList
@@ -28,28 +7,23 @@
  * @return {string[][]}
  */
 var findLadders = function(beginWord, endWord, wordList) {
-    'use strict';
-
     let currLevel = new Map();
 
     wordList.add(beginWord);
-
     currLevel.set(endWord, new Node(endWord));
 
     while (!currLevel.get(beginWord)) {
         const nextLevel = new Map();
 
-
-        for (let el of currLevel.keys()) {
+        for (const el of currLevel.keys()) {
             findNext(currLevel.get(el), nextLevel, wordList);
         }
-
 
         if (!nextLevel.size) {
             return [];
         }
 
-        for (let el of nextLevel.keys()) {
+        for (const el of nextLevel.keys()) {
             wordList.delete(el);
         }
 
@@ -63,26 +37,23 @@ var findLadders = function(beginWord, endWord, wordList) {
     return paths;
 };
 
-function Node(val) {
-    this.val = val;
-    this.neighbours = new Set();
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.neighbours = new Set();
+    }
 }
 
 function replaceAt(str, index, char) {
     return str.substr(0, index) + char + str.substr(index + 1);
 }
 
-function findNext(currNode, nextLevel, dict) {
-    'use strict';
-
-    const s = currNode.val;
-    const len = s.length;
-    let nextNode;
-
-    for (let i = 0; i < len; i++) {
+function findNext(currNode, nextLevel, set) {
+    for (let i = 0; i < currNode.val.length; i++) {
         for (let j = 97; j < 123; j++) {
-            let el = replaceAt(s, i, String.fromCharCode(j));
-            if (dict.has(el)) {
+            const el = replaceAt(currNode.val, i, String.fromCharCode(j));
+            if (set.has(el)) {
+                let nextNode;
                 if ((nextNode = nextLevel.get(el))) {
                     nextNode.neighbours.add(currNode);
                 } else {
@@ -96,8 +67,6 @@ function findNext(currNode, nextLevel, dict) {
 }
 
 function extractPaths(node, end, sol, paths) {
-    'use strict';
-
     if (node.val === end) {
         paths.push(sol);
         return;
