@@ -13,22 +13,23 @@ var maxPathSum = function(root) {
     if (!root) {
         return 0;
     }
-
-    const result = {max: -Infinity};
-    _maxPathSum(root, result);
-    return result.max;
+    const [max] = _maxPathSum(root, -Infinity);
+    return max;
 };
 
-function _maxPathSum(root, result) {
+function _maxPathSum(root, max) {
     if (!root) {
-        return 0;
+        return [max, 0];
     }
 
-    const leftSum = _maxPathSum(root.left, result);
-    const rightSum = _maxPathSum(root.right, result);
+    let leftSum;
+    let rightSum;
+
+    [max, leftSum] = _maxPathSum(root.left, max);
+    [max, rightSum] = _maxPathSum(root.right, max);
 
     const current = Math.max(root.val, root.val + leftSum, root.val + rightSum);
-    result.max = Math.max(result.max, current, root.val + leftSum + rightSum);
+    max = Math.max(max, current, root.val + leftSum + rightSum);
 
-    return current;
+    return [max, current];
 }

@@ -22,6 +22,8 @@ var postorderTraversal = function(root) {
 
     while (stack.length) {
         const curr = stack[stack.length - 1];
+
+        // 1. Go down along the left most path while filling up the stack
         if (prev == null || prev.left === curr || prev.right === curr) {
             if (curr.left) {
                 stack.push(curr.left);
@@ -29,8 +31,10 @@ var postorderTraversal = function(root) {
                 stack.push(curr.right);
             }
         } else if (prev === curr.left && curr.right) {
+            // 3. Moving up after reaching bottom
             stack.push(curr.right);
         } else {
+            // 2. Reaching bottom
             result.push(curr.val);
             stack.pop();
         }
