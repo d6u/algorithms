@@ -43,21 +43,22 @@
 
 ## 269. Alien Dictionary
 
-There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of words from the dictionary, where words are sorted lexicographically by the rules of this new language. Derive the order of letters in this language.
+_There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of words from the dictionary, where words are sorted lexicographically by the rules of this new language. Derive the order of letters in this language._
 
 1. Build a one direction graph where letters ranked higher point to lower ones. This was done by comparing adjacent words one by one.
 2. Topological sort the graph to get the ordering.
 
 ## 23. Merge k Sorted Lists
 
-Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+
+_Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity._
 
 1. Merge last half list with first half by starting from first and last lists, then increment by 1 from the head and decrement by 1 from the tail. Assign new list to the smaller index.
 2. Repeat step 1 until only 1 list left.
 
 ## 138. Copy List with Random Pointer
 
-A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list.
+_A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list._
 
 1. Start from the head, follow the regular pointer. Insert a copy of node after itself.
 2. Start from the head again, assign random pointer of copies to random pointer's target's copies (`node.random.next`).
@@ -66,7 +67,7 @@ A linked list is given such that each node contains an additional random pointer
 
 ## 99. Recover Binary Search Tree
 
-Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure.
+_Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure._
 
 ### O(n) recursive
 
@@ -80,7 +81,7 @@ TODO
 
 ## 25. Reverse Nodes in k-Group
 
-Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only nodes itself may be changed. Only constant memory is allowed.
+_Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only nodes itself may be changed. Only constant memory is allowed._
 
 1. First count total nodes.
 2. Reverse list k nodes at a time.
@@ -98,14 +99,14 @@ Given a linked list, reverse the nodes of a linked list k at a time and return i
 
 ## 297. Serialize and Deserialize Binary Tree
 
-Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+_Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure._
 
 1. Serialize: preorder traverse the binary tree, put `#` where node is null.
 2. Deserialize: recursively build the tree with preorder, assign node to null when `#`.
 
 ## 117. Populating Next Right Pointers in Each Node II
 
-Given a binary tree:
+_Given a binary tree:_
 
 ```
 struct TreeLinkNode {
@@ -115,7 +116,7 @@ struct TreeLinkNode {
 }
 ```
 
-Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL. Initially, all next pointers are set to NULL. The given tree could be any binary tree.
+_Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL. Initially, all next pointers are set to NULL. The given tree could be any binary tree._
 
 1. Use 4 pointers:
     - Above left most
@@ -126,19 +127,20 @@ Populate each next pointer to point to its next right node. If there is no next 
 
 ## 272. Closest Binary Search Tree Value II
 
-Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target.
+_Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target._
+
+_Follow up:_
+
+_Assume that the BST is balanced, could you solve it in less than O(n) runtime (where n = total nodes)?_
 
 1. First inorder traverse from left to build a stack with values smaller than target, where the top of the stack is the biggest value.
 2. Then inorder traverse from right to build a stack with values larger than target, where the top of the stack is the smallest value.
 3. Popping from each stack until k number of values are found.
 
-### Follow up:
-
-Assume that the BST is balanced, could you solve it in less than O(n) runtime (where n = total nodes)?
 
 ## 145. Binary Tree Postorder Traversal
 
-Given a binary tree, return the postorder traversal of its nodes' values.
+_Given a binary tree, return the postorder traversal of its nodes' values._
 
 1. Use a stack.
 2. Go down along the left most path while filling up the stack.
@@ -147,6 +149,58 @@ Given a binary tree, return the postorder traversal of its nodes' values.
 
 ## 287. Find the Duplicate Number
 
-Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one.
+_Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one._
 
 1. Use Robert Floyd Cycle Detection algorithm. The beginning of a cycle is the duplicated number.
+
+## 149. Max Points on a Line
+
+_Given n points on a 2D plane, find the maximum number of points that lie on the same straight line._
+
+1. Iterating through each point, with all points after it:
+    - Count overlaping points.
+    - Count points when connected with current point, the line is vertical to x axis.
+    - Create a dictionary to count all points when connected with current point, the line has the same slope.
+    - Compare which number is bigger. Overlaps can be count to any group.
+
+## 335. Self Crossing
+
+_You are given an array x of n positive numbers. You start at point (0,0) and moves x[0] metres to the north, then x[1] metres to the west, x[2] metres to the south, x[3] metres to the east and so on. In other words, after each move your direction changes counter-clockwise. Write a one-pass algorithm with O(1) extra space to determine, if your path crosses itself, or not._
+
+1. Start from the 4th line (index 3),
+2. Compare if line i and i - 3 cross each other.
+3. If line i and i - 4 **overlap** each other (when index >= 4).
+4. If line i and i - 5 cross each other.
+
+## 321. Create Maximum Number
+
+_Given two arrays of length m and n with digits 0-9 representing two numbers. Create the maximum number of length k <= m + n from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the k digits. You should try to optimize your time and space complexity._
+
+1. Select numbers to assemble max numbser from each array separately.
+    - When selecting from each array, keep track of length of selection and numbers left inside the array, to determine whether we can go back and replace numbers with bigger one.
+2. Loops through all the possible different size combinations of numbers selection from 1.
+3. Merge two group of selected numbers from 1 and compare with previous result.
+    - While merging, when two digits are the same, compare following digits, take digit from larger.
+
+## 233. Number of Digit One
+
+_Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n._
+
+1. Go through the digit positions one at a time, find out how often a "1" appears at each position, and sum those up.
+    1. Divid digits into three groups:
+        - Current digit
+        - Digits on the left of current
+        - Digits on the right of current
+
+        ```
+        3141 5 60
+        ^^^^ ^ ^^
+        a    b  c
+        ```
+
+    2. 1 appears at b position for `a * 100` times (`0` to `3140`)
+    3. Depends on the value of b
+        - If b was `0`, when a is `3141`, b will never have `1`.
+        - If b was `1`, when a is `3141`, b will have `1` for c + 1 times (`0` to `60`).
+        - If b was greater or equal to `2`, b will have `1` for 100 times.
+2. Repeat 1 for every digit.
