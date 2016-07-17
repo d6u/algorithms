@@ -204,3 +204,57 @@ _Given an integer n, count the total number of digit 1 appearing in all non-nega
         - If b was `1`, when a is `3141`, b will have `1` for c + 1 times (`0` to `60`).
         - If b was greater or equal to `2`, b will have `1` for 100 times.
 2. Repeat 1 for every digit.
+
+## 4. Median of Two Sorted Arrays
+
+_There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n))._
+
+1. Divide each arry into two parts using its middle element.
+2. Compare two middle elements and remove one of the four parts.
+3. Repeat 1-2 until find the mediam.
+4. If total count of numbers is even, you have to do 1-3 again to find two numbers to calculate the median.
+
+## 218. The Skyline Problem
+
+_A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B)._
+
+![](https://leetcode.com/static/images/problemset/skyline1.jpg)
+Figure A
+
+![](https://leetcode.com/static/images/problemset/skyline2.jpg)
+Figure B
+
+_The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT\_MAX, 0 < Hi ≤ INT\_MAX, and Ri - Li > 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0._
+
+_For instance, the dimensions of all buildings in Figure A are recorded as: `[ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ]`._
+
+_The output is a list of "key points" (red dots in Figure B) in the format of `[ [x1,y1], [x2, y2], [x3, y3], ... ]` that uniquely defines a skyline. A key point is the left endpoint of a horizontal line segment. Note that the last key point, where the rightmost building ends, is merely used to mark the termination of the skyline, and always has zero height. Also, the ground in between any two adjacent buildings should be considered part of the skyline contour._
+
+_For instance, the skyline in Figure B should be represented as:`[ [2 10], [3 15], [7 12], [12 0], [15 10], [20 8], [24, 0] ]`._
+
+1. Convert build heights to elevation changes pairs, e.g. `[x, height_change]`, for `height_change`, use negative for increase height, positive for decrease in height.
+2. Sort elevation change pairs, put smaller `x` to lower index. If `x` is the same, put increase in height (negative numbers) first.
+3. Use a priority queue to track current elevation to add and remove elevation in O(log(n)) time.
+4. Looping through heights collected in 1 and 2:
+    - If height increase, push to priority queue.
+    - If height decrease, remove from priority queue.
+    - Track previous height, if the head of priority queue (the current height) is the same, do nothing.
+    - If height is different, push current `x` and `height` to result.
+
+## 327. Count of Range Sum
+
+_Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive. Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j (i ≤ j), inclusive._
+
+_Example: given nums = [-2, 5, -1], lower = -2, upper = 2, Return 3. The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2, -1, 2._
+
+1. Transform range sum into `sums[i2] - sums[i1]` (prefix sum), where `i2 > i1`.
+2. Merge sort prefix sums. While sorting, count how many `lower <= sums[i2] - sums[i1] <= upper`.
+3. Details see [327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js).
+
+## 315. Count of Smaller Numbers After Self
+
+_You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]._
+
+1. Convert the problem into a merge sort problem:
+    - While merging each time an element is moved from right to the left of current element, there is one element on the right is smaller than current element.
+2. Details see [315-count-of-smaller-numbers-after-self.js](./leetcode-js/315-count-of-smaller-numbers-after-self.js).
