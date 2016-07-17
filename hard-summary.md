@@ -219,7 +219,7 @@ _There are two sorted arrays nums1 and nums2 of size m and n respectively. Find 
 _A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B)._
 
 <img src="https://leetcode.com/static/images/problemset/skyline1.jpg" width="400">
-<img src="https://leetcode.com/static/images/problemset/skyline2.jpg" width="400">
+<img src="https://leetcode.com/static/images/problemset/skyline2.jpg" width="400" align="right">
 
 _The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT\_MAX, 0 < Hi ≤ INT\_MAX, and Ri - Li > 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0._
 
