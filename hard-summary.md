@@ -244,9 +244,10 @@ _Given an integer array nums, return the number of range sums that lie in [lower
 
 _Example: given nums = [-2, 5, -1], lower = -2, upper = 2, Return 3. The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2, -1, 2._
 
-1. Transform range sum into `sums[i2] - sums[i1]` (prefix sum), where `i2 > i1`.
-2. Merge sort prefix sums. While sorting, count how many `lower <= sums[i2] - sums[i1] <= upper`.
-3. Details see [327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js).
+1. Similar to [315. Count of Smaller Numbers After Self](#315-count-of-smaller-numbers-after-self)
+2. Transform range sum into `sums[i2] - sums[i1]` (prefix sum), where `i2 > i1`.
+3. Merge sort prefix sums. While sorting, count how many `lower <= sums[i2] - sums[i1] <= upper`.
+4. Details see [327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js).
 
 ## 315. Count of Smaller Numbers After Self
 
@@ -255,3 +256,94 @@ _You are given an integer array nums and you have to return a new counts array. 
 1. Convert the problem into a merge sort problem:
     - While merging each time an element is moved from right to the left of current element, there is one element on the right is smaller than current element.
 2. Details see [315-count-of-smaller-numbers-after-self.js](./leetcode-js/315-count-of-smaller-numbers-after-self.js).
+
+## 363. Max Sum of Rectangle No Larger Than K
+
+_Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rectangle in the matrix such that its sum is no larger than k._
+
+1. If rows are (much) larger than columns, rotate the matrix.
+2. Loop through each row.
+    1. In each iteration, loop through each rows after current row (include current).
+    2. Maintain an array of sums of each row of current iteration. Covert the problem into finding max sum subarray.
+3. To solve max sum subarray:
+    1. Maintain a data structure to quickly (`O(log(n))`) find the smallest number that is bigger than or equal to a given number. (In C++, a set will do this.)
+    2. Covert sum of subarray into `sum = sums[i2] - sums[i1]` (prefix sum).
+    3. Iterate through each prefix sum, for each, find the smallest number (`n`) that is bigger than `sum - k` (so `sum - n` is biggest and not larger than `k`). The finding operation has `O(log(n))` time since we used a set.
+    4. Find the biggest `sum - n` in step 3.
+
+## 33. Search in Rotated Sorted Array
+
+_Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). You are given a target value to search. If found in the array return its index, otherwise return -1. You may assume no duplicate exists in the array._
+
+1. Can still be solved using binary search.
+2. In each iteration:
+    1. Determine which part of array is sorted properly.
+    2. Compare target with boundary of the sorted part. If target falls in the boundary, focus in this part in next iteration. If not, focus in the other part.
+    3. Repeat until found.
+
+## 154. Find Minimum in Rotated Sorted Array II
+
+_Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). Find the minimum element. The array may contain duplicates._
+
+1. Follow binary search approach.
+2. Compare mid with right:
+    - If equals, can be `44404` or `01444`, so not sure smallest is at where part. Move right pointer to left by 1.
+    - If mid is less than right, smallest must be in left part, including mid.
+    - If mid is larger than right, smallest must be in the right part, excluding mid.
+3. Repeat until left no longer less than right.
+4. Left is the index.
+
+## 68. Text Justification
+
+_Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified. You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly L characters. Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right. For the last line of text, it should be left justified and no extra space is inserted between words._
+
+See [068-text-justification_shorter.js](./leetcode-js/068-text-justification_shorter.js).
+
+## 44. Wildcard Matching
+
+_Implement wildcard pattern matching with support for '?' and '*'._
+
+```
+'?' Matches any single character.
+'*' Matches any sequence of characters (including the empty sequence).
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "*") → true
+isMatch("aa", "a*") → true
+isMatch("ab", "?*") → true
+isMatch("aab", "c*a*b") → false
+```
+
+See [044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)
+
+## 140. Word Break II
+
+_Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences._
+
+See [140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
+
+## 214. Shortest Palindrome
+
+_Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation._
+
+TODO: KMP
+
+## 336. Palindrome Pairs
+
+_Given a list of unique words. Find all pairs of distinct indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome._
+
+See [336-palindrome-pairs.js](./leetcode-js/336-palindrome-pairs.js)
+
+## 30. Substring with Concatenation of All Words
+
+_You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters._
+
+See [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
