@@ -12,21 +12,26 @@ function check(s, i, p, j) {
         return s[i] == null;
     }
 
+    // 1. If next char in p is not *, check everything as usual
     if (p[j+1] !== '*') {
-        return (s[i] === p[j] || (p[j] === '.' && s[i] != null)) && check(s, i + 1, p, j + 1);
+        return (s[i] === p[j] || (p[j] === '.' && s[i] != null)) &&
+            check(s, i + 1, p, j + 1);
     }
 
     while (true) {
+        // 2. When next char in p is *, begin with 0 match for *
         if (check(s, i, p, j + 2)) {
             return true;
         }
+
+        // 3. Increase matches for * by 1, if doesn't match, s doesn't match p
         if (!(s[i] === p[j] || (p[j] === '.' && s[i] != null))) {
-            break;
+            return false;
         }
+
+        // 4. Match for * has been increased
         i += 1;
     }
-
-    return false;
 }
 
 console.log(isMatch('a', 'b*a'))

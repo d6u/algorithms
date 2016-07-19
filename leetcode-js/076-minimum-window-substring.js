@@ -1,31 +1,16 @@
 /**
-    tags: hash table, two pointers, string
-
-    Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
-
-    For example,
-    S = "ADOBECODEBANC"
-    T = "ABC"
-    Minimum window is "BANC".
-
-    Note:
-    If there is no such window in S that covers all characters in T, return the empty string "".
-
-    If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S.
- */
-
-/**
  * @param {string} s
  * @param {string} t
  * @return {string}
  */
 var minWindow = function(s, t) {
-    'use strict';
-
     const sl = s.length;
     const tl = t.length;
+
+    // 1. Use array as a map of 26 letters include both lower and upper cases
     const needToFind = Array(122).fill(0);
 
+    // 2. Record how many we need to find
     for (let i = 0; i < tl; i++) {
         needToFind[charToInt(t[i])] += 1;
     }
@@ -36,6 +21,8 @@ var minWindow = function(s, t) {
     let count = 0;
 
     for (let begin = 0, end = 0; end < sl; end += 1) {
+
+        // 3. Start by extending the end of the window
         const endCharInt = charToInt(s[end]);
 
         if (needToFind[endCharInt] === 0) {
@@ -45,9 +32,12 @@ var minWindow = function(s, t) {
         hasFound[endCharInt] += 1;
 
         if (hasFound[endCharInt] <= needToFind[endCharInt]) {
+            // 4. Maintain a count of chars from t that's included
             count += 1;
         }
 
+        // 5. When all chars in t are found,
+        // start reducing the window from start
         if (count === tl) {
             let beginCharInt = charToInt(s[begin]);
 
@@ -61,6 +51,7 @@ var minWindow = function(s, t) {
 
             const windowLen = end - begin + 1;
 
+            // 6. When found a smaller length, update the records
             if (windowLen < minWindowLen) {
                 minWindowBegin = begin;
                 minWindowLen = windowLen;
@@ -72,5 +63,5 @@ var minWindow = function(s, t) {
 };
 
 function charToInt(c) {
-  return c.charCodeAt(0) - 65;
+    return c.charCodeAt(0) - 65;
 }

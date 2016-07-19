@@ -347,3 +347,66 @@ See [336-palindrome-pairs.js](./leetcode-js/336-palindrome-pairs.js)
 _You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters._
 
 See [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
+
+## 174. Dungeon Game
+
+_The demons had captured the princess (P) and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of M x N rooms laid out in a 2D grid. Our valiant knight (K) was initially positioned in the top-left room and must fight his way through the dungeon to rescue the princess._
+
+_The knight has an initial health point represented by a positive integer. If at any point his health point drops to 0 or below, he dies immediately._
+
+_Some of the rooms are guarded by demons, so the knight loses health (negative integers) upon entering these rooms; other rooms are either empty (0's) or contain magic orbs that increase the knight's health (positive integers)._
+
+_In order to reach the princess as quickly as possible, the knight decides to move only rightward or downward in each step._
+
+_Write a function to determine the knight's minimum initial health so that he is able to rescue the princess._
+
+See [174-dungeon-game.js](./leetcode-js/174-dungeon-game.js)
+
+## 76. Minimum Window Substring
+
+_Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n)._
+
+See [076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)
+
+## 132. Palindrome Partitioning II
+
+_Given a string s, partition s such that every substring of the partition is a palindrome. Return the minimum cuts needed for a palindrome partitioning of s._
+
+See [132-palindrome-partitioning-ii.js](./leetcode-js/132-palindrome-partitioning-ii.js)
+
+## 10. Regular Expression Matching
+
+_Implement regular expression matching with support for '.' and '*'._
+
+```
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "a*") → true
+isMatch("aa", ".*") → true
+isMatch("ab", ".*") → true
+isMatch("aab", "c*a*b") → true
+```
+
+See [010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)
+
+## 32. Longest Valid Parentheses
+
+_Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring._
+
+See [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
+
+## 188. Best Time to Buy and Sell Stock IV
+
+_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most k transactions._
+
+See [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
