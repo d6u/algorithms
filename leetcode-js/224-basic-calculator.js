@@ -13,15 +13,20 @@ const OPERATORS = {
  */
 var calculate = function(s) {
     const opStack = [];
-    // reverse polish notation
+
+    // 1. Reverse polish notation
     const rpn = [];
 
+    // 2. Split s into numbers and operators
     for (const _p of s.split(/([+\-*/()])/)) {
+
         const p = _p.trim();
 
         if (!p) {
             continue;
         }
+
+        // 3. Convert 1 + 1 * 2 to `1,1,2,*,+`
 
         if (OPERATORS[p]) {
             if (!opStack.length) {
@@ -61,6 +66,7 @@ var calculate = function(s) {
 var evalRPN = function(tokens) {
     const stack = [];
 
+    // 4. Evaluate from start
     for (const token of tokens) {
         if (token !== '+' && token !== '-' && token !== '*' && token !== '/') {
             stack.push(parseInt(token));

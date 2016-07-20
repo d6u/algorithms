@@ -5,18 +5,18 @@
  * @return {boolean}
  */
 var isInterleave = function(s1, s2, s3) {
-    'use strict';
-
     if (s1.length + s2.length !== s3.length) {
         return false;
     }
 
+    // 1. dp[0][0] means 0 letters from both s1 and s2
     const dp = [];
 
     for (let i = 0; i < s1.length + 1; i += 1) {
         dp[i] = [];
     }
 
+    // 2. For each letter in s1, loop over s2 once
     for (let i = 0; i < s1.length + 1; i += 1) {
         for (let j = 0; j < s2.length + 1; j += 1) {
             if (i === 0 && j === 0) {

@@ -3,10 +3,10 @@
  * @return {number}
  */
 var maximalRectangle = function(matrix) {
-    'use strict';
-
     const dp = [];
 
+    // 1. Convert this into a finding largest rectangle area within a number of
+    // heights problem
     for (let i = 0; i < matrix.length; i += 1) {
         dp[i] = [];
         for (let j = 0; j < matrix[0].length; j += 1) {
@@ -22,34 +22,39 @@ var maximalRectangle = function(matrix) {
 };
 
 function largestRectangleArea(heights) {
-    'use strict';
-
     const stack = [];
     let max = 0;
 
     let i = 0;
 
     while (i < heights.length) {
-        if (!stack.length || heights[i] >= heights[stack[stack.length - 1]]) {
+        if (!stack.length || heights[i] >= heights[peek(stack)]) {
+            // 2. Push index into stack if height is higher than top of stack
             stack.push(i);
             i += 1;
         } else {
+            // 3. Calculate area between current index and top of stack exclusive
             const index = stack.pop();
             const h = heights[index];
-            const w = stack.length ? i - stack[stack.length - 1] - 1 : i;
+            const w = stack.length ? i - peek(stack) - 1 : i;
             max = Math.max(max, w * h);
         }
     }
 
-
+    // 4. If there are still elements left in the stack, repeat 3 for the rest
+    // of elements
     while (stack.length) {
         const index = stack.pop();
         const h = heights[index];
-        const w = stack.length ? i - stack[stack.length - 1] - 1 : i;
+        const w = stack.length ? i - peek(stack) - 1 : i;
         max = Math.max(max, w * h);
     }
 
     return max;
+}
+
+function peek(stack) {
+    return stack[stack.length - 1];
 }
 
 // console.log(maximalRectangle(["1101","1101","1111"]));

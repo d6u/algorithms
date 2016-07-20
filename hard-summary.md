@@ -410,3 +410,33 @@ See [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parenthes
 _Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most k transactions._
 
 See [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
+
+## 97. Interleaving String
+
+_Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2._
+
+See [097-interleaving-string.js](./leetcode-js/097-interleaving-string.js)
+
+## 135. Candy
+
+_There are N children standing in a line. Each child is assigned a rating value. You are giving candies to these children subjected to the following requirements:_
+
+- _Each child must have at least one candy._
+- _Children with a higher rating get more candies than their neighbors._
+
+_What is the minimum candies you must give?_
+
+See [135-candy.js](./leetcode-js/135-candy.js)
+
+## 85. Maximal Rectangle
+
+_Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area._
+
+See [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)
+
+## 224. Basic Calculator
+
+_Implement a basic calculator to evaluate a simple expression string. The expression string may contain open `(` and closing parentheses `)`, the plus `+` or minus sign `-`, non-negative integers and empty spaces ` `. You may assume that the given expression is always valid._
+
+1. Use [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
+2. See [224-basic-calculator.js](./leetcode-js/224-basic-calculator.js).
