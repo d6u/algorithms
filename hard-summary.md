@@ -8,6 +8,13 @@
 
 ## 146. LRU Cache
 
+_Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: `get` and `set`._
+
+- _`get(key)` - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1._
+- _`set(key, value)` - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item._
+
+[146-lru-cache.js](./leetcode-js/146-lru-cache.js)
+
 1. Use double linked list (has reference to both previous and next item) to access head (most recent) and tail (least recent) in O(1) time.
     - Remove least used item in O(1) time.
     - Add new item in O(1) time.
@@ -19,6 +26,13 @@
 
 ## 126. Word Ladder II
 
+_Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation sequence(s) from beginWord to endWord, such that:_
+
+- _Only one letter can be changed at a time_
+- _Each intermediate word must exist in the word list_
+
+[126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js)
+
 1. Build a graph of words, where neighbours are words with one letter difference.
 2. Add begin word to the list.
 3. Build from end word, so it will finish at being word. This will make building solution from begin word easier (solutions are from begin to end).
@@ -28,12 +42,20 @@
 
 ## 212. Word Search II
 
+_Given a 2D board and a list of words from the dictionary, find all words in the board. Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word._
+
+[212-word-search-ii.js](./leetcode-js/212-word-search-ii.js)
+
 1. Build a trie from words to be found, to avoid duplicate character matchings.
     - Root should be empty string.
 2. Use backtrack to iterating though all cells in the matrix for words.
     - When a word is found, remove it from trie.
 
 ## 124. Binary Tree Maximum Path Sum
+
+_Given a binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path does not need to go through the root._
+
+[124-binary-tree-maximum-path-sum.js](./leetcode-js/124-binary-tree-maximum-path-sum.js)
 
 1. Start from bottom nodes (leaf nodes). (Write recursion, recurse down first.)
 2. Find max among single value of current node, max sum of left arm (current node's value + max sum from nodes in the left) and right arm.
@@ -428,15 +450,40 @@ _What is the minimum candies you must give?_
 
 See [135-candy.js](./leetcode-js/135-candy.js)
 
-## 85. Maximal Rectangle
-
-_Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area._
-
-See [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js)
-
 ## 224. Basic Calculator
 
 _Implement a basic calculator to evaluate a simple expression string. The expression string may contain open `(` and closing parentheses `)`, the plus `+` or minus sign `-`, non-negative integers and empty spaces ` `. You may assume that the given expression is always valid._
 
 1. Use [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
 2. See [224-basic-calculator.js](./leetcode-js/224-basic-calculator.js).
+
+## 85. Maximal Rectangle
+
+_Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area._
+
+1. Convert it into [84. Largest Rectangle in Histogram](#84-largest-rectangle-in-histogram).
+2. See [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js).
+
+## 41. First Missing Positive
+
+_Given an unsorted integer array, find the first missing positive integer. Your algorithm should run in O(n) time and uses constant space._
+
+[041-first-missing-positive.js](/leetcode-js/041-first-missing-positive.js).
+
+## 84. Largest Rectangle in Histogram
+
+_Given n non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram._
+
+See [084-largest-rectangle-in-histogram.js](./leetcode-js/084-largest-rectangle-in-histogram.js).
+
+## 45. Jump Game II
+
+_Given an array of non-negative integers, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Your goal is to reach the last index in the minimum number of jumps._
+
+See [045-jump-game-ii.js](./leetcode-js/045-jump-game-ii.js).
+
+## 316. Remove Duplicate Letters
+
+_Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results._
+
+See [316-remove-duplicate-letters.js](./leetcode-js/316-remove-duplicate-letters.js)
