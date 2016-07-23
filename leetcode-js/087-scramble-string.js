@@ -4,8 +4,6 @@
  * @return {boolean}
  */
 var isScramble = function(s1, s2) {
-    'use strict';
-
     const dp = [];
     const len = s1.length;
 
@@ -23,10 +21,17 @@ var isScramble = function(s1, s2) {
         for (let j = len - 1; j >= 0; j -= 1) {
             for (let k = 1; k <= len - Math.max(i, j); k += 1) {
                 if (s1.substring(i, i + k) === s2.substring(j, j + k)) {
+                    // 1. dp[i][j][k] means, substring of s1 starts at i,
+                    // and substrings of s2 starts at j, both with length of k,
+                    // is the same scrambled string
                     dp[i][j][k] = true;
                 } else {
                     for (let l = 1; l < k; l += 1) {
-                        if ((dp[i][j][l] && dp[i+l][j+l][k-l]) || (dp[i][j+k-l][l] && dp[i+l][j][k-l])) {
+                        // 2. If substrings of s1 and s2 are not equal directly,
+                        // check if they are scrambled strings
+                        if ((dp[i][j][l] && dp[i+l][j+l][k-l]) ||
+                            (dp[i][j+k-l][l] && dp[i+l][j][k-l])) {
+
                             dp[i][j][k] = true;
                             break;
                         }
@@ -39,4 +44,5 @@ var isScramble = function(s1, s2) {
     return dp[0][0][len];
 };
 
-console.log(isScramble('a', 'a'));
+// console.log(isScramble('a', 'a'));
+console.log(isScramble('great', 'rgtae'));

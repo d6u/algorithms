@@ -487,3 +487,85 @@ See [045-jump-game-ii.js](./leetcode-js/045-jump-game-ii.js).
 _Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results._
 
 See [316-remove-duplicate-letters.js](./leetcode-js/316-remove-duplicate-letters.js)
+
+## 123. Best Time to Buy and Sell Stock III
+
+_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most two transactions._
+
+See [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
+
+## 87. Scramble String
+
+_Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = "great":_
+
+```
+    great
+   /    \
+  gr    eat
+ / \    /  \
+g   r  e   at
+           / \
+          a   t
+```
+
+_To scramble the string, we may choose any non-leaf node and swap its two children. For example, if we choose the node "gr" and swap its two children, it produces a scrambled string "rgeat"._
+
+```
+    rgeat
+   /    \
+  rg    eat
+ / \    /  \
+r   g  e   at
+           / \
+          a   t
+```
+
+_We say that "rgeat" is a scrambled string of "great". Similarly, if we continue to swap the children of nodes "eat" and "at", it produces a scrambled string "rgtae"._
+
+```
+    rgtae
+   /    \
+  rg    tae
+ / \    /  \
+r   g  ta  e
+       / \
+      t   a
+```
+
+_We say that "rgtae" is a scrambled string of "great". Given two strings s1 and s2 of the same length, determine if s2 is a scrambled string of s1._
+
+See [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
+
+## 164. Maximum Gap
+
+_Given an unsorted array, find the maximum difference between the successive elements in its sorted form. Try to solve it in linear time/space. Return 0 if the array contains less than 2 elements. You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range._
+
+See [164-maximum-gap.js](./leetcode-js/164-maximum-gap.js)
+
+## 354. Russian Doll Envelopes
+
+_You have a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope. What is the maximum number of envelopes can you Russian doll? (put one inside other)_
+
+See [354-russian-doll-envelopes.js](./leetcode-js/354-russian-doll-envelopes.js)
+
+## 239. Sliding Window Maximum
+
+_Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the maximum number for each sliding window position._
+
+See [239-sliding-window-maximum.js](./leetcode-js/239-sliding-window-maximum.js)
+
+## 72. Edit Distance
+
+_Given two words word1 and word2, find the minimum number of steps required to convert word1 to word2. (each operation is counted as 1 step.) You have the following 3 operations permitted on a word:_
+
+- _Insert a character_
+- _Delete a character_
+- _Replace a character_
+
+See [072-edit-distance_o(n)-space.js](./leetcode-js/072-edit-distance_o%28n%29-space.js)
+
+## 115. Distinct Subsequences
+
+_Given a string S and a string T, count the number of distinct subsequences of T in S. A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ACE" is a subsequence of "ABCDE" while "AEC" is not)._
+
+See [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)

@@ -7,6 +7,7 @@ var maxEnvelopes = function(envelopes) {
         return 0;
     }
 
+    // 1. Sort the envelopes by smaller width first, then larger height first
     envelopes.sort((a, b) => {
         if (a[0] === b[0]) {
             return b[1] - a[1];
@@ -17,7 +18,10 @@ var maxEnvelopes = function(envelopes) {
 
     const dp = [envelopes[0][1]];
 
+    // 2. Find the largest increasing sequence by height
     for (const envelope of envelopes.slice(1)) {
+        // 3. When the widths are the same, we sort larger height first,
+        // so we can break the increasing sequence to avoid equal width
         if (envelope[1] > dp[dp.length-1]) {
             dp.push(envelope[1]);
         } else {
