@@ -569,3 +569,86 @@ See [072-edit-distance_o(n)-space.js](./leetcode-js/072-edit-distance_o%28n%29-s
 _Given a string S and a string T, count the number of distinct subsequences of T in S. A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ACE" is a subsequence of "ABCDE" while "AEC" is not)._
 
 See [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)
+
+## 317. Shortest Distance from All Buildings
+
+_You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:_
+
+- _Each 0 marks an empty land which you can pass by freely._
+- _Each 1 marks a building which you cannot pass through._
+- _Each 2 marks an obstacle which you cannot pass through._
+
+See [317-shortest-distance-from-all-buildings.js](./leetcode-js/317-shortest-distance-from-all-buildings.js)
+
+## 301. Remove Invalid Parentheses
+
+_Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain letters other than the parentheses `(` and `)`._
+
+See [301-remove-invalid-parentheses.js](./leetcode-js/301-remove-invalid-parentheses.js)
+
+## 42. Trapping Rain Water
+
+_Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining._
+
+See [042-trapping-rain-water.js](./leetcode-js/042-trapping-rain-water.js)
+
+## 291. Word Pattern II
+
+_Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection (one to one, and vise versa) between a letter in pattern and a non-empty substring in str._
+
+See [291-word-pattern-ii.js](./leetcode-js/291-word-pattern-ii.js)
+
+## 265. Paint House II
+
+_There are a row of n houses, each house can be painted with one of the k colors. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color._
+
+_The cost of painting each house with a certain color is represented by a n x k cost matrix. For example, `costs[0][0]` is the cost of painting house 0 with color 0; `costs[1][2]` is the cost of painting house 1 with color 2, and so on... Find the minimum cost to paint all houses._
+
+See [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
+
+## 159. Longest Substring with At Most Two Distinct Characters
+
+_Given a string, find the length of the longest substring T that contains at most 2 distinct characters._
+
+See [159-longest-substring-with-at-most-two-distinct-characters.js](./leetcode-js/159-longest-substring-with-at-most-two-distinct-characters.js)
+
+## 312. Burst Balloons
+
+_Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If you burst balloon i you will get nums[left] * nums[i] * nums[right] coins. Here left and right are adjacent indices of i. After the burst, the left and right then becomes adjacent._
+
+_Find the maximum coins you can collect by bursting the balloons wisely._
+
+- _You may imagine nums[-1] = nums[n] = 1. They are not real therefore you can not burst them._
+_ _0 ≤ n ≤ 500, 0 ≤ nums[i] ≤ 100_
+
+See [312-burst-balloons.js](./leetcode-js/312-burst-balloons.js)
+
+## 273. Integer to English Words
+
+_Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than `2^31 - 1`._
+
+See [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
+
+## 57. Insert Interval
+
+_Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary). You may assume that the intervals were initially sorted according to their start times._
+
+See [057-insert-interval.js](./leetcode-js/057-insert-interval.js)
+
+## 37. Sudoku Solver
+
+_Write a program to solve a Sudoku puzzle by filling the empty cells. Empty cells are indicated by the character '.'. You may assume that there will be only one unique solution._
+
+TODO
+
+## 282. Expression Add Operators
+
+_Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or * between the digits so they evaluate to the target value._
+
+See [282-expression-add-operators.js](./leetcode-js/282-expression-add-operators.js)
+
+## 56. Merge Intervals
+
+_Given a collection of intervals, merge all overlapping intervals._
+
+See [056-merge-intervals.js](./leetcode-js/056-merge-intervals.js)

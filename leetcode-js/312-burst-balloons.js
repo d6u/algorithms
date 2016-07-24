@@ -14,8 +14,9 @@ var maxCoins = function(nums) {
     // 3. Start with small number of balloons.
     // First, calculate 1 balloon, then 2, etc. Eventually to all balloons
     for (let len = 1; len <= nums.length; len += 1) {
-        for (let left = 0; left < arr.length - len - 1; left += 1) {
+        for (let left = 0; left < nums.length - len + 1; left += 1) {
             const right = left + len + 1;
+
             // 4. Left and right boundaries are not included into balloons,
             // i.e. left + 1 and right - 1
             for (let i = left + 1; i <= right - 1; i += 1) {

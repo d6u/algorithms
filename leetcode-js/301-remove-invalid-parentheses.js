@@ -12,6 +12,7 @@ var removeInvalidParentheses = function(s) {
 
     let found = false;
 
+    // 1. Going through each level, every level we remove one parenthese
     while (queue.length) {
         const str = queue.shift();
         if (isValid(str)) {
@@ -25,7 +26,9 @@ var removeInvalidParentheses = function(s) {
             if (str[i] !== '(' && str[i] !== ')') {
                 continue;
             }
-            const t = str.substring(0, i) + str.substring(i + 1);
+            const t = removeCharAtIndex(str, i);
+
+            // 2. Use set to prevent duplicate
             if (!visited.has(t)) {
                 queue.push(t);
                 visited.add(t);
@@ -49,6 +52,10 @@ function isValid(s) {
         }
     }
     return count === 0;
+}
+
+function removeCharAtIndex(str, i) {
+    return str.substring(0, i) + str.substring(i + 1);
 }
 
 console.log(removeInvalidParentheses("()())()"));

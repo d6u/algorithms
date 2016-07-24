@@ -1,12 +1,10 @@
-var V3 = ['Thousand', 'Million', 'Billion'];
+const V3 = ['Thousand', 'Million', 'Billion'];
 
 /**
  * @param {number} num
  * @return {string}
  */
 var numberToWords = function (num) {
-    'use strict';
-
     if (num === 0) {
         return 'Zero';
     }
@@ -32,14 +30,14 @@ var numberToWords = function (num) {
     return strs.join(' ');
 };
 
-var V1 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-var V2 = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+const V1 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+const V2 = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
 
 var translateHundred = function (n) {
-    var a = Math.floor(n / 100);
-    var b = n % 100;
-    var c = n % 10;
-    var strs = [];
+    const a = Math.floor(n / 100); // hundreds
+    const b = n % 100; // 10th
+    const c = n % 10; // single digit
+    const strs = [];
 
     if (a > 0) {
         strs.push(V1[a]);
@@ -47,9 +45,11 @@ var translateHundred = function (n) {
     }
 
     if (b > 0 && b < 20) {
+        // Below 20, especially handle 10 to 19
         strs.push(V1[b]);
     } else {
         if (b >= 20) {
+            // Handle 20, 30, 40 ... 90
             strs.push(V2[Math.floor(b / 10)]);
         }
 

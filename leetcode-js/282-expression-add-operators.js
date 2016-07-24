@@ -21,6 +21,8 @@ function helper(rst, path, num, target, pos, evaluate, multed) {
     }
     for (let i = pos; i < num.length; i += 1) {
         if (i !== pos && num[pos] === '0') {
+            // Cannot handle multi-digits number start with 0,
+            // note: it's num[pos] not num[i]
             break;
         }
         const cur = parseInt(num.substring(pos, i + 1));
@@ -29,9 +31,12 @@ function helper(rst, path, num, target, pos, evaluate, multed) {
         } else {
             helper(rst, path + '+' + cur, num, target, i + 1, evaluate + cur, cur);
             helper(rst, path + '-' + cur, num, target, i + 1, evaluate - cur, -cur);
+
+            // remove `multed` from `evaluate` because times operation take precedence
             helper(rst, path + '*' + cur, num, target, i + 1, evaluate - multed + multed * cur, multed * cur);
         }
     }
 }
 
-console.log(addOperators("232", 8));
+// console.log(addOperators("232", 8));
+console.log(addOperators("105", 5));

@@ -14,11 +14,13 @@ var insert = function(intervals, newInterval) {
     const result = [];
     let i = 0;
 
+    // Keep intervals that aren't over lapping with new interval
     while (i < intervals.length && intervals[i].end < newInterval.start) {
         result.push(intervals[i]);
         i += 1;
     }
 
+    // Merge overlapping intervals
     while (i < intervals.length && intervals[i].start <= newInterval.end) {
         newInterval = new Interval(
             Math.min(newInterval.start, intervals[i].start),
@@ -29,6 +31,7 @@ var insert = function(intervals, newInterval) {
 
     result.push(newInterval);
 
+    // Keep rest intervals
     while (i < intervals.length) {
         result.push(intervals[i]);
         i += 1;
