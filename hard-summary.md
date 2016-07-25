@@ -6,6 +6,8 @@
 - [124. Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum)
 - [269. Alien Dictionary](#269-alien-dictionary)
 
+- [52. N-Queens II](#51-n-queens)
+
 ## 146. LRU Cache
 
 _Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: `get` and `set`._
@@ -641,6 +643,8 @@ _Write a program to solve a Sudoku puzzle by filling the empty cells. Empty cell
 
 TODO
 
+See [037-sudoku-solver.js](./leetcode-js/037-sudoku-solver.js)
+
 ## 282. Expression Add Operators
 
 _Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or * between the digits so they evaluate to the target value._
@@ -676,3 +680,52 @@ See [330-patching-array.js](./leetcode-js/330-patching-array.js)
 _Given an integer matrix, find the length of the longest increasing path. From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed)._
 
 See [329-longest-increasing-path-in-a-matrix.js](./leetcode-js/329-longest-increasing-path-in-a-matrix.js)
+
+## 128. Longest Consecutive Sequence
+
+_Given an unsorted array of integers, find the length of the longest consecutive elements sequence._
+
+See [128-longest-consecutive-sequence.js](./leetcode-js/128-longest-consecutive-sequence.js)
+
+## 305. Number of Islands II
+
+_A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand operation which turns the water at position (row, col) into a land. Given a list of positions to operate, count the number of islands after each addLand operation. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water._
+
+TODO
+
+https://www.cs.princeton.edu/~rs/AlgsDS07/01UnionFind.pdf
+https://www.cs.princeton.edu/~rs/AlgsDS07/
+
+See [305-number-of-islands-ii.js](./leetcode-js/305-number-of-islands-ii.js)
+
+## 340. Longest Substring with At Most K Distinct Characters
+
+_Given a string, find the length of the longest substring T that contains at most k distinct characters._
+
+TODO
+
+See [340-longest-substring-with-at-most-k-distinct-characters.js](./leetcode-js/340-longest-substring-with-at-most-k-distinct-characters.js)
+
+## 52. N-Queens II
+
+_Follow up for [N-Queens problem](#51-n-queens). Now, instead outputting board configurations, return the total number of distinct solutions._
+
+TODO
+
+See [052-n-queens-ii.js](./leetcode-js/052-n-queens-ii.js)
+
+## 302. Smallest Rectangle Enclosing Black Pixels
+
+_An image is represented by a binary matrix with 0 as a white pixel and 1 as a black pixel. The black pixels are connected, i.e., there is only one black region. Pixels are connected horizontally and vertically. Given the location (x, y) of one of the black pixels, return the area of the smallest (axis-aligned) rectangle that encloses all black pixels._
+
+TODO
+
+See [302-smallest-rectangle-enclosing-black-pixels.js](./leetcode-js/302-smallest-rectangle-enclosing-black-pixels.js)
+
+## 296. Best Meeting Point
+
+_A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where `distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|`._
+
+TODO
+
+See [296-best-meeting-point.js](./leetcode-js/296-best-meeting-point.js)

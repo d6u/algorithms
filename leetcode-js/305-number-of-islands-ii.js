@@ -1,4 +1,4 @@
-const dir = [[0, 1], [0, -1], [-1, 0], [1, 0]];
+const DIRS = [[0, 1], [0, -1], [-1, 0], [1, 0]];
 
 /**
  * @param {number} m
@@ -13,12 +13,15 @@ var numIslands2 = function(m, n, positions) {
     for (const position of positions) {
         const x = position[0];
         const y = position[1];
+
         const p = islands.add(x, y);
-        for (const d of dir) {
+        for (const d of DIRS) {
             const q = islands.getID(x + d[0], y + d[1]);
-            if (q > 0 && !islands.find(p, q))
+            if (q > 0 && !islands.find(p, q)) {
                 islands.unite(p, q);
+            }
         }
+
         result.push(islands.size());
     }
 
@@ -43,7 +46,7 @@ class UnionFind2D {
     }
 
     getID(x, y) {
-        if (0 <= x && x < this.m && 0<= y && y < this.n) {
+        if (0 <= x && x < this.m && 0 <= y && y < this.n) {
             return this.id[this.index(x, y)];
         } else {
             return 0;
@@ -76,8 +79,9 @@ class UnionFind2D {
     }
 
     root(i) {
-        for (;i !== this.id[i]; i = this.id[i]) {
+        while (i !== this.id[i]) {
             this.id[i] = this.id[this.id[i]]; // path compression
+            i = this.id[i];
         }
         return i;
     }

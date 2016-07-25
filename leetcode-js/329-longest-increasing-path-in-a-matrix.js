@@ -6,14 +6,19 @@ var longestIncreasingPath = function(matrix) {
     if (!matrix.length) {
         return 0;
     }
+
+    // Use cache to save longest increasing sequence for any cell
     const cache = Array(matrix.length).fill().map(() => Array(matrix[0].length).fill(0));
+
     let max = 1;
+
     for (let i = 0; i < matrix.length; i += 1) {
         for (let j = 0; j < matrix[0].length; j += 1) {
             const len = dfs(matrix, i, j, matrix.length, matrix[0].length, cache);
             max = Math.max(max, len);
         }
     }
+
     return max;
 };
 
@@ -25,20 +30,28 @@ const DIRS = [
 ];
 
 function dfs(matrix, i, j, m, n, cache) {
+    // Minimum value for a cached increasing sequence is 1
     if (cache[i][j] !== 0) {
         return cache[i][j];
     }
+
     let max = 1;
+
     for (const dir of DIRS) {
         const x = i + dir[0];
         const y = j + dir[1];
+
+        // out of bondary, and value is not greater
         if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[i][j]) {
             continue;
         }
+
         const len = 1 + dfs(matrix, x, y, m, n, cache);
         max = Math.max(max, len);
     }
+
     cache[i][j] = max;
+
     return max;
 }
 
