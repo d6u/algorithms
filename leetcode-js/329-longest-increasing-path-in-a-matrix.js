@@ -1,10 +1,3 @@
-const dirs = [
-    [0, 1],
-    [1, 0],
-    [0, -1],
-    [-1, 0]
-];
-
 /**
  * @param {number[][]} matrix
  * @return {number}
@@ -24,12 +17,19 @@ var longestIncreasingPath = function(matrix) {
     return max;
 };
 
+const DIRS = [
+    [0, 1],
+    [1, 0],
+    [0, -1],
+    [-1, 0]
+];
+
 function dfs(matrix, i, j, m, n, cache) {
     if (cache[i][j] !== 0) {
         return cache[i][j];
     }
     let max = 1;
-    for (const dir of dirs) {
+    for (const dir of DIRS) {
         const x = i + dir[0];
         const y = j + dir[1];
         if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] <= matrix[i][j]) {

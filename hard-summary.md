@@ -652,3 +652,27 @@ See [282-expression-add-operators.js](./leetcode-js/282-expression-add-operators
 _Given a collection of intervals, merge all overlapping intervals._
 
 See [056-merge-intervals.js](./leetcode-js/056-merge-intervals.js)
+
+## 51. N-Queens
+
+_The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle._
+
+See [051-n-queens.js](./leetcode-js/051-n-queens.js)
+
+## 248. Strobogrammatic Number III
+
+_A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down). Write a function to count the total strobogrammatic numbers that exist in the range of low <= num <= high._
+
+See [248-strobogrammatic-number-iii.js](./leetcode-js/248-strobogrammatic-number-iii.js)
+
+## 330. Patching Array
+
+_Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required._
+
+See [330-patching-array.js](./leetcode-js/330-patching-array.js)
+
+## 329. Longest Increasing Path in a Matrix
+
+_Given an integer matrix, find the length of the longest increasing path. From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed)._
+
+See [329-longest-increasing-path-in-a-matrix.js](./leetcode-js/329-longest-increasing-path-in-a-matrix.js)
