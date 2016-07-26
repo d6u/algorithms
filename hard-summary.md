@@ -5,7 +5,7 @@
 - [212. Word Search II](#212-word-search-ii)
 - [124. Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum)
 - [269. Alien Dictionary](#269-alien-dictionary)
-
+- [296. Best Meeting Point](#296-best-meeting-point)
 - [52. N-Queens II](#51-n-queens)
 
 ## 146. LRU Cache
@@ -702,8 +702,6 @@ See [305-number-of-islands-ii.js](./leetcode-js/305-number-of-islands-ii.js)
 
 _Given a string, find the length of the longest substring T that contains at most k distinct characters._
 
-TODO
-
 See [340-longest-substring-with-at-most-k-distinct-characters.js](./leetcode-js/340-longest-substring-with-at-most-k-distinct-characters.js)
 
 ## 52. N-Queens II
@@ -718,14 +716,10 @@ See [052-n-queens-ii.js](./leetcode-js/052-n-queens-ii.js)
 
 _An image is represented by a binary matrix with 0 as a white pixel and 1 as a black pixel. The black pixels are connected, i.e., there is only one black region. Pixels are connected horizontally and vertically. Given the location (x, y) of one of the black pixels, return the area of the smallest (axis-aligned) rectangle that encloses all black pixels._
 
-TODO
-
 See [302-smallest-rectangle-enclosing-black-pixels.js](./leetcode-js/302-smallest-rectangle-enclosing-black-pixels.js)
 
 ## 296. Best Meeting Point
 
 _A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where `distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|`._
-
-TODO
 
 See [296-best-meeting-point.js](./leetcode-js/296-best-meeting-point.js)
