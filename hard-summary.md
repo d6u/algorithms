@@ -691,10 +691,8 @@ See [128-longest-consecutive-sequence.js](./leetcode-js/128-longest-consecutive-
 
 _A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand operation which turns the water at position (row, col) into a land. Given a list of positions to operate, count the number of islands after each addLand operation. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water._
 
-TODO
-
-https://www.cs.princeton.edu/~rs/AlgsDS07/01UnionFind.pdf
 https://www.cs.princeton.edu/~rs/AlgsDS07/
+https://www.cs.princeton.edu/~rs/AlgsDS07/01UnionFind.pdf
 
 See [305-number-of-islands-ii.js](./leetcode-js/305-number-of-islands-ii.js)
 
