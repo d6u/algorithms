@@ -11,9 +11,12 @@ var countComponents = function(n, edges) {
     }
 
     for (const [node1, node2] of edges) {
+        // Find roots of nodes
         const root1 = find(roots, node1);
         const root2 = find(roots, node2);
+
         if (root1 !== root2) {
+            // Unite two nodes
             roots[root1] = root2;
             n -= 1;
         }

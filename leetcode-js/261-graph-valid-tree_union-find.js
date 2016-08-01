@@ -4,8 +4,6 @@
  * @return {boolean}
  */
 var validTree = function(n, edges) {
-    'use strict';
-
     if (n !== edges.length + 1) {
         return false;
     }
@@ -20,6 +18,8 @@ var validTree = function(n, edges) {
         const a = find(graph, edge[0]);
         const b = find(graph, edge[1]);
 
+        // A tree is a graph that
+        // any two nodes are connected through only one path
         if (a === b) {
             return false;
         }

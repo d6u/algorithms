@@ -1,6 +1,22 @@
 # Algorithms Practices
 
-## Categories
+## Union Find
+
+- [305-number-of-islands-ii.js](./leetcode-js/305-number-of-islands-ii.js) classic union find
+- [323-number-of-connected-components-in-an-undirected-graph.js](./leetcode-js/323-number-of-connected-components-in-an-undirected-graph.js) classic union find
+- [128-longest-consecutive-sequence.js](./leetcode-js/128-longest-consecutive-sequence.js) similar to union find
+- [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js) union find concept
+- [261-graph-valid-tree_union-find.js](./leetcode-js/261-graph-valid-tree_union-find.js) union find concept
+
+## DataStructure Design
+
+- [146-lru-cache.js](./leetcode-js/146-lru-cache.js) double linked list
+
+## Graph & Topological Sort
+
+- [126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js) build graph
+
+---
 
 ### Classic
 

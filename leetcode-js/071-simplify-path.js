@@ -3,8 +3,6 @@
  * @return {string}
  */
 var simplifyPath = function(path) {
-    'use strict';
-
     const parts = path.split('/');
     const stack = [];
 

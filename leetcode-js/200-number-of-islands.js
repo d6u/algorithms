@@ -3,8 +3,6 @@
  * @return {number}
  */
 var numIslands = function(grid) {
-    'use strict';
-
     if (!grid || !grid.length || !grid[0].length) {
         return 0;
     }
@@ -15,6 +13,7 @@ var numIslands = function(grid) {
         for (let x = 0; x < grid[0].length; x += 1) {
             if (grid[y][x] === '1') {
                 count += 1;
+                // Set all connected islands to 0
                 merge(grid, x, y);
             }
         }
