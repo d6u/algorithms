@@ -17,6 +17,8 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 
 [283-move-zeroes.js](../leetcode-js/283-move-zeroes.js)
 
+Follow up: 如果只需要把非0的数移到左边，而不care右边是什么数要怎么做。举例 2，0，0，1，3，0，5，输出2，1，3，5，*，*，*，随便*输出什么都可以。
+
 ## Search in Rotated Sorted Array
 
 [033-search-in-rotated-sorted-array.js](../leetcode-js/033-search-in-rotated-sorted-array.js)
@@ -49,7 +51,9 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 
 ## Remove Invalid Parentheses
 
-[301-remove-invalid-parentheses.js](../leetcode-js/301-remove-invalid-parentheses.js)
+[301-remove-invalid-parentheses.js](../leetcode-js/301-remove-invalid-parentheses.js) BFS
+
+[301-remove-invalid-parentheses_no-set.js](../leetcode-js/301-remove-invalid-parentheses_no-set.js)
 
 ## Copy List with Random Pointer
 
@@ -58,3 +62,82 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 ## Simplify Path
 
 [071-simplify-path.js](../leetcode-js/071-simplify-path.js)
+
+## Word Break
+
+[139-word-break.js](./leetcode-js/139-word-break.js)
+
+[140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
+
+## Find Kth Largest Element
+
+[215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
+
+## Phone Letters Combination
+
+[017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
+
+TODO: need iterative
+
+## 3Sum
+
+[015-3sum.js](./leetcode-js/015-3sum.js)
+
+TODO: need hashmap solution
+
+## Number of 1 Bits
+
+[191-number-of-1-bits.js](./leetcode-js/191-number-of-1-bits.js)
+
+## 给2D平面上的N个点，求离原点最近的K个点
+
+## Decode Ways
+
+[091-decode-ways.js](./leetcode-js/091-decode-ways.js)
+
+## 给一个partial sorted的数组比如1，3，5，2，4，6，8，10，20，30，11，12，13，数组有N个数，分为M个segment，N>>>M，要求输出排序后的数组。第一反应就是merge k sorted list，按照那个写了下，问了问time 和space 的complexity
+
+## 给一个数字array , 有正有负数。给一个数， 找array中连续的数字，其和是给定的数
+
+[327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js)
+
+## Validate BST
+
+[098-validate-binary-search-tree.js](./leetcode-js/098-validate-binary-search-tree.js)
+
+## Graph Valid Tree
+
+[261-graph-valid-tree_union-find.js](./leetcode-js/261-graph-valid-tree_union-find.js)
+
+## Merge Intervals
+
+给出N个序列，比如2个序列A,B,没个序列包含若干的区间，比如
+A: [1,5], [10,14], [16,18]
+B: [2,6], [8,10], [11,20]
+
+没个序列内的区间没有overlap但是序列之间的区间没有这个限制。请给出solution合并N个序列到一个序列 Final，Final内依然没有overlap的区间。
+比如上例 Final就是 [1,6], [8, 20].
+
+[056-merge-intervals.js](./leetcode-js/056-merge-intervals.js)
+
+## Tree Traversal
+
+[094-binary-tree-inorder-traversal.js](./leetcode-js/094-binary-tree-inorder-traversal.js)
+
+## Tri-node的题
+
+## 找sorted array中的某个数，用divide & conquer做
+
+## 一道多个pc之间发送和请求数据的设计题
+
+## first bad version 以及变种。 变种是如果不知道一共有多少版本的情况下应该怎么找。
+
+https://www.quora.com/Given-an-array-of-unknown-size-n-how-do-you-find-the-exact-value-of-n-in-O-log-n-time
+
+## Min Queue, 跟Min Stack类似， 实现一个Queue， 然后O（1）复杂度获得这个Queue里最小的元素
+
+## Merge Two Sorted Array
+
+## find battleship， 一个N*N的grid, 里面battleship是一个横着或者竖着的一条线（三个格子）， 要找到battleship的坐标。
+
+## binary tree -> circular doubly LinkedList

@@ -3,21 +3,24 @@
  * @return {string}
  */
 var shortestPalindrome = function(s) {
-    'use strict';
+    const sRev = s.split('').reverse().join('');
 
-    const revS = s.split('').reverse().join('');
-    const l = s + '#' + revS;
-    const p = Array(l.length).fill(0);
+    // Insert `#` to break prefix matching
+    const l = s + '#' + sRev;
+    const p = Array(l.length + 1).fill(0);
+    let j = 0;
 
     for (let i = 1; i < l.length; i++) {
-        let j = p[i - 1];
-        while (j > 0 && l[i] != l[j]) {
-            j = p[j - 1];
+        while (j > 0 && l[i] !== l[j]) {
+            j = p[j];
         }
-        p[i] = j + (l[i] === l[j]);
+        if (l[i] === l[j]) {
+            j += 1;
+        }
+        p[i+1] = j;
     }
 
-    return revS.substr(0, s.length - p[p.length - 1]) + s;
+    return sRev.substr(0, s.length - j) + s;
 };
 
 console.log(shortestPalindrome("aabba"));

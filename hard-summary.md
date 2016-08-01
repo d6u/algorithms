@@ -586,7 +586,9 @@ See [317-shortest-distance-from-all-buildings.js](./leetcode-js/317-shortest-dis
 
 _Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain letters other than the parentheses `(` and `)`._
 
-See [301-remove-invalid-parentheses.js](./leetcode-js/301-remove-invalid-parentheses.js)
+See [301-remove-invalid-parentheses.js](./leetcode-js/301-remove-invalid-parentheses.js) for BFS
+
+See [301-remove-invalid-parentheses_no-set.js](./leetcode-js/301-remove-invalid-parentheses_no-set.js)
 
 ## 42. Trapping Rain Water
 

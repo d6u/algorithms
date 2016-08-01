@@ -18,7 +18,6 @@ var wordBreak = function(s, wordDict) {
 
             // 2. Has enough char to form current word
             if (i + 1 < wordLen) {
-                console.log('-->', i, word)
                 continue;
             }
 

@@ -16,6 +16,15 @@
 
 - [126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js) build graph
 
+## KMP
+
+- [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js) classic string matching
+- [214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js) same concept to get prefix
+
+## Stack
+
+- [071-simplify-path.js](./leetcode-js/071-simplify-path.js) classic stack
+
 ---
 
 ### Classic
@@ -25,9 +34,6 @@
 - Boyer-Moore Majority Vote Algorithm
     - [169-majority-element.js](./leetcode-js/169-majority-element.js)
     - [229-majority-element-ii.js](./leetcode-js/229-majority-element-ii.js)
-- Knuth-Morris-Pratt String Searching Algorithm
-    - [028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
-    - [214-shortest-palindrome.js](./leetcode-js/214-shortest-palindrome.js)
 
 ### Math
 
