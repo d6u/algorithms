@@ -20,20 +20,27 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 ## Search in Rotated Sorted Array
 
 [033-search-in-rotated-sorted-array.js](./leetcode-js/033-search-in-rotated-sorted-array.js)
+
 [081-search-in-rotated-sorted-array-ii.js](./leetcode-js/081-search-in-rotated-sorted-array-ii.js)
 
 ## Combination Sum
 
-给一个正数n，打印出所有相加的组合
-例如10可以打印出
+给一个正数n，打印出所有相加的组合,例如10可以打印出
+
 1+1+1+...1
+
 1+2+1+...1
+
 ...
+
 9+1
+
 10
 
 [039-combination-sum.js](./leetcode-js/039-combination-sum.js)
+
 [040-combination-sum-ii.js](./leetcode-js/040-combination-sum-ii.js)
+
 [216-combination-sum-iii.js](./leetcode-js/216-combination-sum-iii.js)
 
 ## 2Sum
