@@ -6,19 +6,30 @@
  */
 function taskCooldown(tasks, cooldown) {
     let result = '';
+
     const queue = new Queue(cooldown);
+    const map = new Map();
+    let i = 0;
 
     for (const task of tasks) {
-        let i = queue.find(task);
-        if (i === -1) {
-            i = cooldown;
+        let j;
+        if (map.has(task)) {
+            j = cooldown - (i - 1 - map.get(task));
+        } else {
+            j = 0;
         }
-        result += '_'.repeat(cooldown - i) + task;
-        while (cooldown - i > 0) {
-            queue.push();
+
+        result += '_'.repeat(j) + task;
+
+        while (j > 0) {
+            performTask('_', queue, map);
             i += 1;
+            j -= 1;
         }
-        queue.push(task);
+
+        performTask(task, queue, map);
+        map.set(task, i);
+        i += 1;
     }
 
     return result;
@@ -29,18 +40,17 @@ class Queue {
         this.queue = Array(size);
     }
 
-    push(val = '_') {
-        this.queue.shift();
+    push(val) {
+        const task = this.queue.shift();
         this.queue.push(val);
+        return task;
     }
+}
 
-    find(val) {
-        for (let i = 0; i < this.queue.length; i += 1) {
-            if (this.queue[this.queue.length - 1 - i] === val) {
-                return i;
-            }
-        }
-        return -1;
+function performTask(task, queue, map) {
+    const t = queue.push(task);
+    if (t !== '_') {
+        map.delete(t);
     }
 }
 
