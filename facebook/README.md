@@ -7,21 +7,21 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 
 ## strStr
 
-[028-implement-strstr.js](./leetcode-js/028-implement-strstr.js)
+[028-implement-strstr.js](../leetcode-js/028-implement-strstr.js)
 
 ## Sort Colors
 
-[075-sort-colors.js](./leetcode-js/075-sort-colors.js)
+[075-sort-colors.js](../leetcode-js/075-sort-colors.js)
 
 ## Move Zeroes
 
-[283-move-zeroes.js](./leetcode-js/283-move-zeroes.js)
+[283-move-zeroes.js](../leetcode-js/283-move-zeroes.js)
 
 ## Search in Rotated Sorted Array
 
-[033-search-in-rotated-sorted-array.js](./leetcode-js/033-search-in-rotated-sorted-array.js)
+[033-search-in-rotated-sorted-array.js](../leetcode-js/033-search-in-rotated-sorted-array.js)
 
-[081-search-in-rotated-sorted-array-ii.js](./leetcode-js/081-search-in-rotated-sorted-array-ii.js)
+[081-search-in-rotated-sorted-array-ii.js](../leetcode-js/081-search-in-rotated-sorted-array-ii.js)
 
 ## Combination Sum
 
@@ -37,24 +37,24 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 
 10
 
-[039-combination-sum.js](./leetcode-js/039-combination-sum.js)
+[039-combination-sum.js](../leetcode-js/039-combination-sum.js)
 
-[040-combination-sum-ii.js](./leetcode-js/040-combination-sum-ii.js)
+[040-combination-sum-ii.js](../leetcode-js/040-combination-sum-ii.js)
 
-[216-combination-sum-iii.js](./leetcode-js/216-combination-sum-iii.js)
+[216-combination-sum-iii.js](../leetcode-js/216-combination-sum-iii.js)
 
 ## 2Sum
 
-[001-two-sum.js](./leetcode-js/001-two-sum.js)
+[001-two-sum.js](../leetcode-js/001-two-sum.js)
 
 ## Remove Invalid Parentheses
 
-[301-remove-invalid-parentheses.js](./leetcode-js/301-remove-invalid-parentheses.js)
+[301-remove-invalid-parentheses.js](../leetcode-js/301-remove-invalid-parentheses.js)
 
 ## Copy List with Random Pointer
 
-[138-copy-list-with-random-pointer.js](./leetcode-js/138-copy-list-with-random-pointer.js)
+[138-copy-list-with-random-pointer.js](../leetcode-js/138-copy-list-with-random-pointer.js)
 
 ## Simplify Path
 
-[071-simplify-path.js](./leetcode-js/071-simplify-path.js)
+[071-simplify-path.js](../leetcode-js/071-simplify-path.js)
