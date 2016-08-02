@@ -141,3 +141,11 @@ https://www.quora.com/Given-an-array-of-unknown-size-n-how-do-you-find-the-exact
 ## find battleship， 一个N*N的grid, 里面battleship是一个横着或者竖着的一条线（三个格子）， 要找到battleship的坐标。
 
 ## binary tree -> circular doubly LinkedList
+
+## Convert a given Binary Tree to Doubly Linked List
+
+http://www.geeksforgeeks.org/in-place-convert-a-given-binary-tree-to-doubly-linked-list/
+
+## 给2D平面上的N个点，求离原点最近的K个点
+
+[215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
