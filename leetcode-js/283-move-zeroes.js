@@ -3,18 +3,17 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function(nums) {
-    let zeroIndex = 0;
+    let insertPos = 0;
 
-    for (let i = 0; i < nums.length; i += 1) {
-        if (nums[i] === 0) {
-            for (let j = i + 1; j < nums.length; j += 1) {
-                if (nums[j] !== 0) {
-                    const tmp = nums[j];
-                    nums[j] = nums[i];
-                    nums[i] = tmp;
-                    break;
-                }
-            }
+    for (const num of nums) {
+        if (num !== 0) {
+            nums[insertPos] = num;
+            insertPos += 1;
         }
+    }
+
+    while (insertPos < nums.length) {
+        nums[insertPos] = 0;
+        insertPos += 1;
     }
 };

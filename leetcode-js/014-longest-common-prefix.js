@@ -3,21 +3,22 @@
  * @return {string}
  */
 var longestCommonPrefix = function(strs) {
-    'use strict';
-
     if (!strs.length) {
         return '';
     }
 
-    let pre = strs[0];
-    let i = 1;
+    strs.sort();
 
-    while (i < strs.length) {
-        while (strs[i].indexOf(pre) !== 0) {
-            pre = pre.substring(0, pre.length - 1);
+    var result = '';
+
+    // Just compare first and last string after sort
+    for (var i = 0; i < strs[0].length; i += 1) {
+        if (strs[0][i] === strs[strs.length-1][i]) {
+            result += strs[0][i];
+        } else {
+            return result;
         }
-        i += 1;
     }
 
-    return pre;
+    return result;
 };

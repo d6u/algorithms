@@ -4,11 +4,14 @@
 
 ### 010-regular-expression-matching
 
-[010-regular-expression-matching.js](../leetcode-js/010-regular-expression-matching.js)
+- [010-regular-expression-matching.js](../leetcode-js/010-regular-expression-matching.js)
+- [010-regular-expression-matching_dp.js](../leetcode-js/010-regular-expression-matching_dp.js) fastest
 
 ### Find first k common elements in n sorted arrays
 
 [014-longest-common-prefix.js](../leetcode-js/014-longest-common-prefix.js)
+
+Follow up?: common substring
 
 ### Move Zeroes
 
