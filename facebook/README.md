@@ -52,20 +52,18 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 ### Tree Traversal
 
 [094-binary-tree-inorder-traversal.js](../leetcode-js/094-binary-tree-inorder-traversal.js)
+[144-binary-tree-preorder-traversal.js](./leetcode-js/144-binary-tree-preorder-traversal.js)
+[145-binary-tree-postorder-traversal.js](./leetcode-js/145-binary-tree-postorder-traversal.js)
 
-### Validate BST
+### Validate Tree
 
 [098-validate-binary-search-tree.js](./leetcode-js/098-validate-binary-search-tree.js)
-
-### Graph Valid Tree
-
+[110-balanced-binary-tree.js](./leetcode-js/110-balanced-binary-tree.js)
 [261-graph-valid-tree_union-find.js](./leetcode-js/261-graph-valid-tree_union-find.js)
-
-Follow up: whether graph is a valid BST
 
 ### 给一个数字array , 有正有负数。给一个数， 找array中连续的数字，其和是给定的数
 
-TODO: [327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js)
+[327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js)
 
 ### 给一个partial sorted的数组比如1，3，5，2，4，6，8，10，20，30，11，12，13，数组有N个数，分为M个segment，N>>>M，要求输出排序后的数组。第一反应就是merge k sorted list，按照那个写了下，问了问time 和space 的complexity
 
@@ -87,10 +85,6 @@ TODO: [004-median-of-two-sorted-arrays.js](./leetcode-js/004-median-of-two-sorte
 
 - [139-word-break.js](./leetcode-js/139-word-break.js)
 - [140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
-
-### Find Kth Largest Element
-
-[215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
 
 ### 2Sum
 
@@ -129,6 +123,8 @@ startTime <= t< stopTime 代表这个数在区间里面出现过。
 [253-meeting-rooms-ii.js](./leetcode-js/253-meeting-rooms-ii.js)
 
 ### 自然string comparator。不知道的搜下。就是string 比较的时候考虑里面数字的大小，比如 abc9 < abc123 abc > ab9  因为char比digit重要
+
+### read4k
 
 - [157-read-n-characters-given-read4.js](./leetcode-js/157-read-n-characters-given-read4.js)
 - [158-read-n-characters-given-read4-ii-call-multiple-times.js](./leetcode-js/158-read-n-characters-given-read4-ii-call-multiple-times.js)

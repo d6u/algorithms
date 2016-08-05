@@ -10,12 +10,7 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    const difference = getBalance(root);
-    if (difference === -1) {
-        return false;
-    } else {
-        return true;
-    }
+    return getBalance(root) !== -1;
 };
 
 function getBalance(node) {
