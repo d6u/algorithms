@@ -10,21 +10,23 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    return _isValidBST(root, null, null);
+    const stack = [];
+    let node = root;
+    let prev;
+
+    while (node || stack.length) {
+        if (node) {
+            stack.push(node);
+            node = node.left;
+        } else {
+            node = stack.pop();
+            if (prev && node.val <= prev.val) {
+                return false;
+            }
+            prev = node;
+            node = node.right;
+        }
+    }
+
+    return true;
 };
-
-function _isValidBST(node, min, max) {
-    if (!node) {
-        return true;
-    }
-
-    if (min != null && node.val <= min) {
-        return false;
-    }
-
-    if (max != null && node.val >= max) {
-        return false;
-    }
-
-    return _isValidBST(node.left, min, node.val) && _isValidBST(node.right, node.val, max);
-}
