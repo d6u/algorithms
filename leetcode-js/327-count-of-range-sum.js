@@ -65,7 +65,7 @@ function mergeSort(sums, start, end, lower, upper) {
     }
 
     // 7. Assign the sorted element into the sums array
-    for (let i2 = 0; i2 < t - start; i2 += 1) {
+    for (let i2 = 0; i2 < r; i2 += 1) {
         sums[start+i2] = cache[i2];
     }
 
