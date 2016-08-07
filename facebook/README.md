@@ -67,13 +67,17 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 
 ### 给一个partial sorted的数组比如1，3，5，2，4，6，8，10，20，30，11，12，13，数组有N个数，分为M个segment，N>>>M，要求输出排序后的数组。第一反应就是merge k sorted list，按照那个写了下，问了问time 和space 的complexity
 
+TODO
+
 ### Number of 1 Bits
 
-[191-number-of-1-bits.js](../leetcode-js/191-number-of-1-bits.js)
+[191-number-of-1-bits.js](../leetcode-js/191-number-of-1-bits.js) O(m), m is number of 1 bits
+
+TODO: O(1) solution
 
 ### kth largest element in array
 
-Or: 给2D平面上的N个点，求离原点最近的K个点
+Or 给2D平面上的N个点，求离原点最近的K个点
 
 [215-kth-largest-element-in-an-array.js](../leetcode-js/215-kth-largest-element-in-an-array.js)
 

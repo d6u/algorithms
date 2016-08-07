@@ -64,4 +64,5 @@ function generateResult(s, index, currentWords, breaks, result) {
     }
 }
 
-console.log(wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]));
+// console.log(wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog"]));
+console.log(wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", new Set(["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"])))
