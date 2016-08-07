@@ -6,32 +6,21 @@
 var combinationSum2 = function(candidates, target) {
     candidates.sort((a, b) => a - b);
     const result = [];
-    _combinationSum(candidates, 0, 0, target, [], result);
+    solve(candidates, target, 0, [], result);
     return result;
 };
 
-function _combinationSum(candidates, index, sum, target, solution, result) {
-    if (sum === target) {
-        result.push(solution);
+function solve(candidates, target, begin, solution, result) {
+    if (!target) {
+        result.push(solution.slice());
         return;
     }
 
-    if (sum > target) {
-        return;
-    }
-
-    for (let i = index; i < candidates.length; i += 1) {
-        if (i > index && candidates[i] === candidates[i-1]) {
-            continue;
+    for (let i = begin; i < candidates.length && target >= candidates[i]; i += 1) {
+        if (i === begin || candidates[i] !== candidates[i-1]) {
+            solution.push(candidates[i]);
+            solve(candidates, target - candidates[i], i + 1, solution, result);
+            solution.pop();
         }
-
-        _combinationSum(
-            candidates,
-            i + 1,
-            sum + candidates[i],
-            target,
-            solution.concat(candidates[i]),
-            result
-        );
     }
 }

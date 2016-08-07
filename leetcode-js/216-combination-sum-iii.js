@@ -5,23 +5,22 @@
  */
 var combinationSum3 = function(k, n) {
     const result = [];
-    getResult(k, n, 1, 0, [], result);
+    solve(k, n, 1, [], result);
     return result;
 };
 
-function getResult(k, n, index, sum, solution, result) {
-    if (solution.length === k) {
-        if (sum === n) {
-            result.push(solution);
-        }
+function solve(need, target, begin, solution, result) {
+    if (!target) {
+        result.push(solution.slice());
+        return;
+    } else if (!need) {
         return;
     }
 
-    if (sum >= n) {
-        return;
-    }
-
-    for (let i = index; i < 10; i += 1) {
-        getResult(k, n, i + 1, sum + i, solution.concat(i), result);
+    // i * need + need * (need - 1) / 2 === i + (i+1) + (i+2) + ... + (i+need-1)
+    for (let i = begin; i < 10 && target >= i * need + need * (need - 1) / 2; i += 1) {
+        solution.push(i);
+        solve(need - 1, target - i, i + 1, solution, result);
+        solution.pop();
     }
 }

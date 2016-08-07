@@ -81,7 +81,7 @@ Or 给2D平面上的N个点，求离原点最近的K个点
 
 [215-kth-largest-element-in-an-array.js](../leetcode-js/215-kth-largest-element-in-an-array.js)
 
-### list of sorted integer arrays，要求找所有的数的median
+### list of sorted integer arrays，要求找所有的数的 median
 
 TODO: [004-median-of-two-sorted-arrays.js](../leetcode-js/004-median-of-two-sorted-arrays.js)
 
@@ -108,9 +108,10 @@ TODO: [004-median-of-two-sorted-arrays.js](../leetcode-js/004-median-of-two-sort
 
 10
 
-- [039-combination-sum.js](../leetcode-js/039-combination-sum.js)
-- [040-combination-sum-ii.js](../leetcode-js/040-combination-sum-ii.js)
-- [216-combination-sum-iii.js](../leetcode-js/216-combination-sum-iii.js)
+- [combination-sum.js](./combination-sum.js)
+- Follow up [039-combination-sum.js](../leetcode-js/039-combination-sum.js)
+- Follow up [040-combination-sum-ii.js](../leetcode-js/040-combination-sum-ii.js)
+- Follow up [216-combination-sum-iii.js](../leetcode-js/216-combination-sum-iii.js)
 
 ### Search in Rotated Sorted Array
 
