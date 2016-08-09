@@ -7,25 +7,9 @@
 - [010-regular-expression-matching.js](../leetcode-js/010-regular-expression-matching.js)
 - [010-regular-expression-matching_dp.js](../leetcode-js/010-regular-expression-matching_dp.js) fastest
 
-### Find first k common elements in n sorted arrays
-
-[014-longest-common-prefix.js](../leetcode-js/014-longest-common-prefix.js)
-
-Follow up?: common substring
-
-### Move Zeroes
-
-[283-move-zeroes.js](../leetcode-js/283-move-zeroes.js)
-
-Follow up: 如果只需要把非0的数移到左边，而不care右边是什么数要怎么做。举例 2，0，0，1，3，0，5，输出2，1，3，5，*，*，*，随便*输出什么都可以。
-
 ### Decode Ways
 
 [091-decode-ways.js](../leetcode-js/091-decode-ways.js)
-
-### Merge two arrays in-place
-
-[088-merge-sorted-array.js](../leetcode-js/088-merge-sorted-array.js)
 
 ### Remove Invalid Parentheses
 
@@ -36,18 +20,6 @@ Follow up: 如果只需要把非0的数移到左边，而不care右边是什么�
 ### strStr
 
 [028-implement-strstr.js](../leetcode-js/028-implement-strstr.js)
-
-### Sort Colors
-
-[075-sort-colors.js](../leetcode-js/075-sort-colors.js)
-
-### Task Cooldown
-
-给出已经排序好的tasks，计算出一共要多久能执行完所有的task。用hashmap做了出来，
-follow up：在这个基础上，已知cooldown会很小，可以视作constant，task的type会很多，让我减少空间复杂度。 用了queue，queue的size和cooldown一样。
-
-- [task-cooldown.js](./task-cooldown.js)
-- [task-cooldown-queue.js](./task-cooldown-queue.js)
 
 ### Tree Traversal
 
@@ -61,9 +33,37 @@ follow up：在这个基础上，已知cooldown会很小，可以视作constant�
 [110-balanced-binary-tree.js](../leetcode-js/110-balanced-binary-tree.js)
 [261-graph-valid-tree_union-find.js](../leetcode-js/261-graph-valid-tree_union-find.js)
 
+### kth largest element in array
+
+Or 给2D平面上的N个点，求离原点最近的K个点
+
+[215-kth-largest-element-in-an-array.js](../leetcode-js/215-kth-largest-element-in-an-array.js)
+
 ### 给一个数字array , 有正有负数。给一个数， 找array中连续的数字，其和是给定的数
 
 [327-count-of-range-sum.js](../leetcode-js/327-count-of-range-sum.js)
+
+### Word Break
+
+- [139-word-break.js](../leetcode-js/139-word-break.js)
+- [140-word-break-ii.js](../leetcode-js/140-word-break-ii.js)
+- [140-word-break-ii_recursive.js](../leetcode-js/140-word-break-ii_recursive.js) slower
+
+### Wildcard matching
+
+[044-wildcard-matching.js](../leetcode-js/044-wildcard-matching.js)
+
+### Minimum window substring
+
+[076-minimum-window-substring.js](../leetcode-js/076-minimum-window-substring.js)
+
+---
+
+### Find first k common elements in n sorted arrays
+
+[014-longest-common-prefix.js](../leetcode-js/014-longest-common-prefix.js)
+
+Follow up?: common substring
 
 ### 给一个partial sorted的数组比如1，3，5，2，4，6，8，10，20，30，11，12，13，数组有N个数，分为M个segment，N>>>M，要求输出排序后的数组。第一反应就是merge k sorted list，按照那个写了下，问了问time 和space 的complexity
 
@@ -75,20 +75,35 @@ TODO
 
 TODO: O(1) solution
 
-### kth largest element in array
-
-Or 给2D平面上的N个点，求离原点最近的K个点
-
-[215-kth-largest-element-in-an-array.js](../leetcode-js/215-kth-largest-element-in-an-array.js)
-
 ### list of sorted integer arrays，要求找所有的数的 median
 
 TODO: [004-median-of-two-sorted-arrays.js](../leetcode-js/004-median-of-two-sorted-arrays.js)
 
-### Word Break
+### 自然string comparator。不知道的搜下。就是string 比较的时候考虑里面数字的大小，比如 abc9 < abc123 abc > ab9  因为char比digit重要
 
-- [139-word-break.js](../leetcode-js/139-word-break.js)
-- [140-word-break-ii.js](../leetcode-js/140-word-break-ii.js)
+---
+
+### Move Zeroes
+
+[283-move-zeroes.js](../leetcode-js/283-move-zeroes.js)
+
+Follow up: 如果只需要把非0的数移到左边，而不care右边是什么数要怎么做。举例 2，0，0，1，3，0，5，输出2，1，3，5，*，*，*，随便*输出什么都可以。
+
+### Merge two arrays in-place
+
+[088-merge-sorted-array.js](../leetcode-js/088-merge-sorted-array.js)
+
+### Sort Colors
+
+[075-sort-colors.js](../leetcode-js/075-sort-colors.js)
+
+### Task Cooldown
+
+给出已经排序好的tasks，计算出一共要多久能执行完所有的task。用hashmap做了出来，
+follow up：在这个基础上，已知cooldown会很小，可以视作constant，task的type会很多，让我减少空间复杂度。 用了queue，queue的size和cooldown一样。
+
+- [task-cooldown.js](./task-cooldown.js)
+- [task-cooldown-queue.js](./task-cooldown-queue.js)
 
 ### 2Sum
 
@@ -127,16 +142,10 @@ startTime <= t< stopTime 代表这个数在区间里面出现过。
 
 [253-meeting-rooms-ii.js](../leetcode-js/253-meeting-rooms-ii.js)
 
-### 自然string comparator。不知道的搜下。就是string 比较的时候考虑里面数字的大小，比如 abc9 < abc123 abc > ab9  因为char比digit重要
-
 ### read4k
 
 - [157-read-n-characters-given-read4.js](../leetcode-js/157-read-n-characters-given-read4.js)
 - [158-read-n-characters-given-read4-ii-call-multiple-times.js](../leetcode-js/158-read-n-characters-given-read4-ii-call-multiple-times.js)
-
-### Wildcard matching
-
-[044-wildcard-matching.js](../leetcode-js/044-wildcard-matching.js)
 
 ### Merge sorted array
 
@@ -149,11 +158,9 @@ startTime <= t< stopTime 代表这个数在区间里面出现过。
 - [121-best-time-to-buy-and-sell-stock.js](../leetcode-js/121-best-time-to-buy-and-sell-stock.js)
 - [122-best-time-to-buy-and-sell-stock-ii.js](../leetcode-js/122-best-time-to-buy-and-sell-stock-ii.js)
 
-### Minimum window substring
-
-[076-minimum-window-substring.js](../leetcode-js/076-minimum-window-substring.js)
-
 ---
+
+# On-site
 
 ## Copy List with Random Pointer
 
