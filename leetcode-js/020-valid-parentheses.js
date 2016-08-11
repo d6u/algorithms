@@ -1,7 +1,7 @@
-var map = {
+const PAIRS = {
     '(': ')',
-    '[': ']',
     '{': '}',
+    '[': ']',
 };
 
 /**
@@ -9,19 +9,13 @@ var map = {
  * @return {boolean}
  */
 var isValid = function(s) {
-    if (s.length <= 1) {
-        return false;
-    }
-
-    const stack = [map[s[0]]];
-
-    for (let i = 1; i < s.length; i += 1) {
-        if (stack[stack.length - 1] === s[i]) {
-            stack.pop();
+    const stack = [];
+    for (const c of s) {
+        if (!stack.length || PAIRS[stack[stack.length-1]] !== c) {
+            stack.push(c);
         } else {
-            stack.push(map[s[i]]);
+            stack.pop();
         }
     }
-
     return stack.length === 0;
 };
