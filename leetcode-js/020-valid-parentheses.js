@@ -9,8 +9,6 @@ var map = {
  * @return {boolean}
  */
 var isValid = function(s) {
-    'use strict';
-
     if (s.length <= 1) {
         return false;
     }

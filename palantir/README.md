@@ -2,28 +2,46 @@
 
 ## Phone
 
+### Integer to English words
+
+[273-integer-to-english-words.js](../leetcode-js/273-integer-to-english-words.js)
+
+### Valid parentheses
+
+[020-valid-parentheses.js](../leetcode-js/020-valid-parentheses.js)
+
+TODO: follow up, can contains other characters
+
+### Max sum subsequence of an array
+
+TODO
+
 ### Numbers of islands
 
-### FixedLengthQueue class
+[200-number-of-islands.js](../leetcode-js/200-number-of-islands.js)
 
-1. 用固定长度的buffer数组，实现queue的push/pop操作。
-解法：设两个pointer，表示队列的head跟tail，push的时候buffer[tail = (tail + 1) % length] = element，pop的时候element = buffer[head = (head + 1) % length]，注意empty还有buffer满的时候，throw exception
-2. 再实现一个int copy(int* dest, int n)函数，从FixedLengthQueue里的buffer copy出最多n个element到dest数组里，返回值是实际copy的element的个数，要求用memcpy做copy操作。
-解法：其实就是判断buffer里的data是不是被分成两截，是的话，就call memcpy两次，不是的话，只要call一次，注意下边界情况就行。
+### Implement FixedLengthQueue
 
 实现一个FixedLengthQueue, 有size(), isEmpty(), add(), remove() 等函数。 用circular array 做的。
 
-### 前菜是找Kth smallest element in an array。唰唰唰用quick select写完。问time complexity，答average O(nlogn)。三弟说不对，是O(n)。答best case的确是O(N)。三弟不服输，说quick sort是O(NlogN)，但quick select是O(N)。列了一个根本看不懂的算式非说是。
+再实现一个 `int copy(int* dest, int n)` 函数，从 FixedLengthQueue 里的 buffer copy 出最多 n 个 element 到 dest 数组里，返回值是实际 copy 的 element 的个数
 
-然后是求Kth smallest element in a given range inside an array。比如array是[1, 3, 2, 5, 7, 3, 4], range [0, 3], k = 3, return 3。直接要求把array变成若干block来做。那就每个block排序，然后把最小的放priority queue呗，类似于merge k sorted linked list。结果三弟说他想要的是start with a huge number say 1,000,000,000。然后binary search找。就这，我真主动要求跪了。
+### Kth smallest element in an array
 
-### shell script read CSV
+[215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
 
-### merge interval
+Follow up: TODO Kth smallest element in a given range inside an array, e.g. array is [1, 3, 2, 5, 7, 3, 4], range [0, 3], k = 3, return 3
 
-两个follow up。第一个是给一个数字或者interval找到原来的interval list里面是不是包含。第二个是返回包含了几次。用binary tree就能做。
+### Merge interval
 
-### 给一个2D的matrix，里面是数字。0代表这个点是水，其他数字代表陆地，相邻的陆地会形成一个岛屿。求所有岛屿的最大值。
+[056-merge-intervals.js](../leetcode-js/056-merge-intervals.js)
+
+follow up:
+
+- 第一个是给一个数字或者interval找到原来的interval list里面是不是包含
+- 第二个是返回包含了几次
+
+### 给一个2D的matrix，里面是数字。0代表这个点是水，其他数字代表陆地，相邻的陆地会形成一个岛屿, 求sum最大的岛屿
 
 比如：
 1 2 0 0
@@ -33,7 +51,9 @@
 
 Follow up 1：如果存在值为负数的点会有什么影响？并相应的修改之前的code。
 
-Follow up 2: 之前是用recursive的方法实现的，所以让用iterative的方法重新写一下。
+[max-sum-islands.js](./palantir/max-sum-islands.js)
+
+Follow up 2: TODO use iterative approach
 
 ### addition class，类似于alien dictionary
 
