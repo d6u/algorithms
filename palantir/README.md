@@ -41,18 +41,25 @@ Follow up: TODO Kth smallest element in a given range inside an array, e.g. arra
 
 follow up:
 
-- 第一个是给一个数字或者interval找到原来的interval list里面是不是包含
-- 设计一个数据结构可以很快返回搜索的数字是否在 interval 当中
-- 第二个是返回包含了几次
-- 如果已知interval以及查询的数字都是16bit的该怎么优化
-- 两个interval的list，每个list之内的interval不会overlap，求两个list之间的overlap。比如[[1,3], [5,7]]和[[2,4], [6,9]]结果就是[[2,3], [6,7]]。我用的两个pointer
+1. 给一个数字或者interval找到原来的interval list里面是不是包含
+
+    设计一个数据结构可以很快返回搜索的数字是否在 interval 当中
+    [035-search-insert-position.js](../leetcode-js/035-search-insert-position.js)
+
+2. 返回包含了几次 (same as 1)
+
+3. 如果已知interval以及查询的数字都是16bit的该怎么优化
+
+4. 两个interval的list，每个list之内的interval不会overlap，求两个list之间的overlap。比如[[1,3], [5,7]]和[[2,4], [6,9]]结果就是[[2,3], [6,7]]。我用的两个pointer
 
 ### 给一个2D的matrix，里面是数字。0代表这个点是水，其他数字代表陆地，相邻的陆地会形成一个岛屿, 求sum最大的岛屿
 
 比如：
+```
 1 2 0 0
 3 0 4 0
 0 1 0 1
+```
 结果就是1 + 2 + 3 = 6.
 
 Follow up 1：如果存在值为负数的点会有什么影响？并相应的修改之前的code。

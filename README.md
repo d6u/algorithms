@@ -1,5 +1,7 @@
 # Algorithms Practices
 
+[medium summary](./medium_summary.md)
+
 ## Union Find
 
 - [305-number-of-islands-ii.js](./leetcode-js/305-number-of-islands-ii.js) classic union find

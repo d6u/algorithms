@@ -11,8 +11,6 @@
  * @return {UndirectedGraphNode}
  */
 var cloneGraph = function(graph) {
-    'use strict';
-
     if (!graph) {
         return null;
     }
