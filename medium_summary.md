@@ -6,14 +6,38 @@
 
     Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
 
-## Tree
+## Tree & Graph
 
 - [366-find-leaves-of-binary-tree.js](./leetcode-js/366-find-leaves-of-binary-tree.js)
 
     Given a binary tree, collect a tree's nodes as if you were doing this: Collect and remove all leaves, repeat until the tree is empty.
 
-- [280-wiggle-sort.js](./leetcode-js/280-wiggle-sort.js)
+- [261-graph-valid-tree_union-find.js](./leetcode-js/261-graph-valid-tree_union-find.js)
+
+    Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.
+
+## Array & Hashmap
+
+- [325-maximum-size-subarray-sum-equals-k.js](./leetcode-js/325-maximum-size-subarray-sum-equals-k.js)
+
+    Given an array nums and a target value k, find the maximum length of a subarray that sums to k. If there isn't one, return 0 instead.
+
+- [220-contains-duplicate-iii.js](./leetcode-js/220-contains-duplicate-iii.js)
+
+    Given an array of integers, find out whether there are two distinct indices i and j in the array such that the difference between nums[i] and nums[j] is at most t and the difference between i and j is at most k.
+
+- [162-find-peak-element.js](./leetcode-js/162-find-peak-element.js)
+
+    A peak element is an element that is greater than its neighbors. Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
+
+## Bitwise
+
 - [136-single-number.js](./leetcode-js/136-single-number.js)
+
+    Given an array of integers, every element appears twice except for one. Find that single one.
+
+
+- [280-wiggle-sort.js](./leetcode-js/280-wiggle-sort.js)
 - [369-plus-one-linked-list.js](./leetcode-js/369-plus-one-linked-list.js)
 - [370-range-addition.js](./leetcode-js/370-range-addition.js)
 - [167-two-sum-ii-input-array-is-sorted.js](./leetcode-js/167-two-sum-ii-input-array-is-sorted.js)
@@ -41,7 +65,6 @@
 - [094-binary-tree-inorder-traversal.js](./leetcode-js/094-binary-tree-inorder-traversal.js)
 - [319-bulb-switcher.js](./leetcode-js/319-bulb-switcher.js)
 - [012-integer-to-roman.js](./leetcode-js/012-integer-to-roman.js)
-- [325](.325)
 - [360](.360)
 - [318](.318)
 - [378](.378)
@@ -97,8 +120,6 @@
 - [074-search-matrix.js](./leetcode-js/074-search-matrix.js)
 - [284](.284)
 - [073-set-matrix-zeroes.js](./leetcode-js/073-set-matrix-zeroes.js)
-- [261-graph-valid-tree_union-find.js](./leetcode-js/261-graph-valid-tree_union-find.js)
-- [162-find-peak-element.js](./leetcode-js/162-find-peak-element.js)
 - [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
 - [279-perfect-squares_math.js](./leetcode-js/279-perfect-squares_math.js)
 - [129-sum-root-to-leaf-numbers.js](./leetcode-js/129-sum-root-to-leaf-numbers.js)
@@ -199,7 +220,6 @@
 - [179-largest-number.js](./leetcode-js/179-largest-number.js)
 - [015-3sum.js](./leetcode-js/015-3sum.js)
 - [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
-- [220-contains-duplicate-iii.js](./leetcode-js/220-contains-duplicate-iii.js)
 - [307](.307)
 - [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
 - [130-surrounded-regions.js](./leetcode-js/130-surrounded-regions.js)

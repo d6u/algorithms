@@ -36,4 +36,5 @@ function removeFirst(map) {
     map.delete(first);
 }
 
+// console.log(containsNearbyAlmostDuplicate([1, 0, 1, 1], 1, 0));
 console.log(containsNearbyAlmostDuplicate([1, 0, 1, 1], 1, 0));
