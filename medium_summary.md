@@ -30,28 +30,52 @@
 
     A peak element is an element that is greater than its neighbors. Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
 
+- [280-wiggle-sort.java](./leetcode-java/280-wiggle-sort.java)
+
+    Given an unsorted array nums, reorder it in-place such that nums[0] <= nums[1] >= nums[2] <= nums[3].... For example, given nums = [3, 5, 2, 1, 6, 4], one possible answer is [1, 6, 2, 5, 3, 4].
+
+- [370-range-addition.java](./leetcode-java/370-range-addition.java)
+
+    Assume you have an array of length n initialized with all 0's and are given k update operations. Each operation is represented as a triplet: `[startIndex, endIndex, inc]` which increments each element of subarray `A[startIndex ... endIndex]` `(startIndex and endIndex inclusive)` with `inc`. Return the modified array after all `k` operations were executed.
+
+- [167-two-sum-ii-input-array-is-sorted.java](./leetcode-java/167-two-sum-ii-input-array-is-sorted.java)
+
+    Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution.
+
+- [245-shortest-word-distance-iii.java](./leetcode-java/245-shortest-word-distance-iii.java)
+
+    Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list. word1 and word2 may be the same and they represent two individual words in the list.
+
+## Linked List
+
+- [369-plus-one-linked-list.java](./leetcode-java/369-plus-one-linked-list.java)
+
+    Given a non-negative number represented as a singly linked list of digits, plus one to the number. The digits are stored such that the most significant digit is at the head of the list.
+
+- [364-nested-list-weight-sum-ii.java](./leetcode-java/364-nested-list-weight-sum-ii.java)
+
+    Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list -- whose elements may also be integers or other lists. The weight is defined from bottom up. i.e., the leaf level integers have weight 1, and the root level integers have the largest weight.
+
+## Matrix
+
+- [311-sparse-matrix-multiplication.js](./leetcode-js/311-sparse-matrix-multiplication.js)
+
+    Given two sparse matrices A and B, return the result of AB. You may assume that A's column number is equal to B's row number.
+
 ## Bitwise
 
 - [136-single-number.js](./leetcode-js/136-single-number.js)
 
     Given an array of integers, every element appears twice except for one. Find that single one.
 
-
-- [280-wiggle-sort.js](./leetcode-js/280-wiggle-sort.js)
-- [369-plus-one-linked-list.js](./leetcode-js/369-plus-one-linked-list.js)
-- [370-range-addition.js](./leetcode-js/370-range-addition.js)
-- [167-two-sum-ii-input-array-is-sorted.js](./leetcode-js/167-two-sum-ii-input-array-is-sorted.js)
-- [362](.362)
-- [311-sparse-matrix-multiplication.js](./leetcode-js/311-sparse-matrix-multiplication.js)
-- [311-sparse-matrix-multiplication_brutal-force.js](./leetcode-js/311-sparse-matrix-multiplication_brutal-force.js)
-- [364-nested-list-weight-sum-ii.js](./leetcode-js/364-nested-list-weight-sum-ii.js)
-- [382](.382)
-- [245-shortest-word-distance-iii.js](./leetcode-js/245-shortest-word-distance-iii.js)
 - [260-single-number-iii.js](./leetcode-js/260-single-number-iii.js)
-- [384](.384)
+
+    Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
+
+---
+
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
 - [238-product-of-array-except-self.js](./leetcode-js/238-product-of-array-except-self.js)
-- [348](.348)
 - [256-paint-house.js](./leetcode-js/256-paint-house.js)
 - [323-number-of-connected-components-in-an-undirected-graph.js](./leetcode-js/323-number-of-connected-components-in-an-undirected-graph.js)
 - [347-top-k-frequent-elements.js](./leetcode-js/347-top-k-frequent-elements.js)
@@ -65,15 +89,11 @@
 - [094-binary-tree-inorder-traversal.js](./leetcode-js/094-binary-tree-inorder-traversal.js)
 - [319-bulb-switcher.js](./leetcode-js/319-bulb-switcher.js)
 - [012-integer-to-roman.js](./leetcode-js/012-integer-to-roman.js)
-- [360](.360)
-- [318](.318)
-- [378](.378)
 - [328-odd-even-linked-list.js](./leetcode-js/328-odd-even-linked-list.js)
 - [156-binary-tree-upside-down.js](./leetcode-js/156-binary-tree-upside-down.js)
 - [230-kth-smallest-element-in-a-bst.js](./leetcode-js/230-kth-smallest-element-in-a-bst.js)
 - [337-house-robber-iii.js](./leetcode-js/337-house-robber-iii.js)
 - [259-3sum-smaller.js](./leetcode-js/259-3sum-smaller.js)
-- [377](.377)
 - [286-walls-and-gates.js](./leetcode-js/286-walls-and-gates.js)
 - [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
 - [137-single-number-ii.js](./leetcode-js/137-single-number-ii.js)
@@ -116,9 +136,7 @@
 - [361-bomb-enemy.js](./leetcode-js/361-bomb-enemy.js)
 - [244-shortest-word-distance-ii.js](./leetcode-js/244-shortest-word-distance-ii.js)
 - [215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
-- [376](.376)
 - [074-search-matrix.js](./leetcode-js/074-search-matrix.js)
-- [284](.284)
 - [073-set-matrix-zeroes.js](./leetcode-js/073-set-matrix-zeroes.js)
 - [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
 - [279-perfect-squares_math.js](./leetcode-js/279-perfect-squares_math.js)
@@ -140,10 +158,8 @@
 - [120-triangle.js](./leetcode-js/120-triangle.js)
 - [368-largest-divisible-subset.js](./leetcode-js/368-largest-divisible-subset.js)
 - [274-h-index.js](./leetcode-js/274-h-index.js)
-- [372](.372)
 - [147-insertion-sort-list.js](./leetcode-js/147-insertion-sort-list.js)
 - [086-partition-list.js](./leetcode-js/086-partition-list.js)
-- [375](.375)
 - [163-missing-ranges.js](./leetcode-js/163-missing-ranges.js)
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
 - [063-unique-paths-ii.js](./leetcode-js/063-unique-paths-ii.js)
@@ -177,13 +193,10 @@
 - [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
 - [031-next-permutation.js](./leetcode-js/031-next-permutation.js)
 - [187-repeated-dna-sequences.js](./leetcode-js/187-repeated-dna-sequences.js)
-- [373](.373)
 - [229-majority-element-ii.js](./leetcode-js/229-majority-element-ii.js)
 - [306-additive-number.js](./leetcode-js/306-additive-number.js)
-- [385](.385)
 - [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
 - [139-word-break.js](./leetcode-js/139-word-break.js)
-- [379](.379)
 - [332-reconstruct-itinerary.js](./leetcode-js/332-reconstruct-itinerary.js)
 - [222-count-complete-tree-nodes.js](./leetcode-js/222-count-complete-tree-nodes.js)
 - [222-count-complete-tree-nodes_recursion.js](./leetcode-js/222-count-complete-tree-nodes_recursion.js)
@@ -208,7 +221,6 @@
 - [143-reorder-list.js](./leetcode-js/143-reorder-list.js)
 - [061-rotate-list.js](./leetcode-js/061-rotate-list.js)
 - [054-spiral-matrix.js](./leetcode-js/054-spiral-matrix.js)
-- [355](.355)
 - [365-water-and-jug-problem.js](./leetcode-js/365-water-and-jug-problem.js)
 - [152-maximum-product-subarray.js](./leetcode-js/152-maximum-product-subarray.js)
 - [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
@@ -216,13 +228,30 @@
 - [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
 - [210-course-schedule-ii.js](./leetcode-js/210-course-schedule-ii.js)
 - [098-validate-binary-search-tree.js](./leetcode-js/098-validate-binary-search-tree.js)
-- [211](.211)
 - [179-largest-number.js](./leetcode-js/179-largest-number.js)
 - [015-3sum.js](./leetcode-js/015-3sum.js)
 - [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
-- [307](.307)
 - [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
 - [130-surrounded-regions.js](./leetcode-js/130-surrounded-regions.js)
 - [166-fraction-to-recurring-decimal.js](./leetcode-js/166-fraction-to-recurring-decimal.js)
 - [029-divide-two-integers.js](./leetcode-js/029-divide-two-integers.js)
 - [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
+- [348](.348)
+- [362](.362)
+- [382](.382)
+- [384](.384)
+- [360](.360)
+- [318](.318)
+- [377](.377)
+- [378](.378)
+- [376](.376)
+- [284](.284)
+- [372](.372)
+- [375](.375)
+- [373](.373)
+- [385](.385)
+- [379](.379)
+- [355](.355)
+- [211](.211)
+- [307](.307)
+
