@@ -3,8 +3,6 @@
  * @return {number}
  */
 var minCost = function(costs) {
-    'use strict';
-
     if (!costs.length) {
         return 0;
     }

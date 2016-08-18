@@ -6,6 +6,10 @@
 
     Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1's in their binary representation and return them as an array.
 
+- [256-paint-house.java](./leetcode-java/256-paint-house.java)
+
+    There are a row of n houses, each house can be painted with one of the three colors: red, blue or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.
+
 ## Tree & Graph
 
 - [366-find-leaves-of-binary-tree.js](./leetcode-js/366-find-leaves-of-binary-tree.js)
@@ -15,6 +19,10 @@
 - [261-graph-valid-tree_union-find.js](./leetcode-js/261-graph-valid-tree_union-find.js)
 
     Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.
+
+- [323-number-of-connected-components-in-an-undirected-graph.java](./leetcode-java/323-number-of-connected-components-in-an-undirected-graph.java)
+
+    Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to find the number of connected components in an undirected graph.
 
 ## Array & Hashmap
 
@@ -46,6 +54,14 @@
 
     Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list. word1 and word2 may be the same and they represent two individual words in the list.
 
+- [238-product-of-array-except-self.java](./leetcode-java/238-product-of-array-except-self.java)
+
+    Given an array of n integers where n > 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+
+- [/leetcode-java/347-top-k-frequent-elements.java](./leetcode-java/347-top-k-frequent-elements.java)
+
+    Given a non-empty array of integers, return the k most frequent elements.
+
 ## Linked List
 
 - [369-plus-one-linked-list.java](./leetcode-java/369-plus-one-linked-list.java)
@@ -75,10 +91,7 @@
 ---
 
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
-- [238-product-of-array-except-self.js](./leetcode-js/238-product-of-array-except-self.js)
-- [256-paint-house.js](./leetcode-js/256-paint-house.js)
-- [323-number-of-connected-components-in-an-undirected-graph.js](./leetcode-js/323-number-of-connected-components-in-an-undirected-graph.js)
-- [347-top-k-frequent-elements.js](./leetcode-js/347-top-k-frequent-elements.js)
+
 - [122-best-time-to-buy-and-sell-stock-ii.js](./leetcode-js/122-best-time-to-buy-and-sell-stock-ii.js)
 - [357-count-numbers-with-unique-digits.js](./leetcode-js/357-count-numbers-with-unique-digits.js)
 - [343-integer-break.js](./leetcode-js/343-integer-break.js)
