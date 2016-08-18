@@ -10,6 +10,10 @@
 
     There are a row of n houses, each house can be painted with one of the three colors: red, blue or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.
 
+- [122-best-time-to-buy-and-sell-stock-ii.java](./leetcode-java/122-best-time-to-buy-and-sell-stock-ii.java)
+
+    Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+
 ## Tree & Graph
 
 - [366-find-leaves-of-binary-tree.js](./leetcode-js/366-find-leaves-of-binary-tree.js)
@@ -58,7 +62,7 @@
 
     Given an array of n integers where n > 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
 
-- [/leetcode-java/347-top-k-frequent-elements.java](./leetcode-java/347-top-k-frequent-elements.java)
+- [347-top-k-frequent-elements.java](./leetcode-java/347-top-k-frequent-elements.java)
 
     Given a non-empty array of integers, return the k most frequent elements.
 
@@ -78,6 +82,12 @@
 
     Given two sparse matrices A and B, return the result of AB. You may assume that A's column number is equal to B's row number.
 
+## Math
+
+- [343-integer-break.java](./leetcode-java/343-integer-break.java)
+
+    Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. Return the maximum product you can get.
+
 ## Bitwise
 
 - [136-single-number.js](./leetcode-js/136-single-number.js)
@@ -92,10 +102,15 @@
 
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
 
-- [122-best-time-to-buy-and-sell-stock-ii.js](./leetcode-js/122-best-time-to-buy-and-sell-stock-ii.js)
+
 - [357-count-numbers-with-unique-digits.js](./leetcode-js/357-count-numbers-with-unique-digits.js)
-- [343-integer-break.js](./leetcode-js/343-integer-break.js)
+
+    Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
+
 - [294-flip-game-ii.js](./leetcode-js/294-flip-game-ii.js)
+
+    You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner. Write a function to determine if the starting player can guarantee a win.
+
 - [268-missing-number.js](./leetcode-js/268-missing-number.js)
 - [320-generalized-abbreviation.js](./leetcode-js/320-generalized-abbreviation.js)
 - [144-binary-tree-preorder-traversal.js](./leetcode-js/144-binary-tree-preorder-traversal.js)
