@@ -4,26 +4,16 @@
  * @return {number[][]}
  */
 var multiply = function(A, B) {
-    const result = Array(A.length).fill(null).map(() => Array(B[0].length).fill(0));
+    const result = Array(A.length).fill().map(() => Array(B[0].length).fill(0));
 
-    const indexA = [];
-
-    for (let i = 0; i < A.length; i += 1) {
-        indexA[i] = [];
-        for (j = 0; j < A[0].length; j += 1) {
-            if (A[i][j] !== 0) {
-                indexA[i].push(j, A[i][j]);
-            }
-        }
-    }
-
-    for (let i = 0; i < indexA.length; i += 1) {
-        for (let j = 0; j < indexA[i].length; j += 2) {
-            const col = indexA[i][j];
-            const val = indexA[i][j+1];
-
-            for (let k = 0; k < B[0].length; k += 1) {
-                result[i][k] += B[col][k] * val;
+    for (let rowA = 0; rowA < A.length; rowA += 1) {
+        for (let colA = 0; colA < A[0].length; colA += 1) {
+            if (A[rowA][colA] !== 0) {
+                for (let colB = 0; colB < B[0].length; colB += 1) {
+                    if (B[colA][colB] !== 0) {
+                        result[rowA][colB] += A[rowA][colA] * B[colA][colB];
+                    }
+                }
             }
         }
     }
@@ -31,5 +21,5 @@ var multiply = function(A, B) {
     return result;
 };
 
-// console.log(multiply([[1,0,0],[-1,0,3]], [[7,0,0],[0,0,0],[0,0,1]]))
-console.log(multiply([[1,-5]], [[12],[-1]]));
+console.log(multiply([[1,0,0],[-1,0,3]], [[7,0,0],[0,0,0],[0,0,1]]))
+console.log(multiply([[1,-5]], [[12], [-1]]));

@@ -14,6 +14,10 @@
 
     Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
 
+- [357-count-numbers-with-unique-digits.java](./leetcode-java/357-count-numbers-with-unique-digits.java)
+
+    Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
+
 ## Tree & Graph
 
 - [366-find-leaves-of-binary-tree.js](./leetcode-js/366-find-leaves-of-binary-tree.js)
@@ -78,7 +82,7 @@
 
 ## Matrix
 
-- [311-sparse-matrix-multiplication.js](./leetcode-js/311-sparse-matrix-multiplication.js)
+- [311-sparse-matrix-multiplication.java](./leetcode-java/311-sparse-matrix-multiplication.java)
 
     Given two sparse matrices A and B, return the result of AB. You may assume that A's column number is equal to B's row number.
 
@@ -102,10 +106,6 @@
 
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
 
-
-- [357-count-numbers-with-unique-digits.js](./leetcode-js/357-count-numbers-with-unique-digits.js)
-
-    Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10n.
 
 - [294-flip-game-ii.js](./leetcode-js/294-flip-game-ii.js)
 
