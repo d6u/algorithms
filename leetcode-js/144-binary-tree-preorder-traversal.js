@@ -10,8 +10,6 @@
  * @return {number[]}
  */
 var preorderTraversal = function(root) {
-    'use strict';
-
     if (!root) {
         return [];
     }

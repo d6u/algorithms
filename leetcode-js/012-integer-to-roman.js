@@ -19,8 +19,6 @@ var map = [
  * @return {string}
  */
 var intToRoman = function(num) {
-    'use strict';
-
     let roman = '';
     let i = 0;
 

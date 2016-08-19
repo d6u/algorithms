@@ -32,6 +32,22 @@
 
     Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to find the number of connected components in an undirected graph.
 
+- [144-binary-tree-preorder-traversal.java](./leetcode-java/144-binary-tree-preorder-traversal.java)
+
+    Given a binary tree, return the preorder traversal of its nodes' values.
+
+- [094-binary-tree-inorder-traversal.java](./leetcode-java/094-binary-tree-inorder-traversal.java)
+
+    Given a binary tree, return the inorder traversal of its nodes' values.
+
+- [156-binary-tree-upside-down.java](./leetcode-java/156-binary-tree-upside-down.java)
+
+    Given a binary tree where all the right nodes are either leaf nodes with a sibling (a left node that shares the same parent node) or empty, flip it upside down and turn it into a tree where the original right nodes turned into left leaf nodes. Return the new root.
+
+- [230-kth-smallest-element-in-a-bst.java](./leetcode-java/230-kth-smallest-element-in-a-bst.java)
+
+    Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
+
 ## Array & Hashmap
 
 - [325-maximum-size-subarray-sum-equals-k.js](./leetcode-js/325-maximum-size-subarray-sum-equals-k.js)
@@ -70,6 +86,10 @@
 
     Given a non-empty array of integers, return the k most frequent elements.
 
+- [268-missing-number.js](./leetcode-js/268-missing-number.js)
+
+    Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
+
 ## Linked List
 
 - [369-plus-one-linked-list.java](./leetcode-java/369-plus-one-linked-list.java)
@@ -79,6 +99,10 @@
 - [364-nested-list-weight-sum-ii.java](./leetcode-java/364-nested-list-weight-sum-ii.java)
 
     Given a nested list of integers, return the sum of all integers in the list weighted by their depth. Each element is either an integer, or a list -- whose elements may also be integers or other lists. The weight is defined from bottom up. i.e., the leaf level integers have weight 1, and the root level integers have the largest weight.
+
+- [328-odd-even-linked-list.java](./leetcode-java/328-odd-even-linked-list.java)
+
+    Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
 
 ## Matrix
 
@@ -91,6 +115,14 @@
 - [343-integer-break.java](./leetcode-java/343-integer-break.java)
 
     Given a positive integer n, break it into the sum of at least two positive integers and maximize the product of those integers. Return the maximum product you can get.
+
+- [319-bulb-switcher.java](./leetcode-java/319-bulb-switcher.java)
+
+    There are n bulbs that are initially off. You first turn on all the bulbs. Then, you turn off every second bulb. On the third round, you toggle every third bulb (turning on if it's off or turning off if it's on). For the ith round, you toggle every i bulb. For the nth round, you only toggle the last bulb. Find how many bulbs are on after n rounds.
+
+- [012-integer-to-roman.java](./leetcode-java/012-integer-to-roman.java)
+
+    Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.
 
 ## Bitwise
 
@@ -111,15 +143,10 @@
 
     You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner. Write a function to determine if the starting player can guarantee a win.
 
-- [268-missing-number.js](./leetcode-js/268-missing-number.js)
-- [320-generalized-abbreviation.js](./leetcode-js/320-generalized-abbreviation.js)
-- [144-binary-tree-preorder-traversal.js](./leetcode-js/144-binary-tree-preorder-traversal.js)
-- [094-binary-tree-inorder-traversal.js](./leetcode-js/094-binary-tree-inorder-traversal.js)
-- [319-bulb-switcher.js](./leetcode-js/319-bulb-switcher.js)
-- [012-integer-to-roman.js](./leetcode-js/012-integer-to-roman.js)
-- [328-odd-even-linked-list.js](./leetcode-js/328-odd-even-linked-list.js)
-- [156-binary-tree-upside-down.js](./leetcode-js/156-binary-tree-upside-down.js)
-- [230-kth-smallest-element-in-a-bst.js](./leetcode-js/230-kth-smallest-element-in-a-bst.js)
+- [320-generalized-abbreviation.java](./leetcode-java/320-generalized-abbreviation.java)
+
+    Write a function to generate the generalized abbreviations of a word. E.g. Given word = "word", return the following list (order does not matter): `["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]`
+
 - [337-house-robber-iii.js](./leetcode-js/337-house-robber-iii.js)
 - [259-3sum-smaller.js](./leetcode-js/259-3sum-smaller.js)
 - [286-walls-and-gates.js](./leetcode-js/286-walls-and-gates.js)

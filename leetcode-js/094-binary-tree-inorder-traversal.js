@@ -10,8 +10,6 @@
  * @return {number[]}
  */
 var inorderTraversal = function(root) {
-    'use strict';
-
     if (!root) {
         return [];
     }
