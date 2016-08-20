@@ -1,5 +1,11 @@
 # Medium Problem Summary
 
+## String
+
+- [022-generate-parenthesis.java](./leetcode-java/022-generate-parenthesis.java)
+
+    Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -48,6 +54,18 @@
 
     Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
 
+- [337-house-robber-iii.java](./leetcode-java/337-house-robber-iii.java)
+
+    The thief has found himself a new place for his thievery again. There is only one entrance to this area, called the "root." Besides the root, each house has one and only one parent house. After a tour, the smart thief realized that "all houses in this place forms a binary tree". It will automatically contact the police if two directly-linked houses were broken into on the same night. Determine the maximum amount of money the thief can rob tonight without alerting the police.
+
+- [108-convert-sorted-array-to-binary-search-tree.java](./leetcode-java/108-convert-sorted-array-to-binary-search-tree.java)
+
+    Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+
+- [096-unique-binary-search-tree.java](./leetcode-java/096-unique-binary-search-tree.java)
+
+    Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
+
 ## Array & Hashmap
 
 - [325-maximum-size-subarray-sum-equals-k.js](./leetcode-js/325-maximum-size-subarray-sum-equals-k.js)
@@ -90,6 +108,18 @@
 
     Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
 
+- [015-3sum.java](./leetcode-java/015-3sum.java)
+
+    Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+
+- [259-3sum-smaller.java](./leetcode-java/259-3sum-smaller.java)
+
+    Given an array of n integers nums and a target, find the number of index triplets i, j, k with 0 <= i < j < k < n that satisfy the condition nums[i] + nums[j] + nums[k] < target.
+
+- [216-combination-sum-iii.java](./leetcode-java/216-combination-sum-iii.java)
+
+    Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+
 ## Linked List
 
 - [369-plus-one-linked-list.java](./leetcode-java/369-plus-one-linked-list.java)
@@ -109,6 +139,16 @@
 - [311-sparse-matrix-multiplication.java](./leetcode-java/311-sparse-matrix-multiplication.java)
 
     Given two sparse matrices A and B, return the result of AB. You may assume that A's column number is equal to B's row number.
+
+- [286-walls-and-gates.js](./leetcode-js/286-walls-and-gates.js)
+
+    You are given a m x n 2D grid initialized with these three possible values.
+
+    - -1 - A wall or an obstacle.
+    - 0 - A gate.
+    - INF - Infinity means an empty room. We use the value 231 - 1 = 2147483647 to represent INF as you may assume that the distance to a gate is less than 2147483647.
+
+    Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, it should be filled with INF.
 
 ## Math
 
@@ -134,6 +174,10 @@
 
     Given an array of numbers nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once.
 
+- [137-single-number-ii.java](./leetcode-java/137-single-number-ii.java)
+
+    Given an array of integers, every element appears three times except for one. Find that single one.
+
 ---
 
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
@@ -147,14 +191,6 @@
 
     Write a function to generate the generalized abbreviations of a word. E.g. Given word = "word", return the following list (order does not matter): `["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]`
 
-- [337-house-robber-iii.js](./leetcode-js/337-house-robber-iii.js)
-- [259-3sum-smaller.js](./leetcode-js/259-3sum-smaller.js)
-- [286-walls-and-gates.js](./leetcode-js/286-walls-and-gates.js)
-- [022-generate-parenthesis.js](./leetcode-js/022-generate-parenthesis.js)
-- [137-single-number-ii.js](./leetcode-js/137-single-number-ii.js)
-- [108-convert-sorted-array-to-binary-search-tree.js](./leetcode-js/108-convert-sorted-array-to-binary-search-tree.js)
-- [216-combination-sum-iii.js](./leetcode-js/216-combination-sum-iii.js)
-- [096-unique-binary-search-tree.js](./leetcode-js/096-unique-binary-search-tree.js)
 - [309-best-time-to-buy-and-sell-stock-with-cooldown.js](./leetcode-js/309-best-time-to-buy-and-sell-stock-with-cooldown.js)
 - [250-count-univalue-subtrees.js](./leetcode-js/250-count-univalue-subtrees.js)
 - [035-search-insert-position.js](./leetcode-js/035-search-insert-position.js)
@@ -284,7 +320,6 @@
 - [210-course-schedule-ii.js](./leetcode-js/210-course-schedule-ii.js)
 - [098-validate-binary-search-tree.js](./leetcode-js/098-validate-binary-search-tree.js)
 - [179-largest-number.js](./leetcode-js/179-largest-number.js)
-- [015-3sum.js](./leetcode-js/015-3sum.js)
 - [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
 - [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
 - [130-surrounded-regions.js](./leetcode-js/130-surrounded-regions.js)

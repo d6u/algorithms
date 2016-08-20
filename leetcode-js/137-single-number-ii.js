@@ -12,8 +12,10 @@ var singleNumber = function(nums) {
     for (const n of nums) {
         // 2. Record 1s that appeared twice
         n2 |= n1 & n;
+        console.log('n2', n2.toString(2));
         // 3. Clean out 1s that recorded in n2
         n1 ^= n;
+        console.log('n1', n1.toString(2));
         const n3 = n1 & n2;
         n1 ^= n3;
         n2 ^= n3;
@@ -21,3 +23,5 @@ var singleNumber = function(nums) {
 
     return n1;
 };
+
+console.log(singleNumber([2, 2, 2]))
