@@ -24,6 +24,13 @@
 
     Given a non-negative integer n, count all numbers with unique digits, x, where 0 ≤ x < 10^n.
 
+- [309-best-time-to-buy-and-sell-stock-with-cooldown.java](./leetcode-java/309-best-time-to-buy-and-sell-stock-with-cooldown.java)
+
+    Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:
+
+    - You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+    - After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)
+
 ## Tree & Graph
 
 - [366-find-leaves-of-binary-tree.js](./leetcode-js/366-find-leaves-of-binary-tree.js)
@@ -65,6 +72,29 @@
 - [096-unique-binary-search-tree.java](./leetcode-java/096-unique-binary-search-tree.java)
 
     Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
+
+- [250-count-univalue-subtrees.java](./leetcode-java/250-count-univalue-subtrees.java)
+
+    Given a binary tree, count the number of uni-value subtrees. A Uni-value subtree means all nodes of the subtree have the same value.
+
+- [298-binary-tree-longest-consecutive-sequence.js](./leetcode-js/298-binary-tree-longest-consecutive-sequence.js)
+
+    Given a binary tree, find the length of the longest consecutive sequence path.
+
+- [255-verify-preorder-sequence-in-binary-search-tree.java](./leetcode-java/255-verify-preorder-sequence-in-binary-search-tree.java)
+
+    Given an array of numbers, verify whether it is the correct preorder traversal sequence of a binary search tree. You may assume each number in the sequence is unique.
+
+- [116-populating-next-right-pointers-in-each-node.java](./leetcode-java/116-populating-next-right-pointers-in-each-node.java)
+
+    Given a binary tree, Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+
+    - You may only use constant extra space.
+    - You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
+
+- [222-count-complete-tree-nodes.java](./leetcode-java/222-count-complete-tree-nodes.java)
+
+    Given a complete binary tree, count the number of nodes.
 
 ## Array & Hashmap
 
@@ -119,6 +149,10 @@
 - [216-combination-sum-iii.java](./leetcode-java/216-combination-sum-iii.java)
 
     Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
+
+- [035-search-insert-position.java](./leetcode-java/035-search-insert-position.java)
+
+    Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 ## Linked List
 
@@ -191,20 +225,17 @@
 
     Write a function to generate the generalized abbreviations of a word. E.g. Given word = "word", return the following list (order does not matter): `["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]`
 
-- [309-best-time-to-buy-and-sell-stock-with-cooldown.js](./leetcode-js/309-best-time-to-buy-and-sell-stock-with-cooldown.js)
-- [250-count-univalue-subtrees.js](./leetcode-js/250-count-univalue-subtrees.js)
-- [035-search-insert-position.js](./leetcode-js/035-search-insert-position.js)
-- [241-different-ways-to-add-parentheses.js](./leetcode-js/241-different-ways-to-add-parentheses.js)
-- [298-binary-tree-longest-consecutive-sequence.js](./leetcode-js/298-binary-tree-longest-consecutive-sequence.js)
+- [241-different-ways-to-add-parentheses.java](./leetcode-java/241-different-ways-to-add-parentheses.java)
+
+    Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
+
 - [351-android-unlock-patterns.js](./leetcode-js/351-android-unlock-patterns.js)
 - [089-gray-code.js](./leetcode-js/089-gray-code.js)
 - [046-permutations.js](./leetcode-js/046-permutations.js)
-- [255-verify-preorder-sequence-in-binary-search-tree.js](./leetcode-js/255-verify-preorder-sequence-in-binary-search-tree.js)
 - [062-unique-paths.js](./leetcode-js/062-unique-paths.js)
 - [053-maximum-subarray.js](./leetcode-js/053-maximum-subarray.js)
 - [153-find-mim-in-rotated-array.js](./leetcode-js/153-find-mim-in-rotated-array.js)
 - [254-factor-combination.js](./leetcode-js/254-factor-combination.js)
-- [116-populating-next-right-pointers-in-each-node.js](./leetcode-js/116-populating-next-right-pointers-in-each-node.js)
 - [199-binary-tree-right-side-view.js](./leetcode-js/199-binary-tree-right-side-view.js)
 - [367-valid-perfect-square.js](./leetcode-js/367-valid-perfect-square.js)
 - [173-binary-search-tree-iterator.js](./leetcode-js/173-binary-search-tree-iterator.js)
@@ -289,8 +320,6 @@
 - [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
 - [139-word-break.js](./leetcode-js/139-word-break.js)
 - [332-reconstruct-itinerary.js](./leetcode-js/332-reconstruct-itinerary.js)
-- [222-count-complete-tree-nodes.js](./leetcode-js/222-count-complete-tree-nodes.js)
-- [222-count-complete-tree-nodes_recursion.js](./leetcode-js/222-count-complete-tree-nodes_recursion.js)
 - [069-sqrt-x.js](./leetcode-js/069-sqrt-x.js)
 - [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
 - [148-sort-list.js](./leetcode-js/148-sort-list.js)
