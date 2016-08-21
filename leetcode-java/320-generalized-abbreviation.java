@@ -1,19 +1,19 @@
 public class Solution {
     public List<String> generateAbbreviations(String word) {
         List<String> res = new ArrayList<String>();
-        solve(word, 0, 0, "", res);
+        helper(res, word, "", 0, 0);
         return res;
     }
 
-    public void solve(String word, int pos, int count, String current, List<String> res) {
+    void helper(List<String> res, String word, String cur, int pos, int count) {
         if (pos == word.length()) {
             if (count > 0) {
-                current += count;
+                cur += count;
             }
-            res.add(current);
+            res.add(cur);
         } else {
-            solve(word, pos + 1, count + 1, current, res);
-            solve(word, pos + 1, 0, current + (count > 0 ? count : "") + word.charAt(pos), res);
+            helper(res, word, cur + (count > 0 ? count : "") + word.charAt(pos), pos + 1, 0);
+            helper(res, word, cur, pos + 1, count + 1);
         }
     }
 }

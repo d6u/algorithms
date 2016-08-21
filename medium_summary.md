@@ -6,6 +6,18 @@
 
     Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
+- [320-generalized-abbreviation.java](./leetcode-java/320-generalized-abbreviation.java)
+
+    Write a function to generate the generalized abbreviations of a word. E.g. Given word = "word", return the following list (order does not matter): `["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]`
+
+- [241-different-ways-to-add-parentheses.java](./leetcode-java/241-different-ways-to-add-parentheses.java)
+
+    Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
+
+- [backtrack + memorization 10ms](./leetcode-java/294-flip-game-ii.java), [backtrack 200ms](./leetcode-java/294-flip-game-ii_backtrack.java), [dynamic programing + game theory 2ms](./leetcode-java/294-flip-game-ii_dp.java)
+
+    You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner. Write a function to determine if the starting player can guarantee a win.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -285,20 +297,6 @@
 ---
 
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
-
-
-- [294-flip-game-ii.js](./leetcode-js/294-flip-game-ii.js)
-
-    You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner. Write a function to determine if the starting player can guarantee a win.
-
-- [320-generalized-abbreviation.java](./leetcode-java/320-generalized-abbreviation.java)
-
-    Write a function to generate the generalized abbreviations of a word. E.g. Given word = "word", return the following list (order does not matter): `["word", "1ord", "w1rd", "wo1d", "wor1", "2rd", "w2d", "wo2", "1o1d", "1or1", "w1r1", "1o2", "2r1", "3d", "w3", "4"]`
-
-- [241-different-ways-to-add-parentheses.java](./leetcode-java/241-different-ways-to-add-parentheses.java)
-
-    Given a string of numbers and operators, return all possible results from computing all the different possible ways to group numbers and operators. The valid operators are +, - and *.
-
 - [351-android-unlock-patterns.js](./leetcode-js/351-android-unlock-patterns.js)
 - [089-gray-code.js](./leetcode-js/089-gray-code.js)
 - [046-permutations.js](./leetcode-js/046-permutations.js)
