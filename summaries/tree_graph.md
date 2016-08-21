@@ -151,6 +151,6 @@
 
     Given inorder and postorder traversal of a tree, construct the binary tree.
 
-- 105-construct-binary-tree-from-preorder-and-inorder-traversal.java [recursive](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal.java), [iterative](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal_iterative.java)
+- 105-construct-binary-tree-from-preorder-and-inorder-traversal [recursive.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal.java), [iterative.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal_iterative.java)
 
     Given preorder and inorder traversal of a tree, construct the binary tree.
