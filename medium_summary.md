@@ -128,6 +128,44 @@
 
     Given preorder and inorder traversal of a tree, construct the binary tree.
 
+- [129-sum-root-to-leaf-numbers.java](./leetcode-java/129-sum-root-to-leaf-numbers.java)
+
+    Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number. An example is the root-to-leaf path 1->2->3 which represents the number 123. Find the total sum of all root-to-leaf numbers.
+
+- [114-flatten-binary-tree-to-linked-list.java](./leetcode-java/114-flatten-binary-tree-to-linked-list.java)
+
+    Given a binary tree, flatten it to a linked list in-place.
+
+    From:
+
+    ```
+        1
+       / \
+      2   5
+     / \   \
+    3   4   6
+    ```
+
+    To:
+
+    ```
+    1
+     \
+      2
+       \
+        3
+         \
+          4
+           \
+            5
+             \
+              6
+    ```
+
+- [106-convert-binary-tree-from-inorder-and-postorder-traversal.java](./leetcode-java/106-convert-binary-tree-from-inorder-and-postorder-traversal.java)
+
+    Given inorder and postorder traversal of a tree, construct the binary tree.
+
 ## Array & Hashmap
 
 - [325-maximum-size-subarray-sum-equals-k.js](./leetcode-js/325-maximum-size-subarray-sum-equals-k.js)
@@ -291,7 +329,6 @@
 - [073-set-matrix-zeroes.js](./leetcode-js/073-set-matrix-zeroes.js)
 - [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
 - [279-perfect-squares_math.js](./leetcode-js/279-perfect-squares_math.js)
-- [129-sum-root-to-leaf-numbers.js](./leetcode-js/129-sum-root-to-leaf-numbers.js)
 - [080-remove-duplicate-from-sorted-array-ii.js](./leetcode-js/080-remove-duplicate-from-sorted-array-ii.js)
 - [078-subsets.js](./leetcode-js/078-subsets.js)
 - [331-verify-preorder-serialization-of-a-binary-tree.js](./leetcode-js/331-verify-preorder-serialization-of-a-binary-tree.js)
@@ -300,7 +337,6 @@
 - [039-combination-sum.js](./leetcode-js/039-combination-sum.js)
 - [314-binary-tree-vertical-order-traversal.js](./leetcode-js/314-binary-tree-vertical-order-traversal.js)
 - [081-search-in-rotated-sorted-array-ii.js](./leetcode-js/081-search-in-rotated-sorted-array-ii.js)
-- [114-flatten-binary-tree-to-linked-list.js](./leetcode-js/114-flatten-binary-tree-to-linked-list.js)
 - [201-bitwise-and-of-numbers-range.js](./leetcode-js/201-bitwise-and-of-numbers-range.js)
 - [090-subsets-ii.js](./leetcode-js/090-subsets-ii.js)
 - [213-house-robber-ii.js](./leetcode-js/213-house-robber-ii.js)
@@ -315,7 +351,6 @@
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
 - [063-unique-paths-ii.js](./leetcode-js/063-unique-paths-ii.js)
 - [103-binary-tree-zigzag-level-order-traversal.js](./leetcode-js/103-binary-tree-zigzag-level-order-traversal.js)
-- [106-convert-binary-tree-from-inorder-and-postorder-traversal.js](./leetcode-js/106-convert-binary-tree-from-inorder-and-postorder-traversal.js)
 - [034-search-for-a-range.js](./leetcode-js/034-search-for-a-range.js)
 - [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
 - [016-3sum-closest.js](./leetcode-js/016-3sum-closest.js)
