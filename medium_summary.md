@@ -96,6 +96,38 @@
 
     Given a complete binary tree, count the number of nodes.
 
+- [199-binary-tree-right-side-view.java](./leetcode-java/199-binary-tree-right-side-view.java)
+
+    Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+- [173-binary-search-tree-iterator.java](./leetcode-java/173-binary-search-tree-iterator.java)
+
+    Implement an iterator over a binary search tree (BST). Your iterator will be initialized with the root node of a BST. Calling next() will return the next smallest number in the BST. next() and hasNext() should run in average O(1) time and uses O(h) memory, where h is the height of the tree.
+
+- [285-inorder-successor-in-bst.java](./leetcode-java/285-inorder-successor-in-bst.java)
+
+    Given a binary search tree and a node in it, find the in-order successor of that node in the BST. Note: If the given node has no in-order successor in the tree, return null.
+
+- [333-largest-bst-subtree.java](./leetcode-java/333-largest-bst-subtree.java)
+
+    Given a binary tree, find the largest subtree which is a Binary Search Tree (BST), where largest means subtree with largest number of nodes in it.
+
+- [236-lowest-common-ancestor-of-a-binary-tree.java](./leetcode-java/236-lowest-common-ancestor-of-a-binary-tree.java)
+
+    Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
+
+- [095-unique-binary-search-trees-ii.java](./leetcode-java/095-unique-binary-search-trees-ii.java)
+
+    Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1...n.
+
+- [113-path-sum-ii.java](./leetcode-java/113-path-sum-ii.java)
+
+    Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
+
+- [recursive](./leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal.java), [iterative](/leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal_iterative.java)
+
+    Given preorder and inorder traversal of a tree, construct the binary tree.
+
 ## Array & Hashmap
 
 - [325-maximum-size-subarray-sum-equals-k.js](./leetcode-js/325-maximum-size-subarray-sum-equals-k.js)
@@ -236,11 +268,8 @@
 - [053-maximum-subarray.js](./leetcode-js/053-maximum-subarray.js)
 - [153-find-mim-in-rotated-array.js](./leetcode-js/153-find-mim-in-rotated-array.js)
 - [254-factor-combination.js](./leetcode-js/254-factor-combination.js)
-- [199-binary-tree-right-side-view.js](./leetcode-js/199-binary-tree-right-side-view.js)
 - [367-valid-perfect-square.js](./leetcode-js/367-valid-perfect-square.js)
-- [173-binary-search-tree-iterator.js](./leetcode-js/173-binary-search-tree-iterator.js)
 - [059-spiral-matrix-ii.js](./leetcode-js/059-spiral-matrix-ii.js)
-- [285-inorder-successor-in-bst.js](./leetcode-js/285-inorder-successor-in-bst.js)
 - [253-meeting-rooms-ii.js](./leetcode-js/253-meeting-rooms-ii.js)
 - [240-search-a-2d-matrix-ii.js](./leetcode-js/240-search-a-2d-matrix-ii.js)
 - [077-combinations.js](./leetcode-js/077-combinations.js)
@@ -290,9 +319,6 @@
 - [034-search-for-a-range.js](./leetcode-js/034-search-for-a-range.js)
 - [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
 - [016-3sum-closest.js](./leetcode-js/016-3sum-closest.js)
-- [105-construct-binary-tree-from-preorder-and-inorder-traversal.js](./leetcode-js/105-construct-binary-tree-from-preorder-and-inorder-traversal.js)
-- [095-unique-binary-search-trees-ii.js](./leetcode-js/095-unique-binary-search-trees-ii.js)
-- [113-path-sum-ii.js](./leetcode-js/113-path-sum-ii.js)
 - [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
 - [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
 - [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
@@ -300,14 +326,12 @@
 - [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
 - [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
 - [040-combination-sum-ii.js](./leetcode-js/040-combination-sum-ii.js)
-- [236-lowest-common-ancestor-of-a-binary-tree.js](./leetcode-js/236-lowest-common-ancestor-of-a-binary-tree.js)
 - [055-jump-game.js](./leetcode-js/055-jump-game.js)
 - [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
 - [092-reverse-linked-list-ii.js](./leetcode-js/092-reverse-linked-list-ii.js)
 - [207-course-schedule.js](./leetcode-js/207-course-schedule.js)
 - [356-line-reflection.js](./leetcode-js/356-line-reflection.js)
 - [134-gas-station.js](./leetcode-js/134-gas-station.js)
-- [333-largest-bst-subtree.js](./leetcode-js/333-largest-bst-subtree.js)
 - [209-minimum-size-subarray-sum.js](./leetcode-js/209-minimum-size-subarray-sum.js)
 - [082-remove-duplicates-from-sorted-list-ii.js](./leetcode-js/082-remove-duplicates-from-sorted-list-ii.js)
 - [310-minimum-height-trees.js](./leetcode-js/310-minimum-height-trees.js)
