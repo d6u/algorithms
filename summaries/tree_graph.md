@@ -1,5 +1,17 @@
 # Tree & Graph
 
+## Graph
+
+- [207-course-schedule.java](../leetcode-java/207-course-schedule.java)
+
+    There are a total of n courses you have to take, labeled from 0 to n - 1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]. Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+
+- 310-minimum-height-trees: [fast](../leetcode-java/310-minimum-height-trees.java), [slower](../leetcode-java/310-minimum-height-trees_slower.java)
+
+    TODO: see https://discuss.leetcode.com/topic/30956/two-o-n-solutions
+
+    For a undirected graph with tree characteristics, we can choose any node as the root. The result graph is then a rooted tree. Among all possible rooted trees, those with minimum height are called minimum height trees (MHTs). Given such a graph, write a function to find all the MHTs and return a list of their root labels.
+
 ## Union find
 
 - [261-graph-valid-tree_union-find.js](../leetcode-js/261-graph-valid-tree_union-find.js)
@@ -151,6 +163,6 @@
 
     Given inorder and postorder traversal of a tree, construct the binary tree.
 
-- 105-construct-binary-tree-from-preorder-and-inorder-traversal [recursive.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal.java), [iterative.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal_iterative.java)
+- 105-construct-binary-tree-from-preorder-and-inorder-traversal: [recursive.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal.java), [iterative.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal_iterative.java)
 
     Given preorder and inorder traversal of a tree, construct the binary tree.
