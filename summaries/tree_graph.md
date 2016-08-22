@@ -2,7 +2,7 @@
 
 ## Graph
 
-- [207-course-schedule.java](../leetcode-java/207-course-schedule.java)
+- BFS topological sort (use node's indegree) [207-course-schedule.java](../leetcode-java/207-course-schedule.java)
 
     There are a total of n courses you have to take, labeled from 0 to n - 1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]. Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
 
@@ -11,6 +11,22 @@
     TODO: see https://discuss.leetcode.com/topic/30956/two-o-n-solutions
 
     For a undirected graph with tree characteristics, we can choose any node as the root. The result graph is then a rooted tree. Among all possible rooted trees, those with minimum height are called minimum height trees (MHTs). Given such a graph, write a function to find all the MHTs and return a list of their root labels.
+
+- topological sort [332-reconstruct-itinerary.java](../leetcode-java/332-reconstruct-itinerary.java)
+
+    Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK. Thus, the itinerary must begin with JFK. Note:
+
+    - If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary ["JFK", "LGA"] has a smaller lexical order than ["JFK", "LGB"].
+    - All airports are represented by three capital letters (IATA code).
+    - You may assume all tickets form at least one valid itinerary.
+
+- [133-clone-graph.java](../leetcode-java/133-clone-graph.java)
+
+    Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors.
+
+- topological sort [210-course-schedule-ii.java](../leetcode-java/210-course-schedule-ii.java)
+
+    There are a total of n courses you have to take, labeled from 0 to n - 1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]. Given the total number of courses and a list of prerequisite pairs, return the ordering of courses you should take to finish all courses. There may be multiple correct orders, you just need to return one of them. If it is impossible to finish all courses, return an empty array.
 
 ## Union find
 

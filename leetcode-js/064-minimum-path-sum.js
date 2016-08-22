@@ -3,8 +3,6 @@
  * @return {number}
  */
 var minPathSum = function(grid) {
-    'use strict';
-
     const dp = [];
 
     for (let i = 0; i < grid.length; i += 1) {

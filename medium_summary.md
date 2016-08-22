@@ -43,63 +43,13 @@
     - You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
     - After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)
 
-## Array & Hashmap
+- [064-minimum-path-sum.java](./leetcode-java/064-minimum-path-sum.java)
 
-- [325-maximum-size-subarray-sum-equals-k.js](./leetcode-js/325-maximum-size-subarray-sum-equals-k.js)
+    Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
 
-    Given an array nums and a target value k, find the maximum length of a subarray that sums to k. If there isn't one, return 0 instead.
+- [055-jump-game.java](./leetcode-java/055-jump-game.java)
 
-- [220-contains-duplicate-iii.js](./leetcode-js/220-contains-duplicate-iii.js)
-
-    Given an array of integers, find out whether there are two distinct indices i and j in the array such that the difference between nums[i] and nums[j] is at most t and the difference between i and j is at most k.
-
-- [162-find-peak-element.js](./leetcode-js/162-find-peak-element.js)
-
-    A peak element is an element that is greater than its neighbors. Given an input array where num[i] ≠ num[i+1], find a peak element and return its index.
-
-- [280-wiggle-sort.java](./leetcode-java/280-wiggle-sort.java)
-
-    Given an unsorted array nums, reorder it in-place such that nums[0] <= nums[1] >= nums[2] <= nums[3].... For example, given nums = [3, 5, 2, 1, 6, 4], one possible answer is [1, 6, 2, 5, 3, 4].
-
-- [370-range-addition.java](./leetcode-java/370-range-addition.java)
-
-    Assume you have an array of length n initialized with all 0's and are given k update operations. Each operation is represented as a triplet: `[startIndex, endIndex, inc]` which increments each element of subarray `A[startIndex ... endIndex]` `(startIndex and endIndex inclusive)` with `inc`. Return the modified array after all `k` operations were executed.
-
-- [167-two-sum-ii-input-array-is-sorted.java](./leetcode-java/167-two-sum-ii-input-array-is-sorted.java)
-
-    Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution.
-
-- [245-shortest-word-distance-iii.java](./leetcode-java/245-shortest-word-distance-iii.java)
-
-    Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list. word1 and word2 may be the same and they represent two individual words in the list.
-
-- [238-product-of-array-except-self.java](./leetcode-java/238-product-of-array-except-self.java)
-
-    Given an array of n integers where n > 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
-
-- [347-top-k-frequent-elements.java](./leetcode-java/347-top-k-frequent-elements.java)
-
-    Given a non-empty array of integers, return the k most frequent elements.
-
-- [268-missing-number.js](./leetcode-js/268-missing-number.js)
-
-    Given an array containing n distinct numbers taken from 0, 1, 2, ..., n, find the one that is missing from the array.
-
-- [015-3sum.java](./leetcode-java/015-3sum.java)
-
-    Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
-
-- [259-3sum-smaller.java](./leetcode-java/259-3sum-smaller.java)
-
-    Given an array of n integers nums and a target, find the number of index triplets i, j, k with 0 <= i < j < k < n that satisfy the condition nums[i] + nums[j] + nums[k] < target.
-
-- [216-combination-sum-iii.java](./leetcode-java/216-combination-sum-iii.java)
-
-    Find all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.
-
-- [035-search-insert-position.java](./leetcode-java/035-search-insert-position.java)
-
-    Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+    Given an array of non-negative integers, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index.
 
 ## Linked List
 
@@ -131,6 +81,10 @@
 
     Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, it should be filled with INF.
 
+- [079-word-search.java](./leetcode-java/079-word-search.java)
+
+    Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
 ## Math
 
 - [343-integer-break.java](./leetcode-java/343-integer-break.java)
@@ -161,6 +115,10 @@
 
 ---
 
+- [059-spiral-matrix-ii.js](./leetcode-js/059-spiral-matrix-ii.js)
+
+    Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+
 - [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
 - [351-android-unlock-patterns.js](./leetcode-js/351-android-unlock-patterns.js)
 - [089-gray-code.js](./leetcode-js/089-gray-code.js)
@@ -170,11 +128,9 @@
 - [153-find-mim-in-rotated-array.js](./leetcode-js/153-find-mim-in-rotated-array.js)
 - [254-factor-combination.js](./leetcode-js/254-factor-combination.js)
 - [367-valid-perfect-square.js](./leetcode-js/367-valid-perfect-square.js)
-- [059-spiral-matrix-ii.js](./leetcode-js/059-spiral-matrix-ii.js)
 - [253-meeting-rooms-ii.js](./leetcode-js/253-meeting-rooms-ii.js)
 - [240-search-a-2d-matrix-ii.js](./leetcode-js/240-search-a-2d-matrix-ii.js)
 - [077-combinations.js](./leetcode-js/077-combinations.js)
-- [064-minimum-path-sum.js](./leetcode-js/064-minimum-path-sum.js)
 - [313-super-ugly-number.js](./leetcode-js/313-super-ugly-number.js)
 - [334-increasing-triplet-subsequence.js](./leetcode-js/334-increasing-triplet-subsequence.js)
 - [300-longest-increasing-subsequence.js](./leetcode-js/300-longest-increasing-subsequence.js)
@@ -213,47 +169,34 @@
 - [163-missing-ranges.js](./leetcode-js/163-missing-ranges.js)
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
 - [063-unique-paths-ii.js](./leetcode-js/063-unique-paths-ii.js)
-- [034-search-for-a-range.js](./leetcode-js/034-search-for-a-range.js)
 - [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
-- [016-3sum-closest.js](./leetcode-js/016-3sum-closest.js)
 - [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
 - [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
 - [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
 - [049-group-anagrams.js](./leetcode-js/049-group-anagrams.js)
 - [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
 - [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
-- [040-combination-sum-ii.js](./leetcode-js/040-combination-sum-ii.js)
-- [055-jump-game.js](./leetcode-js/055-jump-game.js)
 - [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
 - [092-reverse-linked-list-ii.js](./leetcode-js/092-reverse-linked-list-ii.js)
 - [356-line-reflection.js](./leetcode-js/356-line-reflection.js)
 - [134-gas-station.js](./leetcode-js/134-gas-station.js)
-- [209-minimum-size-subarray-sum.js](./leetcode-js/209-minimum-size-subarray-sum.js)
 - [082-remove-duplicates-from-sorted-list-ii.js](./leetcode-js/082-remove-duplicates-from-sorted-list-ii.js)
 - [050-pow-x-n.js](./leetcode-js/050-pow-x-n.js)
 - [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-- [031-next-permutation.js](./leetcode-js/031-next-permutation.js)
 - [187-repeated-dna-sequences.js](./leetcode-js/187-repeated-dna-sequences.js)
-- [229-majority-element-ii.js](./leetcode-js/229-majority-element-ii.js)
 - [306-additive-number.js](./leetcode-js/306-additive-number.js)
 - [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
 - [139-word-break.js](./leetcode-js/139-word-break.js)
-- [332-reconstruct-itinerary.js](./leetcode-js/332-reconstruct-itinerary.js)
 - [069-sqrt-x.js](./leetcode-js/069-sqrt-x.js)
 - [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
 - [148-sort-list.js](./leetcode-js/148-sort-list.js)
-- [228-summary-ranges.js](./leetcode-js/228-summary-ranges.js)
 - [322-coin-change.js](./leetcode-js/322-coin-change.js)
 - [208-implement-trie.js](./leetcode-js/208-implement-trie.js)
-- [133-clone-graph.js](./leetcode-js/133-clone-graph.js)
-- [133-clone-graph_recursive.js](./leetcode-js/133-clone-graph_recursive.js)
 - [221-maximum-square.js](./leetcode-js/221-maximum-square.js)
-- [018-4sum.js](./leetcode-js/018-4sum.js)
 - [150-evaluate-reverse-polish-notation.js](./leetcode-js/150-evaluate-reverse-polish-notation.js)
 - [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
 - [002-add-two-numbers.js](./leetcode-js/002-add-two-numbers.js)
 - [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
-- [079-word-search.js](./leetcode-js/079-word-search.js)
 - [324-wiggle-sort-ii.js](./leetcode-js/324-wiggle-sort-ii.js)
 - [335-self-crossing.js](./leetcode-js/335-self-crossing.js)
 - [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
@@ -261,11 +204,9 @@
 - [061-rotate-list.js](./leetcode-js/061-rotate-list.js)
 - [054-spiral-matrix.js](./leetcode-js/054-spiral-matrix.js)
 - [365-water-and-jug-problem.js](./leetcode-js/365-water-and-jug-problem.js)
-- [152-maximum-product-subarray.js](./leetcode-js/152-maximum-product-subarray.js)
 - [003-longest-substring-without-repeating-characters.js](./leetcode-js/003-longest-substring-without-repeating-characters.js)
 - [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
 - [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
-- [210-course-schedule-ii.js](./leetcode-js/210-course-schedule-ii.js)
 - [179-largest-number.js](./leetcode-js/179-largest-number.js)
 - [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
 - [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
