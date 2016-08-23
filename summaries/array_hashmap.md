@@ -102,3 +102,61 @@
 - [228-summary-ranges.java](../leetcode-java/228-summary-ranges.java)
 
     Given a sorted integer array without duplicates, return the summary of its ranges.
+
+---
+
+- **Review** [062-unique-paths.java](../leetcode-java/062-unique-paths.java)
+
+    A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below). The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below). How many possible unique paths are there?
+
+- [053-maximum-subarray.java](../leetcode-java/053-maximum-subarray.java)
+
+    Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+- [153-find-mim-in-rotated-array.java](../leetcode-java/153-find-mim-in-rotated-array.java)
+
+    Suppose a sorted array is rotated at some pivot unknown to you beforehand. Find the minimum element. You may assume no duplicate exists in the array.
+
+- [048-rotate-image.java](../leetcode-java/048-rotate-image.java)
+
+    You are given an n x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise).
+
+- [075-sort-colors.java](../leetcode-java/075-sort-colors.java)
+
+    Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+- [289-game-of-life.java](../leetcode-java/289-game-of-life.java)
+
+    According to the Wikipedia's article: "The Game of Life, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970."
+
+    Given a board with m by n cells, each cell has an initial state live (1) or dead (0). Each cell interacts with its eight neighbors (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):
+
+    - Any live cell with fewer than two live neighbors dies, as if caused by under-population.
+    - Any live cell with two or three live neighbors lives on to the next generation.
+    - Any live cell with more than three live neighbors dies, as if by over-population..
+    - Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
+
+    Write a function to compute the next state (after one update) of the board given its current state.
+
+- [277-find-the-celebrity.java](../leetcode-java/277-find-the-celebrity.java)
+
+    Suppose you are at a party with n people (labeled from 0 to n - 1) and among them, there may exist one celebrity. The definition of a celebrity is that all the other n - 1 people know him/her but he/she does not know any of them.
+
+    Now you want to find out who the celebrity is or verify that there is not one. The only thing you are allowed to do is to ask questions like: "Hi, A. Do you know B?" to get information of whether A knows B. You need to find out the celebrity (or verify there is not one) by asking as few questions as possible (in the asymptotic sense).
+
+    You are given a helper function bool knows(a, b) which tells you whether A knows B. Implement a function int findCelebrity(n), your function should minimize the number of calls to knows.
+
+- [011-container-with-most-water.java](../leetcode-java/011-container-with-most-water.java)
+
+    Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+
+- **Review** [074-search-matrix.java](../leetcode-java/074-search-matrix.java)
+
+    Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+    - Integers in each row are sorted from left to right.
+    - The first integer of each row is greater than the last integer of the previous row.
+
+- [073-set-matrix-zeroes.java](../leetcode-java/073-set-matrix-zeroes.java)
+
+    Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
