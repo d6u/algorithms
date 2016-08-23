@@ -4,7 +4,7 @@ public class Solution {
         int m = matrix[0].length;
         int l = 0;
         int r = m * n - 1;
-        while (l != r){
+        while (l != r) {
             int mid = (l + r - 1) / 2;
             if (matrix[mid / m][mid % m] < target) {
                 l = mid + 1;
