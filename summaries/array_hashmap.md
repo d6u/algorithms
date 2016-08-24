@@ -160,3 +160,23 @@
 - [073-set-matrix-zeroes.java](../leetcode-java/073-set-matrix-zeroes.java)
 
     Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do it in place.
+
+- [054-spiral-matrix.java](../leetcode-java/054-spiral-matrix.java)
+
+    Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+- [063-unique-paths-ii.java](../leetcode-java/063-unique-paths-ii.java)
+
+    Follow up for "Unique Paths": Now consider if some obstacles are added to the grids. How many unique paths would there be? An obstacle and empty space is marked as 1 and 0 respectively in the grid.
+
+- [163-missing-ranges.java](../leetcode-java/163-missing-ranges.java)
+
+    Given a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges. For example, given `[0, 1, 3, 50, 75]`, lower = 0 and upper = 99, return `["2", "4->49", "51->74", "76->99"]`.
+
+- [120-triangle.java](../leetcode-java/120-triangle.java)
+
+    Given a triangle, find the minimum path sum from top to bottom. Each step you may move to adjacent numbers on the row below.
+
+- [090-subsets-ii.java](../leetcode-java/090-subsets-ii.java)
+
+    Given a collection of integers that might contain duplicates, nums, return all possible subsets.
