@@ -180,3 +180,43 @@
 - [090-subsets-ii.java](../leetcode-java/090-subsets-ii.java)
 
     Given a collection of integers that might contain duplicates, nums, return all possible subsets.
+
+- [080-remove-duplicate-from-sorted-array-ii.js](./leetcode-js/080-remove-duplicate-from-sorted-array-ii.js)
+
+    Follow up for "Remove Duplicates": What if duplicates are allowed at most twice?
+
+- [078-subsets.js](./leetcode-js/078-subsets.js)
+
+    Given a set of distinct integers, nums, return all possible subsets.
+
+- [039-combination-sum.java](../leetcode-java/039-combination-sum.java)
+
+    Given a set of candidate numbers (C) and a target number (T), find all unique combinations in C where the candidate numbers sums to T. The same repeated number may be chosen from C unlimited number of times.
+
+- [081-search-in-rotated-sorted-array-ii.java](../leetcode-java/081-search-in-rotated-sorted-array-ii.java)
+
+    Suppose a sorted array is rotated at some pivot unknown to you beforehand. You are given a target value to search. If found in the array return its index, otherwise return -1. Duplicates are allowed in the array?
+
+- [356-line-reflection.java](../leetcode-java/356-line-reflection.java)
+
+    Given n points on a 2D plane, find if there is such a line parallel to y-axis that reflect the given points.
+
+- **Review** [003-longest-substring-without-repeating-characters.java](../leetcode-java/003-longest-substring-without-repeating-characters.java)
+
+    Given a string, find the length of the longest substring without repeating characters.
+
+- **Review** [274-h-index.java](../leetcode-java/274-h-index.java)
+
+    Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index. According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each."
+
+- [187-repeated-dna-sequences.java](../leetcode-java/187-repeated-dna-sequences.java)
+
+    All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA. Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.
+
+- [244-shortest-word-distance-ii.java](../leetcode-java/244-shortest-word-distance-ii.java)
+
+    This is a follow up of Shortest Word Distance. The only difference is now you are given the list of words and your method will be called repeatedly many times with different parameters. How would you optimize it? Design a class which receives a list of words in the constructor, and implements a method that takes two words word1 and word2 and return the shortest distance between these two words in the list.
+
+- [049-group-anagrams.java](../leetcode-java/049-group-anagrams.java)
+
+    Given an array of strings, group anagrams together.

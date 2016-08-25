@@ -299,7 +299,9 @@ _Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rect
 
 _Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). You are given a target value to search. If found in the array return its index, otherwise return -1. You may assume no duplicate exists in the array._
 
-1. Can still be solved using binary search.
+[033-search-in-rotated-sorted-array.java](./leetcode-java/033-search-in-rotated-sorted-array.java)
+
+1. Using binary search.
 2. In each iteration:
     1. Determine which part of array is sorted properly.
     2. Compare target with boundary of the sorted part. If target falls in the boundary, focus in this part in next iteration. If not, focus in the other part.

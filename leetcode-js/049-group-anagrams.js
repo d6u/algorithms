@@ -3,8 +3,6 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-    'use strict';
-
     const map = new Map();
 
     for (let str of strs) {

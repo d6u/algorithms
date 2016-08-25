@@ -82,6 +82,10 @@
 
     Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number. An example is the root-to-leaf path 1->2->3 which represents the number 123. Find the total sum of all root-to-leaf numbers.
 
+- [314-binary-tree-vertical-order-traversal.java](../leetcode-java/314-binary-tree-vertical-order-traversal.java)
+
+    Given a binary tree, return the vertical order traversal of its nodes' values. (ie, from top to bottom, column by column). If two nodes are in the same row and column, the order should be from left to right.
+
 ## Traversal
 
 - [144-binary-tree-preorder-traversal.java](../leetcode-java/144-binary-tree-preorder-traversal.java)
