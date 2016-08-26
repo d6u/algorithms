@@ -220,3 +220,15 @@
 - [049-group-anagrams.java](../leetcode-java/049-group-anagrams.java)
 
     Given an array of strings, group anagrams together.
+
+- [046-permutations.java](../leetcode-java/046-permutations.java)
+
+    Given a collection of distinct numbers, return all possible permutations.
+
+- **Review** [077-combinations.java](../leetcode-java/077-combinations.java)
+
+    Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+
+- [253-meeting-rooms-ii.java](../leetcode-java/253-meeting-rooms-ii.java)
+
+    Given an array of meeting time intervals consisting of start and end times `[[s1,e1],[s2,e2],...]` (si < ei), find the minimum number of conference rooms required.

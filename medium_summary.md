@@ -51,6 +51,21 @@
 
     Given an array of non-negative integers, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index.
 
+- [279-perfect-squares_math.java](../leetcode-java/279-perfect-squares_math.java)
+
+    [leetcode discuss](https://discuss.leetcode.com/topic/24255/summary-of-4-different-solutions-bfs-dp-static-dp-and-mathematics)
+
+    Given a positive integer n, find the least number of perfect square numbers (for example, 1, 4, 9, 16, ...) which sum to n. For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.
+
+- **Review** [351-android-unlock-patterns.java](./leetcode-java/351-android-unlock-patterns.java)
+
+    Given an Android 3x3 key lock screen and two integers m and n, where 1 ≤ m ≤ n ≤ 9, count the total number of unlock patterns of the Android lock screen, which consist of minimum of m keys and maximum n keys.
+
+    - Each pattern must connect at least m keys and at most n keys.
+    - All the keys must be distinct.
+    - If the line connecting two consecutive keys in the pattern passes through any other keys, the other keys must have previously selected in the pattern. No jumps through non selected key is allowed.
+    - The order of keys used matters.
+
 ## Linked List
 
 - [369-plus-one-linked-list.java](./leetcode-java/369-plus-one-linked-list.java)
@@ -68,6 +83,10 @@
 - [148-sort-list.java](./leetcode-java/148-sort-list.java)
 
     Sort a linked list in O(n log n) time using constant space complexity.
+
+- [281-zigzag-iterator.java](./leetcode-java/281-zigzag-iterator.java)
+
+    Given two 1d vectors, implement an iterator to return their elements alternately.
 
 ## Matrix
 
@@ -89,6 +108,13 @@
 
     Given a 2D board and a word, find if the word exists in the grid. The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
 
+- [240-search-a-2d-matrix-ii.java](./leetcode-java/240-search-a-2d-matrix-ii.java)
+
+    Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties:
+
+    - Integers in each row are sorted in ascending from left to right.
+    - Integers in each column are sorted in ascending from top to bottom.
+
 ## Math
 
 - [343-integer-break.java](./leetcode-java/343-integer-break.java)
@@ -103,6 +129,14 @@
 
     Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.
 
+- **Review** [254-factor-combination.java](./leetcode-java/254-factor-combination.java)
+
+    Numbers can be regarded as product of its factors. Write a function that takes an integer n and return all possible combinations of its factors.
+
+- [367-valid-perfect-square.java](../leetcode-java/367-valid-perfect-square.java)
+
+    Given a positive integer num, write a function which returns True if num is a perfect square else False. Note: Do not use any built-in library function such as sqrt.
+
 ## Bitwise
 
 - [136-single-number.js](./leetcode-js/136-single-number.js)
@@ -116,6 +150,10 @@
 - [137-single-number-ii.java](./leetcode-java/137-single-number-ii.java)
 
     Given an array of integers, every element appears three times except for one. Find that single one.
+
+- [089-gray-code.java](./leetcode-java/089-gray-code.java)
+
+    The gray code is a binary numeral system where two successive values differ in only one bit. Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
 ---
 
@@ -135,16 +173,6 @@
 
     Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very large, so you need to return a string instead of an integer.
 
-- [279-perfect-squares_math.js](./leetcode-js/279-perfect-squares_math.js)
-- [281-zigzag-iterator.js](./leetcode-js/281-zigzag-iterator.js)
-- [351-android-unlock-patterns.js](./leetcode-js/351-android-unlock-patterns.js)
-- [089-gray-code.js](./leetcode-js/089-gray-code.js)
-- [046-permutations.js](./leetcode-js/046-permutations.js)
-- [254-factor-combination.js](./leetcode-js/254-factor-combination.js)
-- [367-valid-perfect-square.js](./leetcode-js/367-valid-perfect-square.js)
-- [253-meeting-rooms-ii.js](./leetcode-js/253-meeting-rooms-ii.js)
-- [240-search-a-2d-matrix-ii.js](./leetcode-js/240-search-a-2d-matrix-ii.js)
-- [077-combinations.js](./leetcode-js/077-combinations.js)
 - [313-super-ugly-number.js](./leetcode-js/313-super-ugly-number.js)
 - [334-increasing-triplet-subsequence.js](./leetcode-js/334-increasing-triplet-subsequence.js)
 - [300-longest-increasing-subsequence.js](./leetcode-js/300-longest-increasing-subsequence.js)
