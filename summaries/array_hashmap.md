@@ -232,3 +232,19 @@
 - [253-meeting-rooms-ii.java](../leetcode-java/253-meeting-rooms-ii.java)
 
     Given an array of meeting time intervals consisting of start and end times `[[s1,e1],[s2,e2],...]` (si < ei), find the minimum number of conference rooms required.
+
+- [334-increasing-triplet-subsequence.java](../leetcode-java/334-increasing-triplet-subsequence.java)
+
+    Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array.
+
+- [300-longest-increasing-subsequence.js](./leetcode-js/300-longest-increasing-subsequence.js)
+
+    Given an unsorted array of integers, find the length of longest increasing subsequence.
+
+- [251-flatten-2d-vector.java](./leetcode-java/251-flatten-2d-vector.java)
+
+    Implement an iterator to flatten a 2d vector.
+
+- [215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
+
+    Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.

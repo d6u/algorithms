@@ -28,6 +28,10 @@
 
     There are a total of n courses you have to take, labeled from 0 to n - 1. Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]. Given the total number of courses and a list of prerequisite pairs, return the ordering of courses you should take to finish all courses. There may be multiple correct orders, you just need to return one of them. If it is impossible to finish all courses, return an empty array.
 
+- **Review** [331-verify-preorder-serialization-of-a-binary-tree.java](../leetcode-java/331-verify-preorder-serialization-of-a-binary-tree.java)
+
+    One way to serialize a binary tree is to use pre-order traversal. When we encounter a non-null node, we record the node's value. If it is a null node, we record using a sentinel value such as #. Given a string of comma separated values, verify whether it is a correct preorder traversal serialization of a binary tree. Find an algorithm without reconstructing the tree.
+
 ## Union find
 
 - [261-graph-valid-tree_union-find.js](../leetcode-js/261-graph-valid-tree_union-find.js)

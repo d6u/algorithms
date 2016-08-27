@@ -18,6 +18,10 @@
 
     You are playing the following Flip Game with your friend: Given a string that contains only these two characters: + and -, you and your friend take turns to flip two consecutive "++" into "--". The game ends when a person can no longer make a move and therefore the other person will be the winner. Write a function to determine if the starting player can guarantee a win.
 
+- [247-strobogrammatic-number-ii.java](./leetcode-java/247-strobogrammatic-number-ii.java)
+
+    A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down). Find all strobogrammatic numbers that are of length = n.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -51,7 +55,7 @@
 
     Given an array of non-negative integers, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index.
 
-- [279-perfect-squares_math.java](../leetcode-java/279-perfect-squares_math.java)
+- **Review** [279-perfect-squares_math.java](../leetcode-java/279-perfect-squares_math.java)
 
     [leetcode discuss](https://discuss.leetcode.com/topic/24255/summary-of-4-different-solutions-bfs-dp-static-dp-and-mathematics)
 
@@ -65,6 +69,18 @@
     - All the keys must be distinct.
     - If the line connecting two consecutive keys in the pattern passes through any other keys, the other keys must have previously selected in the pattern. No jumps through non selected key is allowed.
     - The order of keys used matters.
+
+- [264-ugly-number-ii.java](./leetcode-java/264-ugly-number-ii.java)
+
+    Write a program to find the n-th ugly number. Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 1, 2, 3, 4, 5, 6, 8, 9, 10, 12 is the sequence of the first 10 ugly numbers. Note that 1 is typically treated as an ugly number.
+
+- [313-super-ugly-number.java](./leetcode-java/313-super-ugly-number.java)
+
+    Write a program to find the nth super ugly number. Super ugly numbers are positive numbers whose all prime factors are in the given prime list primes of size k. For example, [1, 2, 4, 7, 8, 13, 14, 16, 19, 26, 28, 32] is the sequence of the first 12 super ugly numbers given primes = [2, 7, 13, 19] of size 4.
+
+    - 1 is a super ugly number for any given primes.
+    - The given numbers in primes are in ascending order.
+    - 0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000.
 
 ## Linked List
 
@@ -114,6 +130,10 @@
 
     - Integers in each row are sorted in ascending from left to right.
     - Integers in each column are sorted in ascending from top to bottom.
+
+- [361-bomb-enemy.java](./leetcode-java/361-bomb-enemy.java)
+
+    Given a 2D grid, each cell is either a wall 'W', an enemy 'E' or empty '0' (the number zero), return the maximum enemies you can kill using one bomb. The bomb kills all the enemies in the same row and column from the planted point until it hits the wall since the wall is too strong to be destroyed. Note that you can only put the bomb at an empty cell.
 
 ## Math
 
@@ -173,76 +193,75 @@
 
     Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very large, so you need to return a string instead of an integer.
 
-- [313-super-ugly-number.js](./leetcode-js/313-super-ugly-number.js)
-- [334-increasing-triplet-subsequence.js](./leetcode-js/334-increasing-triplet-subsequence.js)
-- [300-longest-increasing-subsequence.js](./leetcode-js/300-longest-increasing-subsequence.js)
-- [247-strobogrammatic-number-ii.js](./leetcode-js/247-strobogrammatic-number-ii.js)
-- [251-flatten-2d-vector.js](./leetcode-js/251-flatten-2d-vector.js)
-- [361-bomb-enemy.js](./leetcode-js/361-bomb-enemy.js)
-- [215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
-- [279-perfect-squares.js](./leetcode-js/279-perfect-squares.js)
-- [331-verify-preorder-serialization-of-a-binary-tree.js](./leetcode-js/331-verify-preorder-serialization-of-a-binary-tree.js)
-- [341-flatten-nested-list-iterator.js](./leetcode-js/341-flatten-nested-list-iterator.js)
-- [275-h-index-ii.js](./leetcode-js/275-h-index-ii.js)
-- [201-bitwise-and-of-numbers-range.js](./leetcode-js/201-bitwise-and-of-numbers-range.js)
-- [213-house-robber-ii.js](./leetcode-js/213-house-robber-ii.js)
-- [109-convert-sorted-list-to-binary-search-tree.js](./leetcode-js/109-convert-sorted-list-to-binary-search-tree.js)
-- [142-linked-list-cycle-ii.js](./leetcode-js/142-linked-list-cycle-ii.js)
-- [368-largest-divisible-subset.js](./leetcode-js/368-largest-divisible-subset.js)
-- [086-partition-list.js](./leetcode-js/086-partition-list.js)
+- [002-add-two-numbers.java](./leetcode-java/002-add-two-numbers.java)
+
+    You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+    - Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+    - Output: 7 -> 0 -> 8
+- [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
 - [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
-- [264-ugly-number-ii.js](./leetcode-js/264-ugly-number-ii.js)
-- [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
-- [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
-- [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
-- [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
-- [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
-- [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
-- [092-reverse-linked-list-ii.js](./leetcode-js/092-reverse-linked-list-ii.js)
-- [134-gas-station.js](./leetcode-js/134-gas-station.js)
-- [082-remove-duplicates-from-sorted-list-ii.js](./leetcode-js/082-remove-duplicates-from-sorted-list-ii.js)
-- [050-pow-x-n.js](./leetcode-js/050-pow-x-n.js)
-- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-- [306-additive-number.js](./leetcode-js/306-additive-number.js)
-- [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
-- [139-word-break.js](./leetcode-js/139-word-break.js)
-- [069-sqrt-x.js](./leetcode-js/069-sqrt-x.js)
-- [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
-- [322-coin-change.js](./leetcode-js/322-coin-change.js)
-- [208-implement-trie.js](./leetcode-js/208-implement-trie.js)
-- [221-maximum-square.js](./leetcode-js/221-maximum-square.js)
-- [150-evaluate-reverse-polish-notation.js](./leetcode-js/150-evaluate-reverse-polish-notation.js)
+- [029-divide-two-integers.js](./leetcode-js/029-divide-two-integers.js)
 - [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
-- [002-add-two-numbers.js](./leetcode-js/002-add-two-numbers.js)
+- [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
+- [050-pow-x-n.js](./leetcode-js/050-pow-x-n.js)
+- [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
+- [061-rotate-list.js](./leetcode-js/061-rotate-list.js)
+- [069-sqrt-x.js](./leetcode-js/069-sqrt-x.js)
+- [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
+- [082-remove-duplicates-from-sorted-list-ii.js](./leetcode-js/082-remove-duplicates-from-sorted-list-ii.js)
+- [086-partition-list.js](./leetcode-js/086-partition-list.js)
+- [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
+- [092-reverse-linked-list-ii.js](./leetcode-js/092-reverse-linked-list-ii.js)
 - [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
+- [109-convert-sorted-list-to-binary-search-tree.js](./leetcode-js/109-convert-sorted-list-to-binary-search-tree.js)
+- [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
+- [130-surrounded-regions.js](./leetcode-js/130-surrounded-regions.js)
+- [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
+- [134-gas-station.js](./leetcode-js/134-gas-station.js)
+- [139-word-break.js](./leetcode-js/139-word-break.js)
+- [142-linked-list-cycle-ii.js](./leetcode-js/142-linked-list-cycle-ii.js)
+- [143-reorder-list.js](./leetcode-js/143-reorder-list.js)
+- [150-evaluate-reverse-polish-notation.js](./leetcode-js/150-evaluate-reverse-polish-notation.js)
+
+
+- [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
+- [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
+- [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
+- [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
+- [201-bitwise-and-of-numbers-range.js](./leetcode-js/201-bitwise-and-of-numbers-range.js)
+- [208-implement-trie.js](./leetcode-js/208-implement-trie.js)
+- [213-house-robber-ii.js](./leetcode-js/213-house-robber-ii.js)
+- [221-maximum-square.js](./leetcode-js/221-maximum-square.js)
+- [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
+- [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
+- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
+- [275-h-index-ii.js](./leetcode-js/275-h-index-ii.js)
+- [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
+- [306-additive-number.js](./leetcode-js/306-additive-number.js)
+- [322-coin-change.js](./leetcode-js/322-coin-change.js)
 - [324-wiggle-sort-ii.js](./leetcode-js/324-wiggle-sort-ii.js)
 - [335-self-crossing.js](./leetcode-js/335-self-crossing.js)
-- [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
-- [143-reorder-list.js](./leetcode-js/143-reorder-list.js)
-- [061-rotate-list.js](./leetcode-js/061-rotate-list.js)
+- [341-flatten-nested-list-iterator.js](./leetcode-js/341-flatten-nested-list-iterator.js)
 - [365-water-and-jug-problem.js](./leetcode-js/365-water-and-jug-problem.js)
-- [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
-- [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
-- [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
-- [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
-- [130-surrounded-regions.js](./leetcode-js/130-surrounded-regions.js)
-- [029-divide-two-integers.js](./leetcode-js/029-divide-two-integers.js)
-- [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
-- [348](.348)
-- [362](.362)
-- [382](.382)
-- [384](.384)
-- [360](.360)
+- [368-largest-divisible-subset.js](./leetcode-js/368-largest-divisible-subset.js)
+
+
+- [211](.211)
+- [284](.284)
+- [307](.307)
 - [318](.318)
+- [348](.348)
+- [355](.355)
+- [360](.360)
+- [362](.362)
+- [372](.372)
+- [373](.373)
+- [375](.375)
+- [376](.376)
 - [377](.377)
 - [378](.378)
-- [376](.376)
-- [284](.284)
-- [372](.372)
-- [375](.375)
-- [373](.373)
-- [385](.385)
 - [379](.379)
-- [355](.355)
-- [211](.211)
-- [307](.307)
+- [382](.382)
+- [384](.384)
+- [385](.385)
