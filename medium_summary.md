@@ -22,6 +22,22 @@
 
     A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down). Find all strobogrammatic numbers that are of length = n.
 
+- 005-longest-palindromic-substring: [dp](./leetcode-java/005-longest-palindromic-substring_dp.java), [normal](./leetcode-java/005-longest-palindromic-substring.java)
+
+    Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+
+- [017-letter-combinations-of-a-phone-number.java](./leetcode-java/017-letter-combinations-of-a-phone-number.java)
+
+    Given a digit string, return all possible letter combinations that the number could represent.
+
+- [043-multiply-strings.java](./leetcode-java/043-multiply-strings.java)
+
+    Given two numbers represented as strings, return multiplication of the numbers as a string.
+
+    - The numbers can be arbitrarily large and are non-negative.
+    - Converting the input string to integer is NOT allowed.
+    - You should NOT use internal library such as BigInteger.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -104,6 +120,13 @@
 
     Given two 1d vectors, implement an iterator to return their elements alternately.
 
+- [002-add-two-numbers.java](./leetcode-java/002-add-two-numbers.java)
+
+    You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+    - Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+    - Output: 7 -> 0 -> 8
+
 ## Matrix
 
 - [311-sparse-matrix-multiplication.java](./leetcode-java/311-sparse-matrix-multiplication.java)
@@ -157,6 +180,10 @@
 
     Given a positive integer num, write a function which returns True if num is a perfect square else False. Note: Do not use any built-in library function such as sqrt.
 
+- [029-divide-two-integers.js](./leetcode-js/029-divide-two-integers.js)
+
+    Divide two integers without using multiplication, division and mod operator. If it is overflow, return MAX_INT.
+
 ## Bitwise
 
 - [136-single-number.js](./leetcode-js/136-single-number.js)
@@ -193,16 +220,6 @@
 
     Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very large, so you need to return a string instead of an integer.
 
-- [002-add-two-numbers.java](./leetcode-java/002-add-two-numbers.java)
-
-    You are given two linked lists representing two non-negative numbers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
-
-    - Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-    - Output: 7 -> 0 -> 8
-- [005-longest-palindromic-substring.js](./leetcode-js/005-longest-palindromic-substring.js)
-- [017-letter-combinations-of-a-phone-number.js](./leetcode-js/017-letter-combinations-of-a-phone-number.js)
-- [029-divide-two-integers.js](./leetcode-js/029-divide-two-integers.js)
-- [043-multiply-strings.js](./leetcode-js/043-multiply-strings.js)
 - [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
 - [050-pow-x-n.js](./leetcode-js/050-pow-x-n.js)
 - [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)

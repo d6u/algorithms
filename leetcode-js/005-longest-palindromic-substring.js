@@ -3,8 +3,6 @@
  * @return {string}
  */
 var longestPalindrome = function(s) {
-    'use strict';
-
     if (s.length <= 1) {
         return s;
     }
