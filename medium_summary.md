@@ -220,9 +220,33 @@
 
     Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very large, so you need to return a string instead of an integer.
 
+---
+
 - [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
+
+    Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
 - [050-pow-x-n.js](./leetcode-js/050-pow-x-n.js)
+
+    Implement pow(x, n).
+
 - [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
+
+    The set [1,2,3,…,n] contains a total of n! unique permutations.
+
+    By listing and labeling all of the permutations in order,
+    We get the following sequence (ie, for n = 3):
+
+    "123"
+    "132"
+    "213"
+    "231"
+    "312"
+    "321"
+    Given n and k, return the kth permutation sequence.
+
+    Note: Given n will be between 1 and 9 inclusive.
+
 - [061-rotate-list.js](./leetcode-js/061-rotate-list.js)
 - [069-sqrt-x.js](./leetcode-js/069-sqrt-x.js)
 - [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
