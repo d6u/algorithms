@@ -38,6 +38,38 @@
     - Converting the input string to integer is NOT allowed.
     - You should NOT use internal library such as BigInteger.
 
+- [071-simplify-path.java](./leetcode-java/071-simplify-path.java)
+
+    Given an absolute path for a file (Unix-style), simplify it.
+
+- **Review** [091-decode-ways.java](./leetcode-java/091-decode-ways.java)
+
+    A message containing letters from A-Z is being encoded to numbers using the following mapping:
+
+    ```
+    'A' -> 1
+    'B' -> 2
+    ...
+    'Z' -> 26
+    ```
+
+    Given an encoded message containing digits, determine the total number of ways to decode it.
+
+- [093-restore-ip-addresses.java](./leetcode-java/093-restore-ip-addresses.java)
+
+    Given a string containing only digits, restore it by returning all possible valid IP address combinations.
+
+- [127-word-ladder.java](./leetcode-java/127-word-ladder.java)
+
+    Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
+
+    - Only one letter can be changed at a time
+    - Each intermediate word must exist in the word list
+
+- [131-palindrome-partitioning.java](./leetcode-java/131-palindrome-partitioning.java)
+
+    Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -127,6 +159,22 @@
     - Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
     - Output: 7 -> 0 -> 8
 
+- [061-rotate-list.java](./leetcode-java/061-rotate-list.java)
+
+    Given a list, rotate the list to the right by k places, where k is non-negative.
+
+- [082-remove-duplicates-from-sorted-list-ii.java](./leetcode-java/082-remove-duplicates-from-sorted-list-ii.java)
+
+    Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+
+- [086-partition-list.java](./leetcode-java/086-partition-list.java)
+
+    Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x. You should preserve the original relative order of the nodes in each of the two partitions.
+
+- **Review** [092-reverse-linked-list-ii.java](./leetcode-java/092-reverse-linked-list-ii.java)
+
+    Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given `1->2->3->4->5->NULL`, m = 2 and n = 4, return `1->4->3->2->5->NULL`.
+
 ## Matrix
 
 - [311-sparse-matrix-multiplication.java](./leetcode-java/311-sparse-matrix-multiplication.java)
@@ -158,6 +206,10 @@
 
     Given a 2D grid, each cell is either a wall 'W', an enemy 'E' or empty '0' (the number zero), return the maximum enemies you can kill using one bomb. The bomb kills all the enemies in the same row and column from the planted point until it hits the wall since the wall is too strong to be destroyed. Note that you can only put the bomb at an empty cell.
 
+- [130-surrounded-regions.java](./leetcode-java/130-surrounded-regions.java)
+
+    Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'. A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
 ## Math
 
 - [343-integer-break.java](./leetcode-java/343-integer-break.java)
@@ -183,6 +235,14 @@
 - [029-divide-two-integers.js](./leetcode-js/029-divide-two-integers.js)
 
     Divide two integers without using multiplication, division and mod operator. If it is overflow, return MAX_INT.
+
+- [050-pow-x-n.java](./leetcode-java/050-pow-x-n.java)
+
+    Implement pow(x, n).
+
+- **Review** 069-sqrt-x: [Newton's method](./leetcode-java/069-sqrt-x.java), [binary search](./leetcode-java/069-sqrt-x_binary-search.java)
+
+    Implement int sqrt(int x). Compute and return the square root of x.
 
 ## Bitwise
 
@@ -220,17 +280,7 @@
 
     Given a list of non negative integers, arrange them such that they form the largest number. For example, given [3, 30, 34, 5, 9], the largest formed number is 9534330. Note: The result may be very large, so you need to return a string instead of an integer.
 
----
-
-- [047-permutations-ii.js](./leetcode-js/047-permutations-ii.js)
-
-    Given a collection of numbers that might contain duplicates, return all possible unique permutations.
-
-- [050-pow-x-n.js](./leetcode-js/050-pow-x-n.js)
-
-    Implement pow(x, n).
-
-- [060-permutation-sequence.js](./leetcode-js/060-permutation-sequence.js)
+- [060-permutation-sequence.java](./leetcode-java/060-permutation-sequence.java)
 
     The set [1,2,3,…,n] contains a total of n! unique permutations.
 
@@ -247,18 +297,8 @@
 
     Note: Given n will be between 1 and 9 inclusive.
 
-- [061-rotate-list.js](./leetcode-js/061-rotate-list.js)
-- [069-sqrt-x.js](./leetcode-js/069-sqrt-x.js)
-- [071-simplify-path.js](./leetcode-js/071-simplify-path.js)
-- [082-remove-duplicates-from-sorted-list-ii.js](./leetcode-js/082-remove-duplicates-from-sorted-list-ii.js)
-- [086-partition-list.js](./leetcode-js/086-partition-list.js)
-- [091-decode-ways.js](./leetcode-js/091-decode-ways.js)
-- [092-reverse-linked-list-ii.js](./leetcode-js/092-reverse-linked-list-ii.js)
-- [093-restore-ip-addresses.js](./leetcode-js/093-restore-ip-addresses.js)
-- [109-convert-sorted-list-to-binary-search-tree.js](./leetcode-js/109-convert-sorted-list-to-binary-search-tree.js)
-- [127-word-ladder.js](./leetcode-js/127-word-ladder.js)
-- [130-surrounded-regions.js](./leetcode-js/130-surrounded-regions.js)
-- [131-palindrome-partitioning.js](./leetcode-js/131-palindrome-partitioning.js)
+---
+
 - [134-gas-station.js](./leetcode-js/134-gas-station.js)
 - [139-word-break.js](./leetcode-js/139-word-break.js)
 - [142-linked-list-cycle-ii.js](./leetcode-js/142-linked-list-cycle-ii.js)

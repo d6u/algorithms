@@ -30,4 +30,4 @@ function swap(nums, a, b) {
     nums[b] = tmp;
 }
 
-console.log(permuteUnique([1,1,2]));
+console.log(permuteUnique([1,1,2,2,3,3]).length);

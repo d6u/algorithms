@@ -248,3 +248,7 @@
 - [215-kth-largest-element-in-an-array.js](./leetcode-js/215-kth-largest-element-in-an-array.js)
 
     Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+- [047-permutations-ii.java](../leetcode-java/047-permutations-ii.java)
+
+    Given a collection of numbers that might contain duplicates, return all possible unique permutations.

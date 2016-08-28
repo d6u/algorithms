@@ -190,3 +190,7 @@
 - 105-construct-binary-tree-from-preorder-and-inorder-traversal: [recursive.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal.java), [iterative.java](../leetcode-java/105-construct-binary-tree-from-preorder-and-inorder-traversal_iterative.java)
 
     Given preorder and inorder traversal of a tree, construct the binary tree.
+
+- [109-convert-sorted-list-to-binary-search-tree.java](./leetcode-java/109-convert-sorted-list-to-binary-search-tree.java)
+
+    Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
