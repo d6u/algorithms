@@ -4,8 +4,6 @@
  * @return {boolean}
  */
 var isOneEditDistance = function(s, t) {
-    'use strict';
-
     const lenS = s.length;
     const lenT = t.length;
 
@@ -32,7 +30,7 @@ var isOneEditDistance = function(s, t) {
         i += 1;
     }
 
-    while (i < lenT && s[i+shift] === t[i]) {
+    while (i < lenT && s[i + shift] === t[i]) {
         i += 1;
     }
 

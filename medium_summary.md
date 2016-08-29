@@ -70,6 +70,44 @@
 
     Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.
 
+- [139-word-break.java](./leetcode-java/139-word-break.java)
+
+    Given a string s and a dictionary of words dict, determine if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+- [150-evaluate-reverse-polish-notation.java](./leetcode-java/150-evaluate-reverse-polish-notation.java)
+
+    Evaluate the value of an arithmetic expression in Reverse Polish Notation. Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+
+- [151-reverse-words-in-a-string.java](./leetcode-java/151-reverse-words-in-a-string.java)
+
+    Given an input string, reverse the string word by word.
+
+- [161-one-edit-distance.java](./leetcode-java/161-one-edit-distance.java)
+
+    Given two strings S and T, determine if they are both one edit distance apart.
+
+- [186-reverse-words-in-a-string-ii.java](./leetcode-java/186-reverse-words-in-a-string-ii.java)
+
+    Given an input string, reverse the string word by word. A word is defined as a sequence of non-space characters. The input string does not contain leading or trailing spaces and the words are always separated by a single space.Could you do it in-place without allocating extra space?
+
+- **Review** 227-basic-calculator-ii: [normal](./leetcode-java/227-basic-calculator-ii.java), [rpn](./leetcode-java/227-basic-calculator-ii_rpn.java)
+
+    [Shunting yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+
+    Implement a basic calculator to evaluate a simple expression string. The expression string contains only non-negative integers, +, -, *, / operators and empty spaces . The integer division should truncate toward zero.
+
+- [267-palindrome-permutation-ii.java](./leetcode-java/267-palindrome-permutation-ii.java)
+
+    Given a string s, return all the palindromic permutations (without duplicates) of it. Return an empty list if no palindromic permutation could be form.
+
+- [271-encode-and-decode-strings.java](./leetcode-java/271-encode-and-decode-strings.java)
+
+    Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.
+
+    - The string may contain any possible characters out of 256 valid ascii characters. Your algorithm should be generalized enough to work on any possible characters.
+    - Do not use class member/global/static variables to store states. Your encode and decode algorithms should be stateless.
+    - Do not rely on any library method such as eval or serialize methods. You should implement your own encode/decode algorithm.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -130,6 +168,14 @@
     - The given numbers in primes are in ascending order.
     - 0 < k ≤ 100, 0 < n ≤ 106, 0 < primes[i] < 1000.
 
+- [134-gas-station.java](./leetcode-java/134-gas-station.java)
+
+    There are N gas stations along a circular route, where the amount of gas at station i is gas[i]. You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i to its next station (i+1). You begin the journey with an empty tank at one of the gas stations. Return the starting gas station's index if you can travel around the circuit once, otherwise return -1.
+
+- [213-house-robber-ii.java](./leetcode-java/213-house-robber-ii.java)
+
+    You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night. All houses at this place are arranged in a circle. That means the first house is the neighbor of the last one. Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+
 ## Linked List
 
 - [369-plus-one-linked-list.java](./leetcode-java/369-plus-one-linked-list.java)
@@ -175,6 +221,16 @@
 
     Reverse a linked list from position m to n. Do it in-place and in one-pass. For example: Given `1->2->3->4->5->NULL`, m = 2 and n = 4, return `1->4->3->2->5->NULL`.
 
+- [142-linked-list-cycle-ii.java](./leetcode-java/142-linked-list-cycle-ii.java)
+
+    Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+- [143-reorder-list.java](./leetcode-java/143-reorder-list.java)
+
+    Given a singly linked list L: `L0→L1→…→Ln-1→Ln`
+    reorder it to: `L0→Ln→L1→Ln-1→L2→Ln-2→…`
+    You must do this in-place without altering the nodes' values.
+
 ## Matrix
 
 - [311-sparse-matrix-multiplication.java](./leetcode-java/311-sparse-matrix-multiplication.java)
@@ -209,6 +265,22 @@
 - [130-surrounded-regions.java](./leetcode-java/130-surrounded-regions.java)
 
     Given a 2D board containing 'X' and 'O' (the letter O), capture all regions surrounded by 'X'. A region is captured by flipping all 'O's into 'X's in that surrounded region.
+
+- [200-number-of-islands.java](./leetcode-java/200-number-of-islands.java)
+
+    Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+- [221-maximum-square.java](./leetcode-java/221-maximum-square.java)
+
+    Given a 2D binary matrix filled with 0's and 1's, find the largest square containing only 1's and return its area.
+
+- [304-range-sum-query-2d-immutable.java](./leetcode-java/304-range-sum-query-2d-immutable.java)
+
+    Given a 2D matrix matrix, find the sum of the elements inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
+
+    - You may assume that the matrix does not change.
+    - There are many calls to sumRegion function.
+    - You may assume that row1 ≤ row2 and col1 ≤ col2.
 
 ## Math
 
@@ -262,6 +334,10 @@
 
     The gray code is a binary numeral system where two successive values differ in only one bit. Given a non-negative integer n representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
+- [201-bitwise-and-of-numbers-range.java](./leetcode-java/201-bitwise-and-of-numbers-range.java)
+
+    Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+
 ---
 
 - [059-spiral-matrix-ii.js](./leetcode-js/059-spiral-matrix-ii.js)
@@ -297,37 +373,22 @@
 
     Note: Given n will be between 1 and 9 inclusive.
 
+- [306-additive-number.java](./leetcode-java/306-additive-number.java)
+
+    Additive number is a string whose digits can form additive sequence. A valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two. Given a string containing only digits '0'-'9', write a function to determine if it's an additive number.
+
+- 322-coin-change: [dp](./leetcode-java/322-coin-change.java), [recursive](./leetcode-java/322-coin-change_recursive.java)
+
+    You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+- [341-flatten-nested-list-iterator.java](./leetcode-java/341-flatten-nested-list-iterator.java)
+
+    Given a nested list of integers, implement an iterator to flatten it.
+
 ---
 
-- [134-gas-station.js](./leetcode-js/134-gas-station.js)
-- [139-word-break.js](./leetcode-js/139-word-break.js)
-- [142-linked-list-cycle-ii.js](./leetcode-js/142-linked-list-cycle-ii.js)
-- [143-reorder-list.js](./leetcode-js/143-reorder-list.js)
-- [150-evaluate-reverse-polish-notation.js](./leetcode-js/150-evaluate-reverse-polish-notation.js)
-
-
-- [151-reverse-words-in-a-string.js](./leetcode-js/151-reverse-words-in-a-string.js)
-- [161-one-edit-distance.js](./leetcode-js/161-one-edit-distance.js)
-- [186-reverse-words-in-a-string-ii.js](./leetcode-js/186-reverse-words-in-a-string-ii.js)
-- [200-number-of-islands.js](./leetcode-js/200-number-of-islands.js)
-- [201-bitwise-and-of-numbers-range.js](./leetcode-js/201-bitwise-and-of-numbers-range.js)
-- [208-implement-trie.js](./leetcode-js/208-implement-trie.js)
-- [213-house-robber-ii.js](./leetcode-js/213-house-robber-ii.js)
-- [221-maximum-square.js](./leetcode-js/221-maximum-square.js)
-- [227-basic-calculator-ii.js](./leetcode-js/227-basic-calculator-ii.js)
-- [267-palindrome-permutation-ii.js](./leetcode-js/267-palindrome-permutation-ii.js)
-- [271-encode-and-decode-strings.js](./leetcode-js/271-encode-and-decode-strings.js)
-- [275-h-index-ii.js](./leetcode-js/275-h-index-ii.js)
-- [304-range-sum-query-2d-immutable.js](./leetcode-js/304-range-sum-query-2d-immutable.js)
-- [306-additive-number.js](./leetcode-js/306-additive-number.js)
-- [322-coin-change.js](./leetcode-js/322-coin-change.js)
-- [324-wiggle-sort-ii.js](./leetcode-js/324-wiggle-sort-ii.js)
-- [335-self-crossing.js](./leetcode-js/335-self-crossing.js)
-- [341-flatten-nested-list-iterator.js](./leetcode-js/341-flatten-nested-list-iterator.js)
 - [365-water-and-jug-problem.js](./leetcode-js/365-water-and-jug-problem.js)
 - [368-largest-divisible-subset.js](./leetcode-js/368-largest-divisible-subset.js)
-
-
 - [211](.211)
 - [284](.284)
 - [307](.307)

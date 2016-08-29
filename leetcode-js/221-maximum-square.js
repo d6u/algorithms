@@ -3,8 +3,6 @@
  * @return {number}
  */
 var maximalSquare = function(matrix) {
-    'use strict';
-
     const dp = [];
     let edge = 0;
 

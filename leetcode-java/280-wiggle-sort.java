@@ -1,21 +1,21 @@
 public class Solution {
     public void wiggleSort(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
-            if (i % 2 == 1) {
-                if (nums[i-1] > nums[i]) {
-                    swap(nums, i-1, i);
+            if (i % 2 == 0) {
+                if (nums[i - 1] < nums[i]) {
+                    swap(nums, i, i - 1);
                 }
             } else {
-                if (nums[i-1] < nums[i]) {
-                    swap(nums, i-1, i);
+                if (nums[i - 1] > nums[i]) {
+                    swap(nums, i, i - 1);
                 }
             }
         }
     }
 
-    public void swap(int[] nums, int a, int b) {
-        int val = nums[a];
+    void swap(int[] nums, int a, int b) {
+        int t = nums[a];
         nums[a] = nums[b];
-        nums[b] = val;
+        nums[b] = t;
     }
 }

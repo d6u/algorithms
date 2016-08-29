@@ -12,7 +12,7 @@ const OPERATORS = {
  * @return {number}
  */
 var calculate = function(s) {
-    const opStack = [];
+    const stack = [];
 
     // 1. Reverse polish notation
     const rpn = [];
@@ -28,36 +28,42 @@ var calculate = function(s) {
 
         // 3. Convert 1 + 1 * 2 to `1,1,2,*,+`
 
-        if (OPERATORS[p]) {
-            if (!opStack.length) {
-                opStack.push(p);
-            } else if (p === '(') {
-                opStack.push(p);
-            } else if (p === ')') {
-                let operator = opStack.pop();
-                while (operator !== '(') {
-                    rpn.push(operator);
-                    operator = opStack.pop();
-                }
-            } else if (opStack[opStack.length-1] === '(' ||
-                OPERATORS[p] > OPERATORS[opStack[opStack.length-1]]) {
-
-                opStack.push(p);
-            } else {
-                rpn.push(opStack.pop());
-                opStack.push(p);
-            }
-        } else {
+        if (!OPERATORS[p]) {
             rpn.push(p);
+            continue;
+        }
+
+        if (!stack.length) {
+            stack.push(p);
+        } else if (p === '(') {
+            stack.push(p);
+        } else if (p === ')') {
+            let operator = stack.pop();
+            while (operator !== '(') {
+                rpn.push(operator);
+                operator = stack.pop();
+            }
+        } else if (peek(stack) === '(' || OPERATORS[p] > OPERATORS[peek(stack)]) {
+            stack.push(p);
+        } else {
+            while (stack.length && peek(stack) !== '(' && OPERATORS[p] <= OPERATORS[peek(stack)]) {
+                rpn.push(stack.pop());
+            }
+            stack.push(p);
         }
     }
 
-    while (opStack.length) {
-        rpn.push(opStack.pop());
+    while (stack.length) {
+        rpn.push(stack.pop());
     }
+
+    // return rpn;
 
     return evalRPN(rpn);
 };
+
+// console.log(calculate("(1+(4+5+2)-3)+(6+8)"));
+// console.log(calculate("1+2*3-4"));
 
 /**
  * @param {string[]} tokens
@@ -93,3 +99,7 @@ var evalRPN = function(tokens) {
 
     return stack[0];
 };
+
+function peek(stack) {
+    return stack[stack.length - 1];
+}

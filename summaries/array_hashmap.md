@@ -252,3 +252,19 @@
 - [047-permutations-ii.java](../leetcode-java/047-permutations-ii.java)
 
     Given a collection of numbers that might contain duplicates, return all possible unique permutations.
+
+- [275-h-index-ii.java](../leetcode-java/275-h-index-ii.java)
+
+    **Previous:**
+
+    Given an array of citations (each citation is a non-negative integer) of a researcher, write a function to compute the researcher's h-index.
+
+    According to the definition of h-index on Wikipedia: "A scientist has index h if h of his/her N papers have at least h citations each, and the other N − h papers have no more than h citations each."
+
+    For example, given citations = [3, 0, 6, 1, 5], which means the researcher has 5 papers in total and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each and the remaining two with no more than 3 citations each, his h-index is 3.
+
+    **Current:** What if the citations array is sorted in ascending order? Could you optimize your algorithm?
+
+- **Review** [324-wiggle-sort-ii.java](../leetcode-java/324-wiggle-sort-ii.java)
+
+    Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
