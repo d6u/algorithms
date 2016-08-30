@@ -36,6 +36,29 @@
 
     Implement a trie with insert, search, and startsWith methods.
 
+- [211-add-and-search-word---data-structure-design.java](../leetcode-java/211-add-and-search-word---data-structure-design.java)
+
+    Design a data structure that supports the following two operations:
+
+    ```
+    void addWord(word)
+    bool search(word)
+    ```
+
+    search(word) can search a literal word or a regular expression string containing only letters a-z or .. A . means it can represent any one letter.
+
+    For example:
+
+    ```
+    addWord("bad")
+    addWord("dad")
+    addWord("mad")
+    search("pad") -> false
+    search("bad") -> true
+    search(".ad") -> true
+    search("b..") -> true
+    ```
+
 ## Union find
 
 - [261-graph-valid-tree_union-find.js](../leetcode-js/261-graph-valid-tree_union-find.js)

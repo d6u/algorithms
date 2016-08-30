@@ -14,7 +14,7 @@ public class Solution {
     }
 
     void count(int amount, int index, int[] coins, int count) {
-        if (index < 0 || count >= total - 1) {
+        if (index < 0 || count + 1 >= total) {
             return;
         }
 
@@ -28,7 +28,7 @@ public class Solution {
                 count(rem, index - 1, coins, newCount);
             } else if (newCount < total) {
                 total = newCount;
-            } else if (newCount >= total - 1) {
+            } else {
                 break;
             }
         }

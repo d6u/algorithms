@@ -316,6 +316,10 @@
 
     Implement int sqrt(int x). Compute and return the square root of x.
 
+- [365-water-and-jug-problem.java](./leetcode-java/365-water-and-jug-problem.java)
+
+    You are given two jugs with capacities x and y litres. There is an infinite amount of water supply available. You need to determine whether it is possible to measure exactly z litres using these two jugs.
+
 ## Bitwise
 
 - [136-single-number.js](./leetcode-js/136-single-number.js)
@@ -377,26 +381,18 @@
 
     Additive number is a string whose digits can form additive sequence. A valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two. Given a string containing only digits '0'-'9', write a function to determine if it's an additive number.
 
-- 322-coin-change: [dp](./leetcode-java/322-coin-change.java), [recursive](./leetcode-java/322-coin-change_recursive.java)
-
-    You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
-
-- [341-flatten-nested-list-iterator.java](./leetcode-java/341-flatten-nested-list-iterator.java)
-
-    Given a nested list of integers, implement an iterator to flatten it.
-
 ---
 
-- [365-water-and-jug-problem.js](./leetcode-js/365-water-and-jug-problem.js)
-- [368-largest-divisible-subset.js](./leetcode-js/368-largest-divisible-subset.js)
-- [211](.211)
-- [284](.284)
-- [307](.307)
-- [318](.318)
+- [318 Maximum Product of Word Lengths](.318)
+
+    Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.
+
 - [348](.348)
 - [355](.355)
 - [360](.360)
 - [362](.362)
+
+
 - [372](.372)
 - [373](.373)
 - [375](.375)

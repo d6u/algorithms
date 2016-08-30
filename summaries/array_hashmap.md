@@ -268,3 +268,25 @@
 - **Review** [324-wiggle-sort-ii.java](../leetcode-java/324-wiggle-sort-ii.java)
 
     Given an unsorted array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....
+
+- 322-coin-change: [dp](./leetcode-java/322-coin-change.java), [recursive (faster)](./leetcode-java/322-coin-change_recursive.java)
+
+    You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
+
+- [341-flatten-nested-list-iterator.java](./leetcode-java/341-flatten-nested-list-iterator.java)
+
+    Given a nested list of integers, implement an iterator to flatten it.
+
+- [368-largest-divisible-subset.java](../leetcode-java/368-largest-divisible-subset.java)
+
+    Given a set of distinct positive integers, find the largest subset such that every pair (Si, Sj) of elements in this subset satisfies: Si % Sj = 0 or Sj % Si = 0.
+
+- [284-peeking-iterator.java](../leetcode-java/284-peeking-iterator.java)
+
+    [https://github.com/google/guava/blob/703ef758b8621cfbab16814f01ddcc5324bdea33/guava-gwt/src-super/com/google/common/collect/super/com/google/common/collect/Iterators.java#L1125](https://github.com/google/guava/blob/703ef758b8621cfbab16814f01ddcc5324bdea33/guava-gwt/src-super/com/google/common/collect/super/com/google/common/collect/Iterators.java#L1125)
+
+    Given an Iterator class interface with methods: next() and hasNext(), design and implement a PeekingIterator that support the peek() operation -- it essentially peek() at the element that will be returned by the next call to next().
+
+- **Review** [307-range-sum-query---mutable.java](../leetcode-java/307-range-sum-query---mutable.java)
+
+    Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive. The update(i, val) function modifies nums by updating the element at index i to val.
