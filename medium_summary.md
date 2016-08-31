@@ -282,6 +282,14 @@
     - There are many calls to sumRegion function.
     - You may assume that row1 ≤ row2 and col1 ≤ col2.
 
+- [348-design-tic-tac-toe.java](./leetcode-java/348-design-tic-tac-toe.java)
+
+    Design a Tic-tac-toe game that is played between two players on a n x n grid. You may assume the following rules:
+
+    - A move is guaranteed to be valid and is placed on an empty block.
+    - Once a winning condition is reached, no more moves is allowed.
+    - A player who succeeds in placing n of their marks in a horizontal, vertical, or diagonal row wins the game.
+
 ## Math
 
 - [343-integer-break.java](./leetcode-java/343-integer-break.java)
@@ -342,6 +350,10 @@
 
     Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
 
+- [318-maximum-product-of-word-lengths.java](./leetcode-java/318-maximum-product-of-word-lengths.java)
+
+    Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.
+
 ---
 
 - [059-spiral-matrix-ii.js](./leetcode-js/059-spiral-matrix-ii.js)
@@ -383,23 +395,92 @@
 
 ---
 
-- [318 Maximum Product of Word Lengths](.318)
+- **Review** [355-design-twitter.java](./leetcode-java/355-design-twitter.java)
 
-    Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.
+    Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user's news feed. Your design should support the following methods:
 
-- [348](.348)
-- [355](.355)
-- [360](.360)
-- [362](.362)
+    - `postTweet(userId, tweetId)`: Compose a new tweet.
+    - `getNewsFeed(userId)`: Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+    - `follow(followerId, followeeId)`: Follower follows a followee.
+    - `unfollow(followerId, followeeId)`: Follower unfollows a followee.
+
+- [360-sort-transformed-array.java](./leetcode-java/360-sort-transformed-array.java)
+
+    Given a sorted array of integers nums and integer values a, b and c. Apply a function of the form f(x) = ax2 + bx + c to each element x in the array. The returned array must be in sorted order. Expected time complexity: O(n)
+
+- [362-design-hit-counter.java](./leetcode-java/362-design-hit-counter.java)
+
+    Design a hit counter which counts the number of hits received in the past 5 minutes.
+
+    Each function accepts a timestamp parameter (in seconds granularity) and you may assume that calls are being made to the system in chronological order (ie, the timestamp is monotonically increasing). You may assume that the earliest timestamp starts at 1.
+
+    It is possible that several hits arrive roughly at the same time.
+
+- [372-super-pow.java](./leetcode-java/372-super-pow.java)
+
+    Your task is to calculate ab mod 1337 where a is a positive integer and b is an extremely large positive integer given in the form of an array.
 
 
-- [372](.372)
-- [373](.373)
-- [375](.375)
-- [376](.376)
-- [377](.377)
-- [378](.378)
-- [379](.379)
-- [382](.382)
-- [384](.384)
-- [385](.385)
+- [373-find-k-pairs-with-smallest-sums.java](./leetcode-java/373-find-k-pairs-with-smallest-sums.java)
+
+    You are given two integer arrays nums1 and nums2 sorted in ascending order and an integer k. Define a pair (u,v) which consists of one element from the first array and one element from the second array. Find the k pairs (u1,v1),(u2,v2) ...(uk,vk) with the smallest sums.
+
+- [375-guess-number-higher-or-lower-ii.java](./leetcode-java/375-guess-number-higher-or-lower-ii.java)
+
+    We are playing the Guess Game. The game is as follows:
+
+    I pick a number from 1 to n. You have to guess which number I picked. Every time you guess wrong, I'll tell you whether the number I picked is higher or lower. However, when you guess a particular number x, and you guess wrong, you pay $x. You win the game when you guess the number I picked.
+
+- [376-wiggle-subsequence.java](./leetcode-java/376-wiggle-subsequence.java)
+
+    A sequence of numbers is called a wiggle sequence if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence.
+
+    For example, [1,7,4,9,2,5] is a wiggle sequence because the differences (6,-3,5,-7,3) are alternately positive and negative. In contrast, [1,4,7,2,5] and [1,7,4,5,5] are not wiggle sequences, the first because its first two differences are positive and the second because its last difference is zero.
+
+    Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order.
+
+- [377-combination-sum-iv.java](./leetcode-java/377-combination-sum-iv.java)
+
+    Given an integer array with all positive numbers and no duplicates, find the number of possible combinations that add up to a positive integer target.
+
+- [378-kth-smallest-element-in-a-sorted-matrix.java](./leetcode-java/378-kth-smallest-element-in-a-sorted-matrix.java)
+
+    Given a n x n matrix where each of the rows and columns are sorted in ascending order, find the kth smallest element in the matrix. Note that it is the kth smallest element in the sorted order, not the kth distinct element.
+
+- [379-design-phone-directory.java](./leetcode-java/379-design-phone-directory.java)
+
+    Design a Phone Directory which supports the following operations:
+
+    - get: Provide a number which is not assigned to anyone.
+    - check: Check if a number is available or not.
+    - release: Recycle or release a number.
+
+- [382-linked-list-random-node.java](./leetcode-java/382-linked-list-random-node.java)
+
+    Given a singly linked list, return a random node's value from the linked list. Each node must have the same probability of being chosen.
+
+    Follow up: What if the linked list is extremely large and its length is unknown to you? Could you solve this efficiently without using extra space?
+
+- [384-shuffl-an-array.java](./leetcode-java/384-shuffl-an-array.java)
+
+    Shuffle a set of numbers without duplicates.
+
+- [385-mini-parser.java](/leetcode-java/385-mini-parser.java)
+
+    Given a nested list of integers represented as a string, implement a parser to deserialize it. Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+
+    Note: You may assume that the string is well-formed:
+
+    String is non-empty.
+    String does not contain white spaces.
+    String contains only digits 0-9, [, - ,, ].
+
+- [386-lexicographical-numbers]
+
+    Given an integer n, return 1 - n in lexicographical order.
+
+    For example, given 13, return: [1,10,11,12,13,2,3,4,5,6,7,8,9].
+
+    Please optimize your algorithm to use less time and space. The input size may be as large as 5,000,000.
+
+- [388-longest-absolute-file-path]
