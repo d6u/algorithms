@@ -1,6 +1,7 @@
 public class Solution {
-    private int[] nums;
-    private Random random;
+
+    int[] nums;
+    Random random;
 
     public Solution(int[] nums) {
         this.nums = nums;
@@ -14,18 +15,32 @@ public class Solution {
 
     /** Returns a random shuffling of the array. */
     public int[] shuffle() {
-        if(nums == null) return null;
-        int[] a = nums.clone();
-        for(int j = 1; j < a.length; j++) {
-            int i = random.nextInt(j + 1);
-            swap(a, i, j);
+        if (nums == null) {
+            return null;
         }
-        return a;
+
+        int i = nums.length;
+        int[] clone = nums.clone();
+
+        while (i > 0) {
+            int j = random.nextInt(i);
+            i -= 1;
+            swap(clone, i, j);
+        }
+
+        return clone;
     }
 
-    private void swap(int[] a, int i, int j) {
-        int t = a[i];
-        a[i] = a[j];
-        a[j] = t;
+    void swap(int[] nums, int a, int b) {
+        int t = nums[a];
+        nums[a] = nums[b];
+        nums[b] = t;
     }
 }
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(nums);
+ * int[] param_1 = obj.reset();
+ * int[] param_2 = obj.shuffle();
+ */

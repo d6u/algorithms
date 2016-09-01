@@ -290,3 +290,22 @@
 - **Review** [307-range-sum-query---mutable.java](../leetcode-java/307-range-sum-query---mutable.java)
 
     Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive. The update(i, val) function modifies nums by updating the element at index i to val.
+
+- [384-shuffl-an-array.java](../leetcode-java/384-shuffl-an-array.java)
+
+    Shuffle a set of numbers without duplicates.
+
+    ## Example:
+
+    // Init an array with set 1, 2, and 3.
+    int[] nums = {1,2,3};
+    Solution solution = new Solution(nums);
+
+    // Shuffle the array [1,2,3] and return its result. Any permutation of [1,2,3] must equally likely to be returned.
+    solution.shuffle();
+
+    // Resets the array back to its original configuration [1,2,3].
+    solution.reset();
+
+    // Returns the random shuffling of array [1,2,3].
+    solution.shuffle();

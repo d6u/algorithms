@@ -108,6 +108,76 @@
     - Do not use class member/global/static variables to store states. Your encode and decode algorithms should be stateless.
     - Do not rely on any library method such as eval or serialize methods. You should implement your own encode/decode algorithm.
 
+- [306-additive-number.java](./leetcode-java/306-additive-number.java)
+
+    Additive number is a string whose digits can form additive sequence. A valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two. Given a string containing only digits '0'-'9', write a function to determine if it's an additive number.
+
+- [386-lexicographical-numbers.java](./leetcode-java/386-lexicographical-numbers.java)
+
+    Given an integer n, return 1 - n in lexicographical order. For example, given 13, return: `[1,10,11,12,13,2,3,4,5,6,7,8,9]`. Please optimize your algorithm to use less time and space. The input size may be as large as 5,000,000.
+
+- [388-longest-absolute-file-path.java](./leetcode-java/388-longest-absolute-file-path.java)
+
+    Suppose we abstract our file system by a string in the following manner:
+
+    The string `dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext` represents:
+
+    ```
+    dir
+        subdir1
+        subdir2
+            file.ext
+    ```
+
+    The directory dir contains an empty sub-directory `subdir1` and a sub-directory `subdir2` containing a file `file.ext`.
+
+    The string `dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext` represents:
+
+    ```
+    dir
+        subdir1
+            file1.ext
+            subsubdir1
+        subdir2
+            subsubdir2
+                file2.ext
+    ```
+
+    The directory dir contains two sub-directories `subdir1` and `subdir2`. `subdir1` contains a file `file1.ext` and an empty second-level sub-directory `subsubdir1`. `subdir2` contains a second-level sub-directory `subsubdir2` containing a file `file2.ext`.
+
+    We are interested in finding the longest (number of characters) absolute path to a file within our file system. For example, in the second example above, the longest absolute path is `dir/subdir2/subsubdir2/file2.ext`, and its length is 32 (not including the double quotes).
+
+    Given a string representing the file system in the above format, return the length of the longest absolute path to file in the abstracted file system. If there is no file in the system, return 0.
+
+    Note:
+
+    - The name of a file contains at least a `.` and an extension.
+    - The name of a directory or sub-directory will not contain a `.`.
+
+- [385-mini-parser.java](./leetcode-java/385-mini-parser.java)
+
+    Given a nested list of integers represented as a string, implement a parser to deserialize it. Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+
+    Note: You may assume that the string is well-formed:
+
+    String is non-empty.
+    String does not contain white spaces.
+    String contains only digits 0-9, [, - ,, ].
+
+    ## Example 1:
+
+    Given s = "324", you should return a NestedInteger object which contains a single integer 324.
+
+    ## Example 2:
+
+    Given s = "[123,[456,[789]]]", return a NestedInteger object containing a nested list with 2 elements:
+
+    1. An integer containing value 123.
+    2. A nested list containing two elements:
+        i.  An integer containing value 456.
+        ii. A nested list with one element:
+             a. An integer containing value 789.
+
 ## DP
 
 - [338-counting-bits.js](./leetcode-js/338-counting-bits.js)
@@ -141,7 +211,7 @@
 
     Given an array of non-negative integers, you are initially positioned at the first index of the array. Each element in the array represents your maximum jump length at that position. Determine if you are able to reach the last index.
 
-- **Review** [279-perfect-squares_math.java](../leetcode-java/279-perfect-squares_math.java)
+- 279-perfect-squares_math: [dp](/leetcode-java/279-perfect-squares.java), [math](../leetcode-java/279-perfect-squares_math.java)
 
     [leetcode discuss](https://discuss.leetcode.com/topic/24255/summary-of-4-different-solutions-bfs-dp-static-dp-and-mathematics)
 
@@ -230,6 +300,36 @@
     Given a singly linked list L: `L0→L1→…→Ln-1→Ln`
     reorder it to: `L0→Ln→L1→Ln-1→L2→Ln-2→…`
     You must do this in-place without altering the nodes' values.
+
+- **Review** [382-linked-list-random-node.java](./leetcode-java/382-linked-list-random-node.java)
+
+    Given a singly linked list, return a random node's value from the linked list. Each node must have the same probability of being chosen.
+
+    ## Follow up:
+
+    What if the linked list is extremely large and its length is unknown to you? Could you solve this efficiently without using extra space?
+
+    ## Example:
+
+    // Init a singly linked list [1,2,3].
+    ListNode head = new ListNode(1);
+    head.next = new ListNode(2);
+    head.next.next = new ListNode(3);
+    Solution solution = new Solution(head);
+
+    // getRandom() should return either 1, 2, or 3 randomly. Each element should have equal probability of returning.
+    solution.getRandom();
+
+    ## PROBLEM:
+
+    Choose k entries from n numbers. Make sure each number is selected with the probability of k/n
+
+    ## BASIC IDEA:
+
+    - Choose 1, 2, 3, ..., k first and put them into the reservoir.
+    - For k+1, pick it with a probability of k/(k+1), and randomly replace a number in the reservoir.
+    - For k+i, pick it with a probability of k/(k+i), and randomly replace a number in the reservoir.
+    - Repeat until k+i reaches n
 
 ## Matrix
 
@@ -385,13 +485,10 @@
     "231"
     "312"
     "321"
+
     Given n and k, return the kth permutation sequence.
 
     Note: Given n will be between 1 and 9 inclusive.
-
-- [306-additive-number.java](./leetcode-java/306-additive-number.java)
-
-    Additive number is a string whose digits can form additive sequence. A valid additive sequence should contain at least three numbers. Except for the first two numbers, each subsequent number in the sequence must be the sum of the preceding two. Given a string containing only digits '0'-'9', write a function to determine if it's an additive number.
 
 ---
 
@@ -454,33 +551,3 @@
     - get: Provide a number which is not assigned to anyone.
     - check: Check if a number is available or not.
     - release: Recycle or release a number.
-
-- [382-linked-list-random-node.java](./leetcode-java/382-linked-list-random-node.java)
-
-    Given a singly linked list, return a random node's value from the linked list. Each node must have the same probability of being chosen.
-
-    Follow up: What if the linked list is extremely large and its length is unknown to you? Could you solve this efficiently without using extra space?
-
-- [384-shuffl-an-array.java](./leetcode-java/384-shuffl-an-array.java)
-
-    Shuffle a set of numbers without duplicates.
-
-- [385-mini-parser.java](/leetcode-java/385-mini-parser.java)
-
-    Given a nested list of integers represented as a string, implement a parser to deserialize it. Each element is either an integer, or a list -- whose elements may also be integers or other lists.
-
-    Note: You may assume that the string is well-formed:
-
-    String is non-empty.
-    String does not contain white spaces.
-    String contains only digits 0-9, [, - ,, ].
-
-- [386-lexicographical-numbers]
-
-    Given an integer n, return 1 - n in lexicographical order.
-
-    For example, given 13, return: [1,10,11,12,13,2,3,4,5,6,7,8,9].
-
-    Please optimize your algorithm to use less time and space. The input size may be as large as 5,000,000.
-
-- [388-longest-absolute-file-path]
