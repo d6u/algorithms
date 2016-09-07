@@ -60,6 +60,6 @@ function topSort(node, graph, visited, path) {
     return true;
 };
 
-var r = alienOrder(["a","b","a"]);
+var r = alienOrder(["ri","xz","qxf","jhsguaw","dztqrbwbm","dhdqfb","jdv","fcgfsilnb","ooby"]);
 
 console.log(r);

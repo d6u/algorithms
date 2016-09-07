@@ -4,8 +4,6 @@
  * @return {boolean}
  */
 var isIsomorphic = function(s, t) {
-    'use strict';
-
     const map1 = new Map();
     const map2 = new Map();
 
