@@ -16,6 +16,41 @@ _There is a new alien language which uses the latin alphabet. However, the order
 2. Topological sort the graph to get the ordering.
     - DFS (push leaf nodes into the front of array first) or BFS (use indegree)
 
+### **Review** 126. Word Ladder II
+
+_Given two words (`beginWord` and `endWord`), and a dictionary's word list, find all shortest transformation sequence(s) from `beginWord` to `endWord`, such that:_
+
+- _Only one letter can be changed at a time_
+- _Each intermediate word must exist in the word list_
+
+
+    For example,
+
+    Given:
+    beginWord = "hit"
+    endWord = "cog"
+    wordList = ["hot","dot","dog","lot","log"]
+    Return
+      [
+        ["hit","hot","dot","dog","cog"],
+        ["hit","hot","lot","log","cog"]
+      ]
+
+- All words have the same length.
+- All words contain only lowercase alphabetic characters.
+
+[126-word-ladder-ii.java](./leetcode-java/126-word-ladder-ii.java)
+
+1. Add begin word to the list.
+2. Build a graph of words, where neighbours are words with one letter difference.
+    - Build from end word, so it will finish at being word. This will make building solution from begin word easier (solutions are from begin to end).
+    - Build directed graph point from next word to current word (current word is stored as neighbour of next word).
+    - Use map to store word to node pairs.
+    - While building graph, removing word from set, so it won't be used again.
+    - To handle large word list, when looking for neighbour words, we can iterate through 26 English letters (changing one character at once and see if the word is in the list) to avoid iterating through all words.
+    - Stop when begin word is among the new neighbours.
+3. Extract from begin word use DFS and backtracking.
+
 ## Tree and Trie
 
 ### 212. Word Search II (+ matrix)
@@ -58,6 +93,75 @@ _Given a list of unique words. Find all pairs of distinct indices (i, j) in the 
     - If a node along the way represents a word, but current word hasn't finished, check whether the rest part of current word is a palindrome. If it is a palindrome, current word and the trie node can assemble a solution.
     - After exhausting all letters in current word, check out the palindrome index list on the last node (if last node is not null). Each of them can assemble a solution (make sure index is different from current).
 3. Notice `""` is a palindrome and can be part of a solution. However, if the program is written properly, don't have to treat `""` specially.
+
+### 124. Binary Tree Maximum Path Sum
+
+_Given a binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path does not need to go through the root._
+
+    For example:
+    Given the below binary tree,
+
+       1
+      / \
+     2   3
+
+    Return 6.
+
+[124-binary-tree-maximum-path-sum.java](./leetcode-java/124-binary-tree-maximum-path-sum.java)
+
+1. Start from leaf nodes (recurse down first).
+2. Find current max among current node's value, max sum of left arm (current node's value + max sum from nodes in the left), and right arm.
+3. Find global max value among current max value, current node's value, and sum of both arms (don't add current node's sum twice).
+4. Return current max value found in step 2, so program can advance to the level above.
+5. Pass global max value as reference type argument so it can be updated on each level.
+
+### 99. Recover Binary Search Tree
+
+_Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure. A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?_
+
+#### O(log n) space recursive
+
+In order traversal
+
+#### O(1) space Morris Traversal
+
+_Optional_ [099-recover-binary-search-tree_morris-traversal.java](./leetcode-java/099-recover-binary-search-tree_morris-traversal.java), http://www.cnblogs.com/AnnieKim/archive/2013/06/15/morristraversal.html
+
+### **TODO** 117. Populating Next Right Pointers in Each Node II
+
+_Given a binary tree:_
+
+    struct TreeLinkNode {
+        TreeLinkNode *left;
+        TreeLinkNode *right;
+        TreeLinkNode *next;
+    }
+
+_Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL. Initially, all next pointers are set to NULL. The given tree could be any binary tree. You may only use constant extra space._
+
+    For example,
+
+    Given the following binary tree,
+
+             1
+           /  \
+          2    3
+         / \    \
+        4   5    7
+
+    After calling your function, the tree should look like:
+             1 -> NULL
+           /  \
+          2 -> 3 -> NULL
+         / \    \
+        4-> 5 -> 7 -> NULL
+
+1. Use 4 pointers:
+    - Above left most
+    - Above moving
+    - Left most
+    - Moving
+2. When moving to next nodes, utlize next node links already established in the above level.
 
 ## Union Find
 
@@ -126,7 +230,7 @@ _Your algorithm should run in O(n) complexity._
     4. Mark the length of new sequence at the boundaries.
     5. Update maximum length with current sequence length.
 
-## Matrix
+## DFS and BFS
 
 ### 329. Longest Increasing Path in a Matrix
 
@@ -138,6 +242,63 @@ _Given an integer matrix, find the length of the longest increasing path. From e
     1. DFS in four directions, measure the length of increasing path along the way.
     2. Cache the max length in a separate matrix to avoid repeated visits.
 2. Keep updating max path found until all done.
+
+### 317. Shortest Distance from All Buildings
+
+_You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:_
+
+- _Each 0 marks an empty land which you can pass by freely._
+- _Each 1 marks a building which you cannot pass through._
+- _Each 2 marks an obstacle which you cannot pass through._
+
+
+    For example, given three buildings at (0,0), (0,4), (2,2), and an obstacle at (0,2):
+
+    1 - 0 - 2 - 0 - 1
+    |   |   |   |   |
+    0 - 0 - 0 - 0 - 0
+    |   |   |   |   |
+    0 - 0 - 1 - 0 - 0
+
+    The point (1,2) is an ideal empty land to build a house, as the total travel distance of 3+3+1=7 is minimal. So return 7.
+
+_There will be at least one building. If it is not possible to build such house according to the above rules, return -1._
+
+[317-shortest-distance-from-all-buildings.java](./leetcode-java/317-shortest-distance-from-all-buildings.java)
+
+1. Create a separate matrix to record the distance to all buildings.
+2. Loop through all buildings:
+    - Use a decreasing number to mark visited empty lands. Initially equals to `0` to match empty land mark.
+    - Add distance to current building to exiting values in distance matrix to record total distance to of all visited buildings.
+    - Track minimum along the way.
+3. Update minimum after process each building.
+
+### 301. Remove Invalid Parentheses
+
+_Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain letters other than the parentheses `(` and `)`._
+
+    Examples:
+
+    "()())()" -> ["()()()", "(())()"]
+    "(a)())()" -> ["(a)()()", "(a())()"]
+    ")(" -> [""]
+
+- BFS [301-remove-invalid-parentheses_bfs.java](./leetcode-java/301-remove-invalid-parentheses_bfs.java)
+- _Optional_ No set [301-remove-invalid-parentheses_no-set.js](./leetcode-js/301-remove-invalid-parentheses_no-set.js)
+
+## DP
+
+## 188. Best Time to Buy and Sell Stock IV
+
+_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most k transactions._
+
+See [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
+
+## 123. Best Time to Buy and Sell Stock III
+
+_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most two transactions._
+
+See [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
 
 ---
 
@@ -159,34 +320,6 @@ _Design and implement a data structure for Least Recently Used (LRU) cache. It s
 4. When get a key, move the node to head (remove then add) in O(1).
 5. When set a key-value, insert node to head, pop tail if out of capacity.
 
-## 126. Word Ladder II
-
-_Given two words (beginWord and endWord), and a dictionary's word list, find all shortest transformation sequence(s) from beginWord to endWord, such that:_
-
-- _Only one letter can be changed at a time_
-- _Each intermediate word must exist in the word list_
-
-[126-word-ladder-ii.js](./leetcode-js/126-word-ladder-ii.js)
-
-1. Build a graph of words, where neighbours are words with one letter difference.
-2. Add begin word to the list.
-3. Build from end word, so it will finish at being word. This will make building solution from begin word easier (solutions are from begin to end).
-4. While building graph, removing word from set, so it won't be used again.
-5. To handle large word list, when looking for neighbour words, we can iterate through 26 English letters (changing one character at once and see if the word is in the list) to avoid iterating through all words.
-6. Stop when begin word is among the new neighbours.
-
-## 124. Binary Tree Maximum Path Sum
-
-_Given a binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path does not need to go through the root._
-
-[124-binary-tree-maximum-path-sum.js](./leetcode-js/124-binary-tree-maximum-path-sum.js)
-
-1. Start from bottom nodes (leaf nodes). (Write recursion, recurse down first.)
-2. Find max among single value of current node, max sum of left arm (current node's value + max sum from nodes in the left) and right arm.
-3. Use max value found above to compare with current max value and sum of left and right arms + current node's value.
-4. Return max value found in step 2. So program can advance to the level above current level.
-5. How to passing values from step 2 and 3 around is tricky. Easiest way is to use reference type.
-
 ## 23. Merge k Sorted Lists
 
 
@@ -203,20 +336,6 @@ _A linked list is given such that each node contains an additional random pointe
 2. Start from the head again, assign random pointer of copies to random pointer's target's copies (`node.random.next`).
 3. Decouple the linked list following the regular pointer.
 4. Return the head of copied list (remember to save the reference in step 3).
-
-## 99. Recover Binary Search Tree
-
-_Two elements of a binary search tree (BST) are swapped by mistake. Recover the tree without changing its structure._
-
-### O(n) recursive
-
-1. In order traverse the tree, save nodes and nodes' values in two arraies.
-2. Sort the values.
-3. Iterate through the nodes and values, assigning each value to node so the order is fixed. This is because BST in order traversal is ordered from smallest to largest.
-
-### O(1)
-
-TODO
 
 ## 25. Reverse Nodes in k-Group
 
@@ -242,27 +361,6 @@ _Design an algorithm to serialize and deserialize a binary tree. There is no res
 
 1. Serialize: preorder traverse the binary tree, put `#` where node is null.
 2. Deserialize: recursively build the tree with preorder, assign node to null when `#`.
-
-## 117. Populating Next Right Pointers in Each Node II
-
-_Given a binary tree:_
-
-```
-struct TreeLinkNode {
-    TreeLinkNode *left;
-    TreeLinkNode *right;
-    TreeLinkNode *next;
-}
-```
-
-_Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL. Initially, all next pointers are set to NULL. The given tree could be any binary tree._
-
-1. Use 4 pointers:
-    - Above left most
-    - Above moving
-    - Left most
-    - Moving
-2. When moving to next nodes, utlize next node links already established in the above level.
 
 ## 272. Closest Binary Search Tree Value II
 
@@ -540,12 +638,6 @@ _Given a string containing just the characters '(' and ')', find the length of t
 
 See [032-longest-valid-parentheses.js](./leetcode-js/032-longest-valid-parentheses.js)
 
-## 188. Best Time to Buy and Sell Stock IV
-
-_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most k transactions._
-
-See [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
-
 ## 97. Interleaving String
 
 _Given s1, s2, s3, find whether s3 is formed by the interleaving of s1 and s2._
@@ -600,12 +692,6 @@ See [045-jump-game-ii.js](./leetcode-js/045-jump-game-ii.js).
 _Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results._
 
 See [316-remove-duplicate-letters.js](./leetcode-js/316-remove-duplicate-letters.js)
-
-## 123. Best Time to Buy and Sell Stock III
-
-_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most two transactions._
-
-See [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
 
 ## 87. Scramble String
 
@@ -682,24 +768,6 @@ See [072-edit-distance_o(n)-space.js](./leetcode-js/072-edit-distance_o%28n%29-s
 _Given a string S and a string T, count the number of distinct subsequences of T in S. A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ACE" is a subsequence of "ABCDE" while "AEC" is not)._
 
 See [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)
-
-## 317. Shortest Distance from All Buildings
-
-_You want to build a house on an empty land which reaches all buildings in the shortest amount of distance. You can only move up, down, left and right. You are given a 2D grid of values 0, 1 or 2, where:_
-
-- _Each 0 marks an empty land which you can pass by freely._
-- _Each 1 marks a building which you cannot pass through._
-- _Each 2 marks an obstacle which you cannot pass through._
-
-See [317-shortest-distance-from-all-buildings.js](./leetcode-js/317-shortest-distance-from-all-buildings.js)
-
-## 301. Remove Invalid Parentheses
-
-_Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results. Note: The input string may contain letters other than the parentheses `(` and `)`._
-
-See [301-remove-invalid-parentheses.js](./leetcode-js/301-remove-invalid-parentheses.js) for BFS
-
-See [301-remove-invalid-parentheses_no-set.js](./leetcode-js/301-remove-invalid-parentheses_no-set.js)
 
 ## 42. Trapping Rain Water
 

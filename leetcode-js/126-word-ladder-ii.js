@@ -7,9 +7,9 @@
  * @return {string[][]}
  */
 var findLadders = function(beginWord, endWord, wordList) {
-    let currLevel = new Map();
-
     wordList.add(beginWord);
+
+    let currLevel = new Map();
     currLevel.set(endWord, new Node(endWord));
 
     while (!currLevel.get(beginWord)) {
