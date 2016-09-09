@@ -1,12 +1,145 @@
-# Hard Problems Summary
+# Hard Problems
 
-- [146. LRU Cache](#146-lru-cache)
-- [126. Word Ladder II](#126-word-ladder-ii)
-- [212. Word Search II](#212-word-search-ii)
-- [124. Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum)
-- [269. Alien Dictionary](#269-alien-dictionary)
-- [296. Best Meeting Point](#296-best-meeting-point)
-- [52. N-Queens II](#51-n-queens)
+## Graph and Topological Sort
+
+### 269. Alien Dictionary
+
+_There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of words from the dictionary, where words are sorted lexicographically by the rules of this new language. Derive the order of letters in this language._
+
+[269-alien-dictionary.java](./leetcode-java/269-alien-dictionary.java)
+
+1. Build a one direction graph where letters ranked higher point to lower ones. This was done by comparing letters with the same index between adjacent words.
+    - Edge cases:
+        - One word
+        - Word with different length (make sure put all letters into the graph, otherwise we will miss letters in the output)
+        - Circle in the graph
+2. Topological sort the graph to get the ordering.
+    - DFS (push leaf nodes into the front of array first) or BFS (use indegree)
+
+## Tree and Trie
+
+### 212. Word Search II (+ matrix)
+
+_Given a 2D board and a list of words from the dictionary, find all words in the board. Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word._
+
+[212-word-search-ii.java](./leetcode-java/212-word-search-ii.java)
+
+1. Build a trie from words to be found.
+    - Root should be empty string.
+    - Store the word at the leaf of each trie node.
+    - Set leaf's word to null after found to avoid duplicate.
+2. Use backtrack to iterating though all cells in the matrix.
+    - Mark current cell to `#` when recursing down.
+
+### **Review** 336. Palindrome Pairs
+
+_Given a list of unique words. Find all pairs of distinct indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome._
+
+    Example 1:
+
+    Given words = ["bat", "tab", "cat"]
+    Return [[0, 1], [1, 0]]
+    The palindromes are ["battab", "tabbat"]
+
+    Example 2:
+
+    Given words = ["abcd", "dcba", "lls", "s", "sssll"]
+    Return [[0, 1], [1, 0], [3, 2], [2, 4]]
+    The palindromes are ["dcbaabcd", "abcddcba", "slls", "llssssll"]
+
+[336-palindrome-pairs.java](./leetcode-java/336-palindrome-pairs.java)
+
+1. Build a trie from word list.
+    - Build trie nodes from the last character of a word.
+    - Save word's index for later reference.
+    - Save word's index to a list on the node if a word's first part is a palindrome.
+2. Search each word within the trie.
+    - Skil node that is the same word as current word.
+    - If a node along the way represents a word, but current word hasn't finished, check whether the rest part of current word is a palindrome. If it is a palindrome, current word and the trie node can assemble a solution.
+    - After exhausting all letters in current word, check out the palindrome index list on the last node (if last node is not null). Each of them can assemble a solution (make sure index is different from current).
+3. Notice `""` is a palindrome and can be part of a solution. However, if the program is written properly, don't have to treat `""` specially.
+
+## Union Find
+
+### **Review** 305. Number of Islands II
+
+_A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand operation which turns the water at position (row, col) into a land. Given a list of positions to operate, count the number of islands after each addLand operation. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water._
+
+    Example:
+
+    Given m = 3, n = 3, positions = [[0,0], [0,1], [1,2], [2,1]].
+    Initially, the 2d grid grid is filled with water. (Assume 0 represents water and 1 represents land).
+
+    0 0 0
+    0 0 0
+    0 0 0
+    Operation #1: addLand(0, 0) turns the water at grid[0][0] into a land.
+
+    1 0 0
+    0 0 0   Number of islands = 1
+    0 0 0
+    Operation #2: addLand(0, 1) turns the water at grid[0][1] into a land.
+
+    1 1 0
+    0 0 0   Number of islands = 1
+    0 0 0
+    Operation #3: addLand(1, 2) turns the water at grid[1][2] into a land.
+
+    1 1 0
+    0 0 1   Number of islands = 2
+    0 0 0
+    Operation #4: addLand(2, 1) turns the water at grid[2][1] into a land.
+
+    1 1 0
+    0 0 1   Number of islands = 3
+    0 1 0
+    We return the result as an array: [1, 1, 2, 3]
+
+_Can you do it in time complexity O(k log mn), where k is the length of the positions?_
+
+[305-number-of-islands-ii.java](./leetcode-java/305-number-of-islands-ii.java)
+
+1. Create UnionFind2D class
+    - Use path compression and weight balancing to keep tree flat to improve performance.
+2. Iterate through all positions
+    - Lookup 4 cells nearby to see if there are two islands that can be connected.
+    - Pay attention to how to identify whether a cell has been turned into an island.
+
+### **Review** 128. Longest Consecutive Sequence
+
+_Given an unsorted array of integers, find the length of the longest consecutive elements sequence._
+
+    For example,
+
+    Given [100, 4, 200, 1, 3, 2],
+    The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
+
+_Your algorithm should run in O(n) complexity._
+
+[128-longest-consecutive-sequence.java](./leetcode-java/128-longest-consecutive-sequence.java)
+
+1. Create a map to store all number as key, the length of connected sequence as value.
+2. Iterate through each number:
+    1. Skip any number that's already has a key in the map.
+    2. Look left and right one number to see if current number is adjacent to any existing sequence.
+    3. Extend the sequence with new sequences connected by current number.
+    4. Mark the length of new sequence at the boundaries.
+    5. Update maximum length with current sequence length.
+
+## Matrix
+
+### 329. Longest Increasing Path in a Matrix
+
+_Given an integer matrix, find the length of the longest increasing path. From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed)._
+
+[329-longest-increasing-path-in-a-matrix.java](./leetcode-java/329-longest-increasing-path-in-a-matrix.java)
+
+1. Loop through all members of the matrix.
+    1. DFS in four directions, measure the length of increasing path along the way.
+    2. Cache the max length in a separate matrix to avoid repeated visits.
+2. Keep updating max path found until all done.
+
+---
 
 ## 146. LRU Cache
 
@@ -42,17 +175,6 @@ _Given two words (beginWord and endWord), and a dictionary's word list, find all
 5. To handle large word list, when looking for neighbour words, we can iterate through 26 English letters (changing one character at once and see if the word is in the list) to avoid iterating through all words.
 6. Stop when begin word is among the new neighbours.
 
-## 212. Word Search II
-
-_Given a 2D board and a list of words from the dictionary, find all words in the board. Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word._
-
-[212-word-search-ii.js](./leetcode-js/212-word-search-ii.js)
-
-1. Build a trie from words to be found, to avoid duplicate character matchings.
-    - Root should be empty string.
-2. Use backtrack to iterating though all cells in the matrix for words.
-    - When a word is found, remove it from trie.
-
 ## 124. Binary Tree Maximum Path Sum
 
 _Given a binary tree, find the maximum path sum. For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path does not need to go through the root._
@@ -64,13 +186,6 @@ _Given a binary tree, find the maximum path sum. For this problem, a path is def
 3. Use max value found above to compare with current max value and sum of left and right arms + current node's value.
 4. Return max value found in step 2. So program can advance to the level above current level.
 5. How to passing values from step 2 and 3 around is tricky. Easiest way is to use reference type.
-
-## 269. Alien Dictionary
-
-_There is a new alien language which uses the latin alphabet. However, the order among letters are unknown to you. You receive a list of words from the dictionary, where words are sorted lexicographically by the rules of this new language. Derive the order of letters in this language._
-
-1. Build a one direction graph where letters ranked higher point to lower ones. This was done by comparing adjacent words one by one.
-2. Topological sort the graph to get the ordering.
 
 ## 23. Merge k Sorted Lists
 
@@ -361,12 +476,6 @@ See [140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
 _Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation._
 
 TODO: KMP
-
-## 336. Palindrome Pairs
-
-_Given a list of unique words. Find all pairs of distinct indices (i, j) in the given list, so that the concatenation of the two words, i.e. words[i] + words[j] is a palindrome._
-
-See [336-palindrome-pairs.js](./leetcode-js/336-palindrome-pairs.js)
 
 ## 30. Substring with Concatenation of All Words
 
@@ -678,27 +787,6 @@ See [248-strobogrammatic-number-iii.js](./leetcode-js/248-strobogrammatic-number
 _Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required._
 
 See [330-patching-array.js](./leetcode-js/330-patching-array.js)
-
-## 329. Longest Increasing Path in a Matrix
-
-_Given an integer matrix, find the length of the longest increasing path. From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed)._
-
-See [329-longest-increasing-path-in-a-matrix.js](./leetcode-js/329-longest-increasing-path-in-a-matrix.js)
-
-## 128. Longest Consecutive Sequence
-
-_Given an unsorted array of integers, find the length of the longest consecutive elements sequence._
-
-See [128-longest-consecutive-sequence.js](./leetcode-js/128-longest-consecutive-sequence.js)
-
-## 305. Number of Islands II
-
-_A 2d grid map of m rows and n columns is initially filled with water. We may perform an addLand operation which turns the water at position (row, col) into a land. Given a list of positions to operate, count the number of islands after each addLand operation. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water._
-
-https://www.cs.princeton.edu/~rs/AlgsDS07/
-https://www.cs.princeton.edu/~rs/AlgsDS07/01UnionFind.pdf
-
-See [305-number-of-islands-ii.js](./leetcode-js/305-number-of-islands-ii.js)
 
 ## 340. Longest Substring with At Most K Distinct Characters
 
