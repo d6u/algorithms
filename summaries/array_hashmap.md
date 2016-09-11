@@ -57,7 +57,7 @@
 
 ## Duplicate or almost duplicate elements
 
-- [220-contains-duplicate-iii.js](../leetcode-js/220-contains-duplicate-iii.js)
+- **Review** [220-contains-duplicate-iii.java](../leetcode-java/220-contains-duplicate-iii.java)
 
     Given an array of integers, find out whether there are two distinct indices i and j in the array such that the difference between nums[i] and nums[j] is at most t and the difference between i and j is at most k.
 

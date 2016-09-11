@@ -12,9 +12,11 @@ var countRangeSum = function(nums, lower, upper) {
     for (let i = 0; i < nums.length; i += 1) {
         sums[i+1] = sums[i] + nums[i];
     }
-
+    console.log(sums)
     // 2. Count while merge sort
-    return mergeSort(sums, 0, sums.length, lower, upper);
+    const r = mergeSort(sums, 0, sums.length, lower, upper);
+    console.log(sums);
+    return r;
 };
 
 function mergeSort(sums, start, end, lower, upper) {
@@ -40,7 +42,7 @@ function mergeSort(sums, start, end, lower, upper) {
     let r = 0; // index of cache array
 
     while (i < mid) {
-        // 5. Find the first k for sums[k] - sums[i] < lower,
+        // 5. Find the last k for sums[k] - sums[i] < lower,
         // then all elements after k has lower <= sums[i2>k] - sums[i]
         while (k < end && sums[k] - sums[i] < lower) {
             k += 1;

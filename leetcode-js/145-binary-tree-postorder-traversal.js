@@ -10,8 +10,6 @@
  * @return {number[]}
  */
 var postorderTraversal = function(root) {
-    'use strict';
-
     if (!root) {
         return [];
     }

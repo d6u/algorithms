@@ -22,10 +22,7 @@ var maxProfit = function(k, prices) {
             // 3. Both local and globa are actually comparing with
             // local and globa from last iteration of prices.
             // We could have defined local and globa as 2D array.
-            local[j] = Math.max(
-                globa[j-1] + Math.max(diff, 0),
-                local[j] + diff
-            );
+            local[j] = Math.max(local[j] + diff, globa[j - 1] + diff);
             globa[j] = Math.max(globa[j], local[j]);
         }
     }

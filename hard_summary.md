@@ -127,7 +127,7 @@ In order traversal
 
 _Optional_ [099-recover-binary-search-tree_morris-traversal.java](./leetcode-java/099-recover-binary-search-tree_morris-traversal.java), http://www.cnblogs.com/AnnieKim/archive/2013/06/15/morristraversal.html
 
-### **TODO** 117. Populating Next Right Pointers in Each Node II
+### **Review** 117. Populating Next Right Pointers in Each Node II
 
 _Given a binary tree:_
 
@@ -156,12 +156,150 @@ _Populate each next pointer to point to its next right node. If there is no next
          / \    \
         4-> 5 -> 7 -> NULL
 
+[117-populating-next-right-pointers-in-each-node-ii.java](./leetcode-java/117-populating-next-right-pointers-in-each-node-ii.java)
+
 1. Use 4 pointers:
     - Above left most
     - Above moving
     - Left most
     - Moving
 2. When moving to next nodes, utlize next node links already established in the above level.
+
+### **Review** 145. Binary Tree Postorder Traversal
+
+_Given a binary tree, return the postorder traversal of its nodes' values._
+
+[145-binary-tree-postorder-traversal.java](./leetcode-java/145-binary-tree-postorder-traversal.java)
+
+1. Use a stack.
+2. Go down along the left most path while filling up the stack.
+3. When reaches the bottom, pop top of stack and push to result.
+4. Moving up and try right node.
+
+### **Review** 272. Closest Binary Search Tree Value II
+
+_Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target._
+
+- _Given target value is a floating point._
+- _You may assume k is always valid, that is: k ≤ total nodes._
+- _You are guaranteed to have only one unique set of k values in the BST that are closest to the target._
+
+_Follow up:_
+
+_Assume that the BST is balanced, could you solve it in less than O(n) runtime (where n = total nodes)?_
+
+[272-closest-binary-search-tree-value-ii.java](./leetcode-java/272-closest-binary-search-tree-value-ii.java)
+
+1. Push successor and predecessor nodes into two stacks.
+2. While getting closest values, after poping a node, keep pushing more successor or predecessor nodes into the stack.
+3. Repeat until finish.
+
+### 297. Serialize and Deserialize Binary Tree
+
+_Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure._
+
+[297-serialize-and-deserialize-binary-tree.java](./leetcode-java/297-serialize-and-deserialize-binary-tree.java)
+
+1. Serialize: recursively preorder traverse the binary tree, put `#` where node is null.
+2. Deserialize: recursively build the tree with preorder, assign node to null when `#`.
+
+### **Review** 315. Count of Smaller Numbers After Self
+
+_You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]._
+
+    Example:
+
+    Given nums = [5, 2, 6, 1]
+
+    To the right of 5 there are 2 smaller elements (2 and 1).
+    To the right of 2 there is only 1 smaller element (1).
+    To the right of 6 there is 1 smaller element (1).
+    To the right of 1 there is 0 smaller element.
+
+    Return the array [2, 1, 1, 0].
+
+[315-count-of-smaller-numbers-after-self.java](./leetcode-java/315-count-of-smaller-numbers-after-self.java)
+
+1. Build BST
+
+## Linked List
+
+### 287. Find the Duplicate Number
+
+_Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one._
+
+- _You must not modify the array (assume the array is read only)._
+- _You must use only constant, O(1) extra space._
+- _Your runtime complexity should be less than O(n2)._
+- _There is only one duplicate number in the array, but it could be repeated more than once._
+
+[287-find-the-duplicate-number.java](./leetcode-java/287-find-the-duplicate-number.java)
+
+1. Use Robert Floyd Cycle Detection algorithm. The beginning of a cycle is the duplicated number.
+
+### **TODO** 23. Merge k Sorted Lists
+
+_Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity._
+
+1. Merge last half list with first half by starting from first and last lists, then increment by 1 from the head and decrement by 1 from the tail. Assign new list to the smaller index.
+2. Repeat step 1 until only 1 list left.
+
+[023-merge-k-sorted-lists.java](./leetcode-java/023-merge-k-sorted-lists.java)
+
+### **Review** 138. Copy List with Random Pointer
+
+_A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list._
+
+[138-copy-list-with-random-pointer.java](./leetcode-java/138-copy-list-with-random-pointer.java)
+
+1. Start from the head, follow the regular pointer. Insert a copy of node after itself.
+2. Start from the head again, assign random pointer of copied node to random pointer's copy (`node.random.next`).
+3. Start from the head again, decouple the linked list following the regular pointer.
+4. Return the head of copied list.
+
+### 25. **Review** Reverse Nodes in k-Group
+
+_Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only nodes itself may be changed. Only constant memory is allowed._
+
+    For example,
+
+    Given this linked list: 1->2->3->4->5
+
+    For k = 2, you should return: 2->1->4->3->5
+
+    For k = 3, you should return: 3->2->1->4->5
+
+[025-reverse-nodes-in-k-group.java](./leetcode-java/025-reverse-nodes-in-k-group.java)
+
+1. First count total nodes.
+2. Reverse list k nodes at a time.
+    - Reverse list requires reference of three nodes:
+        - Dummy node for easy track where is the new head.
+        - Tail node which was initially the head node.
+        - A moving pointer which was initially the next node of the head node.
+    - Steps to reverse nodes:
+        1. Point next node of tail node to moving pointer's next node.
+        2. Point next node of pointer node to dummy node's next node.
+        3. Point next node of dummy node to moving pointer.
+        4. Move pointer to next of tail node.
+        5. Repeat 1-4
+3. Use total nodes count to track whether it reaches the end.
+
+## Divide and Conquer
+
+### **Review** 327. Count of Range Sum
+
+_Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive. Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j (i ≤ j), inclusive._
+
+_A naive algorithm of O(n2) is trivial. You MUST do better than that._
+
+_Example: given nums = [-2, 5, -1], lower = -2, upper = 2, Return 3. The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2, -1, 2._
+
+- [Segment tree](./leetcode-java/327-count-of-range-sum_segment-tree.java)
+- [Merge sort](./leetcode-java/327-count-of-range-sum_merge-sort.java)
+
+1. Transform range sum into `sums[i2] - sums[i1]` (prefix sum), where `i2 > i1`.
+2. Merge sort prefix sums. While sorting, count how many `lower <= sums[i2] - sums[i1] <= upper`.
 
 ## Union Find
 
@@ -288,28 +426,83 @@ _Remove the minimum number of invalid parentheses in order to make the input str
 
 ## DP
 
-## 188. Best Time to Buy and Sell Stock IV
-
-_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most k transactions._
-
-See [188-best-time-to-buy-and-sell-stock-iv.js](./leetcode-js/188-best-time-to-buy-and-sell-stock-iv.js)
-
-## 123. Best Time to Buy and Sell Stock III
+### 123. Best Time to Buy and Sell Stock III
 
 _Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most two transactions._
 
-See [123-best-time-to-buy-and-sell-stock-iii.js](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.js)
+[123-best-time-to-buy-and-sell-stock-iii.java](./leetcode-js/123-best-time-to-buy-and-sell-stock-iii.java)
 
----
+1. Convert to a max sum subarray problem.
 
-## 146. LRU Cache
+### 188. Best Time to Buy and Sell Stock IV
+
+_Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most k transactions._
+
+[188-best-time-to-buy-and-sell-stock-iv.java](./leetcode-java/188-best-time-to-buy-and-sell-stock-iv.java)
+
+1. Convert to a max sum subarray problem.
+
+## Two Pointers
+
+### **Review** 159. Longest Substring with At Most Two Distinct Characters
+
+_Given a string, find the length of the longest substring T that contains at most 2 distinct characters._
+
+    For example, Given s = “eceba”,
+
+    T is "ece" which its length is 3.
+
+[159-longest-substring-with-at-most-two-distinct-characters.java](./leetcode-java/159-longest-substring-with-at-most-two-distinct-characters.java)
+
+### **TODO** 76. Minimum Window Substring
+
+_Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n)._
+
+    For example,
+    S = "ADOBECODEBANC"
+    T = "ABC"
+    Minimum window is "BANC".
+
+_If there is no such window in S that covers all characters in T, return the empty string "". If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S._
+
+[076-minimum-window-substring.java](./leetcode-java/076-minimum-window-substring.java)
+
+### **TODO** 30. Substring with Concatenation of All Words
+
+_You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters._
+
+    For example, given:
+    s: "barfoothefoobarman"
+    words: ["foo", "bar"]
+
+    You should return the indices: [0,9].
+
+[030-substring-with-concatenation-of-all-words.java](./leetcode-java/030-substring-with-concatenation-of-all-words.java)
+
+### 42. Trapping Rain Water
+
+_Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining._
+
+    For example,
+    Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
+
+[042-trapping-rain-water.java](./leetcode-java/042-trapping-rain-water.java)
+
+1. Two pointers.
+2. Maintain the highest wall on left and right side.
+3. Move shorter side and add space below wall to result.
+4. Finish when "left index" > "right index".
+
+## Design
+
+### 146. LRU Cache
 
 _Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: `get` and `set`._
 
 - _`get(key)` - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1._
 - _`set(key, value)` - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item._
 
-[146-lru-cache.js](./leetcode-js/146-lru-cache.js)
+[146-lru-cache.java](./leetcode-java/146-lru-cache.java)
 
 1. Use double linked list (has reference to both previous and next item) to access head (most recent) and tail (least recent) in O(1) time.
     - Remove least used item in O(1) time.
@@ -320,75 +513,7 @@ _Design and implement a data structure for Least Recently Used (LRU) cache. It s
 4. When get a key, move the node to head (remove then add) in O(1).
 5. When set a key-value, insert node to head, pop tail if out of capacity.
 
-## 23. Merge k Sorted Lists
-
-
-_Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity._
-
-1. Merge last half list with first half by starting from first and last lists, then increment by 1 from the head and decrement by 1 from the tail. Assign new list to the smaller index.
-2. Repeat step 1 until only 1 list left.
-
-## 138. Copy List with Random Pointer
-
-_A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list._
-
-1. Start from the head, follow the regular pointer. Insert a copy of node after itself.
-2. Start from the head again, assign random pointer of copies to random pointer's target's copies (`node.random.next`).
-3. Decouple the linked list following the regular pointer.
-4. Return the head of copied list (remember to save the reference in step 3).
-
-## 25. Reverse Nodes in k-Group
-
-_Given a linked list, reverse the nodes of a linked list k at a time and return its modified list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is. You may not alter the values in the nodes, only nodes itself may be changed. Only constant memory is allowed._
-
-1. First count total nodes.
-2. Reverse list k nodes at a time.
-    - Reverse list requires reference of three nodes:
-        - Dummy node for easy track where is the new head.
-        - Tail node which was initially the head node.
-        - A moving pointer which was initially the next node of the head node.
-    - Steps to reverse nodes:
-        1. Point next node of tail node to moving pointer's next node.
-        2. Point next node of pointer node to dummy node's next node.
-        3. Point next node of dummy node to moving pointer.
-        4. Move pointer to next of tail node.
-        5. Repeat 1-4
-3. Use total nodes count to track whether it reaches the end.
-
-## 297. Serialize and Deserialize Binary Tree
-
-_Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure._
-
-1. Serialize: preorder traverse the binary tree, put `#` where node is null.
-2. Deserialize: recursively build the tree with preorder, assign node to null when `#`.
-
-## 272. Closest Binary Search Tree Value II
-
-_Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target._
-
-_Follow up:_
-
-_Assume that the BST is balanced, could you solve it in less than O(n) runtime (where n = total nodes)?_
-
-1. First inorder traverse from left to build a stack with values smaller than target, where the top of the stack is the biggest value.
-2. Then inorder traverse from right to build a stack with values larger than target, where the top of the stack is the smallest value.
-3. Popping from each stack until k number of values are found.
-
-
-## 145. Binary Tree Postorder Traversal
-
-_Given a binary tree, return the postorder traversal of its nodes' values._
-
-1. Use a stack.
-2. Go down along the left most path while filling up the stack.
-3. When reaches the bottom, pop top of stack and push to result.
-4. Moving up and try right node of current.
-
-## 287. Find the Duplicate Number
-
-_Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one._
-
-1. Use Robert Floyd Cycle Detection algorithm. The beginning of a cycle is the duplicated number.
+---
 
 ## 149. Max Points on a Line
 
@@ -475,25 +600,6 @@ _For instance, the skyline in Figure B should be represented as:`[ [2 10], [3 15
     - Track previous height, if the head of priority queue (the current height) is the same, do nothing.
     - If height is different, push current `x` and `height` to result.
 
-## 327. Count of Range Sum
-
-_Given an integer array nums, return the number of range sums that lie in [lower, upper] inclusive. Range sum S(i, j) is defined as the sum of the elements in nums between indices i and j (i ≤ j), inclusive._
-
-_Example: given nums = [-2, 5, -1], lower = -2, upper = 2, Return 3. The three ranges are : [0, 0], [2, 2], [0, 2] and their respective sums are: -2, -1, 2._
-
-1. Similar to [315. Count of Smaller Numbers After Self](#315-count-of-smaller-numbers-after-self)
-2. Transform range sum into `sums[i2] - sums[i1]` (prefix sum), where `i2 > i1`.
-3. Merge sort prefix sums. While sorting, count how many `lower <= sums[i2] - sums[i1] <= upper`.
-4. Details see [327-count-of-range-sum.js](./leetcode-js/327-count-of-range-sum.js).
-
-## 315. Count of Smaller Numbers After Self
-
-_You are given an integer array nums and you have to return a new counts array. The counts array has the property where counts[i] is the number of smaller elements to the right of nums[i]._
-
-1. Convert the problem into a merge sort problem:
-    - While merging each time an element is moved from right to the left of current element, there is one element on the right is smaller than current element.
-2. Details see [315-count-of-smaller-numbers-after-self.js](./leetcode-js/315-count-of-smaller-numbers-after-self.js).
-
 ## 363. Max Sum of Rectangle No Larger Than K
 
 _Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rectangle in the matrix such that its sum is no larger than k._
@@ -575,12 +681,6 @@ _Given a string S, you are allowed to convert it to a palindrome by adding chara
 
 TODO: KMP
 
-## 30. Substring with Concatenation of All Words
-
-_You are given a string, s, and a list of words, words, that are all of the same length. Find all starting indices of substring(s) in s that is a concatenation of each word in words exactly once and without any intervening characters._
-
-See [030-substring-with-concatenation-of-all-words.js](./leetcode-js/030-substring-with-concatenation-of-all-words.js)
-
 ## 174. Dungeon Game
 
 _The demons had captured the princess (P) and imprisoned her in the bottom-right corner of a dungeon. The dungeon consists of M x N rooms laid out in a 2D grid. Our valiant knight (K) was initially positioned in the top-left room and must fight his way through the dungeon to rescue the princess._
@@ -594,12 +694,6 @@ _In order to reach the princess as quickly as possible, the knight decides to mo
 _Write a function to determine the knight's minimum initial health so that he is able to rescue the princess._
 
 See [174-dungeon-game.js](./leetcode-js/174-dungeon-game.js)
-
-## 76. Minimum Window Substring
-
-_Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n)._
-
-See [076-minimum-window-substring.js](./leetcode-js/076-minimum-window-substring.js)
 
 ## 132. Palindrome Partitioning II
 
@@ -769,12 +863,6 @@ _Given a string S and a string T, count the number of distinct subsequences of T
 
 See [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)
 
-## 42. Trapping Rain Water
-
-_Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining._
-
-See [042-trapping-rain-water.js](./leetcode-js/042-trapping-rain-water.js)
-
 ## 291. Word Pattern II
 
 _Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection (one to one, and vise versa) between a letter in pattern and a non-empty substring in str._
@@ -788,12 +876,6 @@ _There are a row of n houses, each house can be painted with one of the k colors
 _The cost of painting each house with a certain color is represented by a n x k cost matrix. For example, `costs[0][0]` is the cost of painting house 0 with color 0; `costs[1][2]` is the cost of painting house 1 with color 2, and so on... Find the minimum cost to paint all houses._
 
 See [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
-
-## 159. Longest Substring with At Most Two Distinct Characters
-
-_Given a string, find the length of the longest substring T that contains at most 2 distinct characters._
-
-See [159-longest-substring-with-at-most-two-distinct-characters.js](./leetcode-js/159-longest-substring-with-at-most-two-distinct-characters.js)
 
 ## 312. Burst Balloons
 
@@ -881,3 +963,15 @@ See [302-smallest-rectangle-enclosing-black-pixels.js](./leetcode-js/302-smalles
 _A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where `distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|`._
 
 See [296-best-meeting-point.js](./leetcode-js/296-best-meeting-point.js)
+
+## 352. Data Stream as Disjoint Intervals
+
+_Given a data stream input of non-negative integers a1, a2, ..., an, ..., summarize the numbers seen so far as a list of disjoint intervals. For example, suppose the integers from the data stream are 1, 3, 7, 2, 6, ..., then the summary will be:_
+
+    [1, 1]
+    [1, 1], [3, 3]
+    [1, 1], [3, 3], [7, 7]
+    [1, 3], [7, 7]
+    [1, 3], [6, 7]
+
+_Follow up: What if there are lots of merges and the number of disjoint intervals are small compared to the data stream's size?_
