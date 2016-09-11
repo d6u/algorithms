@@ -285,6 +285,24 @@ _Given a linked list, reverse the nodes of a linked list k at a time and return 
         5. Repeat 1-4
 3. Use total nodes count to track whether it reaches the end.
 
+### 146. LRU Cache
+
+_Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: `get` and `set`._
+
+- _`get(key)` - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1._
+- _`set(key, value)` - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item._
+
+[146-lru-cache.java](./leetcode-java/146-lru-cache.java)
+
+1. Use double linked list (has reference to both previous and next item) to access head (most recent) and tail (least recent) in O(1) time.
+    - Remove least used item in O(1) time.
+    - Add new item in O(1) time.
+    - Double linked list can remove any node in O(1), when already has the reference of the node.
+2. Use hash table to access any key-node pairs in O(1) time.
+3. Maintain a counter to keep track of capacity.
+4. When get a key, move the node to head (remove then add) in O(1).
+5. When set a key-value, insert node to head, pop tail if out of capacity.
+
 ## Divide and Conquer
 
 ### **Review** 327. Count of Range Sum
@@ -300,6 +318,31 @@ _Example: given nums = [-2, 5, -1], lower = -2, upper = 2, Return 3. The three r
 
 1. Transform range sum into `sums[i2] - sums[i1]` (prefix sum), where `i2 > i1`.
 2. Merge sort prefix sums. While sorting, count how many `lower <= sums[i2] - sums[i1] <= upper`.
+
+### 312. Burst Balloons
+
+_Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If you burst balloon i you will get nums[left] * nums[i] * nums[right] coins. Here left and right are adjacent indices of i. After the burst, the left and right then becomes adjacent._
+
+_Find the maximum coins you can collect by bursting the balloons wisely._
+
+- _You may imagine nums[-1] = nums[n] = 1. They are not real therefore you can not burst them._
+_ _0 ≤ n ≤ 500, 0 ≤ nums[i] ≤ 100_
+
+
+    Example:
+
+    Given [3, 1, 5, 8]
+
+    Return 167
+
+        nums = [3,1,5,8] --> [3,5,8] -->   [3,8]   -->  [8]  --> []
+       coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
+
+[312-burst-balloons.java](./leetcode-java/312-burst-balloons.java)
+
+1. Insert `1` to both ends of the array for easy calculation.
+2. Start from the end, insert balloom and calculate the coins earned.
+3. Memorize the result using 2D array, `memo[left][right]` means how many coins can be earned by bursting ballooms between `left` and `right` index exclusive.
 
 ## Union Find
 
@@ -521,17 +564,7 @@ _Say you have an array for which the ith element is the price of a given stock o
 
 1. Convert to a max sum subarray problem.
 
-## Two Pointers
-
-### **Review** 159. Longest Substring with At Most Two Distinct Characters
-
-_Given a string, find the length of the longest substring T that contains at most 2 distinct characters._
-
-    For example, Given s = “eceba”,
-
-    T is "ece" which its length is 3.
-
-[159-longest-substring-with-at-most-two-distinct-characters.java](./leetcode-java/159-longest-substring-with-at-most-two-distinct-characters.java)
+## Hashmap
 
 ### **TODO** 76. Minimum Window Substring
 
@@ -545,6 +578,36 @@ _Given a string S and a string T, find the minimum window in S which will contai
 _If there is no such window in S that covers all characters in T, return the empty string "". If there are multiple such windows, you are guaranteed that there will always be only one unique minimum window in S._
 
 [076-minimum-window-substring.java](./leetcode-java/076-minimum-window-substring.java)
+
+### 159. Longest Substring with At Most Two Distinct Characters
+
+_Given a string, find the length of the longest substring T that contains at most 2 distinct characters._
+
+    For example, Given s = “eceba”,
+
+    T is "ece" which its length is 3.
+
+[159-longest-substring-with-at-most-two-distinct-characters.java](./leetcode-java/159-longest-substring-with-at-most-two-distinct-characters.java)
+
+See "340 Longest Substring with At Most K Distinct Characters"
+
+### **Review** 340. Longest Substring with At Most K Distinct Characters
+
+_Given a string, find the length of the longest substring T that contains at most k distinct characters._
+
+    For example, Given s = “eceba” and k = 2,
+
+    T is "ece" which its length is 3.
+
+[340-longest-substring-with-at-most-k-distinct-characters.java](./leetcode-java/340-longest-substring-with-at-most-k-distinct-characters.java)
+
+1. Loop through all characters in the string.
+2. Use hashmap (or an array) to track character count.
+3. When count increases and less than 1, increment total character number by 1.
+4. Update max len in each iteration.
+5. When count above k, shrink the substring by removing character from the start. When count of a character is 0, reduce total character number by 1. Move on to next loop.
+
+## Two Pointers
 
 ### **TODO** 30. Substring with Concatenation of All Words
 
@@ -571,26 +634,6 @@ _Given n non-negative integers representing an elevation map where the width of 
 2. Maintain the highest wall on left and right side.
 3. Move shorter side and add space below wall to result.
 4. Finish when "left index" > "right index".
-
-## Design
-
-### 146. LRU Cache
-
-_Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: `get` and `set`._
-
-- _`get(key)` - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1._
-- _`set(key, value)` - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item._
-
-[146-lru-cache.java](./leetcode-java/146-lru-cache.java)
-
-1. Use double linked list (has reference to both previous and next item) to access head (most recent) and tail (least recent) in O(1) time.
-    - Remove least used item in O(1) time.
-    - Add new item in O(1) time.
-    - Double linked list can remove any node in O(1), when already has the reference of the node.
-2. Use hash table to access any key-node pairs in O(1) time.
-3. Maintain a counter to keep track of capacity.
-4. When get a key, move the node to head (remove then add) in O(1).
-5. When set a key-value, insert node to head, pop tail if out of capacity.
 
 ---
 
@@ -956,17 +999,6 @@ _The cost of painting each house with a certain color is represented by a n x k 
 
 See [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
 
-## 312. Burst Balloons
-
-_Given n balloons, indexed from 0 to n-1. Each balloon is painted with a number on it represented by array nums. You are asked to burst all the balloons. If you burst balloon i you will get nums[left] * nums[i] * nums[right] coins. Here left and right are adjacent indices of i. After the burst, the left and right then becomes adjacent._
-
-_Find the maximum coins you can collect by bursting the balloons wisely._
-
-- _You may imagine nums[-1] = nums[n] = 1. They are not real therefore you can not burst them._
-_ _0 ≤ n ≤ 500, 0 ≤ nums[i] ≤ 100_
-
-See [312-burst-balloons.js](./leetcode-js/312-burst-balloons.js)
-
 ## 273. Integer to English Words
 
 _Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than `2^31 - 1`._
@@ -1011,12 +1043,6 @@ _Given a sorted positive integer array nums and an integer n, add/patch elements
 
 See [330-patching-array.js](./leetcode-js/330-patching-array.js)
 
-## 340. Longest Substring with At Most K Distinct Characters
-
-_Given a string, find the length of the longest substring T that contains at most k distinct characters._
-
-See [340-longest-substring-with-at-most-k-distinct-characters.js](./leetcode-js/340-longest-substring-with-at-most-k-distinct-characters.js)
-
 ## 352. Data Stream as Disjoint Intervals
 
 _Given a data stream input of non-negative integers a1, a2, ..., an, ..., summarize the numbers seen so far as a list of disjoint intervals. For example, suppose the integers from the data stream are 1, 3, 7, 2, 6, ..., then the summary will be:_
@@ -1028,3 +1054,39 @@ _Given a data stream input of non-negative integers a1, a2, ..., an, ..., summar
     [1, 3], [6, 7]
 
 _Follow up: What if there are lots of merges and the number of disjoint intervals are small compared to the data stream's size?_
+
+## 380. Insert Delete GetRandom O(1)
+
+_Design a data structure that supports all following operations in average O(1) time._
+
+- _insert(val): Inserts an item val to the set if not already present._
+- _remove(val): Removes an item val from the set if present._
+- _getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned._
+
+
+    Example:
+
+    // Init an empty set.
+    RandomizedSet randomSet = new RandomizedSet();
+
+    // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+    randomSet.insert(1);
+
+    // Returns false as 2 does not exist in the set.
+    randomSet.remove(2);
+
+    // Inserts 2 to the set, returns true. Set now contains [1,2].
+    randomSet.insert(2);
+
+    // getRandom should return either 1 or 2 randomly.
+    randomSet.getRandom();
+
+    // Removes 1 from the set, returns true. Set now contains [2].
+    randomSet.remove(1);
+
+    // 2 was already in the set, so return false.
+    randomSet.insert(2);
+
+    // Since 1 is the only number in the set, getRandom always return 1.
+    randomSet.getRandom();
+
