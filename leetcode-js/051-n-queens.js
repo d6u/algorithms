@@ -8,7 +8,7 @@ var solveNQueens = function(n) {
     // number of columns is n
     // number of 45 degree diagonal is 2 * n - 1
     // number of 135 degree diagonal is 2 * n - 1
-    const flag = Array(5*n-2).fill(true);
+    const flag = Array(5 * n - 2).fill(true);
 
     // build the board
     const queens = [];

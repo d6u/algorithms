@@ -424,6 +424,39 @@ _Remove the minimum number of invalid parentheses in order to make the input str
 - BFS [301-remove-invalid-parentheses_bfs.java](./leetcode-java/301-remove-invalid-parentheses_bfs.java)
 - _Optional_ No set [301-remove-invalid-parentheses_no-set.js](./leetcode-js/301-remove-invalid-parentheses_no-set.js)
 
+### **Review** 51. N-Queens
+
+_The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle._
+
+_Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively._
+
+    For example,
+    There exist two distinct solutions to the 4-queens puzzle:
+
+    [
+     [".Q..",  // Solution 1
+      "...Q",
+      "Q...",
+      "..Q."],
+
+     ["..Q.",  // Solution 2
+      "Q...",
+      "...Q",
+      ".Q.."]
+    ]
+
+[051-n-queens.java](./leetcode-java/051-n-queens.java)
+
+1. DFS + backtracking
+
+### **Review** 52. N-Queens II
+
+_Follow up for [N-Queens problem](#51-n-queens). Now, instead outputting board configurations, return the total number of distinct solutions._
+
+[052-n-queens-ii.java](./leetcode-java/052-n-queens-ii.java)
+
+1. DFS + backtracking
+
 ## Binary Search
 
 ### 302. Smallest Rectangle Enclosing Black Pixels
@@ -966,12 +999,6 @@ _Given a collection of intervals, merge all overlapping intervals._
 
 See [056-merge-intervals.js](./leetcode-js/056-merge-intervals.js)
 
-## 51. N-Queens
-
-_The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other. Given an integer n, return all distinct solutions to the n-queens puzzle._
-
-See [051-n-queens.js](./leetcode-js/051-n-queens.js)
-
 ## 248. Strobogrammatic Number III
 
 _A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down). Write a function to count the total strobogrammatic numbers that exist in the range of low <= num <= high._
@@ -989,14 +1016,6 @@ See [330-patching-array.js](./leetcode-js/330-patching-array.js)
 _Given a string, find the length of the longest substring T that contains at most k distinct characters._
 
 See [340-longest-substring-with-at-most-k-distinct-characters.js](./leetcode-js/340-longest-substring-with-at-most-k-distinct-characters.js)
-
-## 52. N-Queens II
-
-_Follow up for [N-Queens problem](#51-n-queens). Now, instead outputting board configurations, return the total number of distinct solutions._
-
-TODO
-
-See [052-n-queens-ii.js](./leetcode-js/052-n-queens-ii.js)
 
 ## 352. Data Stream as Disjoint Intervals
 
