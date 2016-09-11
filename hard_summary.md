@@ -53,7 +53,7 @@ _Given two words (`beginWord` and `endWord`), and a dictionary's word list, find
 
 ## Tree and Trie
 
-### 212. Word Search II (+ matrix)
+### 212. Word Search II (matrix)
 
 _Given a 2D board and a list of words from the dictionary, find all words in the board. Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word._
 
@@ -423,6 +423,27 @@ _Remove the minimum number of invalid parentheses in order to make the input str
 
 - BFS [301-remove-invalid-parentheses_bfs.java](./leetcode-java/301-remove-invalid-parentheses_bfs.java)
 - _Optional_ No set [301-remove-invalid-parentheses_no-set.js](./leetcode-js/301-remove-invalid-parentheses_no-set.js)
+
+## Matrix
+
+### 296. Best Meeting Point
+
+_A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where `distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|`._
+
+    For example, given three people living at (0,0), (0,4), and (2,2):
+
+    1 - 0 - 0 - 0 - 1
+    |   |   |   |   |
+    0 - 0 - 0 - 0 - 0
+    |   |   |   |   |
+    0 - 0 - 1 - 0 - 0
+
+    The point (0,2) is an ideal meeting point, as the total travel distance of 2+2+2=6 is minimal. So return 6.
+
+[296-best-meeting-point.java](./leetcode-java/296-best-meeting-point.java)
+
+1. Push all coordinates (x and y separately) into two list.
+2. Sort the list and calculate the smallest difference between numbers for each list.
 
 ## DP
 
@@ -956,13 +977,19 @@ See [052-n-queens-ii.js](./leetcode-js/052-n-queens-ii.js)
 
 _An image is represented by a binary matrix with 0 as a white pixel and 1 as a black pixel. The black pixels are connected, i.e., there is only one black region. Pixels are connected horizontally and vertically. Given the location (x, y) of one of the black pixels, return the area of the smallest (axis-aligned) rectangle that encloses all black pixels._
 
+    For example, given the following image:
+
+    [
+      "0010",
+      "0110",
+      "0100"
+    ]
+
+    and x = 0, y = 2,
+
+    Return 6.
+
 See [302-smallest-rectangle-enclosing-black-pixels.js](./leetcode-js/302-smallest-rectangle-enclosing-black-pixels.js)
-
-## 296. Best Meeting Point
-
-_A group of two or more people wants to meet and minimize the total travel distance. You are given a 2D grid of values 0 or 1, where each 1 marks the home of someone in the group. The distance is calculated using Manhattan Distance, where `distance(p1, p2) = |p2.x - p1.x| + |p2.y - p1.y|`._
-
-See [296-best-meeting-point.js](./leetcode-js/296-best-meeting-point.js)
 
 ## 352. Data Stream as Disjoint Intervals
 
