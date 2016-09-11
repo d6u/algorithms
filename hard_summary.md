@@ -424,6 +424,31 @@ _Remove the minimum number of invalid parentheses in order to make the input str
 - BFS [301-remove-invalid-parentheses_bfs.java](./leetcode-java/301-remove-invalid-parentheses_bfs.java)
 - _Optional_ No set [301-remove-invalid-parentheses_no-set.js](./leetcode-js/301-remove-invalid-parentheses_no-set.js)
 
+## Binary Search
+
+### 302. Smallest Rectangle Enclosing Black Pixels
+
+_An image is represented by a binary matrix with 0 as a white pixel and 1 as a black pixel. The black pixels are connected, i.e., there is only one black region. Pixels are connected horizontally and vertically. Given the location (x, y) of one of the black pixels, return the area of the smallest (axis-aligned) rectangle that encloses all black pixels._
+
+    For example, given the following image:
+
+    [
+      "0010",
+      "0110",
+      "0100"
+    ]
+
+    and x = 0, y = 2,
+
+    Return 6.
+
+[302-smallest-rectangle-enclosing-black-pixels.java](./leetcode-java/302-smallest-rectangle-enclosing-black-pixels.java)
+
+1. Use binary search.
+2. First locate left and right boundary by scaning from top row to bottom line by line.
+3. Use left and right boundary limit search while locating top and bottom row.
+4. Return area.
+
 ## Matrix
 
 ### 296. Best Meeting Point
@@ -972,24 +997,6 @@ _Follow up for [N-Queens problem](#51-n-queens). Now, instead outputting board c
 TODO
 
 See [052-n-queens-ii.js](./leetcode-js/052-n-queens-ii.js)
-
-## 302. Smallest Rectangle Enclosing Black Pixels
-
-_An image is represented by a binary matrix with 0 as a white pixel and 1 as a black pixel. The black pixels are connected, i.e., there is only one black region. Pixels are connected horizontally and vertically. Given the location (x, y) of one of the black pixels, return the area of the smallest (axis-aligned) rectangle that encloses all black pixels._
-
-    For example, given the following image:
-
-    [
-      "0010",
-      "0110",
-      "0100"
-    ]
-
-    and x = 0, y = 2,
-
-    Return 6.
-
-See [302-smallest-rectangle-enclosing-black-pixels.js](./leetcode-js/302-smallest-rectangle-enclosing-black-pixels.js)
 
 ## 352. Data Stream as Disjoint Intervals
 
