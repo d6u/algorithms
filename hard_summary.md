@@ -500,6 +500,23 @@ _Follow up for [N-Queens problem](#51-n-queens). Now, instead outputting board c
 
 1. DFS + backtracking
 
+### **Review** 282. Expression Add Operators
+
+_Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or * between the digits so they evaluate to the target value._
+
+    Examples:
+
+    "123", 6 -> ["1+2+3", "1*2*3"]
+    "232", 8 -> ["2*3+2", "2+3*2"]
+    "105", 5 -> ["1*0+5","10-5"]
+    "00", 0 -> ["0+0", "0-0", "0*0"]
+    "3456237490", 9191 -> []
+
+[282-expression-add-operators.java](./leetcode-java/282-expression-add-operators.java)
+
+1. DFS + backtracking
+2. When recurse down, save current number, in case we use `*` in next level, we can make sure computaion priority.
+
 ## Binary Search
 
 ### 302. Smallest Rectangle Enclosing Black Pixels
@@ -524,6 +541,32 @@ _An image is represented by a binary matrix with 0 as a white pixel and 1 as a b
 2. First locate left and right boundary by scaning from top row to bottom line by line.
 3. Use left and right boundary limit search while locating top and bottom row.
 4. Return area.
+
+### **Review** 363. Max Sum of Rectangle No Larger Than K
+
+_Given a non-empty 2D matrix `matrix` and an integer `k`, find the max sum of a rectangle in the matrix such that its sum is no larger than k._
+
+    Example:
+    Given matrix = [
+      [1,  0, 1],
+      [0, -2, 3]
+    ]
+    k = 2
+    The answer is 2. Because the sum of rectangle [[0, 1], [-2, 3]] is 2 and 2 is the max number no larger than k (k = 2).
+
+- _The rectangle inside the matrix must have an area > 0._
+- _What if the number of rows is much larger than the number of columns?_
+
+[363-max-sum-of-sub-matrix-no-larger-than-k.java](./leetcode-java/363-max-sum-of-sub-matrix-no-larger-than-k.java)
+
+1. Scan each row.
+    1. If number of rows is larger than number of cols, scan cols instead.
+    2. Within each iteration, scan every row from current row to the last row.
+    3. Create a `sums` array to store sums for each cols.
+2. Use `sums` array with in each row scan to calculate max sum sub array no bigger than k.
+    - Convert into a prefix sum array to calculate max sum sub array.
+    - Use tree set to aid finding values in logn time.
+3. Repeat until finish. O(row * row * col * log(col)), that's why we need to ensure row is smaller.
 
 ## Matrix
 
@@ -563,6 +606,33 @@ _Say you have an array for which the ith element is the price of a given stock o
 [188-best-time-to-buy-and-sell-stock-iv.java](./leetcode-java/188-best-time-to-buy-and-sell-stock-iv.java)
 
 1. Convert to a max sum subarray problem.
+
+### **Review** 330. Patching Array
+
+_Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required._
+
+    Example 1:
+    nums = [1, 3], n = 6
+    Return 1.
+
+    Combinations of nums are [1], [3], [1,3], which form possible sums of: 1, 3, 4.
+    Now if we add/patch 2 to nums, the combinations are: [1], [2], [3], [1,3], [2,3], [1,2,3].
+    Possible sums are 1, 2, 3, 4, 5, 6, which now covers the range [1, 6].
+    So we only need 1 patch.
+
+    Example 2:
+    nums = [1, 5, 10], n = 20
+    Return 2.
+    The two patches can be [2, 4].
+
+    Example 3:
+    nums = [1, 2, 2], n = 5
+    Return 0.
+
+[330-patching-array.java](./leetcode-java/330-patching-array.java)
+
+1. Start to build number from `1` using number from left of array.
+2. If we can build [1, x], then adding x to the array can build [1, x + x).
 
 ## Hashmap
 
@@ -607,6 +677,98 @@ _Given a string, find the length of the longest substring T that contains at mos
 4. Update max len in each iteration.
 5. When count above k, shrink the substring by removing character from the start. When count of a character is 0, reduce total character number by 1. Move on to next loop.
 
+### 380. Insert Delete GetRandom O(1)
+
+_Design a data structure that supports all following operations in average O(1) time._
+
+- _insert(val): Inserts an item val to the set if not already present._
+- _remove(val): Removes an item val from the set if present._
+- _getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned._
+
+
+    Example:
+
+    // Init an empty set.
+    RandomizedSet randomSet = new RandomizedSet();
+
+    // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+    randomSet.insert(1);
+
+    // Returns false as 2 does not exist in the set.
+    randomSet.remove(2);
+
+    // Inserts 2 to the set, returns true. Set now contains [1,2].
+    randomSet.insert(2);
+
+    // getRandom should return either 1 or 2 randomly.
+    randomSet.getRandom();
+
+    // Removes 1 from the set, returns true. Set now contains [2].
+    randomSet.remove(1);
+
+    // 2 was already in the set, so return false.
+    randomSet.insert(2);
+
+    // Since 1 is the only number in the set, getRandom always return 1.
+    randomSet.getRandom();
+
+[380-insert-delete-getrandom.java](./leetcode-java/380-insert-delete-getrandom.java)
+
+1. Use array to store element for easy retrieval when generating random.
+2. Use hash map to store index for O(1) access.
+
+### **Review** 358. Rearrange String k Distance Apart
+
+_Given a non-empty string `str` and an integer `k`, rearrange the string such that the same characters are at least distance k from each other. All input strings are given in lowercase letters. If it is not possible to rearrange the string, return an empty string ""._
+
+    Example 1:
+    str = "aabbcc", k = 3
+
+    Result: "abcabc"
+
+    The same letters are at least distance 3 from each other.
+    Example 2:
+    str = "aaabc", k = 3
+
+    Answer: ""
+
+    It is not possible to rearrange the string.
+    Example 3:
+    str = "aaadbbcc", k = 2
+
+    Answer: "abacabcd"
+
+    Another possible answer is: "abcabcda"
+
+    The same letters are at least distance 2 from each other.
+
+[358-rearrange-string-k-distance-apart.java](./leetcode-java/358-rearrange-string-k-distance-apart.java)
+
+1. Use hashmap (int array) to count characters within the input string.
+2. Use hashmap (int array) to record the smallest index a character can appear.
+3. Iterate from 0 to string's length to build the output.
+    1. In each iteration, find the next character to append.
+    2. Use the character that has the most count, and the index meets the requirement.
+    3. Update count and index requirement.
+    4. Anytime an character cannot be found, return `""`.
+
+### **TODO** 316. Remove Duplicate Letters
+
+_Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results._
+
+    Example:
+    Given "bcabc"
+    Return "abc"
+
+    Given "cbacdcbc"
+    Return "acdb"
+
+[316-remove-duplicate-letters.java](./leetcode-java/316-remove-duplicate-letters.java)
+
+1. Store each char count into a hashmap.
+2. Scan all chars, updating the position of first smallest lexicographical chars.
+3. Remove all appearance of selected character and repeat again.
+
 ## Two Pointers
 
 ### **TODO** 30. Substring with Concatenation of All Words
@@ -634,6 +796,54 @@ _Given n non-negative integers representing an elevation map where the width of 
 2. Maintain the highest wall on left and right side.
 3. Move shorter side and add space below wall to result.
 4. Finish when "left index" > "right index".
+
+## Array
+
+### **TODO** 354. Russian Doll Envelopes
+
+_You have a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope. What is the maximum number of envelopes can you Russian doll? (put one inside other)_
+
+    Example:
+    Given envelopes = [[5,4],[6,4],[6,7],[2,3]], the maximum number of envelopes you can Russian doll is 3 ([2,3] => [5,4] => [6,7]).
+
+[354-russian-doll-envelopes.java](./leetcode-java/354-russian-doll-envelopes.java)
+
+### **Review** 239. Sliding Window Maximum
+
+_Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the maximum number for each sliding window position._
+
+    For example,
+    Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.
+
+    Window position                Max
+    ---------------               -----
+    [1  3  -1] -3  5  3  6  7       3
+     1 [3  -1  -3] 5  3  6  7       3
+     1  3 [-1  -3  5] 3  6  7       5
+     1  3  -1 [-3  5  3] 6  7       5
+     1  3  -1  -3 [5  3  6] 7       6
+     1  3  -1  -3  5 [3  6  7]      7
+    Therefore, return the max sliding window as [3,3,5,5,6,7].
+
+_You may assume k is always valid, ie: 1 ≤ k ≤ input array's size for non-empty array._
+
+[239-sliding-window-maximum.java](./leetcode-java/239-sliding-window-maximum.java)
+
+1. Use `Deque`.
+2. Scan all the number.
+    1. Poll out element that out of range.
+    2. Poll last element that are smaller than current element.
+    3. The first element is always the largest.
+
+### **Review** 56. Merge Intervals
+
+_Given a collection of intervals, merge all overlapping intervals._
+
+[056-merge-intervals.java](./leetcode-java/056-merge-intervals.java)
+
+1. Sort intervals.
+2. Scan all intervals. Extend current interval if end >= start.
+3. Pay attention to details.
 
 ---
 
@@ -721,20 +931,6 @@ _For instance, the skyline in Figure B should be represented as:`[ [2 10], [3 15
     - If height decrease, remove from priority queue.
     - Track previous height, if the head of priority queue (the current height) is the same, do nothing.
     - If height is different, push current `x` and `height` to result.
-
-## 363. Max Sum of Rectangle No Larger Than K
-
-_Given a non-empty 2D matrix matrix and an integer k, find the max sum of a rectangle in the matrix such that its sum is no larger than k._
-
-1. If rows are (much) larger than columns, rotate the matrix.
-2. Loop through each row.
-    1. In each iteration, loop through each rows after current row (include current).
-    2. Maintain an array of sums of each row of current iteration. Covert the problem into finding max sum subarray.
-3. To solve max sum subarray:
-    1. Maintain a data structure to quickly (`O(log(n))`) find the smallest number that is bigger than or equal to a given number. (In C++, a set will do this.)
-    2. Covert sum of subarray into `sum = sums[i2] - sums[i1]` (prefix sum).
-    3. Iterate through each prefix sum, for each, find the smallest number (`n`) that is bigger than `sum - k` (so `sum - n` is biggest and not larger than `k`). The finding operation has `O(log(n))` time since we used a set.
-    4. Find the biggest `sum - n` in step 3.
 
 ## 33. Search in Rotated Sorted Array
 
@@ -903,12 +1099,6 @@ _Given an array of non-negative integers, you are initially positioned at the fi
 
 See [045-jump-game-ii.js](./leetcode-js/045-jump-game-ii.js).
 
-## 316. Remove Duplicate Letters
-
-_Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results._
-
-See [316-remove-duplicate-letters.js](./leetcode-js/316-remove-duplicate-letters.js)
-
 ## 87. Scramble String
 
 _Given a string s1, we may represent it as a binary tree by partitioning it to two non-empty substrings recursively. Below is one possible representation of s1 = "great":_
@@ -956,18 +1146,6 @@ See [087-scramble-string.js](./leetcode-js/087-scramble-string.js)
 _Given an unsorted array, find the maximum difference between the successive elements in its sorted form. Try to solve it in linear time/space. Return 0 if the array contains less than 2 elements. You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range._
 
 See [164-maximum-gap.js](./leetcode-js/164-maximum-gap.js)
-
-## 354. Russian Doll Envelopes
-
-_You have a number of envelopes with widths and heights given as a pair of integers (w, h). One envelope can fit into another if and only if both the width and height of one envelope is greater than the width and height of the other envelope. What is the maximum number of envelopes can you Russian doll? (put one inside other)_
-
-See [354-russian-doll-envelopes.js](./leetcode-js/354-russian-doll-envelopes.js)
-
-## 239. Sliding Window Maximum
-
-_Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position. Return the maximum number for each sliding window position._
-
-See [239-sliding-window-maximum.js](./leetcode-js/239-sliding-window-maximum.js)
 
 ## 72. Edit Distance
 
@@ -1019,29 +1197,11 @@ TODO
 
 See [037-sudoku-solver.js](./leetcode-js/037-sudoku-solver.js)
 
-## 282. Expression Add Operators
-
-_Given a string that contains only digits 0-9 and a target value, return all possibilities to add binary operators (not unary) +, -, or * between the digits so they evaluate to the target value._
-
-See [282-expression-add-operators.js](./leetcode-js/282-expression-add-operators.js)
-
-## 56. Merge Intervals
-
-_Given a collection of intervals, merge all overlapping intervals._
-
-See [056-merge-intervals.js](./leetcode-js/056-merge-intervals.js)
-
 ## 248. Strobogrammatic Number III
 
 _A strobogrammatic number is a number that looks the same when rotated 180 degrees (looked at upside down). Write a function to count the total strobogrammatic numbers that exist in the range of low <= num <= high._
 
 See [248-strobogrammatic-number-iii.js](./leetcode-js/248-strobogrammatic-number-iii.js)
-
-## 330. Patching Array
-
-_Given a sorted positive integer array nums and an integer n, add/patch elements to the array such that any number in range [1, n] inclusive can be formed by the sum of some elements in the array. Return the minimum number of patches required._
-
-See [330-patching-array.js](./leetcode-js/330-patching-array.js)
 
 ## 352. Data Stream as Disjoint Intervals
 
@@ -1054,39 +1214,3 @@ _Given a data stream input of non-negative integers a1, a2, ..., an, ..., summar
     [1, 3], [6, 7]
 
 _Follow up: What if there are lots of merges and the number of disjoint intervals are small compared to the data stream's size?_
-
-## 380. Insert Delete GetRandom O(1)
-
-_Design a data structure that supports all following operations in average O(1) time._
-
-- _insert(val): Inserts an item val to the set if not already present._
-- _remove(val): Removes an item val from the set if present._
-- _getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned._
-
-
-    Example:
-
-    // Init an empty set.
-    RandomizedSet randomSet = new RandomizedSet();
-
-    // Inserts 1 to the set. Returns true as 1 was inserted successfully.
-    randomSet.insert(1);
-
-    // Returns false as 2 does not exist in the set.
-    randomSet.remove(2);
-
-    // Inserts 2 to the set, returns true. Set now contains [1,2].
-    randomSet.insert(2);
-
-    // getRandom should return either 1 or 2 randomly.
-    randomSet.getRandom();
-
-    // Removes 1 from the set, returns true. Set now contains [2].
-    randomSet.remove(1);
-
-    // 2 was already in the set, so return false.
-    randomSet.insert(2);
-
-    // Since 1 is the only number in the set, getRandom always return 1.
-    randomSet.getRandom();
-

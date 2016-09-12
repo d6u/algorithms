@@ -37,4 +37,9 @@ var maxEnvelopes = function(envelopes) {
     return dp.length;
 };
 
-console.log(maxEnvelopes([[5,4],[6,4],[6,7],[2,3]]));
+// console.log(maxEnvelopes([[5,4],[6,4],[6,7],[2,3]]));
+console.log(maxEnvelopes([
+    [1,1],
+    [2,2],
+    [3,2]
+]));

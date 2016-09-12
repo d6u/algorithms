@@ -1,14 +1,14 @@
 public class Solution {
     public int lengthOfLIS(int[] nums) {
-        int[] dp = new int[nums.length];
+        int[] arr = new int[nums.length];
         int len = 0;
 
         for (int x : nums) {
-            int i = Arrays.binarySearch(dp, 0, len, x);
+            int i = Arrays.binarySearch(arr, 0, len, x);
             if (i < 0) {
                 i = -(i + 1);
             }
-            dp[i] = x;
+            arr[i] = x;
             if (i == len) {
                 len++;
             }

@@ -4,7 +4,6 @@
  * @return {number}
  */
 var minPatches = function(nums, n) {
-
     // Use miss to track numbers in [0, miss) we already know we can build.
     let miss = 1;
 
@@ -26,3 +25,5 @@ var minPatches = function(nums, n) {
 
     return added;
 };
+
+console.log(minPatches([1,2,31,33], 2147483647));
