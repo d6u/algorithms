@@ -568,6 +568,32 @@ _Given a non-empty 2D matrix `matrix` and an integer `k`, find the max sum of a 
     - Use tree set to aid finding values in logn time.
 3. Repeat until finish. O(row * row * col * log(col)), that's why we need to ensure row is smaller.
 
+### **TODO** 218. The Skyline Problem
+
+_A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B)._
+
+<img src="https://leetcode.com/static/images/problemset/skyline1.jpg" width="400">
+<img src="https://leetcode.com/static/images/problemset/skyline2.jpg" width="400" align="right">
+
+_The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT\_MAX, 0 < Hi ≤ INT\_MAX, and Ri - Li > 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0._
+
+_For instance, the dimensions of all buildings in Figure A are recorded as: `[ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ]`._
+
+_The output is a list of "key points" (red dots in Figure B) in the format of `[ [x1,y1], [x2, y2], [x3, y3], ... ]` that uniquely defines a skyline. A key point is the left endpoint of a horizontal line segment. Note that the last key point, where the rightmost building ends, is merely used to mark the termination of the skyline, and always has zero height. Also, the ground in between any two adjacent buildings should be considered part of the skyline contour._
+
+_For instance, the skyline in Figure B should be represented as:`[ [2 10], [3 15], [7 12], [12 0], [15 10], [20 8], [24, 0] ]`._
+
+[218-the-skyline-problem.java](./leetcode-java/218-the-skyline-problem.java)
+
+1. Convert build heights to elevation changes pairs, e.g. `[x, height_change]`, for `height_change`, use negative for increase height, positive for decrease in height.
+2. Sort elevation change pairs, put smaller `x` to lower index. If `x` is the same, put increase in height (negative numbers) first.
+3. Use a priority queue to track current elevation to add and remove elevation in O(log(n)) time.
+4. Looping through heights collected in 1 and 2:
+    - If height increase, push to priority queue.
+    - If height decrease, remove from priority queue.
+    - Track previous height, if the head of priority queue (the current height) is the same, do nothing.
+    - If height is different, push current `x` and `height` to result.
+
 ## Matrix
 
 ### 296. Best Meeting Point
@@ -633,6 +659,31 @@ _Given a sorted positive integer array nums and an integer n, add/patch elements
 
 1. Start to build number from `1` using number from left of array.
 2. If we can build [1, x], then adding x to the array can build [1, x + x).
+
+### **TODO** 10. Regular Expression Matching
+
+_Implement regular expression matching with support for '.' and '*'._
+
+```
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "a*") → true
+isMatch("aa", ".*") → true
+isMatch("ab", ".*") → true
+isMatch("aab", "c*a*b") → true
+```
+
+[010-regular-expression-matching.java](./leetcode-java/010-regular-expression-matching.java)
 
 ## Hashmap
 
@@ -845,6 +896,47 @@ _Given a collection of intervals, merge all overlapping intervals._
 2. Scan all intervals. Extend current interval if end >= start.
 3. Pay attention to details.
 
+### 57. Insert Interval
+
+_Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary). You may assume that the intervals were initially sorted according to their start times._
+
+    Example 1:
+    Given intervals [1,3],[6,9], insert and merge [2,5] in as [1,5],[6,9].
+
+    Example 2:
+    Given [1,2],[3,5],[6,7],[8,10],[12,16], insert and merge [4,9] in as [1,2],[3,10],[12,16].
+
+    This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
+
+[057-insert-interval.java](./leetcode-java/057-insert-interval.java)
+
+1. Scan intervals.
+2. Save all intervals that has end time smaller than new interval's start time.
+3. Merge intervals that has start time smaller or equal to new interval's end time by expanding the start and end time of new interval.
+4. Save all of the rest.
+
+### **Review** 158. Read N Characters Given Read4 II - Call multiple times
+
+_The API: int read4(char *buf) reads 4 characters at a time from a file._
+
+_The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters left in the file._
+
+_By using the read4 API, implement the function int read(char *buf, int n) that reads n characters from the file._
+
+_The read function may be called multiple times._
+
+[158-read-n-characters-given-read4-ii-call-multiple-times.java](./leetcode-java/158-read-n-characters-given-read4-ii-call-multiple-times.java)
+
+## Other
+
+### **Review** 224. Basic Calculator
+
+_Implement a basic calculator to evaluate a simple expression string. The expression string may contain open `(` and closing parentheses `)`, the plus `+` or minus sign `-`, non-negative integers and empty spaces ` `. You may assume that the given expression is always valid._
+
+[224-basic-calculator.java](./leetcode-java/224-basic-calculator.java)
+
+1. Use stack.
+
 ---
 
 ## 149. Max Points on a Line
@@ -907,30 +999,6 @@ _There are two sorted arrays nums1 and nums2 of size m and n respectively. Find 
 2. Compare two middle elements and remove one of the four parts.
 3. Repeat 1-2 until find the mediam.
 4. If total count of numbers is even, you have to do 1-3 again to find two numbers to calculate the median.
-
-## 218. The Skyline Problem
-
-_A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B)._
-
-<img src="https://leetcode.com/static/images/problemset/skyline1.jpg" width="400">
-<img src="https://leetcode.com/static/images/problemset/skyline2.jpg" width="400" align="right">
-
-_The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT\_MAX, 0 < Hi ≤ INT\_MAX, and Ri - Li > 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0._
-
-_For instance, the dimensions of all buildings in Figure A are recorded as: `[ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ]`._
-
-_The output is a list of "key points" (red dots in Figure B) in the format of `[ [x1,y1], [x2, y2], [x3, y3], ... ]` that uniquely defines a skyline. A key point is the left endpoint of a horizontal line segment. Note that the last key point, where the rightmost building ends, is merely used to mark the termination of the skyline, and always has zero height. Also, the ground in between any two adjacent buildings should be considered part of the skyline contour._
-
-_For instance, the skyline in Figure B should be represented as:`[ [2 10], [3 15], [7 12], [12 0], [15 10], [20 8], [24, 0] ]`._
-
-1. Convert build heights to elevation changes pairs, e.g. `[x, height_change]`, for `height_change`, use negative for increase height, positive for decrease in height.
-2. Sort elevation change pairs, put smaller `x` to lower index. If `x` is the same, put increase in height (negative numbers) first.
-3. Use a priority queue to track current elevation to add and remove elevation in O(log(n)) time.
-4. Looping through heights collected in 1 and 2:
-    - If height increase, push to priority queue.
-    - If height decrease, remove from priority queue.
-    - Track previous height, if the head of priority queue (the current height) is the same, do nothing.
-    - If height is different, push current `x` and `height` to result.
 
 ## 33. Search in Rotated Sorted Array
 
@@ -1019,31 +1087,6 @@ _Given a string s, partition s such that every substring of the partition is a p
 
 See [132-palindrome-partitioning-ii.js](./leetcode-js/132-palindrome-partitioning-ii.js)
 
-## 10. Regular Expression Matching
-
-_Implement regular expression matching with support for '.' and '*'._
-
-```
-'.' Matches any single character.
-'*' Matches zero or more of the preceding element.
-
-The matching should cover the entire input string (not partial).
-
-The function prototype should be:
-bool isMatch(const char *s, const char *p)
-
-Some examples:
-isMatch("aa","a") → false
-isMatch("aa","aa") → true
-isMatch("aaa","aa") → false
-isMatch("aa", "a*") → true
-isMatch("aa", ".*") → true
-isMatch("ab", ".*") → true
-isMatch("aab", "c*a*b") → true
-```
-
-See [010-regular-expression-matching.js](./leetcode-js/010-regular-expression-matching.js)
-
 ## 32. Longest Valid Parentheses
 
 _Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring._
@@ -1066,13 +1109,6 @@ _There are N children standing in a line. Each child is assigned a rating value.
 _What is the minimum candies you must give?_
 
 See [135-candy.js](./leetcode-js/135-candy.js)
-
-## 224. Basic Calculator
-
-_Implement a basic calculator to evaluate a simple expression string. The expression string may contain open `(` and closing parentheses `)`, the plus `+` or minus sign `-`, non-negative integers and empty spaces ` `. You may assume that the given expression is always valid._
-
-1. Use [Reverse Polish Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation).
-2. See [224-basic-calculator.js](./leetcode-js/224-basic-calculator.js).
 
 ## 85. Maximal Rectangle
 
@@ -1182,12 +1218,6 @@ See [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
 _Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than `2^31 - 1`._
 
 See [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
-
-## 57. Insert Interval
-
-_Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if necessary). You may assume that the intervals were initially sorted according to their start times._
-
-See [057-insert-interval.js](./leetcode-js/057-insert-interval.js)
 
 ## 37. Sudoku Solver
 
