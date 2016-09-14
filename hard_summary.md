@@ -685,6 +685,48 @@ isMatch("aab", "c*a*b") → true
 
 [010-regular-expression-matching.java](./leetcode-java/010-regular-expression-matching.java)
 
+### **Review** 321. Create Maximum Number
+
+_Given two arrays of length m and n with digits 0-9 representing two numbers. Create the maximum number of length k <= m + n from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the k digits. You should try to optimize your time and space complexity._
+
+    Example 1:
+    nums1 = [3, 4, 6, 5]
+    nums2 = [9, 1, 2, 5, 8, 3]
+    k = 5
+    return [9, 8, 6, 5, 3]
+
+    Example 2:
+    nums1 = [6, 7]
+    nums2 = [6, 0, 4]
+    k = 5
+    return [6, 7, 6, 0, 4]
+
+    Example 3:
+    nums1 = [3, 9]
+    nums2 = [8, 9]
+    k = 3
+    return [9, 8, 9]
+
+[321-create-maximum-number.java](./leetcode-java/321-create-maximum-number.java)
+
+1. Select numbers to assemble max numbser from each array separately.
+    - When selecting from each array, keep track of length of selection and numbers left inside the array, to determine whether we can go back and replace numbers with bigger one.
+2. Loops through all the possible different size combinations of numbers selection from 1.
+3. Merge two group of selected numbers from 1 and compare with previous result.
+    - While merging, when two digits are the same, compare following digits, take digit from larger.
+
+### **Review** 214. Shortest Palindrome
+
+_Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation._
+
+    For example:
+
+    Given "aacecaaa", return "aaacecaaa".
+
+    Given "abcd", return "dcbabcd".
+
+TODO: KMP
+
 ## Hashmap
 
 ### **TODO** 76. Minimum Window Substring
@@ -937,6 +979,35 @@ _Implement a basic calculator to evaluate a simple expression string. The expres
 
 1. Use stack.
 
+### **TODO** 295. Find Median from Data Stream
+
+Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. So the median is the mean of the two middle value.
+
+Examples:
+
+`[2,3,4]` , the median is 3
+
+`[2,3]`, the median is `(2 + 3) / 2 = 2.5`
+
+Design a data structure that supports the following two operations:
+
+- `void addNum(int num)` - Add a integer number from the data stream to the data structure.
+- `double findMedian()` - Return the median of all elements so far.
+
+```
+For example:
+
+add(1)
+add(2)
+findMedian() -> 1.5
+add(3)
+findMedian() -> 2
+```
+
+[295-find-median-from-data-stream.java](./leetcode-java/295-find-median-from-data-stream.java)
+
+1. Use heap.
+
 ---
 
 ## 149. Max Points on a Line
@@ -957,16 +1028,6 @@ _You are given an array x of n positive numbers. You start at point (0,0) and mo
 2. Compare if line i and i - 3 cross each other.
 3. If line i and i - 4 **overlap** each other (when index >= 4).
 4. If line i and i - 5 cross each other.
-
-## 321. Create Maximum Number
-
-_Given two arrays of length m and n with digits 0-9 representing two numbers. Create the maximum number of length k <= m + n from digits of the two. The relative order of the digits from the same array must be preserved. Return an array of the k digits. You should try to optimize your time and space complexity._
-
-1. Select numbers to assemble max numbser from each array separately.
-    - When selecting from each array, keep track of length of selection and numbers left inside the array, to determine whether we can go back and replace numbers with bigger one.
-2. Loops through all the possible different size combinations of numbers selection from 1.
-3. Merge two group of selected numbers from 1 and compare with previous result.
-    - While merging, when two digits are the same, compare following digits, take digit from larger.
 
 ## 233. Number of Digit One
 
@@ -1060,12 +1121,6 @@ See [044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)
 _Given a string s and a dictionary of words dict, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences._
 
 See [140-word-break-ii.js](./leetcode-js/140-word-break-ii.js)
-
-## 214. Shortest Palindrome
-
-_Given a string S, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation._
-
-TODO: KMP
 
 ## 174. Dungeon Game
 
