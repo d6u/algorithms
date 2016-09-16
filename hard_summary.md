@@ -594,6 +594,18 @@ _For instance, the skyline in Figure B should be represented as:`[ [2 10], [3 15
     - Track previous height, if the head of priority queue (the current height) is the same, do nothing.
     - If height is different, push current `x` and `height` to result.
 
+### 33. Search in Rotated Sorted Array
+
+_Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). You are given a target value to search. If found in the array return its index, otherwise return -1. You may assume no duplicate exists in the array._
+
+[033-search-in-rotated-sorted-array.java](./leetcode-java/033-search-in-rotated-sorted-array.java)
+
+1. Using binary search.
+2. In each iteration:
+    1. Determine which part of array is sorted properly.
+    2. Compare target with boundary of the sorted part. If target falls in the boundary, focus in this part in next iteration. If not, focus in the other part.
+    3. Repeat until found.
+
 ## Matrix
 
 ### 296. Best Meeting Point
@@ -726,6 +738,63 @@ _Given a string S, you are allowed to convert it to a palindrome by adding chara
     Given "abcd", return "dcbabcd".
 
 TODO: KMP
+
+### **Review** 44. Wildcard Matching
+
+_Implement wildcard pattern matching with support for '?' and '*'._
+
+```
+'?' Matches any single character.
+'*' Matches any sequence of characters (including the empty sequence).
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "*") → true
+isMatch("aa", "a*") → true
+isMatch("ab", "?*") → true
+isMatch("aab", "c*a*b") → false
+```
+
+[044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)
+
+1. One pass.
+
+### **Review** 265. Paint House II
+
+_There are a row of n houses, each house can be painted with one of the k colors. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color._
+
+_The cost of painting each house with a certain color is represented by a n x k cost matrix. For example, `costs[0][0]` is the cost of painting house 0 with color 0; `costs[1][2]` is the cost of painting house 1 with color 2, and so on... Find the minimum cost to paint all houses._
+
+[265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
+
+### **Review** 85. Maximal Rectangle
+
+_Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area._
+
+    For example, given the following matrix:
+
+    1 0 1 0 0
+    1 0 1 1 1
+    1 1 1 1 1
+    1 0 0 1 0
+
+    Return 6.
+
+#### Solution 1
+
+[085-maximal-rectangle_dp.js](./leetcode-js/085-maximal-rectangle_dp.js)
+
+#### Solution 2
+
+1. Convert it into [84. Largest Rectangle in Histogram](#84-largest-rectangle-in-histogram).
+2. See [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js).
 
 ## Hashmap
 
@@ -1008,6 +1077,12 @@ findMedian() -> 2
 
 1. Use heap.
 
+### **Review** 273. Integer to English Words
+
+_Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than `2^31 - 1`._
+
+[273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
+
 ---
 
 ## 149. Max Points on a Line
@@ -1061,18 +1136,6 @@ _There are two sorted arrays nums1 and nums2 of size m and n respectively. Find 
 3. Repeat 1-2 until find the mediam.
 4. If total count of numbers is even, you have to do 1-3 again to find two numbers to calculate the median.
 
-## 33. Search in Rotated Sorted Array
-
-_Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). You are given a target value to search. If found in the array return its index, otherwise return -1. You may assume no duplicate exists in the array._
-
-[033-search-in-rotated-sorted-array.java](./leetcode-java/033-search-in-rotated-sorted-array.java)
-
-1. Using binary search.
-2. In each iteration:
-    1. Determine which part of array is sorted properly.
-    2. Compare target with boundary of the sorted part. If target falls in the boundary, focus in this part in next iteration. If not, focus in the other part.
-    3. Repeat until found.
-
 ## 154. Find Minimum in Rotated Sorted Array II
 
 _Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2). Find the minimum element. The array may contain duplicates._
@@ -1090,31 +1153,6 @@ _Suppose a sorted array is rotated at some pivot unknown to you beforehand. (i.e
 _Given an array of words and a length L, format the text such that each line has exactly L characters and is fully (left and right) justified. You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly L characters. Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right. For the last line of text, it should be left justified and no extra space is inserted between words._
 
 See [068-text-justification_shorter.js](./leetcode-js/068-text-justification_shorter.js).
-
-## 44. Wildcard Matching
-
-_Implement wildcard pattern matching with support for '?' and '*'._
-
-```
-'?' Matches any single character.
-'*' Matches any sequence of characters (including the empty sequence).
-
-The matching should cover the entire input string (not partial).
-
-The function prototype should be:
-bool isMatch(const char *s, const char *p)
-
-Some examples:
-isMatch("aa","a") → false
-isMatch("aa","aa") → true
-isMatch("aaa","aa") → false
-isMatch("aa", "*") → true
-isMatch("aa", "a*") → true
-isMatch("ab", "?*") → true
-isMatch("aab", "c*a*b") → false
-```
-
-See [044-wildcard-matching.js](./leetcode-js/044-wildcard-matching.js)
 
 ## 140. Word Break II
 
@@ -1164,13 +1202,6 @@ _There are N children standing in a line. Each child is assigned a rating value.
 _What is the minimum candies you must give?_
 
 See [135-candy.js](./leetcode-js/135-candy.js)
-
-## 85. Maximal Rectangle
-
-_Given a 2D binary matrix filled with 0's and 1's, find the largest rectangle containing all ones and return its area._
-
-1. Convert it into [84. Largest Rectangle in Histogram](#84-largest-rectangle-in-histogram).
-2. See [085-maximal-rectangle.js](./leetcode-js/085-maximal-rectangle.js).
 
 ## 41. First Missing Positive
 
@@ -1259,20 +1290,6 @@ See [115-distinct-subsequences.js](./leetcode-js/115-distinct-subsequences.js)
 _Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection (one to one, and vise versa) between a letter in pattern and a non-empty substring in str._
 
 See [291-word-pattern-ii.js](./leetcode-js/291-word-pattern-ii.js)
-
-## 265. Paint House II
-
-_There are a row of n houses, each house can be painted with one of the k colors. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color._
-
-_The cost of painting each house with a certain color is represented by a n x k cost matrix. For example, `costs[0][0]` is the cost of painting house 0 with color 0; `costs[1][2]` is the cost of painting house 1 with color 2, and so on... Find the minimum cost to paint all houses._
-
-See [265-paint-house-ii.js](./leetcode-js/265-paint-house-ii.js)
-
-## 273. Integer to English Words
-
-_Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than `2^31 - 1`._
-
-See [273-integer-to-english-words.js](./leetcode-js/273-integer-to-english-words.js)
 
 ## 37. Sudoku Solver
 

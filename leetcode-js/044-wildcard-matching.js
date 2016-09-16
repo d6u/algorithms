@@ -26,10 +26,10 @@ var isMatch = function(s, p) {
         } else if (star !== -1) {
             // 4. No match, go back to last star position
             j = star + 1;
-            i = mark;
 
             // increase start matched characters
             mark += 1;
+            i = mark;
         } else {
             return false;
         }
