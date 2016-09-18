@@ -1,3 +1,31 @@
+# System Design
+
+## Sharding
+
+Advantages:
+
+- High availability
+- Faster queries
+- More write bandwidth
+- You can do more work in parallel
+
+Vs. Traditional Architectures:
+
+- Data are denormalized
+- Data are parallelized across many physical instances
+- Data are kept small (more chance of staying in cache)
+- Data are more highly available
+- It doesn't use replication
+
+Problems:
+
+- Rebalancing data
+- Joining data from multiple shards
+- How do you partition your data in shards?
+- Less leverage (less help from community)
+- Implementing shards is not well supported
+
+
 Facebook most asked design questions (basically most used products/features in FB):
 New feed:
 https://code.facebook.com/posts/781984911887151/serving-facebook-multifeed-efficiency-performance-gains-through-redesign/
@@ -163,22 +191,6 @@ memcache如何design，这个很有用。。我亚麻面试的时候就问到了
 
 
 
-
-对于0基础的同学们 下面的资料可以按顺序开始看
-1. http://www.hiredintech.com/app#system-design
-    这是一个专门准备面试的网站 你只用关心system design部分 有很多的link后面会重
-    复提到 建议看完至少一遍
-     url shortening service必须要看，同时可以看这个http://n00tc0d3r.blogspot.com/
-
-2. https://www.youtube.com/watch?v=-W9F__D3oY4(视频在1.的网站里）
-非常非常好的入门资料 建议看3遍以上！
-这是1里面提到的资料 是Harvard web app课的最后一节 讲scalability 里面会讲到很
-多基础概念比如Vertical scaling, Horizontal scaling, Caching, Load balancing,
-Database replication, Database partitioning 还会提到很多基本思想比如avoid
-single point of failure
-
-3. http://www.lecloud.net/post/7295452622/scalability-for-dummies-part-1-clones
-    里面提到的 Scalability for Dummies 还算不错 可以看一遍 知道基本思想
 
 == 进阶 ==
 

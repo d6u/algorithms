@@ -12,11 +12,7 @@
  */
 var BSTIterator = function(root) {
     this.stack = [];
-    var node = root;
-    while (node) {
-        this.stack.push(node);
-        node = node.left;
-    }
+    this.pushAll(root);
 };
 
 
@@ -33,13 +29,16 @@ BSTIterator.prototype.hasNext = function() {
  * @returns {number} - the next smallest number
  */
 BSTIterator.prototype.next = function() {
-    var node = this.stack.pop();
-    var node2 = node.right;
-    while (node2) {
-        this.stack.push(node2);
-        node2 = node2.left;
-    }
+    const node = this.stack.pop();
+    this.pushAll(node.right);
     return node.val;
+};
+
+BSTIterator.prototype.pushAll = function(node) {
+    while (node) {
+        this.stack.push(node);
+        node = node.left;
+    }
 };
 
 /**

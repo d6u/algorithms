@@ -11,41 +11,37 @@
  * @return {void} Do not return anything, modify tree in-place instead.
  */
 var connect = function(root) {
-    'use strict';
-
     if (!root) {
         return;
     }
 
-    let aboveLeftMost = root;
-    let aboveCurrent;
-    let leftMost;
-    let current;
+    let tl = root;
 
-    while (aboveLeftMost) {
-        aboveCurrent = aboveLeftMost;
-        while (aboveCurrent) {
-            if (aboveCurrent.left) {
-                if (!leftMost) {
-                    current = leftMost = aboveCurrent.left;
+    while (tl) {
+        let tc = tl;
+        let l = null;
+        let c = null;
+        while (tc) {
+            if (tc.left) {
+                if (!l) {
+                    l = tc.left;
+                    c = l;
                 } else {
-                    current.next = aboveCurrent.left;
-                    current = current.next;
+                    c.next = tc.left;
+                    c = c.next;
                 }
             }
-
-            if (aboveCurrent.right) {
-                if (!leftMost) {
-                    current = leftMost = aboveCurrent.right;
+            if (tc.right) {
+                if (!l) {
+                    l = tc.right;
+                    c = l;
                 } else {
-                    current.next = aboveCurrent.right;
-                    current = current.next;
+                    c.next = tc.right;
+                    c = c.next;
                 }
             }
-
-            aboveCurrent = aboveCurrent.next;
+            tc = tc.next;
         }
-        aboveLeftMost = leftMost;
-        leftMost = null;
+        tl = l;
     }
 };

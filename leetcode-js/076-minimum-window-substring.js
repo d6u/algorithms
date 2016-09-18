@@ -4,64 +4,63 @@
  * @return {string}
  */
 var minWindow = function(s, t) {
-    const sl = s.length;
-    const tl = t.length;
-
-    // 1. Use array as a map of 26 letters include both lower and upper cases
-    const needToFind = Array(122).fill(0);
-
-    // 2. Record how many we need to find
-    for (let i = 0; i < tl; i++) {
-        needToFind[charToInt(t[i])] += 1;
+    if (!t.length || !s.length) {
+        return '';
     }
 
-    const hasFound = Array(122).fill(0);
-    let minWindowLen = sl;
-    let minWindowBegin = 0;
-    let count = 0;
+    const needToFind = {};
+    const found = {};
 
-    for (let begin = 0, end = 0; end < sl; end += 1) {
+    for (const c of t) {
+        if (!needToFind[c]) {
+            needToFind[c] = 0;
+        }
+        needToFind[c]++;
+    }
 
-        // 3. Start by extending the end of the window
-        const endCharInt = charToInt(s[end]);
+    let count = t.length;
+    let start = 0;
+    let min = Infinity;
+    let j = 0;
 
-        if (needToFind[endCharInt] === 0) {
+    for (let i = 0; i < s.length; i++) {
+        const c = s[i];
+
+        if (needToFind[c] == null) {
             continue;
         }
 
-        hasFound[endCharInt] += 1;
-
-        if (hasFound[endCharInt] <= needToFind[endCharInt]) {
-            // 4. Maintain a count of chars from t that's included
-            count += 1;
+        if (found[c] == null) {
+            found[c] = 0;
         }
 
-        // 5. When all chars in t are found,
-        // start reducing the window from start
-        if (count === tl) {
-            let beginCharInt = charToInt(s[begin]);
+        found[c]++;
 
-            while (needToFind[beginCharInt] === 0 || hasFound[beginCharInt] > needToFind[beginCharInt]) {
-                if (hasFound[beginCharInt] > needToFind[beginCharInt]) {
-                    hasFound[beginCharInt] -= 1;
-                }
-                begin += 1;
-                beginCharInt = charToInt(s[begin]);
+        if (found[c] <= needToFind[c]) {
+            count--;
+        }
+
+        if (count > 0) {
+            continue;
+        }
+
+        let leftC = s[j];
+
+        while (needToFind[leftC] == null || found[leftC] > needToFind[leftC]) {
+            if (found[leftC] > needToFind[leftC]) {
+                found[leftC]--;
             }
+            j++;
+            leftC = s[j];
+        }
 
-            const windowLen = end - begin + 1;
-
-            // 6. When found a smaller length, update the records
-            if (windowLen < minWindowLen) {
-                minWindowBegin = begin;
-                minWindowLen = windowLen;
-            }
+        if (i - j + 1 < min) {
+            min = i - j + 1;
+            start = j;
         }
     }
 
-    return count === tl ? s.substr(minWindowBegin, minWindowLen) : '';
+    return count === 0 ? s.substr(start, min) : '';
 };
 
-function charToInt(c) {
-    return c.charCodeAt(0) - 65;
-}
+console.log(minWindow("ADOBECODEBANC", "ABC"))

@@ -23,3 +23,5 @@ var minSubArrayLen = function(s, nums) {
 
     return len === nums.length + 1 ? 0 : len;
 };
+
+console.log(minSubArrayLen(7, [2,3,1,2,8,-1]))

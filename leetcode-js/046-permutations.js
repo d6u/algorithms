@@ -3,22 +3,21 @@
  * @return {number[][]}
  */
 var permute = function(nums) {
-    const results = [];
-    getResults([], nums, new Set(), results);
-    return results;
-};
+    let res = [[nums[0]]];
 
-function getResults(solution, nums, used, results) {
-    if (used.size === nums.length) {
-        results.push(solution);
-        return;
-    }
+    for (let i = 1; i < nums.length; i++) {
+        const newRes = [];
 
-    for (const n of nums) {
-        if (!used.has(n)) {
-            used.add(n);
-            getResults(solution.concat(n), nums, used, results);
-            used.delete(n);
+        for (const r of res) {
+            for (let j = 0; j <= i; j++) {
+                r.splice(j, 0, nums[i]);
+                newRes.push(r.slice());
+                r.splice(j, 1);
+            }
         }
+
+        res = newRes;
     }
-}
+
+    return res;
+};
