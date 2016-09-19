@@ -58,16 +58,6 @@ Reservoir Sampling 不需要额外space
 
 提供了一个函数，isPassword(String str)，如果pass in的是正确的密码，return true。又给定了每个字母可以变形的集合（例如，字母a可以变形为a或者A或者B或者 `*`, 字母b可以变形为B或者F或者&...，需要自己设计一个data structure来存这个mapping），设计并实现一个函数，在给定一个字符串的情况下，对字符串进行变形，最后找到正确的密码。`*` 是简单的排列组合dfs问题么？对应leetcode17 。只不过字典由10变为256。
 
-### Meeting room
-
-http://www.lintcode.com/en/problem/number-of-airplanes-in-the-sky/
-
-Meeting room 变形：有一个类似meeting room的问题，让求的不是需要多少room，而是给出重合最多的时间点，或者说有最多meeting的时间点？Answer：排序好starttime和endtime,遇到starttime +1，遇到endtime-1，同时记录当前starttime，endtime的区间。保持最大的那个count然后返回它的区间不就好了？
-
-### subarray sum to target
-
-输入一个array，元素都不是负数 和一个 int: target   输出是否存在有没有subarray sum = target, follow up 有负数怎么办
-
 ### 一个矩阵斜着走的list例子如下
 
 123
@@ -82,22 +72,9 @@ Meeting room 变形：有一个类似meeting room的问题，让求的不是需�
 
 ### Min Queue
 
-跟Min Stack类似， 实现一个Queue， 然后O（1）复杂度获得这个Queue里最小的元素
+跟Min Stack类似， 实现一个Queue， 然后 O(1) 复杂度获得这个Queue里最小的元素
 
-### For a given a binary tree, print paths from root to all leaf nodes, one path per line.
-
-For tree:
-
-        A
-        / \
-       B   C
-      /   / \
-     D   E   F
-ABD
-ACE
-ACF
-
-### 给出两个string, leetcode, codyabc和一个数字k = 3,问两个string里面存不存在连续的common substring大于等于k.
+### 给出两个string, `leetcode`, `codyabc` 和一个数字 k = 3，问两个 string 里面存不存在连续的 common substring 大于等于k.
 
 比如这个例子，两个string都有cod,所以返回true。楼主用dp建了一个m*n的table秒了，然后写test case,发现有个小corner case,改了,pass
 
@@ -172,8 +149,4 @@ http://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=189214&extra=page%3
 现在把一个leaf翻牌子（0变1或者1变0）
 把树修正一遍
 
-### 找两个array 里面相同的数字
-
-follow-up就是给你一个 `user_id` 和API 接口 get_friend(int id),
-
-让你找出所有user id 是你的朋友的朋友但不是你的朋友，然后根据mutual friends的数量排序
+### 就是给你一个 `user_id` 和API 接口 get_friend(int id), 让你找出所有user id 是你的朋友的朋友但不是你的朋友，然后根据mutual friends的数量排序
