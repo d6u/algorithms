@@ -9,31 +9,33 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
         return false;
     }
 
-    const map = new Map();
+    const buckets = new Map();
+    const size = t + 1;
+    const shift = Math.pow(2, 31);
 
     for (let i = 0; i < nums.length; i++) {
-        const n = nums[i];
-        const key = Math.floor(n / Math.max(1, t));
+        const n = nums[i] + shift;
+        const bucket = Math.floor(n / size);
 
-        for (const m of [key, key - 1, key + 1]) {
-            if (map.has(m) && Math.abs(n - map.get(m)) <= t) {
-                return true;
-            }
+        if (buckets.has(bucket)
+            || (buckets.has(bucket - 1) && n - buckets.get(bucket - 1) <= t)
+            || (buckets.has(bucket + 1) && buckets.get(bucket + 1) - n <= t)) {
+            return true;
         }
-
-        map.set(key, n);
 
         if (i >= k) {
-            removeFirst(map);
+            removeFirst(buckets);
         }
+
+        buckets.set(bucket, n);
     }
 
     return false;
 };
 
 function removeFirst(map) {
-    const first = map.keys().next().value;
-    map.delete(first);
+    const k = map.keys().next().value;
+    map.delete(k);
 }
 
 // console.log(containsNearbyAlmostDuplicate([1, 0, 1, 1], 1, 0));

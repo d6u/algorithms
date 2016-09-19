@@ -23,10 +23,8 @@ function remove(s, lastI, lastJ, parentheses, result) {
         }
 
         for (let j = lastJ; j <= i; j += 1) {
-            if (s[j] === parentheses[1] &&
-                // Make sure s[j] is the first "(" or ")"
-                (j === lastJ || s[j - 1] !== parentheses[1])) {
-
+            // Make sure s[j] is the first "(" or ")"
+            if (s[j] === parentheses[1] && (j === lastJ || s[j - 1] !== parentheses[1])) {
                 remove(removeCharAt(s, j), i, j, parentheses, result);
             }
         }

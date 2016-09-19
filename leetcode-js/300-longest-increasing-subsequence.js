@@ -3,28 +3,27 @@
  * @return {number}
  */
 var lengthOfLIS = function(nums) {
-    'use strict';
-
-    if (!nums.length) {
-        return 0;
+    const res = [];
+    for (const n of nums) {
+        res[binarySearch(res, n)] = n;
     }
+    return res.length;
+};
 
-    const dp = [nums[0]];
-
-    for (const n of nums.slice(1)) {
-        if (dp[dp.length - 1] < n) {
-            dp.push(n);
+function binarySearch(arr, t) {
+    let l = 0;
+    let r = arr.length - 1;
+    while (l <= r) {
+        const m = Math.floor((l + r) / 2);
+        if (arr[m] === t) {
+            return m;
+        } else if (arr[m] < t) {
+            l = m + 1;
         } else {
-            for (let i = 0; i < dp.length; i += 1) {
-                if (dp[i] >= n) {
-                    dp.splice(i, 1, n);
-                    break;
-                }
-            }
+            r = m - 1;
         }
     }
-
-    return dp.length;
-};
+    return l;
+}
 
 console.log(lengthOfLIS([3,5,6,2,5,4,19,5,6,7,12]));

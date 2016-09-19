@@ -4,19 +4,23 @@
  * @return {number}
  */
 var maxSubArrayLen = function(nums, k) {
-    var sum = 0;
-    var max = 0;
-    var map = new Map();
-    for (var i = 0; i < nums.length; i += 1) {
-        sum += nums[i];
-        if (sum === k) {
-            max = i + 1;
-        } else if (map.has(sum - k)) {
-            max = Math.max(max, i - map.get(sum - k));
+    const sums = [0];
+
+    for (let i = 0; i < nums.length; i++) {
+        sums[i + 1] = sums[i] + nums[i];
+    }
+
+    const map = new Map();
+    let max = 0;
+
+    for (let i = 0; i < sums.length; i++) {
+        if (map.has(sums[i] - k)) {
+            max = Math.max(max, i - map.get(sums[i] - k));
         }
-        if (!map.has(sum)) {
-            map.set(sum, i);
+        if (!map.has(sums[i])) {
+            map.set(sums[i], i);
         }
     }
+
     return max;
 };
