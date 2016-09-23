@@ -1,9 +1,3 @@
-### 91 decode ways - follow ups
-
-Follow up 1: optimize space complexity to O(1)
-
-Follow up 2: 给定一个定长的序列（可以非常长），请给出 solution 输出所有可能的字母组合
-
 ### 209 Minimum Size Subarray Sum - follow up
 
 follow up: contains negative
