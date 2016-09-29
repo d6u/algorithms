@@ -6,11 +6,10 @@ var findItinerary = function(tickets) {
     const map = new Map();
 
     for (const ticket of tickets) {
-        if (map.has(ticket[0])) {
-            map.get(ticket[0]).push(ticket[1]);
-        } else {
-            map.set(ticket[0], [ticket[1]]);
+        if (!map.has(ticket[0])) {
+            map.set(ticket[0], []);
         }
+        map.get(ticket[0]).push(ticket[1]);
     }
 
     for (const queue of map.values()) {

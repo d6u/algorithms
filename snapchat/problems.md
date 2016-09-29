@@ -63,6 +63,8 @@ similar: LC 76 Minimum window substring
 
 follow up: improve, cache or trie?
 
+follow up: return one string, use divide and conquer
+
 ## Parse log
 
 Use file system API
@@ -95,150 +97,95 @@ follow up: 如果其中有一个负数怎么办？这里你需要跟面试官cla
 
 题目是 given a pattern, given input string check whether it follows the pattern.  eg: pattern = "abba", input = "bigsmallsmallbig" return true.
 
----
+## LC 332 Reconstruct Itinerary
 
-第二轮（8-30）第一道题是机票排序（Leetcode 332）。比如从一段LAX到NYC的旅程，我们中途停留三站，LAX->SEA，SEA->POR，POR->CHI，CHI->NYC，于是乎有四张机票。输入时一堆乱序的机票List，输出是排好序的机票List。输入输出格式都可以自己定义。和面试官讨论了一下时间空间复杂度。
-           第二道题是链表拷贝（Leetcode138）。定义了一种新的链表，在单链表的基础上增加了一个random指针，所以这个链表的每个node有两个指针，一个是next，指向下一个节点，一个random，指向单链表上的一个随机节点。输入一个链表head，想办法把链表拷贝一份，输出拷贝链表head。想了一下，跟面试官说了一下思路
+## LC one edit distance
 
-08-11
+给一个target串，判断另外source串中有没有substring满足edit distance of target and that substring <= 1，讲下思路然后写，没写完整
 
-1. 只问了一道题，用前序中序遍历构建树
-小哥又让写test case检测，所以又写了前序和中序遍历的两个方法，以及检测其他invalid情况的方法。
+## 给两个节点，判断两个人是不是6度之内的朋友并且返回中间有多少人
 
-08-08
-
-店面 1： 给一个矩阵，对角线打印，从右上角打印到左下角，那天头晕晕的，以为是面经上的zig zag print，写完才发现不是，然后改了改。
-
-另一题：给一个二维数组，对角线打印
-
-    1 2 3 4
-    5 6 7 8
-    9 10 11 12
-
-  打印出
-
-    1
-    2 5
-    3 6 9
-    4 7 10
-    8 11
-    12
-
-第二题是给两个string，判断在大的string中是不是有小的string的anagram，我用一个map记录两个string中character的difference的方法做的。
-
-店面2：出了leetcode原题，sqrt和one edit distance。
-
-另一题：给一个target串，判断另外source串中有没有substring满足edit distance of target and that substring <= 1，讲下思路然后写，没写完整。
-
-Onsite 1：给两个节点，判断两个人是不是6度之内的朋友并且返回中间有多少人
 一开始给了用queue和set的bfs解法，他说空间复杂度太高了，后来说用dfs，他说空间还是高，毕竟要用set存访问过的节点，我实在想不出来了，要了提示，可是感觉提示也并不是那么明显，我说能不能从两个点分别开始搜？他说你觉得这对复杂度有优化吗？我就觉得这估计也没戏。
 他说你先写一个你的解法，有时间我们再优化。写了那个bfs的，写完他让给test case，我忘了a和b是同一个人以及a和b中间人数多于6个的情况了，他提醒了一下加上了一两句判断。写好之后他看了觉得应该没bug了，让我问问题了，我还在纠结优化，他说10min估计不够了，优化是optional的(估计是安慰我的)
 
-Onsite 2：感觉是word search 简易版，一个字典，给个单词，判断单词在不在字典里。和第二轮一样，一下子就觉得应该用trie做，本来以为没啥问题，结果写search的时候脑抽了，写了个bug，改了一下，又跑了另一个test case，结果还有一个bug，还好及时改好了，估计这里减分了。follow up就是如果单词里有问号，代表任意字母，判断字典里是不是有这个pattern的单词。用dfs挺快写好了，跑了几个test case也没啥问题。他好像说挺好的.
+## word search
 
-Onsite: merge two sorted list， follow up是merge k sorted list，写完test case跑过了，问了问复杂度。她看还有好久再写一个吧，给inorder和postorder建树，我用recursion做，结果最后在子数组边界的地方加一减一的地方老是有问题，然后让她说没事，我相信你很快就能调好的，思路是对的，不用纠结了。
+简易版，一个字典，给个单词，判断单词在不在字典里。
 
-08-07
+follow up: 就是如果单词里有问号，代表任意字母，判断字典里是不是有这个pattern的单词。
 
-1. Word Search 变形，输出字典里面每一个单词出现的次数。Follow up是怎么scale，要求把代码写下来再运行
+Word Search 变形，输出字典里面每一个单词出现的次数。Follow up是怎么scale，要求把代码写下来再运行
 
-2. Word Break II (另一题有稍微改动：只能return 一个 string， 不能input string path，就是 input argument里面不能有path, 用 divide and conquer 去做， 本次递归利用下层递归的返回值， 加上空格继续返回， 最后只返回一个string 最为结果就行， 但是觉得这样并没有变简单）
+## 有墙找路的变形 1 是路 0 是墙， 让你从左边col的任意点走到右边col的任意点的最小step。走不到就返回-1
 
-另一题：一个是 word break II，给个字典，如何break Ilovenyc 问了时间复杂度，worst case是什么时候，为什么solution会比brute force search好，大概说了一下怎么剪枝。 比如word：aaaaa dict= {a, aa, aaa, aaaa, aaaaa}.
-
-08-06
-
-有墙找路的变形 1 是路 0 是墙， 让你从左边col的任意点走到右边col的任意点的最小step。走不到就返回-1
 注意起始点是任意左col的点 而不是左上 ， 也不是走到右下。 要考虑到中间如果有一个col全部都是0（墙）的case
 
-另一题：题目有点类似wall and gate，就是一个二维迷宫，0表示可以走，1表示障碍物，问从其中某点到另一点有没有通路。用BFS+染色法做了。follow up是打印出这条路（不必是最短路径）是什么，但是我没时间写这个了。就把之前那个找不找得到的写了testcase跑过了。
+follow up: print path
 
-另一题：是一道面经题：地里出现过，俗称有墙找路：
-题目是一个矩阵里某些位置有墙，给一个出发点及目的地，求最短距离。follwup是现在墙可以打破，没打破一个cost为1，求cost最小的路线。
+follow up: 是现在墙可以打破，没打破一个 cost 为1，求 cost 最小的路线。
 
-07-30
+## 以BST实现Hash table，只需要支持int型hash到int型。
 
-以BST实现Hash table，只需要支持int型hash到int型。
 几个接口函数：
 int getValue(int)
 void insert(int)
 bool erase(int)
 
+## Evaluate String
 
-07-27
+(2*3)+6
 
-1. Evaluate String （Stack 高频题。（2*3） ＋ 6 这种，还有大括号，小括号等要处理）
-**括号和乘除都有。注意要用额外一个stack来注意大小括号是否对应。这道题要用two stacks做，在GeekforGeeks上有这道题  http://www.geeksforgeeks.org/expression-evaluation/  。有提到说可以先用shunting yard转换成post fix，然后就容易了
+http://www.geeksforgeeks.org/expression-evaluation/
 
-07-27
+## minstack
 
-Phone: 实现一个minstack
+## number of island
 
-Phone：Number of Island
+## House Robber
 
-Phone：House Robber
+## 定义一个UndirectedUnweightedGraph类，首先要自己定义构造函数的参数，然后定义以下函数：addEdge(), hasEdge(), numberOfEdges()
 
-7-19
+题目是实现一个无向无权图（简单吧。。。。），要求能增加一条边、判断两个节点之间是否存在直接边、返回边的条数。第一次写没有import，各种undefined errors。虽然最后package的名字都是面试官告诉我的，但毕竟想到要import的是我，所以祈求少扣点分吧。。。。import之后还有个语法错误，是面试官出手解决的。这里估计大出血。但更大出血的是在我定义了一个adjList之后，面试官问我，adjList这个东西是线性的，有没有更好的方法。我当时一下就蒙了，图从来都是用adjList表达的，所以我说现在我只能想到这个方法，最多就是每个节点的adjacent nodes放到一个哈希表里面。然后写完了，自己写了个简单的test case，有个bug，主要是添加的边有重复的时候，边的数量统计会出错。改了一下改好了。面试官说我把每条边都对称的保存了一遍，有没有办法把storage砍掉一半？我就说，每次添加一条边的时候，把较小的节点挑出来，只把这条边保存在较小的节点的adjacency hashSet里面。他说OK。
 
-定义一个UndirectedUnweightedGraph类，首先要自己定义构造函数的参数，然后定义以下函数：addEdge(), hasEdge(), numberOfEdges()
+最后是follow up，没写完，说了个思路，而且可能不对。要写一个图的serialize和deserialize函数，要求打包到最小。我又蒙了，只搞过树的serialize，没搞过图的serialize 啊。只能说，首先把节点个数放在字符串的头部，然后把所有边保存为节点对，节点对用逗号分隔，每对节点内用空格分隔，然后所有的节点对放在一个字符串里面。这个follow up真的没想通，面试官强调压缩到最小，是不是在暗示什么特别的算法。
 
-题目是实现一个无向无权图（简单吧。。。。），要求能增加一条边、判断两个节点之间是否存在直接边、返回边的条数。第一次写没有import，各种undefined errors。虽然最后package的名字都是面试官告诉我的，但毕竟想到要import的是我，所以祈求少扣点分吧。。。。import之后还有个语法错误，是面试官出手解决的。这里估计大出血。但更大出血的是在我定义了一个adjList之后，面试官问我，adjList这个东西是线性的，有没有更好的方法。我当时一下就蒙了，图从来都是用adjList表达的，所以我说现在我只能想到这个方法，最多就是每个节点的adjacent nodes放到一个哈希表里面。然后写完了，自己写了个简单的test case，有个bug，主要是添加的边有重复的时候，边的数量统计会出错。改了一下改好了。面试官说我把每条边都对称的保存了一遍，有没有办法把storage砍掉一半？我就说，每次添加一条边的时候，把较小的节点挑出来，只把这条边保存在较小的节点的adjacency hashSet里面。他说OK。最后是follow up，没写完，说了个思路，而且可能不对。要写一个图的serialize和deserialize函数，要求打包到最小。我又蒙了，只搞过树的serialize，没搞过图的serialize 啊。只能说，首先把节点个数放在字符串的头部，然后把所有边保存为节点对，节点对用逗号分隔，每对节点内用空格分隔，然后所有的节点对放在一个字符串里面。这个follow up真的没想通，面试官强调压缩到最小，是不是在暗示什么特别的算法。
+## LC Multiply Strings，
 
-07-17
+需要考虑输入为负数
 
-LC Multiply Strings，需要考虑输入为负数
+## 2D array的搜索，大概就是在有障碍物的2d array中，找离某几个点路径和最近的点
 
-07-11
+## 8 * 8的棋盘给起点和终点， 找一共有多少条路径
 
-Phone：平方根
+## longest incresing subsequence
 
-Onsite 1：找两个树节点（非二叉）的最近公共parent。递归做完了，感觉面试官不是很开心，但又不讲。
+## 有一个图， 每个节点的indegree可能是无限的， 每个节点的outdegree是2 （除了子节点），每个节点的val是char, 问inorder traversal 这个图的复杂度，
 
-Onsite 2:  做了一题2D array的搜索，大概就是在有障碍物的2d array中，找离某几个点路径和最近的点。写的磕磕巴巴的，没有做完
-
-Onsite 3:  第一题是图的回溯递归。
-
-06-20
-
-Onsite 1：面经里有的那道detect cycle题.
-另外一题类似于LRU， LRU做过了基本没问题
-detect cycle in directed graph
-    interface:
-    class snap {
-       vector<snap*> next;
-       bool hasCycle();
-
-    }
-另一题LRU：Implement LRU
-
-Onsite 2：8 * 8的棋盘给起点和终点， 找一共有多少条路径
-
-Onsite 3：问的问题是longest incresing subsequence， 似乎是lintcode上的题？还有一题是大数乘法
-
-Onsite 4:  有一个图， 每个节点的indegree可能是无限的， 每个节点的outdegree是2 （除了子节点），每个节点的val是char, 问inorder traversal 这个图的复杂度， 然后implement function
-int getKth(TreeNode root, int k)
+然后implement function int getKth(TreeNode root, int k)
 返回inorder tarversal里的第k个元素。
 总之需要对图论有极强的理解才能答上来，对dfs, bfs, dp, 图论有极强的理解
 
-06-12
+## Binary tree to double linked list
 
-Onsite 1：Binary tree to double linked list
-设计一个支持range query的数据结构，存的是类似`2016-3-15-09：30-service1`这样的结构，就是date加上用了哪个service的记录，然后给个时间区间求某个service用了多少次，没写代码，就说想法
+## 设计一个支持range query的数据结构，存的是类似`2016-3-15-09：30-service1`这样的结构，就是date加上用了哪个service的记录，然后给个时间区间求某个service用了多少次，没写代码，就说想法
 
-Onsite 2:   single thread log 以及followup, 面经高频
+## single thread log 以及followup, 面经高频
 
-Onsite 3：* LC path sum 1, 2
-  * 3d grid，每个点有高度， 给起点和终点，求一个直升机起点到终点高度和最小的路径，注意一点是直升机只能上升不能下降-
+## LC path sum 1, 2
 
- 直升机那道题其实就是个2d array，array[j] 存的就是高度了，他给了任意两点，求直升机从一点起飞飞到另一点的高度之和，约束条件是飞机只能保持在原有高度或者往上飞，不能往下飞
+## 3d grid，每个点有高度，给起点和终点，求一个直升机起点到终点高度和最小的路径，注意一点是直升机只能上升不能下降, 直升机那道题其实就是个2d array，array[j] 存的就是高度了，他给了任意两点，求直升机从一点起飞飞到另一点的高度之和，约束条件是飞机只能保持在原有高度或者往上飞，不能往下飞
 
-Onsite 4：一堆数里加`（）+ *`， 求最大值，followup 求back trace求最大值的string表达式
-**第四题裸DP吧，f表示从i到j的数字能形成的最大值
+## 一堆数里加`（）+ *`， 求最大值，
+
+follow up: 求back trace求最大值的string表达式
+
+## f表示从i到j的数字能形成的最大值
+
 **对的，其实是三维dp，dp[j] = max(max(dp[i+k]+dp[i+k+1][j], dp[i+k]*dp[i+k+1][j]),dp[j])
-补充内容 (2016-6-12 22:48):
+
 dp(I,J), i打不出来。。。
 
-06-11
+---
 
 Phone 2:  名词加复数。给我了个链接，http://www.factmonster.com/ipka/A0886509.html，follow这些rules。给一个String[] list，返回他们的复数形式
 
