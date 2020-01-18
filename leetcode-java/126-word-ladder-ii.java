@@ -1,72 +1,95 @@
-public class Solution {
-    public List<List<String>> findLadders(String beginWord, String endWord, Set<String> wordList) {
-        wordList.add(beginWord);
-
-        Map<String, Node> current = new HashMap<>();
-        current.put(endWord, new Node(endWord));
-
-        while (!current.containsKey(beginWord)) {
-            Map<String, Node> next = new HashMap<>();
-
-            for (Map.Entry<String, Node> entry : current.entrySet()) {
-                String word = entry.getKey();
-                Node node = entry.getValue();
-                addWord(wordList, word, node, next);
-            }
-
-            if (next.isEmpty()) {
-                return new LinkedList<>();
-            }
-
-            for (String word : next.keySet()) {
-                wordList.remove(word);
-            }
-
-            current = next;
+class Solution {
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        if (!wordList.contains(endWord)) {
+            return new LinkedList();
         }
+        
+        Set<String> wordSet = new HashSet(wordList);
+        wordSet.remove(endWord);
+        wordSet.add(beginWord);
+        
+        Map<String, Set<String>> graph = new HashMap();
+        
+        // BFS
 
-        List<List<String>> res = new LinkedList<>();
-        List<String> solution = new LinkedList<>();
-        solution.add(beginWord);
+        Set<String> currentLevel = new HashSet();
+        currentLevel.add(endWord);
+        
+        while (!currentLevel.contains(beginWord)) {
+            Set<String> nextLevel = new HashSet();
 
-        extractPath(endWord, current.get(beginWord), solution, res);
-
-        return res;
-    }
-
-    class Node {
-        String word;
-        List<Node> neighbours = new LinkedList<>();
-
-        Node(String word) {
-            this.word = word;
+            for (String word : currentLevel) {
+                addWord(word, wordSet, graph, nextLevel);
+            }
+            
+            if (nextLevel.isEmpty()) {
+                return new LinkedList();
+            }
+            
+            for (String word : nextLevel) {
+                wordSet.remove(word);
+            }
+            
+            currentLevel = nextLevel;
         }
+        
+        // DFS
+        
+        List<List<String>> result = new LinkedList();
+        
+        List<String> path = new LinkedList();
+        path.add(beginWord);
+        
+        extractPaths(result, endWord, graph, path, beginWord);
+        
+        return result;
     }
-
-    void addWord(Set<String> wordList, String currentWord, Node currentNode, Map<String, Node> next) {
-        for (int i = 0; i < currentWord.length(); i++) {
-            for (int j = 0; j < 26; j++) {
-                String word = currentWord.substring(0, i) + (char) (j + 'a') + currentWord.substring(i + 1);
-                if (wordList.contains(word)) {
-                    if (!next.containsKey(word)) {
-                        next.put(word, new Node(word));
+    
+    private void addWord(
+        String word, 
+        Set<String> wordSet,
+        Map<String, Set<String>> graph,
+        Set<String> nextLevel) {
+        
+        for (int i = 0; i < word.length(); i++) {
+            char[] letters = word.toCharArray();
+            
+            for (char c = 'a'; c <= 'z'; c++) {
+                letters[i] = c;
+                
+                String newWord = new String(letters);
+                
+                if (wordSet.contains(newWord)) {
+                    if (!graph.containsKey(newWord)) {
+                        graph.put(newWord, new HashSet());
                     }
-                    next.get(word).neighbours.add(currentNode);
+                    
+                    graph.get(newWord).add(word);
+
+                    if (!nextLevel.contains(newWord)) {
+                        nextLevel.add(newWord);
+                    }
                 }
             }
         }
     }
-
-    void extractPath(String endWord, Node currentNode, List<String> solution, List<List<String>> res) {
-        if (currentNode.word == endWord) {
-            res.add(new LinkedList<>(solution));
+    
+    private void extractPaths(
+        List<List<String>> result,
+        String endWord, 
+        Map<String, Set<String>> graph,
+        List<String> path,
+        String word) {
+        
+        if (word == endWord) {
+            result.add(new LinkedList(path));
             return;
         }
-
-        for (Node node : currentNode.neighbours) {
-            solution.add(node.word);
-            extractPath(endWord, node, solution, res);
-            solution.remove(solution.size() - 1);
+        
+        for (String currentWord : graph.get(word)) {
+            path.add(currentWord);
+            extractPaths(result, endWord, graph, path, currentWord);
+            path.remove(path.size() - 1);
         }
     }
 }
