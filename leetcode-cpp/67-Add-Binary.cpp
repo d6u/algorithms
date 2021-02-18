@@ -1,3 +1,7 @@
+/*
+    Given two binary strings a and b, return their sum as a binary string.
+*/
+
 class Solution {
 public:
     string addBinary(string a, string b) {
